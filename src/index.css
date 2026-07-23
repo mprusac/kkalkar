@@ -10,8 +10,9 @@
   }
   
   :root {
-    --background: 220 79% 15%;
-    --foreground: 0 0% 100%;
+    --background: 0 0% 100%;
+    --foreground: 220 79% 15%;
+
 
     --card: 220 75% 22%;
     --card-foreground: 0 0% 100%;
