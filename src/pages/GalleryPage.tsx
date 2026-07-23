@@ -1,0 +1,490 @@
+import { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, Camera, X, ChevronLeft, ChevronRight } from "lucide-react";
+import SEO from "@/components/SEO";
+import Footer from "@/components/Footer";
+
+import eventTomislav from "@/assets/event-tomislav.png";
+import eventSiroki from "@/assets/event-siroki.png";
+import eventRama from "@/assets/event-rama.png";
+import eventLjubuski from "@/assets/event-ljubuski.jpg";
+
+// Import Berlin images
+import berlinG1 from "@/assets/berlin/berlin-g1.jpg";
+import berlinG2 from "@/assets/berlin/berlin-g2.jpg";
+import berlinG3 from "@/assets/berlin/berlin-g3.jpg";
+import berlinG4 from "@/assets/berlin/berlin-g4.jpg";
+import berlinG5 from "@/assets/berlin/berlin-g5.jpg";
+import berlinG6 from "@/assets/berlin/berlin-g6.jpg";
+import berlinG7 from "@/assets/berlin/berlin-g7.jpg";
+import berlinG8 from "@/assets/berlin/berlin-g8.jpg";
+import berlinG9 from "@/assets/berlin/berlin-g9.jpg";
+import berlin9 from "@/assets/berlin/berlin-9.jpg";
+import berlinGalleryCover from "@/assets/berlin/berlin-gallery-cover.jpg";
+
+// Import Xmas Gear images
+import xmasGear1 from "@/assets/xmas-gear/xmas-gear-1.jpg";
+import xmasGear2 from "@/assets/xmas-gear/xmas-gear-2.jpg";
+import xmasGear3 from "@/assets/xmas-gear/xmas-gear-3.jpg";
+import xmasGear4 from "@/assets/xmas-gear/xmas-gear-4.jpg";
+import xmasGear5 from "@/assets/xmas-gear/xmas-gear-5.jpg";
+import xmasGear6 from "@/assets/xmas-gear/xmas-gear-6.jpg";
+import xmasGear7 from "@/assets/xmas-gear/xmas-gear-7.jpg";
+import xmasGear8 from "@/assets/xmas-gear/xmas-gear-8.jpg";
+import xmasGearCover from "@/assets/xmas-gear/xmas-gear-cover.png";
+
+// Import Tomislav images
+import tomislav1 from "@/assets/tomislav/tomislav-1.jpg";
+import tomislav2 from "@/assets/tomislav/tomislav-2.jpg";
+import tomislav3 from "@/assets/tomislav/tomislav-3.png";
+import tomislav4 from "@/assets/tomislav/tomislav-4.jpg";
+import tomislav5 from "@/assets/tomislav/tomislav-5.jpg";
+import tomislav6 from "@/assets/tomislav/tomislav-6.jpg";
+import tomislav7 from "@/assets/tomislav/tomislav-7.png";
+import tomislav8 from "@/assets/tomislav/tomislav-8.jpg";
+import tomislav9 from "@/assets/tomislav/tomislav-9.png";
+import tomislav10 from "@/assets/tomislav/tomislav-10.jpg";
+
+// Import Rama images
+import rama1 from "@/assets/rama/rama-1.png";
+import rama2 from "@/assets/rama/rama-2.jpg";
+import rama3 from "@/assets/rama/rama-3.jpg";
+import rama4 from "@/assets/rama/rama-4.jpg";
+import rama5 from "@/assets/rama/rama-5.jpg";
+import rama6 from "@/assets/rama/rama-6.jpg";
+import rama7 from "@/assets/rama/rama-7.jpg";
+import rama8 from "@/assets/rama/rama-8.png";
+import rama9 from "@/assets/rama/rama-9.png";
+import rama10 from "@/assets/rama/rama-10.jpg";
+
+// Import Široki images
+import siroki1 from "@/assets/siroki/siroki-1.jpg";
+import siroki2 from "@/assets/siroki/siroki-2.jpg";
+import siroki3 from "@/assets/siroki/siroki-3.jpg";
+import siroki4 from "@/assets/siroki/siroki-4.jpg";
+import siroki5 from "@/assets/siroki/siroki-5.jpg";
+import siroki6 from "@/assets/siroki/siroki-6.jpg";
+import siroki7 from "@/assets/siroki/siroki-7.png";
+import siroki8 from "@/assets/siroki/siroki-8.png";
+import siroki9 from "@/assets/siroki/siroki-9.png";
+import siroki10 from "@/assets/siroki/siroki-10.png";
+
+// Import Ljubuški images
+import ljubuski1 from "@/assets/ljubuski/ljubuski-1.jpg";
+import ljubuski2 from "@/assets/ljubuski/ljubuski-2.jpg";
+import ljubuski3 from "@/assets/ljubuski/ljubuski-3.jpg";
+import ljubuski4 from "@/assets/ljubuski/ljubuski-4.jpg";
+import ljubuski5 from "@/assets/ljubuski/ljubuski-5.jpg";
+import ljubuski6 from "@/assets/ljubuski/ljubuski-6.jpg";
+import ljubuski7 from "@/assets/ljubuski/ljubuski-7.png";
+import ljubuski8 from "@/assets/ljubuski/ljubuski-8.png";
+import ljubuski9 from "@/assets/ljubuski/ljubuski-9.png";
+import ljubuski10 from "@/assets/ljubuski/ljubuski-10.jpg";
+
+// Image orientation type - vertical or horizontal
+type ImageWithOrientation = {
+  src: string;
+  orientation: "vertical" | "horizontal";
+};
+
+export const events = [
+  {
+    id: "berlin",
+    homeTeam: "ALBA Berlin",
+    awayTeam: "Winterturnier 2026",
+    date: "05.01.2026.",
+    description: "Galerija sa ALBA Berlin turnira",
+    coverImage: berlinGalleryCover,
+    images: [] as string[],
+    imagesWithOrientation: [
+      { src: berlinG1, orientation: "horizontal" },
+      { src: berlinG2, orientation: "horizontal" },
+      { src: berlinG3, orientation: "horizontal" },
+      { src: berlinG9, orientation: "horizontal" },
+      { src: berlinG5, orientation: "horizontal" },
+      { src: berlinG6, orientation: "horizontal" },
+      { src: berlinG7, orientation: "horizontal" },
+      { src: berlinG8, orientation: "horizontal" },
+      { src: berlinG4, orientation: "horizontal" },
+      { src: berlin9, orientation: "horizontal" },
+    ] as ImageWithOrientation[],
+  },
+  {
+    id: "ljubuski",
+    homeTeam: "HKK Posušje",
+    awayTeam: "HKK Ljubuški",
+    date: "14.12.2025.",
+    description: "Galerija s utakmice Posušje - Ljubuški",
+    coverImage: eventLjubuski,
+    images: [] as string[],
+    imagesWithOrientation: [
+      { src: ljubuski10, orientation: "horizontal" },
+      { src: ljubuski1, orientation: "horizontal" },
+      { src: ljubuski7, orientation: "vertical" },
+      { src: ljubuski2, orientation: "horizontal" },
+      { src: ljubuski8, orientation: "vertical" },
+      { src: ljubuski3, orientation: "vertical" },
+      { src: ljubuski4, orientation: "horizontal" },
+      { src: ljubuski9, orientation: "vertical" },
+      { src: ljubuski5, orientation: "horizontal" },
+      { src: ljubuski6, orientation: "horizontal" },
+    ] as ImageWithOrientation[],
+  },
+  {
+    id: "bozicno-darivanje",
+    homeTeam: "Božićno darivanje službene opreme",
+    awayTeam: "",
+    date: "12.12.2025.",
+    description: "Božićno darivanje službene opreme",
+    coverImage: xmasGearCover,
+    images: [] as string[],
+    imagesWithOrientation: [
+      { src: xmasGear1, orientation: "vertical" },
+      { src: xmasGear2, orientation: "vertical" },
+      { src: xmasGear3, orientation: "vertical" },
+      { src: xmasGear4, orientation: "vertical" },
+      { src: xmasGear5, orientation: "vertical" },
+      { src: xmasGear6, orientation: "vertical" },
+      { src: xmasGear7, orientation: "vertical" },
+      { src: xmasGear8, orientation: "vertical" },
+    ] as ImageWithOrientation[],
+  },
+  {
+    id: "rama",
+    homeTeam: "HKK Posušje",
+    awayTeam: "HKK Rama",
+    date: "23.11.2025.",
+    description: "Galerija s utakmice Posušje - Rama",
+    coverImage: eventRama,
+    images: [] as string[],
+    imagesWithOrientation: [
+      { src: rama9, orientation: "horizontal" },
+      { src: rama7, orientation: "vertical" },
+      { src: rama1, orientation: "vertical" },
+      { src: rama10, orientation: "horizontal" },
+      { src: rama4, orientation: "vertical" },
+      { src: rama2, orientation: "vertical" },
+      { src: rama3, orientation: "horizontal" },
+      { src: rama8, orientation: "vertical" },
+      { src: rama5, orientation: "vertical" },
+      { src: rama6, orientation: "horizontal" },
+    ] as ImageWithOrientation[],
+  },
+  {
+    id: "siroki",
+    homeTeam: "HKK Posušje",
+    awayTeam: "HKK Široki II",
+    date: "15.11.2025.",
+    description: "Galerija s utakmice Posušje - Široki II",
+    coverImage: eventSiroki,
+    images: [] as string[],
+    imagesWithOrientation: [
+      { src: siroki7, orientation: "horizontal" },
+      { src: siroki1, orientation: "vertical" },
+      { src: siroki2, orientation: "vertical" },
+      { src: siroki8, orientation: "horizontal" },
+      { src: siroki5, orientation: "vertical" },
+      { src: siroki3, orientation: "vertical" },
+      { src: siroki9, orientation: "horizontal" },
+      { src: siroki4, orientation: "vertical" },
+      { src: siroki10, orientation: "horizontal" },
+      { src: siroki6, orientation: "vertical" },
+    ] as ImageWithOrientation[],
+  },
+  {
+    id: "tomislav",
+    homeTeam: "HKK Posušje",
+    awayTeam: "HKK Tomislav",
+    date: "02.11.2025.",
+    description: "Galerija s utakmice Posušje - Tomislav",
+    coverImage: eventTomislav,
+    images: [] as string[],
+    imagesWithOrientation: [
+      { src: tomislav3, orientation: "horizontal" },
+      { src: tomislav1, orientation: "vertical" },
+      { src: tomislav2, orientation: "vertical" },
+      { src: tomislav7, orientation: "horizontal" },
+      { src: tomislav4, orientation: "vertical" },
+      { src: tomislav5, orientation: "vertical" },
+      { src: tomislav9, orientation: "horizontal" },
+      { src: tomislav6, orientation: "vertical" },
+      { src: tomislav8, orientation: "vertical" },
+      { src: tomislav10, orientation: "vertical" },
+    ] as ImageWithOrientation[],
+  },
+];
+
+const EventCard = ({ event, index }: { event: typeof events[0]; index: number }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.15 }}
+    >
+      <Link to={`/galerija/${event.id}`} className="group block">
+        <div className="relative overflow-hidden rounded-lg aspect-[4/3] shadow-[0_0_20px_rgba(234,179,8,0.15)] hover:shadow-[0_0_30px_rgba(234,179,8,0.25)] transition-shadow duration-300">
+          <img
+            src={event.coverImage}
+            alt={`${event.homeTeam} - ${event.awayTeam}`}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          {/* Hover overlay - covers entire image */}
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300">
+            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center">
+                <Camera className="w-8 h-8 text-primary-foreground" />
+              </div>
+              <span className="text-white font-display text-lg tracking-wider uppercase mt-3">
+                Otvori album
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="mt-4">
+          <h3 className="font-display text-xl text-foreground group-hover:text-primary transition-colors">
+            {event.awayTeam ? `${event.homeTeam} - ${event.awayTeam}` : event.homeTeam}
+          </h3>
+          <p className="text-primary font-bold mt-1">{event.date}</p>
+          <p className="text-muted-foreground text-sm mt-1 hidden md:block">{event.description}</p>
+        </div>
+      </Link>
+    </motion.div>
+  );
+};
+
+const EventAlbum = ({ event }: { event: typeof events[0] }) => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, []);
+
+  // Get all images (either from imagesWithOrientation or regular images array)
+  const allImages = event.imagesWithOrientation 
+    ? event.imagesWithOrientation.map(img => img.src)
+    : event.images;
+
+  const openLightbox = (index: number) => {
+    setCurrentIndex(index);
+    setLightboxOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    document.body.style.overflow = "auto";
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev === 0 ? allImages.length - 1 : prev - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
+  };
+
+  // Get span classes based on orientation - compact layout
+  const getSpanClasses = (index: number) => {
+    if (event.imagesWithOrientation) {
+      const img = event.imagesWithOrientation[index];
+      // Horizontal images span 2 columns, 1 row
+      // Vertical images span 1 column, 2 rows
+      return img.orientation === "horizontal" 
+        ? "col-span-2 row-span-1" 
+        : "col-span-1 row-span-2";
+    }
+    
+    // Fallback
+    return "col-span-1 row-span-1";
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="pt-8 pb-16">
+        <div className="container mx-auto px-4">
+          {/* Back link */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Link
+              to="/galerija"
+              className="inline-flex items-center gap-3 text-primary hover:text-primary/80 transition-colors mb-8 text-lg"
+            >
+              <ArrowLeft className="w-6 h-6" />
+              <span className="font-display tracking-wider text-xl">Nazad na galeriju</span>
+            </Link>
+          </motion.div>
+
+          {/* Title */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-center mb-12"
+          >
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-2">
+              <span className="text-primary">{event.homeTeam}</span>
+              <span className="text-white"> - {event.awayTeam}</span>
+            </h1>
+            <p className="text-primary font-display text-2xl md:text-3xl mt-2">{event.date}</p>
+            <p className="text-muted-foreground mt-4">{event.description}</p>
+          </motion.div>
+
+          {/* Masonry Gallery - clean columns layout */}
+          <div className="columns-2 md:columns-3 gap-1.5 max-w-5xl mx-auto">
+            {allImages.map((img, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="group relative overflow-hidden cursor-pointer mb-1.5 break-inside-avoid"
+                onClick={() => openLightbox(index)}
+              >
+                <img
+                  src={img}
+                  alt={`Slika ${index + 1}`}
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
+            className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm flex items-center justify-center"
+            onClick={closeLightbox}
+          >
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 p-2 rounded-full bg-muted/50 hover:bg-muted text-foreground transition-colors z-10"
+            >
+              <X className="w-6 h-6" />
+            </motion.button>
+
+            <button
+              onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
+              className="absolute left-4 p-2 rounded-full bg-muted/50 hover:bg-muted text-foreground transition-colors z-10"
+            >
+              <ChevronLeft className="w-8 h-8" />
+            </button>
+
+            <img
+              src={allImages[currentIndex]}
+              alt={`Slika ${currentIndex + 1}`}
+              className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            <button
+              onClick={(e) => { e.stopPropagation(); goToNext(); }}
+              className="absolute right-4 p-2 rounded-full bg-muted/50 hover:bg-muted text-foreground transition-colors z-10"
+            >
+              <ChevronRight className="w-8 h-8" />
+            </button>
+
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-foreground/70 text-sm">
+              {currentIndex + 1} / {allImages.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <Footer />
+    </div>
+  );
+};
+
+const GalleryPage = () => {
+  const { eventId } = useParams();
+  const navigate = useNavigate();
+
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, []);
+
+  // If eventId is provided, show the album
+  if (eventId) {
+    const event = events.find((e) => e.id === eventId);
+    if (event) {
+      return <EventAlbum event={event} />;
+    }
+  }
+
+  // Otherwise show the events list
+  return (
+    <div className="min-h-screen bg-background">
+      <SEO
+        title="Galerija — KK Posušje"
+        description="Fotografije s utakmica, priprema i događanja Košarkaškog kluba Posušje."
+        path="/galerija"
+      />
+      <div className="pt-8 pb-16">
+        <div className="container mx-auto px-4">
+          {/* Back link */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <button
+              onClick={() => { sessionStorage.setItem("restoreHomeScroll", "true"); navigate("/"); }}
+              className="inline-flex items-center gap-3 text-primary hover:text-primary/80 transition-colors mb-8 text-lg"
+            >
+              <ArrowLeft className="w-6 h-6" />
+              <span className="font-display tracking-wider text-xl">Nazad</span>
+            </button>
+          </motion.div>
+
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl mb-4">
+              <span className="text-white">FOTO</span>
+              <span className="text-primary"> GALERIJA</span>
+            </h1>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Zabilježeni trenuci sa naših utakmica
+            </p>
+          </motion.div>
+
+          {/* Events Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
+            {events.map((event, index) => (
+              <EventCard key={event.id} event={event} index={index} />
+            ))}
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default GalleryPage;
