@@ -42,19 +42,20 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        scrolled ? "bg-secondary/95 backdrop-blur-md shadow-lg" : "bg-secondary"
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo with yellow glow on hover */}
           <Link to="/" className="flex items-center gap-3 group">
             <img 
               src={logo} 
               alt="KK Alkar Sinj" 
-              className="h-14 w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_20px_hsl(48,96%,53%)] group-hover:scale-105" 
+              className="h-28 w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_20px_hsl(48,96%,53%)] group-hover:scale-105" 
             />
           </Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
