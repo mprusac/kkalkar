@@ -224,7 +224,7 @@ const Team = () => {
         </h2>
 
         <p className="text-muted-foreground text-center mb-8">
-          Prvotimci koji daju sve za boje HKK Posušja
+          Prvotimci koji daju sve za boje KK Alkar Sinj
         </p>
 
         <div className="text-center mb-16">

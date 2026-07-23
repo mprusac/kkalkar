@@ -34,10 +34,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-40 max-w-none mx-auto pl-0 lg:pl-36 text-center md:text-left">
           {/* Logo & Description */}
           <div>
-            <img src={logo} alt="HKK Posušje" className="h-20 w-auto mb-4 mx-auto md:mx-0" />
+            <img src={logo} alt="KK Alkar Sinj" className="h-20 w-auto mb-4 mx-auto md:mx-0" />
             <p className="text-muted-foreground text-sm">
-              „Tamo gdje dres postaje čast,<br />
-              a klub emocija – tu igra Posušje."
+              „Najveći mali klub<br />
+              na svitu."
             </p>
           </div>
 
@@ -81,7 +81,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-primary/30 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} HKK Posušje. Sva prava pridržana.
+            © {new Date().getFullYear()} KK Alkar Sinj. Sva prava pridržana.
           </p>
 
           {/* Social Links */}
