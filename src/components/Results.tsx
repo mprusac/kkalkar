@@ -82,7 +82,7 @@ const Results = () => {
   };
 
   const getLogoScale = (teamName: string) => {
-    if (teamName.includes("Posušje")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.0] translate-y-[2px]";
+    if (teamName.includes("Alkar") || teamName.includes("Posušje")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.0] translate-y-[2px]";
     if (teamName.includes("Široki")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.6]";
     if (teamName.includes("Ljubuš")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
     if (teamName.includes("Mostar")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.1] translate-y-[2px]";
@@ -298,8 +298,8 @@ const Results = () => {
                       <div className="flex justify-center -mt-1">
                         <span className="text-[8px] md:text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full flex items-center gap-1">
                           {match.competition}
-                          {match.competition === "Liga KSHB" && (
-                            <img src={logoKSHB} alt="KSHB" className="w-3.5 h-3.5 object-contain -translate-y-[1px]" />
+                          {match.competition === "SuperSport PL" && (
+                            <img src={logoKSHB} alt="SuperSport PL" className="w-3.5 h-3.5 object-contain -translate-y-[1px]" />
                           )}
                         </span>
                       </div>

@@ -10,7 +10,7 @@ import logoTomislav from "@/assets/logos/hkk_tomislav.png";
 import logoPosusje from "@/assets/logos/kk_posusje.png";
 import logoCapljina from "@/assets/logos/hkk_capljina.png";
 
-export const POSUSJE_NAME = "HKK Posušje";
+export const POSUSJE_NAME = "KK Alkar Sinj";
 
 export const OPPONENT_OPTIONS = [
   "HKK Grude",
@@ -32,6 +32,9 @@ export const staticTeamLogos: Record<string, string> = {
   "KK Široki": logoSiroki,
   "HKK Tomislav": logoTomislav,
   "KK Tomislavgrad": logoTomislav,
+  "KK Alkar Sinj": logoPosusje,
+  "KK Alkar": logoPosusje,
+  "Alkar": logoPosusje,
   "HKK Posušje": logoPosusje,
   "KK Posušje": logoPosusje,
   "HKK Čapljina": logoCapljina,
@@ -58,7 +61,7 @@ export function formatDMY(iso: string): string {
 }
 
 export function competitionLabel(c: MatchRow["competition"]): string {
-  return c === "kup" ? "Kup KSHB 🏆" : "Liga KSHB";
+  return c === "kup" ? "Kup 🏆" : "SuperSport PL";
 }
 
 export interface DisplayMatch {
