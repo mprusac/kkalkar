@@ -75,13 +75,13 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <Results />
+        <div className="theme-light"><Results /></div>
         <News />
-        <Team />
+        <div className="theme-light"><Team /></div>
         <Gallery />
-        <About />
+        <div className="theme-light"><About /></div>
         <Sponsors />
-        <Contact />
+        <div className="theme-light"><Contact /></div>
       </main>
       <Footer />
 
