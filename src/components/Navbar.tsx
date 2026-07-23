@@ -73,7 +73,7 @@ const Navbar = () => {
                     className={`group relative font-display text-xl tracking-widest transition-all duration-300 py-2 ${
                       isActive
                         ? "text-primary"
-                        : "text-foreground hover:text-primary"
+                        : "text-white hover:text-primary"
                     }`}
                   >
                     {link.label}
@@ -93,7 +93,7 @@ const Navbar = () => {
                   className={`group relative font-display text-xl tracking-widest transition-all duration-300 py-2 ${
                     isActive
                       ? "text-primary"
-                      : "text-foreground hover:text-primary"
+                      : "text-white hover:text-primary"
                   }`}
                 >
                   {link.label}
@@ -110,7 +110,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className="lg:hidden p-2 text-white hover:text-primary transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -139,7 +139,7 @@ const Navbar = () => {
                     className={`font-display text-lg tracking-widest transition-all duration-300 px-3 py-1 rounded-md ${
                       isActive
                         ? "text-primary bg-primary/10"
-                        : "text-foreground hover:text-primary hover:bg-primary/10"
+                        : "text-white hover:text-primary hover:bg-primary/10"
                     }`}
                   >
                     {link.label}
@@ -155,7 +155,7 @@ const Navbar = () => {
                   className={`font-display text-lg tracking-widest transition-all duration-300 px-3 py-1 rounded-md ${
                     isActive
                       ? "text-primary bg-primary/10"
-                      : "text-foreground hover:text-primary hover:bg-primary/10"
+                      : "text-white hover:text-primary hover:bg-primary/10"
                   }`}
                 >
                   {link.label}
