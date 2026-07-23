@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import teamPhoto from "@/assets/team-photo.jpg";
 import { useEffect, useState, useRef } from "react";
 
-const TYPEWRITER_TEXT = "Igra koja spaja";
+const TYPEWRITER_TEXT = "Najveći mali klub na svitu";
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -65,8 +65,8 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center -mt-20 md:mt-0">
         <div className="max-w-4xl mx-auto">
         <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display tracking-wider mb-4 mt-16 md:mt-0 animate-fade-in-up">
-            <span className="text-foreground">HKK </span>
-            <span className="text-primary">POSUŠJE</span>
+            <span className="text-foreground">KK </span>
+            <span className="text-primary">ALKAR SINJ</span>
           </h1>
           
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-6 sm:mb-8 animate-fade-in-up delay-200">
@@ -74,7 +74,17 @@ const Hero = () => {
             {showCursor && <span className="inline-block w-[2px] h-[1em] bg-primary ml-1 animate-pulse align-middle" />}
           </p>
 
-          <div className="animate-fade-in-up delay-400">
+          <div className="animate-fade-in-up delay-400 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+            <Button
+              size="lg"
+              className="group relative overflow-hidden bg-transparent border-2 border-primary text-primary hover:text-primary-foreground font-display uppercase tracking-widest px-6 sm:px-10 py-5 sm:py-7 text-base sm:text-lg transition-all duration-500"
+              asChild
+            >
+              <a href="#rezultati">
+                <span className="absolute inset-0 bg-primary transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+                <span className="relative z-10">Raspored utakmica</span>
+              </a>
+            </Button>
             <Button
               size="lg"
               className="group relative overflow-hidden bg-transparent border-2 border-primary text-primary hover:text-primary-foreground font-display uppercase tracking-widest px-6 sm:px-10 py-5 sm:py-7 text-base sm:text-lg transition-all duration-500"
@@ -82,7 +92,7 @@ const Hero = () => {
             >
               <a href="#kontakt">
                 <span className="absolute inset-0 bg-primary transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
-                <span className="relative z-10">Pridruži se</span>
+                <span className="relative z-10">Postani član</span>
               </a>
             </Button>
           </div>
