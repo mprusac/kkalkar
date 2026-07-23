@@ -1,18 +1,11 @@
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import playerIan from "@/assets/player-ian.png";
-import playerRados from "@/assets/player-rados.png";
-import playerRamljak from "@/assets/player-ramljak.png";
-import player4 from "@/assets/player-4.jpg";
-import player5 from "@/assets/player-5.jpg";
-import playerKovac from "@/assets/player-kovac-new.png";
-import playerDerek from "@/assets/player-derek.png";
-import playerBegic from "@/assets/player-begic.png";
-import playerProtrka from "@/assets/player-protrka.png";
-import playerBasic from "@/assets/player-basic-new.png";
-import playerPavkovic from "@/assets/player-pavkovic-new.png";
-import playerBasicLuka from "@/assets/player-basic-luka.png";
+import playerAlkar1 from "@/assets/player-alkar-1.jpg";
+import playerAlkar2 from "@/assets/player-alkar-2.jpg";
+import playerAlkar3 from "@/assets/player-alkar-3.jpg";
+import playerAlkar4 from "@/assets/player-alkar-4.jpg";
+import playerAlkar5 from "@/assets/player-alkar-5.png";
 
 interface Player {
   id: number;

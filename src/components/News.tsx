@@ -51,6 +51,9 @@ import kadetiCapljinaTurnir from "@/assets/news/kadeti-capljina-turnir.jpg";
 import srebroKadetiCapljina from "@/assets/news/srebro-kadeti-capljina.jpg";
 import pozivPredkadetiCard from "@/assets/news/poziv-predkadeti-card.jpg";
 import summerBasketMostarCard from "@/assets/news/summer-basket-mostar-card.jpg";
+import newsAlkarHvala from "@/assets/news-alkar-hvala.png";
+import newsAlkarNext from "@/assets/news-alkar-next.png";
+import newsAlkarCibona from "@/assets/news-alkar-cibona.png";
 
 interface NewsItem {
   id: number;
@@ -71,9 +74,9 @@ const categoryConfig: Record<string, { label: string; icon: typeof Trophy }> = {
 };
 
 const allNews: NewsItem[] = [
-  { id: 55, title: "Naši najmlađi na \"5. Summer Basket\" turniru u Mostaru! 🟡", excerpt: "Pred našom školom košarke (U12) je uzbudljiv sportski vikend. Ove subote, 20. lipnja 2026., naši mladi košarkaši putuju u Mostar na sjajni turnir.", date: "17. 06. 2026.", category: "najava", image: summerBasketMostarCard, imagePosition: "center" },
-  { id: 54, title: "Poziv za naše predkadete! 🟡", excerpt: "Naši predkadeti Ivan Kondža i Ante Biško dobili su službeni poziv na kontrolni trening U-14 selekcije za regiju Hercegovina.", date: "16. 06. 2026.", category: "klub", image: pozivPredkadetiCard, imagePosition: "center" },
-  { id: 53, title: "Srebro za naše kadete u Čapljini! 🥈", excerpt: "Naša kadetska selekcija osvojila je sjajno 2. mjesto na jakom Memorijalnom turniru \"Marijo Čolić - Manda\" u Čapljini.", date: "15. 06. 2026.", category: "klub", image: srebroKadetiCapljina, imagePosition: "center" },
+  { id: 101, title: "Hvala našim navijačima! 💙", excerpt: "Hvala svima koji ste bili uz nas u još jednoj borbenoj utakmici. Vaša podrška daje nam snagu za nove izazove!", date: "20. 07. 2026.", category: "klub", image: newsAlkarHvala, imagePosition: "top" },
+  { id: 102, title: "Next Match: Šibenka vs Alkar! 🏀", excerpt: "U petak u 19h čeka nas nova utakmica SuperSport Premijer lige protiv ekipe Šibenke. Vidimo se u dvorani!", date: "18. 07. 2026.", category: "najava", image: newsAlkarNext, imagePosition: "top" },
+  { id: 103, title: "Kraj: Alkar 65 - Cibona 70", excerpt: "Borbena utakmica u kojoj su naši momci pružili maksimum protiv Cibone. Nastavljamo dalje s podignutim glavama!", date: "15. 07. 2026.", category: "utakmica", image: newsAlkarCibona, imagePosition: "center" },
   { id: 52, title: "Kadeti na turniru u Čapljini! 🟡", excerpt: "Pred našim kadetima je uzbudljiv košarkaški vikend na jakom Memorijalnom turniru \"Marijo Čolić - Manda\" u Čapljini.", date: "11. 06. 2026.", category: "najava", image: kadetiCapljinaTurnir, imagePosition: "center" },
   { id: 51, title: "Škola košarke u Zadru! 🏀", excerpt: "Naši mladi košarkaši gostovali su u kultnoj dvorani Krešo Ćosić u Zadru, gdje su odmjerili snage s ekipom Puntamike.", date: "06. 06. 2026.", category: "klub", image: skolaKosarkeZadar, imagePosition: "center" },
   { id: 50, title: "Čestitke HKK Široki! 🍀🏀", excerpt: "Iskrene čestitke HKK Široki na velikoj pobjedi u Domžalama i plasmanu u finale ABA 2 Lige!", date: "14. 04. 2026.", category: "klub", image: cestitkeSiroki, imagePosition: "top" },
