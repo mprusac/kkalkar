@@ -44,34 +44,35 @@ const Hero = () => {
   return (
     <section
       id="pocetna"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-24"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Hero Background Image - fit to scale (contain) */}
+      {/* Parallax Background Image - Full Width & Centered */}
       <div
         className="absolute top-0 left-0 right-0 bottom-0 w-full h-full will-change-transform"
         style={{ 
           backgroundImage: `url(${teamPhoto})`,
           backgroundPosition: 'center center',
-          backgroundSize: 'contain',
+          backgroundSize: isMobile ? 'cover' : '140%',
           backgroundRepeat: 'no-repeat',
-          backgroundColor: 'hsl(var(--background))',
-          transform: `translateY(${scrollY * 0.15}px)`,
+          transform: `translateY(${scrollY * 0.3}px)`,
         }}
-      />
+      >
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center -mt-20 md:mt-0">
         <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display tracking-wider mb-4 mt-16 md:mt-0 animate-fade-in-up drop-shadow-[0_2px_8px_rgba(255,255,255,0.9)]">
-            <span className="text-secondary">KK </span>
+        <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display tracking-wider mb-4 mt-16 md:mt-0 animate-fade-in-up">
+            <span className="text-foreground">KK </span>
             <span className="text-primary">ALKAR SINJ</span>
           </h1>
           
-          <p className="text-base sm:text-lg md:text-xl text-secondary uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-6 sm:mb-8 animate-fade-in-up delay-200 drop-shadow-[0_1px_4px_rgba(255,255,255,0.9)]">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-6 sm:mb-8 animate-fade-in-up delay-200">
             {displayedText}
             {showCursor && <span className="inline-block w-[2px] h-[1em] bg-primary ml-1 animate-pulse align-middle" />}
           </p>
-
 
           <div className="animate-fade-in-up delay-400 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <Button
