@@ -167,7 +167,7 @@ const About = () => {
               {maleCategories.map((category, index) => (
                 <div
                   key={category}
-                  className="group bg-gradient-to-r from-secondary/60 to-secondary/30 border border-border rounded-lg px-4 py-3 text-center font-medium text-foreground hover:border-primary hover:from-primary/20 hover:to-primary/10 transition-all duration-300 cursor-default"
+                  className="group bg-secondary border border-border rounded-lg px-4 py-3 text-center font-medium text-foreground hover:border-primary hover:bg-primary/20 transition-all duration-300 cursor-default"
                   style={{ 
                     opacity: catVisible ? 1 : 0,
                     transform: catVisible ? "translateY(0)" : "translateY(20px)",
@@ -193,7 +193,7 @@ const About = () => {
               {femaleCategories.map((category, index) => (
                 <div
                   key={category}
-                  className="group bg-gradient-to-r from-secondary/60 to-secondary/30 border border-border rounded-lg px-4 py-3 text-center font-medium text-foreground hover:border-primary hover:from-primary/20 hover:to-primary/10 transition-all duration-300 cursor-default"
+                  className="group bg-secondary border border-border rounded-lg px-4 py-3 text-center font-medium text-foreground hover:border-primary hover:bg-primary/20 transition-all duration-300 cursor-default"
                   style={{ 
                     opacity: catVisible ? 1 : 0,
                     transform: catVisible ? "translateY(0)" : "translateY(20px)",
@@ -225,7 +225,7 @@ const About = () => {
               return (
                 <div
                   key={achievement.title}
-                  className="group relative flex items-start gap-3 md:gap-4 p-3 md:p-5 rounded-xl bg-secondary/30 border border-border hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
+                  className="group relative flex items-start gap-3 md:gap-4 p-3 md:p-5 rounded-xl bg-secondary border border-border hover:border-primary/50 hover:bg-secondary/80 transition-all duration-300"
                   style={{ 
                     opacity: achVisible ? 1 : 0,
                     transform: achVisible ? "translateX(0)" : "translateX(-30px)",
@@ -273,10 +273,7 @@ const About = () => {
           }`}
         >
           <div 
-            className="relative group rounded-2xl md:rounded-3xl p-6 md:p-10 transition-all duration-300 text-center overflow-hidden border-2 border-primary"
-            style={{
-              background: 'linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(45 100% 51% / 0.1) 50%, hsl(0 0% 8%) 100%)',
-            }}
+            className="relative group rounded-2xl md:rounded-3xl p-6 md:p-10 transition-all duration-300 text-center overflow-hidden border-2 border-primary bg-secondary"
           >
             {/* Subtle glow effect */}
             <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-br from-primary/5 via-transparent to-primary/10 pointer-events-none" />
