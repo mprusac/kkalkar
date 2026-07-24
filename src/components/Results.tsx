@@ -187,14 +187,14 @@ const Results = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="text-muted-foreground hover:text-red-500 transition-colors"
+                          className="text-red-600 hover:text-red-500 transition-colors"
                           title="YouTube"
                         >
                           <Youtube size={16} className="md:hidden" />
                           <Youtube size={18} className="hidden md:block" />
                         </a>
                       ) : (
-                        <span className="text-muted-foreground/40">
+                        <span className="text-red-600/40">
                           <Youtube size={16} className="md:hidden" />
                           <Youtube size={18} className="hidden md:block" />
                         </span>
@@ -206,14 +206,11 @@ const Results = () => {
                       </span>
                     </div>
                     <div className="flex-1 flex justify-center items-center translate-x-1 md:translate-x-2">
-                      <span title="SofaScore">
-                        <ExternalLink
-                          size={14}
-                          className="md:hidden text-muted-foreground group-hover:text-primary transition-colors"
-                        />
-                        <ExternalLink
-                          size={16}
-                          className="hidden md:block text-muted-foreground group-hover:text-primary transition-colors"
+                      <span title="SofaScore" className="opacity-90 group-hover:opacity-100 transition-opacity">
+                        <img
+                          src={sofascoreLogo.url}
+                          alt="SofaScore"
+                          className="w-4 h-4 md:w-5 md:h-5 object-contain"
                         />
                       </span>
                     </div>
@@ -221,7 +218,7 @@ const Results = () => {
 
                   {/* Match content - Teams with logos */}
                   <div>
-                    <div className="flex items-start justify-between gap-2 md:gap-4">
+                    <div className="flex items-center justify-between gap-2 md:gap-4">
                       {/* Home Team */}
                       <div className="flex-1 flex flex-col items-center">
                         <div className="w-14 h-14 md:w-20 md:h-20 flex items-center justify-center overflow-hidden">
