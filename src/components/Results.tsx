@@ -157,10 +157,10 @@ const Results = () => {
                   href={match.sofascoreLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex-shrink-0 rounded-xl md:rounded-2xl p-4 md:p-6 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 border backdrop-blur-sm shadow-lg hover:shadow-xl snap-start ${
+                  className={`group flex-shrink-0 card-surface p-4 md:p-6 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20 snap-start ${
                     isWin 
-                      ? "bg-secondary border-primary/30 hover:border-primary/60" 
-                      : "bg-secondary border-red-500/20 hover:border-red-500/40"
+                      ? "hover:border-primary/60" 
+                      : "border-red-500/30 hover:border-red-500/60"
                   }`}
                   style={{ 
                     width: isMobile ? '100%' : 'calc((100% - 2.5rem) / 3)',
@@ -318,7 +318,7 @@ const Results = () => {
                 sessionStorage.setItem("homeScrollY", String(window.scrollY));
                 sessionStorage.setItem("homeReturnTarget", "home-return-statistics-btn");
               }}
-              className="px-8 py-3 rounded-xl bg-primary/20 border border-primary text-primary font-display text-lg tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30"
+              className="btn-gold-outline"
             >
               Detaljnije
             </Link>

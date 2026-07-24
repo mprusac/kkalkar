@@ -75,7 +75,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto items-stretch">
           {/* Contact Form */}
           <div className="animate-fade-in-up h-full">
-            <div className="bg-secondary border border-border rounded-xl md:rounded-2xl p-5 md:p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col">
+            <div className="card-surface-interactive p-5 md:p-8 h-full flex flex-col">
               <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5 flex-1 flex flex-col gap-4">
                 <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
                   <div className="group">
@@ -179,7 +179,7 @@ className="bg-background/50 border-border focus:border-primary focus-visible:rin
           {/* Contact Info & Map */}
           <div className="flex flex-col gap-3 md:gap-4 animate-fade-in-up delay-200 h-full">
             {/* Contact Details */}
-            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl bg-secondary border border-border hover:border-primary/30 hover:bg-secondary/80 transition-all duration-300 cursor-default flex-1">
+            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive cursor-default flex-1">
               <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
                 <MapPin className="text-primary" size={18} />
               </div>
@@ -191,7 +191,7 @@ className="bg-background/50 border-border focus:border-primary focus-visible:rin
               </div>
             </div>
 
-            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl bg-secondary border border-border hover:border-primary/30 hover:bg-secondary/80 transition-all duration-300 flex-1">
+            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive flex-1">
               <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
                 <Mail className="text-primary" size={18} />
               </div>
@@ -206,7 +206,7 @@ className="bg-background/50 border-border focus:border-primary focus-visible:rin
               </div>
             </div>
 
-            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl bg-secondary border border-border hover:border-primary/30 hover:bg-secondary/80 transition-all duration-300 flex-1">
+            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive flex-1">
               <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
                 <Phone className="text-primary" size={18} />
               </div>
@@ -222,7 +222,7 @@ className="bg-background/50 border-border focus:border-primary focus-visible:rin
             </div>
 
             {/* Map */}
-            <div className="rounded-lg md:rounded-xl overflow-hidden bg-secondary border border-border hover:border-primary/30 transition-all duration-300 flex-[2]">
+            <div className="card-surface-interactive overflow-hidden flex-[2]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.5!2d17.3265!3d43.4715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134b1db8c1c3b8a1%3A0x4e5b0b2e0c3f0a0b!2sUlica%20Bartola%20Ka%C5%A1i%C4%87a%202%2C%20Posu%C5%A1je!5e0!3m2!1sen!2sba!4v1700000000000!5m2!1sen!2sba"
                 width="100%"

@@ -167,7 +167,7 @@ const About = () => {
               {maleCategories.map((category, index) => (
                 <div
                   key={category}
-                  className="group bg-secondary border border-border rounded-lg px-4 py-3 text-center font-medium text-foreground hover:border-primary hover:bg-primary/20 transition-all duration-300 cursor-default"
+                  className="group card-surface-interactive px-4 py-3 text-center font-medium text-foreground hover:bg-primary/20 cursor-default"
                   style={{ 
                     opacity: catVisible ? 1 : 0,
                     transform: catVisible ? "translateY(0)" : "translateY(20px)",
@@ -193,7 +193,7 @@ const About = () => {
               {femaleCategories.map((category, index) => (
                 <div
                   key={category}
-                  className="group bg-secondary border border-border rounded-lg px-4 py-3 text-center font-medium text-foreground hover:border-primary hover:bg-primary/20 transition-all duration-300 cursor-default"
+                  className="group card-surface-interactive px-4 py-3 text-center font-medium text-foreground hover:bg-primary/20 cursor-default"
                   style={{ 
                     opacity: catVisible ? 1 : 0,
                     transform: catVisible ? "translateY(0)" : "translateY(20px)",
@@ -225,7 +225,7 @@ const About = () => {
               return (
                 <div
                   key={achievement.title}
-                  className="group relative flex items-start gap-3 md:gap-4 p-3 md:p-5 rounded-xl bg-secondary border border-border hover:border-primary/50 hover:bg-secondary/80 transition-all duration-300"
+                  className="group relative flex items-start gap-3 md:gap-4 p-3 md:p-5 card-surface-interactive"
                   style={{ 
                     opacity: achVisible ? 1 : 0,
                     transform: achVisible ? "translateX(0)" : "translateX(-30px)",
@@ -273,7 +273,7 @@ const About = () => {
           }`}
         >
           <div 
-            className="relative group rounded-2xl md:rounded-3xl p-6 md:p-10 transition-all duration-300 text-center overflow-hidden border-2 border-primary bg-secondary"
+            className="relative group card-surface p-6 md:p-10 transition-all duration-300 text-center overflow-hidden border-2 border-primary shadow-lg shadow-primary/20"
           >
             {/* Subtle glow effect */}
             <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-br from-primary/5 via-transparent to-primary/10 pointer-events-none" />
