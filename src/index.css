@@ -129,11 +129,11 @@
   }
 
   .section-title-white {
-    @apply text-[hsl(38,75%,38%)];
+    @apply text-primary;
   }
 
   .section-title-gold {
-    @apply text-[hsl(38,75%,38%)];
+    @apply text-primary;
   }
 
   .card-hover {
