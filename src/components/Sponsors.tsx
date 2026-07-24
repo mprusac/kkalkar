@@ -171,7 +171,7 @@ const Sponsors = () => {
                     return (
                       <div
                         key={tier.name}
-                        className={`group bg-secondary/40 border border-border rounded-lg p-3 md:p-6 animate-fade-in-up transition-all duration-300 hover:scale-[1.03] hover:border-primary/50 ${shadowColor}`}
+                        className={`group bg-secondary border border-border rounded-lg p-3 md:p-6 animate-fade-in-up transition-all duration-300 hover:scale-[1.03] hover:border-primary/50 ${shadowColor}`}
                         style={{ animationDelay: `${index * 100}ms` }}
                       >
                         <div className={`${tier.color} mb-2 md:mb-3 transition-transform duration-300 group-hover:scale-110`}>{tier.icon}</div>
@@ -194,7 +194,7 @@ const Sponsors = () => {
                 </div>
 
                 {/* Payment Info - Inside expandable */}
-                <div className="bg-background/50 border border-border rounded-lg p-4 md:p-6">
+                <div className="bg-secondary border border-border rounded-lg p-4 md:p-6">
                   <h4 className="font-display text-base md:text-lg mb-3 md:mb-4">
                     <span className="text-foreground">PODACI ZA </span>
                     <span className="text-primary">PLAĆANJE</span>
