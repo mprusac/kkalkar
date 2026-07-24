@@ -223,7 +223,7 @@ const Results = () => {
                     <div className="flex items-start justify-between gap-2 md:gap-4">
                       {/* Home Team */}
                       <div className="flex-1 flex flex-col items-center">
-                        <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-background/60 flex items-center justify-center p-1.5 md:p-2 border-none overflow-hidden">
+                        <div className="w-14 h-14 md:w-20 md:h-20 flex items-center justify-center overflow-hidden">
                           {homeLogo ? (
                             <img 
                               src={homeLogo} 
@@ -243,7 +243,7 @@ const Results = () => {
                             match.isHome ? "text-primary" : "text-foreground"
                           }`}
                         >
-                          {match.homeTeam}
+                          {displayTeamName(match.homeTeam)}
                         </span>
                       </div>
 
@@ -253,7 +253,7 @@ const Results = () => {
                           className={`text-xl md:text-3xl font-display font-bold ${
                             match.homeScore > match.awayScore
                               ? "text-primary"
-                              : "text-foreground/70"
+                              : "text-white"
                           }`}
                         >
                           {match.homeScore}
@@ -263,7 +263,7 @@ const Results = () => {
                           className={`text-xl md:text-3xl font-display font-bold ${
                             match.awayScore > match.homeScore
                               ? "text-primary"
-                              : "text-foreground/70"
+                              : "text-white"
                           }`}
                         >
                           {match.awayScore}
@@ -272,7 +272,7 @@ const Results = () => {
 
                       {/* Away Team */}
                       <div className="flex-1 flex flex-col items-center">
-                        <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-background/60 flex items-center justify-center p-1.5 md:p-2 border-none overflow-hidden">
+                        <div className="w-14 h-14 md:w-20 md:h-20 flex items-center justify-center overflow-hidden">
                           {awayLogo ? (
                             <img 
                               src={awayLogo} 
@@ -292,7 +292,7 @@ const Results = () => {
                             !match.isHome ? "text-primary" : "text-foreground"
                           }`}
                         >
-                          {match.awayTeam}
+                          {displayTeamName(match.awayTeam)}
                         </span>
                       </div>
                     </div>
