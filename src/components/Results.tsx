@@ -1,9 +1,8 @@
-import { ChevronLeft, ChevronRight, Youtube } from "lucide-react";
+import { ChevronLeft, ChevronRight, SquarePlay, SquareArrowOutUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import supersportLogo from "@/assets/logos/supersport-premijer.png.asset.json";
-import sofascoreLogo from "@/assets/logos/sofascore.png.asset.json";
 import { fetchMatches, getTeamLogoFor, type DisplayMatch } from "@/lib/adminMatches";
 
 const displayTeamName = (name: string) =>
@@ -179,39 +178,33 @@ const Results = () => {
                   }}
                 >
                   {/* Header with date and link */}
-                  <div className="flex items-center justify-between mb-3 md:mb-5">
-                    <div className="flex-1 flex justify-center items-center -translate-x-1 md:-translate-x-2">
+                  <div className="flex items-center justify-between mb-3 md:mb-4">
+                    <div className="flex-1 flex justify-start items-center">
                       {match.youtubeLink ? (
                         <a
                           href={match.youtubeLink}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="text-red-600 hover:text-red-500 transition-colors"
+                          className="text-muted-foreground hover:text-primary transition-colors"
                           title="YouTube"
                         >
-                          <Youtube size={16} className="md:hidden" />
-                          <Youtube size={18} className="hidden md:block" />
+                          <SquarePlay size={18} />
                         </a>
                       ) : (
-                        <span className="text-red-600/40">
-                          <Youtube size={16} className="md:hidden" />
-                          <Youtube size={18} className="hidden md:block" />
+                        <span className="text-muted-foreground/40">
+                          <SquarePlay size={18} />
                         </span>
                       )}
                     </div>
-                    <div className="flex-shrink-0 px-2 md:px-4">
-                      <span className="text-[10px] md:text-xs font-medium text-muted-foreground bg-background/50 px-2 md:px-3 py-1 rounded-full">
+                    <div className="flex-shrink-0">
+                      <span className="text-[10px] md:text-xs font-medium text-muted-foreground bg-background/50 px-3 py-1 rounded-full">
                         {match.date}
                       </span>
                     </div>
-                    <div className="flex-1 flex justify-center items-center translate-x-1 md:translate-x-2">
-                      <span title="SofaScore" className="opacity-90 group-hover:opacity-100 transition-opacity">
-                        <img
-                          src={sofascoreLogo.url}
-                          alt="SofaScore"
-                          className="w-4 h-4 md:w-5 md:h-5 object-contain"
-                        />
+                    <div className="flex-1 flex justify-end items-center">
+                      <span title="SofaScore" className="text-muted-foreground group-hover:text-primary transition-colors">
+                        <SquareArrowOutUpRight size={18} />
                       </span>
                     </div>
                   </div>

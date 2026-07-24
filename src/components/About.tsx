@@ -174,7 +174,7 @@ const About = () => {
                     transition: `all 0.5s ease ${index * 0.1}s`
                   }}
                 >
-                  <span className="group-hover:text-primary transition-colors duration-300 text-sm md:text-base">
+                  <span className="group-hover:text-[hsl(38,75%,38%)] transition-colors duration-300 text-sm md:text-base">
                     {category}
                   </span>
                 </div>
@@ -200,7 +200,7 @@ const About = () => {
                     transition: `all 0.5s ease ${(index + 4) * 0.1}s`
                   }}
                 >
-                  <span className="group-hover:text-primary transition-colors duration-300 text-sm md:text-base">
+                  <span className="group-hover:text-[hsl(38,75%,38%)] transition-colors duration-300 text-sm md:text-base">
                     {category}
                   </span>
                 </div>

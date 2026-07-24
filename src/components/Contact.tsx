@@ -93,7 +93,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Vaše ime"
-className="bg-background/50 border-border focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
+                      className="bg-white text-[hsl(217,72%,30%)] placeholder:text-[hsl(217,72%,30%)]/50 border-border focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
                     />
                   </div>
                   <div className="group">
@@ -111,7 +111,7 @@ className="bg-background/50 border-border focus:border-primary focus-visible:rin
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="vas@email.com"
-                      className="bg-background/50 border-border focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
+                      className="bg-white text-[hsl(217,72%,30%)] placeholder:text-[hsl(217,72%,30%)]/50 border-border focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
                     />
                   </div>
                 </div>
@@ -131,7 +131,7 @@ className="bg-background/50 border-border focus:border-primary focus-visible:rin
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Tema vaše poruke"
-className="bg-background/50 border-border focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
+                    className="bg-white text-[hsl(217,72%,30%)] placeholder:text-[hsl(217,72%,30%)]/50 border-border focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
                   />
                 </div>
 
@@ -150,7 +150,7 @@ className="bg-background/50 border-border focus:border-primary focus-visible:rin
                     onChange={handleChange}
                     placeholder="Vaša poruka..."
                     rows={4}
-                    className="bg-background/50 border-border focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 resize-none transition-all duration-300 min-h-[120px]"
+                    className="bg-white text-[hsl(217,72%,30%)] placeholder:text-[hsl(217,72%,30%)]/50 border-border focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 resize-none transition-all duration-300 min-h-[120px]"
                   />
                 </div>
 
@@ -227,7 +227,7 @@ className="bg-background/50 border-border focus:border-primary focus-visible:rin
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.5!2d17.3265!3d43.4715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134b1db8c1c3b8a1%3A0x4e5b0b2e0c3f0a0b!2sUlica%20Bartola%20Ka%C5%A1i%C4%87a%202%2C%20Posu%C5%A1je!5e0!3m2!1sen!2sba!4v1700000000000!5m2!1sen!2sba"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: '120px', filter: 'invert(90%) hue-rotate(180deg) brightness(0.8) contrast(1.2)' }}
+                style={{ border: 0, minHeight: '120px' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
