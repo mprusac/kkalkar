@@ -1,8 +1,9 @@
-import { ExternalLink, ChevronLeft, ChevronRight, Youtube } from "lucide-react";
+import { ChevronLeft, ChevronRight, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import supersportLogo from "@/assets/logos/supersport-premijer.png.asset.json";
+import sofascoreLogo from "@/assets/logos/sofascore.png.asset.json";
 import { fetchMatches, getTeamLogoFor, type DisplayMatch } from "@/lib/adminMatches";
 
 const displayTeamName = (name: string) =>
@@ -85,15 +86,15 @@ const Results = () => {
   };
 
   const getLogoScale = (teamName: string) => {
-    if (teamName.includes("Alkar")) return "w-14 h-14 md:w-20 md:h-20 scale-[1.6]";
-    if (teamName.includes("Posušje")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.0] translate-y-[2px]";
-    if (teamName.includes("Široki")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.6]";
-    if (teamName.includes("Ljubuš")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
-    if (teamName.includes("Mostar")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.1] translate-y-[2px]";
-    if (teamName.includes("Rama")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.6]";
-    if (teamName.includes("Grude")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.6]";
-    if (teamName.includes("Tomislav")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.1]";
-    if (teamName.includes("Čapljina")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.0]";
+    if (teamName.includes("Alkar")) return "w-14 h-14 md:w-20 md:h-20 scale-[1.3]";
+    if (teamName.includes("Posušje")) return "w-10 h-10 md:w-14 md:h-14 scale-[0.85] translate-y-[2px]";
+    if (teamName.includes("Široki")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
+    if (teamName.includes("Ljubuš")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.1]";
+    if (teamName.includes("Mostar")) return "w-10 h-10 md:w-14 md:h-14 scale-[0.95] translate-y-[2px]";
+    if (teamName.includes("Rama")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
+    if (teamName.includes("Grude")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
+    if (teamName.includes("Tomislav")) return "w-10 h-10 md:w-14 md:h-14 scale-[0.95]";
+    if (teamName.includes("Čapljina")) return "w-10 h-10 md:w-14 md:h-14 scale-[0.85]";
     return "w-7 h-7 md:w-10 md:h-10";
   };
 
@@ -161,7 +162,7 @@ const Results = () => {
                   href={match.sofascoreLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex-shrink-0 card-surface p-4 md:p-6 border-2 border-primary transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 hover:[box-shadow:0_0_25px_6px_hsl(var(--primary)/0.45)] snap-start ${
+                  className={`group flex-shrink-0 card-surface p-4 md:p-6 border-2 border-primary cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 hover:[box-shadow:0_0_25px_6px_hsl(var(--primary)/0.45)] snap-start ${
                     isWin
                       ? "hover:border-primary"
                       : "hover:border-primary"
@@ -186,14 +187,14 @@ const Results = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="text-muted-foreground hover:text-red-500 transition-colors"
+                          className="text-red-600 hover:text-red-500 transition-colors"
                           title="YouTube"
                         >
                           <Youtube size={16} className="md:hidden" />
                           <Youtube size={18} className="hidden md:block" />
                         </a>
                       ) : (
-                        <span className="text-muted-foreground/40">
+                        <span className="text-red-600/40">
                           <Youtube size={16} className="md:hidden" />
                           <Youtube size={18} className="hidden md:block" />
                         </span>
@@ -205,14 +206,11 @@ const Results = () => {
                       </span>
                     </div>
                     <div className="flex-1 flex justify-center items-center translate-x-1 md:translate-x-2">
-                      <span title="SofaScore">
-                        <ExternalLink
-                          size={14}
-                          className="md:hidden text-muted-foreground group-hover:text-primary transition-colors"
-                        />
-                        <ExternalLink
-                          size={16}
-                          className="hidden md:block text-muted-foreground group-hover:text-primary transition-colors"
+                      <span title="SofaScore" className="opacity-90 group-hover:opacity-100 transition-opacity">
+                        <img
+                          src={sofascoreLogo.url}
+                          alt="SofaScore"
+                          className="w-4 h-4 md:w-5 md:h-5 object-contain"
                         />
                       </span>
                     </div>
@@ -220,7 +218,7 @@ const Results = () => {
 
                   {/* Match content - Teams with logos */}
                   <div>
-                    <div className="flex items-start justify-between gap-2 md:gap-4">
+                    <div className="flex items-center justify-between gap-2 md:gap-4">
                       {/* Home Team */}
                       <div className="flex-1 flex flex-col items-center">
                         <div className="w-14 h-14 md:w-20 md:h-20 flex items-center justify-center overflow-hidden">
