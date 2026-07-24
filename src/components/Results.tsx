@@ -2,8 +2,11 @@ import { ExternalLink, ChevronLeft, ChevronRight, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import logoKSHB from "@/assets/logos/kshb_logo.png";
+import supersportLogo from "@/assets/logos/supersport-premijer.png.asset.json";
 import { fetchMatches, getTeamLogoFor, type DisplayMatch } from "@/lib/adminMatches";
+
+const displayTeamName = (name: string) =>
+  name === "KK Alkar Sinj" ? "KK Alkar" : name;
 
 const Results = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
