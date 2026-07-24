@@ -59,7 +59,7 @@ const Index = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <SEO
         title="Košarkaški klub Posušje — Službena web stranica"
         description="Službena stranica KK Posušje. Vijesti, raspored utakmica, rezultati, tablica lige, momčad i škola košarke u Posušju."
