@@ -186,7 +186,7 @@ const Contact = () => {
               <div>
                 <h4 className="font-display text-sm md:text-base text-foreground mb-0.5 tracking-wide">Adresa</h4>
                 <p className="text-muted-foreground text-xs md:text-sm">
-                  Ulica Bartola Kašića 2, 88240 Posušje
+                  Ulica Alajčauša Frane Bareze Šore 1, 21230 Sinj
                 </p>
               </div>
             </div>
@@ -198,10 +198,10 @@ const Contact = () => {
               <div>
                 <h4 className="font-display text-sm md:text-base text-foreground mb-0.5 tracking-wide">Email</h4>
                 <a
-                  href="mailto:kk.posusje@gmail.com"
+                  href="mailto:ured.alkar@gmail.com"
                   className="text-muted-foreground text-xs md:text-sm hover:text-primary transition-colors"
                 >
-                  kk.posusje@gmail.com
+                  ured.alkar@gmail.com
                 </a>
               </div>
             </div>
@@ -213,10 +213,10 @@ const Contact = () => {
               <div>
                 <h4 className="font-display text-sm md:text-base text-foreground mb-0.5 tracking-wide">Telefon</h4>
                 <a
-                  href="tel:+38763123456"
+                  href="tel:+385996940066"
                   className="text-muted-foreground text-xs md:text-sm hover:text-primary transition-colors"
                 >
-                  +387 63 123 456
+                  +385 99 694 0066
                 </a>
               </div>
             </div>
@@ -224,14 +224,14 @@ const Contact = () => {
             {/* Map */}
             <div className="card-surface-interactive overflow-hidden flex-[2]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.5!2d17.3265!3d43.4715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134b1db8c1c3b8a1%3A0x4e5b0b2e0c3f0a0b!2sUlica%20Bartola%20Ka%C5%A1i%C4%87a%202%2C%20Posu%C5%A1je!5e0!3m2!1sen!2sba!4v1700000000000!5m2!1sen!2sba"
+                src="https://www.google.com/maps?q=Ulica+Alaj%C4%8Dau%C5%A1a+Frane+Bareze+%C5%A0ore+1,+21230+Sinj&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '120px' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Lokacija HKK Posušje"
+                title="Lokacija KK Alkar Sinj"
               />
             </div>
           </div>

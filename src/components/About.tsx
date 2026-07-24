@@ -11,10 +11,10 @@ interface StatItem {
 }
 
 const stats: StatItem[] = [
-  { value: 1975, label: "GODINA OSNUTKA" },
-  { value: 150, suffix: "+", label: "AKTIVNIH ČLANOVA" },
-  { value: 8, label: "UZRASNE SELEKCIJE" },
-  { value: 50, label: "GODINA POSTOJANJA" },
+  { value: 1955, label: "GODINA OSNUTKA" },
+  { value: 120, suffix: "+", label: "REGISTRIRANIH IGRAČA" },
+  { value: 5, label: "UZRASNE KATEGORIJE" },
+  { value: 71, label: "GODINA POSTOJANJA" },
 ];
 
 const maleCategories = [
