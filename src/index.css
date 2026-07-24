@@ -10,23 +10,23 @@
   }
   
   :root {
-    --background: 220 79% 15%;
+    --background: 217 70% 38%;
     --foreground: 0 0% 100%;
 
-    --card: 220 75% 22%;
+    --card: 217 65% 45%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 220 75% 22%;
+    --popover: 217 65% 45%;
     --popover-foreground: 0 0% 100%;
 
     --primary: 43 68% 67%;
     --primary-foreground: 220 79% 15%;
 
-    --secondary: 220 75% 22%;
+    --secondary: 217 65% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 60% 28%;
-    --muted-foreground: 43 40% 82%;
+    --muted: 217 55% 52%;
+    --muted-foreground: 43 40% 90%;
 
     --accent: 43 68% 67%;
     --accent-foreground: 220 79% 15%;
@@ -34,8 +34,8 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 60% 28%;
-    --input: 220 60% 28%;
+    --border: 217 55% 52%;
+    --input: 217 55% 52%;
     --ring: 43 68% 67%;
 
     --radius: 0.5rem;
@@ -60,13 +60,13 @@
     --shadow-lg: 0 25px 50px -12px hsl(0, 0%, 0%, 0.5);
 
     /* Sidebar */
-    --sidebar-background: 220 79% 15%;
+    --sidebar-background: 217 70% 38%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 43 68% 67%;
-    --sidebar-primary-foreground: 220 79% 15%;
-    --sidebar-accent: 220 75% 22%;
+    --sidebar-primary-foreground: 217 70% 38%;
+    --sidebar-accent: 217 65% 45%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 220 60% 28%;
+    --sidebar-border: 217 55% 52%;
     --sidebar-ring: 43 68% 67%;
 
     /* Logo glow */
