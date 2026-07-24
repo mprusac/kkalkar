@@ -161,10 +161,10 @@ const Results = () => {
                   href={match.sofascoreLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex-shrink-0 card-surface p-4 md:p-6 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20 snap-start ${
-                    isWin 
-                      ? "hover:border-primary/60" 
-                      : "border-red-500/30 hover:border-red-500/60"
+                  className={`group flex-shrink-0 card-surface p-4 md:p-6 border-2 border-primary transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 hover:[box-shadow:0_0_25px_6px_hsl(var(--primary)/0.45)] snap-start ${
+                    isWin
+                      ? "hover:border-primary"
+                      : "hover:border-primary"
                   }`}
                   style={{ 
                     width: isMobile ? '100%' : 'calc((100% - 2.5rem) / 3)',
