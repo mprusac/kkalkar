@@ -13,17 +13,18 @@
     --background: 217 72% 30%;
     --foreground: 0 0% 100%;
 
-    --card: 217 68% 37%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 217 72% 25%;
 
-    --popover: 217 68% 37%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 72% 25%;
 
-    --primary: 43 68% 67%;
-    --primary-foreground: 220 79% 15%;
+    --primary: 43 68% 60%;
+    --primary-foreground: 217 72% 20%;
 
-    --secondary: 217 68% 37%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 217 72% 25%;
+
 
     --muted: 217 60% 45%;
     --muted-foreground: 43 40% 90%;
@@ -115,8 +116,9 @@
   }
 
   body {
-    @apply bg-white text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
   }
+
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
