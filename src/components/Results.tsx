@@ -85,15 +85,15 @@ const Results = () => {
   };
 
   const getLogoScale = (teamName: string) => {
-    if (teamName.includes("Alkar")) return "w-14 h-14 md:w-20 md:h-20 scale-[1.6]";
-    if (teamName.includes("Posušje")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.0] translate-y-[2px]";
-    if (teamName.includes("Široki")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.6]";
-    if (teamName.includes("Ljubuš")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
-    if (teamName.includes("Mostar")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.1] translate-y-[2px]";
-    if (teamName.includes("Rama")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.6]";
-    if (teamName.includes("Grude")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.6]";
-    if (teamName.includes("Tomislav")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.1]";
-    if (teamName.includes("Čapljina")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.0]";
+    if (teamName.includes("Alkar")) return "w-14 h-14 md:w-20 md:h-20 scale-[1.3]";
+    if (teamName.includes("Posušje")) return "w-10 h-10 md:w-14 md:h-14 scale-[0.85] translate-y-[2px]";
+    if (teamName.includes("Široki")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
+    if (teamName.includes("Ljubuš")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.1]";
+    if (teamName.includes("Mostar")) return "w-10 h-10 md:w-14 md:h-14 scale-[0.95] translate-y-[2px]";
+    if (teamName.includes("Rama")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
+    if (teamName.includes("Grude")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
+    if (teamName.includes("Tomislav")) return "w-10 h-10 md:w-14 md:h-14 scale-[0.95]";
+    if (teamName.includes("Čapljina")) return "w-10 h-10 md:w-14 md:h-14 scale-[0.85]";
     return "w-7 h-7 md:w-10 md:h-10";
   };
 
