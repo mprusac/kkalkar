@@ -156,6 +156,18 @@
     @apply absolute top-4 right-4 text-7xl md:text-8xl font-display text-primary/20;
   }
 
+  /* ===== Unified card + button system ===== */
+  .card-surface {
+    @apply bg-secondary border border-border/60 rounded-xl shadow-md;
+  }
+
+  .card-surface-interactive {
+    @apply card-surface transition-all duration-300 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/20;
+  }
+
+  .btn-gold-outline {
+    @apply px-8 py-3 rounded-xl bg-primary/20 border border-primary text-primary font-display text-lg tracking-wider transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-105 hover:shadow-lg hover:shadow-primary/30 active:bg-primary/90 active:scale-100;
+  }
 }
 
 @layer utilities {
