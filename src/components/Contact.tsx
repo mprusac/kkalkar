@@ -68,7 +68,7 @@ const Contact = () => {
           <span className="text-primary">KONTAKTIRAJTE NAS</span>
         </h2>
 
-        <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
+        <p className="text-[hsl(38,75%,45%)] text-center mb-16 max-w-2xl mx-auto">
           Želite postati dio naše obitelji ili imate pitanja? Javite nam se!
         </p>
 

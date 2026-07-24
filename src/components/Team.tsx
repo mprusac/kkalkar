@@ -223,7 +223,7 @@ const Team = () => {
           <span className="section-title-gold">TIM</span>
         </h2>
 
-        <p className="text-muted-foreground text-center mb-8">
+        <p className="text-[hsl(38,75%,45%)] text-center mb-8">
           Prvotimci koji daju sve za boje KK Alkar Sinj
         </p>
 

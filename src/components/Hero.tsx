@@ -58,7 +58,7 @@ const Hero = () => {
         }}
       >
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/[0.56] via-background/[0.40] to-background" />
       </div>
 
       {/* Content */}
@@ -77,7 +77,7 @@ const Hero = () => {
           <div className="animate-fade-in-up delay-400 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <Button
               size="lg"
-              className="group relative overflow-hidden bg-transparent border-2 border-primary text-primary hover:text-primary-foreground font-display uppercase tracking-widest px-6 sm:px-10 py-5 sm:py-7 text-base sm:text-lg transition-all duration-500"
+              className="group relative overflow-hidden bg-transparent border-2 border-primary text-primary hover:text-primary-foreground font-display uppercase tracking-widest px-4 py-5 sm:py-7 text-base sm:text-lg transition-all duration-500 w-full sm:w-64 whitespace-nowrap"
               asChild
             >
               <a href="#rezultati">
@@ -87,7 +87,7 @@ const Hero = () => {
             </Button>
             <Button
               size="lg"
-              className="group relative overflow-hidden bg-transparent border-2 border-primary text-primary hover:text-primary-foreground font-display uppercase tracking-widest px-6 sm:px-10 py-5 sm:py-7 text-base sm:text-lg transition-all duration-500"
+              className="group relative overflow-hidden bg-transparent border-2 border-primary text-primary hover:text-primary-foreground font-display uppercase tracking-widest px-4 py-5 sm:py-7 text-base sm:text-lg transition-all duration-500 w-full sm:w-64 whitespace-nowrap"
               asChild
             >
               <a href="#kontakt">

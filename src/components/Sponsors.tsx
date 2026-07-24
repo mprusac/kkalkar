@@ -97,7 +97,7 @@ const Sponsors = () => {
           <span className="section-title-gold">SPONZORI</span>
         </h2>
 
-        <p className="text-muted-foreground text-center mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">
+        <p className="text-[hsl(38,75%,45%)] text-center mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">
           Naši partneri koji podržavaju razvoj kluba i omogućavaju ostvarivanje naših ciljeva
         </p>
 
@@ -123,10 +123,11 @@ const Sponsors = () => {
 
         {/* Become a Sponsor */}
         <div className="max-w-4xl mx-auto">
-          <div 
+          <div
             className="rounded-xl overflow-hidden border-2 border-primary shadow-[0_0_30px_hsl(48,96%,53%,0.2)]"
             style={{
-              background: 'linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(48 96% 53% / 0.1) 50%, hsl(0 0% 8%) 100%)',
+              background:
+                'linear-gradient(135deg, hsl(220 79% 15%) 0%, hsl(217 68% 30%) 50%, hsl(220 79% 12%) 100%)',
             }}
           >
             <button
@@ -138,10 +139,10 @@ const Sponsors = () => {
               </div>
               <div className="text-center flex-1">
                 <h3 className="text-2xl md:text-3xl font-display">
-                  <span className="text-foreground">POSTANI </span>
+                  <span className="text-white">POSTANI </span>
                   <span className="text-primary">SPONZOR</span>
                 </h3>
-                <p className="text-muted-foreground text-base mt-1">
+                <p className="text-white/80 text-base mt-1">
                   <span className="md:hidden">Pogledaj sponzorske<br />pakete i podrži klub</span>
                   <span className="hidden md:inline">Pogledaj sponzorske pakete i podrži klub</span>
                 </p>
@@ -160,30 +161,30 @@ const Sponsors = () => {
               <div className="p-4 md:p-6 pt-2 md:pt-4">
                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-4 md:mb-6 mt-2 md:mt-4">
                   {sponsorTiers.map((tier, index) => {
-                    const shadowColor = tier.name === "ZLATNI" 
-                      ? "hover:[box-shadow:0_0_25px_8px_hsl(48,96%,53%,0.35)]" 
-                      : tier.name === "SREBRENI" 
-                      ? "hover:[box-shadow:0_0_25px_8px_hsl(0,0%,70%,0.25)]" 
-                      : tier.name === "BRONČANI" 
-                      ? "hover:[box-shadow:0_0_25px_8px_hsl(30,60%,45%,0.25)]" 
+                    const shadowColor = tier.name === "ZLATNI"
+                      ? "hover:[box-shadow:0_0_25px_8px_hsl(48,96%,53%,0.35)]"
+                      : tier.name === "SREBRENI"
+                      ? "hover:[box-shadow:0_0_25px_8px_hsl(0,0%,70%,0.25)]"
+                      : tier.name === "BRONČANI"
+                      ? "hover:[box-shadow:0_0_25px_8px_hsl(30,60%,45%,0.25)]"
                       : "hover:[box-shadow:0_0_25px_8px_hsl(0,80%,60%,0.25)]";
-                    
+
                     return (
                       <div
                         key={tier.name}
-                        className={`group card-surface-interactive p-3 md:p-6 animate-fade-in-up hover:scale-[1.03] ${shadowColor}`}
+                        className={`group bg-white border border-border/40 rounded-xl shadow-md p-3 md:p-6 transition-all duration-300 animate-fade-in-up hover:scale-[1.03] ${shadowColor}`}
                         style={{ animationDelay: `${index * 100}ms` }}
                       >
                         <div className={`${tier.color} mb-2 md:mb-3 transition-transform duration-300 group-hover:scale-110`}>{tier.icon}</div>
                         <h4 className={`font-semibold text-xs md:text-base ${tier.color} transition-colors duration-300`}>{tier.name}</h4>
-                        <p className="text-primary text-sm md:text-lg font-display mt-1">{tier.price}</p>
+                        <p className="text-[hsl(38,75%,38%)] text-sm md:text-lg font-display mt-1">{tier.price}</p>
                         <ul className="mt-2 md:mt-4 space-y-1 md:space-y-2">
                           {tier.benefits.map((benefit) => (
                             <li
                               key={benefit}
-                              className="text-muted-foreground text-xs md:text-sm flex items-start gap-1 md:gap-2"
+                              className="text-neutral-700 text-xs md:text-sm flex items-start gap-1 md:gap-2"
                             >
-                              <span className="text-primary mt-0.5 md:mt-1">•</span>
+                              <span className="text-[hsl(38,75%,38%)] mt-0.5 md:mt-1">•</span>
                               {benefit}
                             </li>
                           ))}
@@ -194,23 +195,23 @@ const Sponsors = () => {
                 </div>
 
                 {/* Payment Info - Inside expandable */}
-                <div className="card-surface p-4 md:p-6">
+                <div className="bg-white border border-border/40 rounded-xl shadow-md p-4 md:p-6">
                   <h4 className="font-display text-base md:text-lg mb-3 md:mb-4">
-                    <span className="text-foreground">PODACI ZA </span>
-                    <span className="text-primary">PLAĆANJE</span>
+                    <span className="text-neutral-900">PODACI ZA </span>
+                    <span className="text-[hsl(38,75%,38%)]">PLAĆANJE</span>
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 text-xs md:text-sm">
                     <div>
-                      <span className="text-muted-foreground block mb-1">PRIMATELJ</span>
-                      <span className="text-foreground">Košarkaški Klub Posušje</span>
+                      <span className="text-neutral-500 block mb-1">PRIMATELJ</span>
+                      <span className="text-neutral-900">Košarkaški Klub Alkar Sinj</span>
                     </div>
                     <div>
-                      <span className="text-muted-foreground block mb-1">BANKA</span>
-                      <span className="text-foreground">UniCredit Bank d.d. Mostar</span>
+                      <span className="text-neutral-500 block mb-1">BANKA</span>
+                      <span className="text-neutral-900">UniCredit Bank d.d. Mostar</span>
                     </div>
                     <div>
-                      <span className="text-muted-foreground block mb-1">IBAN</span>
-                      <span className="text-foreground">BA39 0000 0000 0000 0000</span>
+                      <span className="text-neutral-500 block mb-1">IBAN</span>
+                      <span className="text-neutral-900">BA39 0000 0000 0000 0000</span>
                     </div>
                   </div>
                 </div>

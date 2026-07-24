@@ -2,8 +2,11 @@ import { ExternalLink, ChevronLeft, ChevronRight, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import logoKSHB from "@/assets/logos/kshb_logo.png";
+import supersportLogo from "@/assets/logos/supersport-premijer.png.asset.json";
 import { fetchMatches, getTeamLogoFor, type DisplayMatch } from "@/lib/adminMatches";
+
+const displayTeamName = (name: string) =>
+  name === "KK Alkar Sinj" ? "KK Alkar" : name;
 
 const Results = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -82,7 +85,8 @@ const Results = () => {
   };
 
   const getLogoScale = (teamName: string) => {
-    if (teamName.includes("Alkar") || teamName.includes("Posušje")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.0] translate-y-[2px]";
+    if (teamName.includes("Alkar")) return "w-14 h-14 md:w-20 md:h-20 scale-[1.6]";
+    if (teamName.includes("Posušje")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.0] translate-y-[2px]";
     if (teamName.includes("Široki")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.6]";
     if (teamName.includes("Ljubuš")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
     if (teamName.includes("Mostar")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.1] translate-y-[2px]";
@@ -105,7 +109,7 @@ const Results = () => {
           <span className="section-title-white">ZADNJE </span>
           <span className="section-title-gold">UTAKMICE</span>
         </h2>
-        <p className="text-muted-foreground text-sm md:text-base text-center mb-12 md:mb-16">
+        <p className="text-[hsl(38,75%,45%)] text-sm md:text-base text-center mb-12 md:mb-16">
           Pregled posljednjih susreta našeg tima
         </p>
 
@@ -157,10 +161,10 @@ const Results = () => {
                   href={match.sofascoreLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex-shrink-0 card-surface p-4 md:p-6 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20 snap-start ${
-                    isWin 
-                      ? "hover:border-primary/60" 
-                      : "border-red-500/30 hover:border-red-500/60"
+                  className={`group flex-shrink-0 card-surface p-4 md:p-6 border-2 border-primary transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 hover:[box-shadow:0_0_25px_6px_hsl(var(--primary)/0.45)] snap-start ${
+                    isWin
+                      ? "hover:border-primary"
+                      : "hover:border-primary"
                   }`}
                   style={{ 
                     width: isMobile ? '100%' : 'calc((100% - 2.5rem) / 3)',
@@ -219,7 +223,7 @@ const Results = () => {
                     <div className="flex items-start justify-between gap-2 md:gap-4">
                       {/* Home Team */}
                       <div className="flex-1 flex flex-col items-center">
-                        <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-background/60 flex items-center justify-center p-1.5 md:p-2 border-none overflow-hidden">
+                        <div className="w-14 h-14 md:w-20 md:h-20 flex items-center justify-center overflow-hidden">
                           {homeLogo ? (
                             <img 
                               src={homeLogo} 
@@ -239,7 +243,7 @@ const Results = () => {
                             match.isHome ? "text-primary" : "text-foreground"
                           }`}
                         >
-                          {match.homeTeam}
+                          {displayTeamName(match.homeTeam)}
                         </span>
                       </div>
 
@@ -249,7 +253,7 @@ const Results = () => {
                           className={`text-xl md:text-3xl font-display font-bold ${
                             match.homeScore > match.awayScore
                               ? "text-primary"
-                              : "text-foreground/70"
+                              : "text-white"
                           }`}
                         >
                           {match.homeScore}
@@ -259,7 +263,7 @@ const Results = () => {
                           className={`text-xl md:text-3xl font-display font-bold ${
                             match.awayScore > match.homeScore
                               ? "text-primary"
-                              : "text-foreground/70"
+                              : "text-white"
                           }`}
                         >
                           {match.awayScore}
@@ -268,7 +272,7 @@ const Results = () => {
 
                       {/* Away Team */}
                       <div className="flex-1 flex flex-col items-center">
-                        <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-background/60 flex items-center justify-center p-1.5 md:p-2 border-none overflow-hidden">
+                        <div className="w-14 h-14 md:w-20 md:h-20 flex items-center justify-center overflow-hidden">
                           {awayLogo ? (
                             <img 
                               src={awayLogo} 
@@ -288,20 +292,25 @@ const Results = () => {
                             !match.isHome ? "text-primary" : "text-foreground"
                           }`}
                         >
-                          {match.awayTeam}
+                          {displayTeamName(match.awayTeam)}
                         </span>
                       </div>
                     </div>
 
                     {/* Competition label below teams/score */}
                     {match.competition && (
-                      <div className="flex justify-center -mt-1">
-                        <span className="text-[8px] md:text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full flex items-center gap-1">
-                          {match.competition}
-                          {match.competition === "SuperSport PL" && (
-                            <img src={logoKSHB} alt="SuperSport PL" className="w-3.5 h-3.5 object-contain -translate-y-[1px]" />
-                          )}
-                        </span>
+                      <div className="flex justify-center mt-2">
+                        {match.competition === "SuperSport PL" ? (
+                          <img
+                            src={supersportLogo.url}
+                            alt="SuperSport Premijer Liga"
+                            className="h-6 md:h-8 object-contain"
+                          />
+                        ) : (
+                          <span className="text-[8px] md:text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                            {match.competition}
+                          </span>
+                        )}
                       </div>
                     )}
                   </div>

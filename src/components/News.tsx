@@ -221,7 +221,7 @@ const News = () => {
           <span className="section-title-gold">VIJESTI</span>
         </h2>
 
-        <p className="text-muted-foreground text-center mb-12">
+        <p className="text-[hsl(38,75%,45%)] text-center mb-12">
           Prati sve aktualnosti i novosti iz kluba
         </p>
 
