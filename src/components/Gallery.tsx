@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import action1 from "@/assets/action-1.jpg";
-import action2 from "@/assets/action-2.jpg";
-import action3 from "@/assets/action-3.jpg";
-import action4 from "@/assets/action-4.png";
-import action5 from "@/assets/action-5.png";
-import action6 from "@/assets/action-6.png";
+import g1 from "@/assets/gallery/g1.asset.json";
+import g2 from "@/assets/gallery/g2.asset.json";
+import g3 from "@/assets/gallery/g3.asset.json";
+import g4 from "@/assets/gallery/g4.asset.json";
+import g5 from "@/assets/gallery/g5.asset.json";
+import g6 from "@/assets/gallery/g6.asset.json";
 
 const images = [
-  { id: 1, src: action2, title: "Timeout", objectPosition: "center center" },
-  { id: 2, src: action5, title: "Mladi centar Marko Protrka", objectPosition: "center" },
-  { id: 3, src: action1, title: "Juniori na Sarajevo Cupu", objectPosition: "center" },
-  { id: 4, src: action3, title: "Prodor Davida Dragoje", objectPosition: "center" },
-  { id: 5, src: action6, title: "Iskusni Mirko Đerek", objectPosition: "center" },
-  { id: 6, src: action4, title: "Izlazak na teren", objectPosition: "center top" },
+  { id: 1, src: g4.url, title: "Zajedništvo", objectPosition: "center top" },
+  { id: 2, src: g3.url, title: "Trener Mate Baković", objectPosition: "center" },
+  { id: 3, src: g5.url, title: "Zakucavanje", objectPosition: "center top" },
+  { id: 4, src: g1.url, title: "Prodor", objectPosition: "center" },
+  { id: 5, src: g2.url, title: "Šut za tri", objectPosition: "center top" },
+  { id: 6, src: g6.url, title: "Maligani", objectPosition: "center" },
 ];
 
 const Gallery = () => {
