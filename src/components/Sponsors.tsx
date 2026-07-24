@@ -97,7 +97,7 @@ const Sponsors = () => {
           <span className="section-title-gold">SPONZORI</span>
         </h2>
 
-        <p className="text-muted-foreground text-center mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">
+        <p className="text-[hsl(38,75%,45%)] text-center mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">
           Naši partneri koji podržavaju razvoj kluba i omogućavaju ostvarivanje naših ciljeva
         </p>
 
