@@ -298,10 +298,16 @@ const About = () => {
           }`}
         >
           <div 
-            className="relative group card-surface p-6 md:p-10 transition-all duration-300 text-center overflow-hidden border-2 border-primary shadow-lg shadow-primary/20"
+            className="relative group p-6 md:p-10 rounded-2xl md:rounded-3xl transition-all duration-300 text-center overflow-hidden border-2 border-primary shadow-lg shadow-primary/30"
+            style={{
+              background:
+                'linear-gradient(160deg, hsl(220 79% 18%) 0%, hsl(217 68% 34%) 55%, hsl(220 79% 14%) 100%)',
+            }}
           >
-            {/* Subtle glow effect */}
-            <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-br from-primary/5 via-transparent to-primary/10 pointer-events-none" />
+            {/* Golden glow accent */}
+            <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(212,160,23,0.25) 0%, transparent 70%)' }} />
+            <div className="absolute -bottom-32 -left-24 w-80 h-80 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(240,215,138,0.18) 0%, transparent 70%)' }} />
+
             
             <h3 className="text-2xl md:text-4xl font-display mb-4 md:mb-6 tracking-wide relative z-10">
               <span className="text-foreground">NAŠA </span>
