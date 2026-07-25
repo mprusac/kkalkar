@@ -309,7 +309,7 @@ const NewsPage = () => {
   const filteredNews = activeCategory === "sve" ? mergedNews : mergedNews.filter((item: any) => item.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-background" style={{ zoom: 0.9 }}>
+    <div className="min-h-screen cream-page-scope" style={{ zoom: 0.9 }}>
       <SEO
         title="Vijesti — KK Posušje"
         description="Najnovije vijesti, najave utakmica, izvještaji i priopćenja Košarkaškog kluba Posušje."
@@ -326,17 +326,17 @@ const NewsPage = () => {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center mb-12">
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl mb-4">
-              <span className="text-white">NAJNOVIJE </span>
+              <span className="text-[#0E2A63]">NAJNOVIJE </span>
               <span className="text-primary">VIJESTI</span>
             </h1>
-            <p className="text-muted-foreground text-lg">Ostani u toku sa svim događanjima iz kluba</p>
+            <p className="text-[#0E2A63]/70 text-lg">Ostani u toku sa svim događanjima iz kluba</p>
           </motion.div>
 
           <div className="flex justify-center gap-1 md:gap-2 mb-12">
             {categories.map((category) => {
               const IconComponent = category.icon;
               return (
-                <button key={category.id} onClick={() => setActiveCategory(category.id)} className={`flex items-center gap-1.5 px-3 md:px-5 py-2 md:py-3 rounded-full text-xs md:text-base font-medium transition-all duration-300 ${activeCategory === category.id ? "bg-primary text-primary-foreground" : "bg-secondary/50 text-foreground hover:bg-secondary hover:text-primary"}`}>
+                <button key={category.id} onClick={() => setActiveCategory(category.id)} className={`flex items-center gap-1.5 px-3 md:px-5 py-2 md:py-3 rounded-full text-xs md:text-base font-medium transition-all duration-300 ${activeCategory === category.id ? "bg-primary text-primary-foreground shadow-md" : "bg-white text-[#0E2A63] hover:bg-[#faeecc] ring-1 ring-[#c9a24c]/40"}`}>
                   <IconComponent size={16} />
                   {category.label}
                 </button>
@@ -347,7 +347,7 @@ const NewsPage = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 max-w-5xl mx-auto">
             {filteredNews.map((item, index) => (
               <motion.div key={item.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: index * 0.05 }}>
-                <Link to={`/vijesti/${item.id}`} className="group flex flex-col h-[340px] md:h-[440px] bg-background rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover-lift border border-transparent hover:border-primary/30">
+                <Link to={`/vijesti/${item.id}`} className="group flex flex-col h-[340px] md:h-[440px] bg-white rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover-lift shadow-md ring-1 ring-[#c9a24c]/40 hover:ring-[#c9a24c]">
                   <div className="relative h-48 overflow-hidden">
                     <img src={item.cardImage || item.image} alt={item.title} className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${item.cardImagePosition === 'center' ? 'object-center' : item.cardImagePosition === 'upper' ? 'object-[center_5%]' : item.cardImagePosition === 'top' ? 'object-top' : item.cardImagePosition === 'lower' ? 'object-[center_35%]' : item.cardImagePosition === 'bottom' ? 'object-bottom' : 'object-[center_25%]'}`} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -355,13 +355,13 @@ const NewsPage = () => {
                       {(() => { const cat = item.category; const icons: Record<string, typeof Trophy> = { utakmica: Trophy, najava: Megaphone, klub: Newspaper }; const labels: Record<string, string> = { utakmica: "Utakmice", najava: "Najave", klub: "Klub" }; const Icon = icons[cat]; return <><Icon size={12} strokeWidth={3} />{labels[cat]}</>; })()}
                     </span>
                   </div>
-                  <div className="p-5 flex flex-col flex-1 bg-secondary">
-                    <div className="flex items-center gap-2 text-muted-foreground text-sm mb-3">
+                  <div className="p-5 flex flex-col flex-1 bg-white">
+                    <div className="flex items-center gap-2 text-[#0E2A63]/60 text-sm mb-3">
                       <Calendar size={14} />
                       {item.date}
                     </div>
-                    <h3 className="text-xl font-display text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">{item.title}{item.flagImage && <img src={item.flagImage} alt="flag" className="inline-block h-4 md:h-5 ml-1.5 align-middle object-contain" />}</h3>
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-3">{item.excerpt}</p>
+                    <h3 className="text-xl font-display text-[#0E2A63] mb-3 line-clamp-2 group-hover:text-primary transition-colors">{item.title}{item.flagImage && <img src={item.flagImage} alt="flag" className="inline-block h-4 md:h-5 ml-1.5 align-middle object-contain" />}</h3>
+                    <p className="text-[#0E2A63]/70 text-sm mb-4 line-clamp-3">{item.excerpt}</p>
                     <div className="mt-auto inline-flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
                       Pročitaj više <ArrowRight size={16} />
                     </div>
@@ -378,3 +378,4 @@ const NewsPage = () => {
 };
 
 export default NewsPage;
+
