@@ -88,132 +88,16 @@ type ImageWithOrientation = {
   orientation: "vertical" | "horizontal";
 };
 
-export const events = [
-  {
-    id: "berlin",
-    homeTeam: "ALBA Berlin",
-    awayTeam: "Winterturnier 2026",
-    date: "05.01.2026.",
-    description: "Galerija sa ALBA Berlin turnira",
-    coverImage: berlinGalleryCover,
-    images: [] as string[],
-    imagesWithOrientation: [
-      { src: berlinG1, orientation: "horizontal" },
-      { src: berlinG2, orientation: "horizontal" },
-      { src: berlinG3, orientation: "horizontal" },
-      { src: berlinG9, orientation: "horizontal" },
-      { src: berlinG5, orientation: "horizontal" },
-      { src: berlinG6, orientation: "horizontal" },
-      { src: berlinG7, orientation: "horizontal" },
-      { src: berlinG8, orientation: "horizontal" },
-      { src: berlinG4, orientation: "horizontal" },
-      { src: berlin9, orientation: "horizontal" },
-    ] as ImageWithOrientation[],
-  },
-  {
-    id: "ljubuski",
-    homeTeam: "HKK Posušje",
-    awayTeam: "HKK Ljubuški",
-    date: "14.12.2025.",
-    description: "Galerija s utakmice Posušje - Ljubuški",
-    coverImage: eventLjubuski,
-    images: [] as string[],
-    imagesWithOrientation: [
-      { src: ljubuski10, orientation: "horizontal" },
-      { src: ljubuski1, orientation: "horizontal" },
-      { src: ljubuski7, orientation: "vertical" },
-      { src: ljubuski2, orientation: "horizontal" },
-      { src: ljubuski8, orientation: "vertical" },
-      { src: ljubuski3, orientation: "vertical" },
-      { src: ljubuski4, orientation: "horizontal" },
-      { src: ljubuski9, orientation: "vertical" },
-      { src: ljubuski5, orientation: "horizontal" },
-      { src: ljubuski6, orientation: "horizontal" },
-    ] as ImageWithOrientation[],
-  },
-  {
-    id: "bozicno-darivanje",
-    homeTeam: "Božićno darivanje službene opreme",
-    awayTeam: "",
-    date: "12.12.2025.",
-    description: "Božićno darivanje službene opreme",
-    coverImage: xmasGearCover,
-    images: [] as string[],
-    imagesWithOrientation: [
-      { src: xmasGear1, orientation: "vertical" },
-      { src: xmasGear2, orientation: "vertical" },
-      { src: xmasGear3, orientation: "vertical" },
-      { src: xmasGear4, orientation: "vertical" },
-      { src: xmasGear5, orientation: "vertical" },
-      { src: xmasGear6, orientation: "vertical" },
-      { src: xmasGear7, orientation: "vertical" },
-      { src: xmasGear8, orientation: "vertical" },
-    ] as ImageWithOrientation[],
-  },
-  {
-    id: "rama",
-    homeTeam: "HKK Posušje",
-    awayTeam: "HKK Rama",
-    date: "23.11.2025.",
-    description: "Galerija s utakmice Posušje - Rama",
-    coverImage: eventRama,
-    images: [] as string[],
-    imagesWithOrientation: [
-      { src: rama9, orientation: "horizontal" },
-      { src: rama7, orientation: "vertical" },
-      { src: rama1, orientation: "vertical" },
-      { src: rama10, orientation: "horizontal" },
-      { src: rama4, orientation: "vertical" },
-      { src: rama2, orientation: "vertical" },
-      { src: rama3, orientation: "horizontal" },
-      { src: rama8, orientation: "vertical" },
-      { src: rama5, orientation: "vertical" },
-      { src: rama6, orientation: "horizontal" },
-    ] as ImageWithOrientation[],
-  },
-  {
-    id: "siroki",
-    homeTeam: "HKK Posušje",
-    awayTeam: "HKK Široki II",
-    date: "15.11.2025.",
-    description: "Galerija s utakmice Posušje - Široki II",
-    coverImage: eventSiroki,
-    images: [] as string[],
-    imagesWithOrientation: [
-      { src: siroki7, orientation: "horizontal" },
-      { src: siroki1, orientation: "vertical" },
-      { src: siroki2, orientation: "vertical" },
-      { src: siroki8, orientation: "horizontal" },
-      { src: siroki5, orientation: "vertical" },
-      { src: siroki3, orientation: "vertical" },
-      { src: siroki9, orientation: "horizontal" },
-      { src: siroki4, orientation: "vertical" },
-      { src: siroki10, orientation: "horizontal" },
-      { src: siroki6, orientation: "vertical" },
-    ] as ImageWithOrientation[],
-  },
-  {
-    id: "tomislav",
-    homeTeam: "HKK Posušje",
-    awayTeam: "HKK Tomislav",
-    date: "02.11.2025.",
-    description: "Galerija s utakmice Posušje - Tomislav",
-    coverImage: eventTomislav,
-    images: [] as string[],
-    imagesWithOrientation: [
-      { src: tomislav3, orientation: "horizontal" },
-      { src: tomislav1, orientation: "vertical" },
-      { src: tomislav2, orientation: "vertical" },
-      { src: tomislav7, orientation: "horizontal" },
-      { src: tomislav4, orientation: "vertical" },
-      { src: tomislav5, orientation: "vertical" },
-      { src: tomislav9, orientation: "horizontal" },
-      { src: tomislav6, orientation: "vertical" },
-      { src: tomislav8, orientation: "vertical" },
-      { src: tomislav10, orientation: "vertical" },
-    ] as ImageWithOrientation[],
-  },
-];
+export const events: {
+  id: string;
+  homeTeam: string;
+  awayTeam: string;
+  date: string;
+  description: string;
+  coverImage: string;
+  images: string[];
+  imagesWithOrientation: ImageWithOrientation[];
+}[] = [];
 
 const EventCard = ({ event, index }: { event: typeof events[0]; index: number }) => {
   return (
