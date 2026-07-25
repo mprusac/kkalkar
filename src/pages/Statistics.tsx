@@ -806,7 +806,7 @@ const Statistics = () => {
                               )}
                               <TableRow
                                 key={team.position}
-                                className={`border-border/20 transition-all duration-200 hover:bg-secondary/50 hover:shadow-md ${isAlkar ? "bg-primary/10 hover:bg-primary/20" : ""}`}
+                                className={`border-border/20 transition-all duration-200 hover:shadow-md ${isAlkar ? "!bg-primary/30 hover:!bg-primary/40 font-bold" : "hover:bg-secondary/50"}`}
                               >
                                 <TableCell className="text-center font-bold text-[10px] md:text-sm px-0.5 md:px-4 py-0.5 md:py-4">{team.position}</TableCell>
                                 <TableCell className="px-0.5 md:px-4 py-0.5 md:py-4">
