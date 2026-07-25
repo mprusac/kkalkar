@@ -305,8 +305,9 @@ const Results = () => {
                           <img
                             src={kkcupLogo.url}
                             alt="Krešimir Ćosić Cup"
-                            className="h-6 md:h-8 object-contain"
+                            className="h-9 md:h-12 object-contain"
                           />
+
                         ) : (
                           <span className="text-sm md:text-base font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
                             {match.competition}
