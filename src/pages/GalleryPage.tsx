@@ -114,7 +114,7 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen cream-page-scope">
       <div className="pt-8 pb-16">
         <div className="container mx-auto px-4">
           {/* Back link */}
@@ -141,11 +141,12 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
           >
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-2">
               <span className="text-primary">{event.homeTeam}</span>
-              <span className="text-white"> - {event.awayTeam}</span>
+              <span className="text-[#0E2A63]"> - {event.awayTeam}</span>
             </h1>
             <p className="text-primary font-display text-2xl md:text-3xl mt-2">{event.date}</p>
-            <p className="text-muted-foreground mt-4">{event.description}</p>
+            <p className="text-[#0E2A63]/70 mt-4">{event.description}</p>
           </motion.div>
+
 
           {/* Masonry Gallery - clean columns layout */}
           <div className="columns-2 md:columns-3 gap-1.5 max-w-5xl mx-auto">
