@@ -350,6 +350,18 @@ const Statistics = () => {
     : remainingAfterPage0.slice((matchPage - 1) * matchesPerPage, matchPage * matchesPerPage);
 
   const getTeamLogo = (teamName: string) => teamLogos[teamName] || null;
+  const getMatchTeamLogo = (match: any, teamName: string) => {
+    if (match?._display) return getTeamLogoFor(match._display, teamName);
+    return teamLogos[teamName] || null;
+  };
+  const getStatsLogoClass = (teamName: string) => {
+    if (teamName.includes("Alkar")) return "w-7 h-7";
+    if (teamName.includes("Široki")) return "w-6 h-6";
+    if (teamName.includes("Tomislav")) return "w-4 h-4";
+    if (teamName.includes("Dubrava") || teamName.includes("Kvarner") || teamName.includes("Samobor") || teamName.includes("Zabok")) return "w-[18px] h-[18px]";
+    if (teamName.includes("Cibona") || teamName.includes("Dubrovnik")) return "w-[17px] h-[17px]";
+    return "w-5 h-5";
+  };
 
   const getMatchResult = (match: Match) => {
     if (match.isUpcoming) return null;
@@ -505,8 +517,8 @@ const Statistics = () => {
                 >
                   {displayedMatches.map((match) => {
                     const result = getMatchResult(match);
-                    const homeLogo = getTeamLogo(match.homeTeam);
-                    const awayLogo = getTeamLogo(match.awayTeam);
+                    const homeLogo = getMatchTeamLogo(match, match.homeTeam);
+                    const awayLogo = getMatchTeamLogo(match, match.awayTeam);
                     
                     const matchContent = (
                       <div className={`px-2 py-[7px] hover:bg-secondary/50 transition-all duration-200 ${!match.isUpcoming ? 'cursor-pointer hover:shadow-md' : ''}`}>
@@ -532,8 +544,8 @@ const Statistics = () => {
                               {/* Home Team */}
                               <div className="flex items-center justify-between mb-0.5">
                                 <div className="flex items-center gap-1.5">
-                                  <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                                    {homeLogo && <img src={homeLogo} alt="" className={`object-contain ${match.homeTeam.includes("Široki") ? "w-6 h-6" : match.homeTeam.includes("Tomislav") ? "w-4 h-4" : "w-5 h-5"}`} />}
+                                  <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
+                                    {homeLogo && <img src={homeLogo} alt="" className={`object-contain ${getStatsLogoClass(match.homeTeam)}`} />}
                                   </div>
                                   <span className={`text-sm font-medium ${match.homeTeam.includes("Posušje") ? "text-primary" : "text-foreground"}`}>
                                     {match.homeTeam}
@@ -549,8 +561,8 @@ const Statistics = () => {
                               {/* Away Team */}
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-1.5">
-                                  <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                                    {awayLogo && <img src={awayLogo} alt="" className={`object-contain ${match.awayTeam.includes("Široki") ? "w-6 h-6" : match.awayTeam.includes("Tomislav") ? "w-4 h-4" : "w-5 h-5"}`} />}
+                                  <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
+                                    {awayLogo && <img src={awayLogo} alt="" className={`object-contain ${getStatsLogoClass(match.awayTeam)}`} />}
                                   </div>
                                   <span className={`text-sm font-medium ${match.awayTeam.includes("Posušje") ? "text-primary" : "text-foreground"}`}>
                                     {match.awayTeam}
