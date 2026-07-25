@@ -85,16 +85,19 @@ const Results = () => {
   };
 
   const getLogoScale = (teamName: string) => {
-    if (teamName.includes("Alkar")) return "w-14 h-14 md:w-20 md:h-20 scale-[1.3]";
-    if (teamName.includes("Posušje")) return "w-10 h-10 md:w-14 md:h-14 scale-[0.85] translate-y-[2px]";
-    if (teamName.includes("Široki")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
-    if (teamName.includes("Ljubuš")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.1]";
-    if (teamName.includes("Mostar")) return "w-10 h-10 md:w-14 md:h-14 scale-[0.95] translate-y-[2px]";
-    if (teamName.includes("Rama")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
-    if (teamName.includes("Grude")) return "w-10 h-10 md:w-14 md:h-14 scale-[1.3]";
-    if (teamName.includes("Tomislav")) return "w-10 h-10 md:w-14 md:h-14 scale-[0.95]";
-    if (teamName.includes("Čapljina")) return "w-10 h-10 md:w-14 md:h-14 scale-[0.85]";
-    return "w-7 h-7 md:w-10 md:h-10";
+    const base = "w-12 h-12 md:w-16 md:h-16";
+    if (teamName.includes("Alkar")) return `${base} scale-[1.05]`;
+    if (teamName.includes("Cibona")) return `${base} scale-[0.95]`;
+    if (teamName.includes("Cedevita")) return `${base} scale-[1.0]`;
+    if (teamName.includes("Dinamo")) return `${base} scale-[1.0]`;
+    if (teamName.includes("Dubrava")) return `${base} scale-[1.05]`;
+    if (teamName.includes("Dubrovnik")) return `${base} scale-[0.95]`;
+    if (teamName.includes("Đakovo")) return `${base} scale-[1.0]`;
+    if (teamName.includes("Kvarner")) return `${base} scale-[1.05]`;
+    if (teamName.includes("Samobor")) return `${base} scale-[1.05]`;
+    if (teamName.includes("Split")) return `${base} scale-[1.0]`;
+    if (teamName.includes("Zabok")) return `${base} scale-[1.05]`;
+    return `${base} scale-[0.9]`;
   };
 
   return (

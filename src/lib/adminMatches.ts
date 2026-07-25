@@ -1,45 +1,58 @@
 import { supabase } from "@/integrations/supabase/client";
 
 // Team logos (kept in sync with Results.tsx / Statistics.tsx)
-import logoGrude from "@/assets/logos/hkk_grude.png";
-import logoLjubuski from "@/assets/logos/hkk_ljubuski.png";
-import logoMostar from "@/assets/logos/hkk_mostar.png";
-import logoRama from "@/assets/logos/hkk_rama.png";
-import logoSiroki from "@/assets/logos/hkk_siroki.png";
-import logoTomislav from "@/assets/logos/hkk_tomislav.png";
 import logoPosusje from "@/assets/logos/kk_posusje.png";
-import logoCapljina from "@/assets/logos/hkk_capljina.png";
+import logoCedevita from "@/assets/logos/kk_cedevita_junior.png";
+import logoCibona from "@/assets/logos/kk_cibona.png";
+import logoDinamo from "@/assets/logos/kk_dinamo_zagreb.png";
+import logoDubrava from "@/assets/logos/kk_dubrava.png";
+import logoDubrovnik from "@/assets/logos/kk_dubrovnik.png";
+import logoDakovo from "@/assets/logos/kk_dakovo.png";
+import logoKvarner from "@/assets/logos/kk_kvarner.png";
+import logoSamobor from "@/assets/logos/kk_samobor.png";
+import logoSplit from "@/assets/logos/kk_split.png";
+import logoZabok from "@/assets/logos/kk_zabok.png";
 
 export const POSUSJE_NAME = "KK Alkar Sinj";
 
 export const OPPONENT_OPTIONS = [
-  "HKK Grude",
-  "HKK Ljubuški",
-  "HKK Mostar",
-  "HKK Rama",
-  "HKK Široki II",
-  "HKK Tomislav",
-  "HKK Čapljina",
+  "Cedevita Junior",
+  "Cibona",
+  "Dinamo",
+  "Dubrava",
+  "Dubrovnik",
+  "Đakovo",
+  "Kvarner",
+  "Samobor",
+  "Split",
+  "Zabok",
 ];
 
 export const staticTeamLogos: Record<string, string> = {
-  "HKK Grude": logoGrude,
-  "HKK Ljubuški": logoLjubuski,
-  "HKK Mostar": logoMostar,
-  "HKK Rama": logoRama,
-  "HKK Široki": logoSiroki,
-  "HKK Široki II": logoSiroki,
-  "KK Široki": logoSiroki,
-  "HKK Tomislav": logoTomislav,
-  "KK Tomislavgrad": logoTomislav,
   "KK Alkar Sinj": logoPosusje,
   "KK Alkar": logoPosusje,
   "Alkar": logoPosusje,
-  "HKK Posušje": logoPosusje,
-  "KK Posušje": logoPosusje,
-  "HKK Čapljina": logoCapljina,
-  "KK Čapljina": logoCapljina,
-  "Čapljina": logoCapljina,
+  "Cedevita Junior": logoCedevita,
+  "KK Cedevita Junior": logoCedevita,
+  "Cibona": logoCibona,
+  "KK Cibona": logoCibona,
+  "Dinamo": logoDinamo,
+  "KK Dinamo": logoDinamo,
+  "KK Dinamo Zagreb": logoDinamo,
+  "Dubrava": logoDubrava,
+  "KK Dubrava": logoDubrava,
+  "Dubrovnik": logoDubrovnik,
+  "KK Dubrovnik": logoDubrovnik,
+  "Đakovo": logoDakovo,
+  "KK Đakovo": logoDakovo,
+  "Kvarner": logoKvarner,
+  "KK Kvarner": logoKvarner,
+  "Samobor": logoSamobor,
+  "KK Samobor": logoSamobor,
+  "Split": logoSplit,
+  "KK Split": logoSplit,
+  "Zabok": logoZabok,
+  "KK Zabok": logoZabok,
 };
 
 export interface MatchRow {
