@@ -371,31 +371,18 @@ const Statistics = () => {
     document.body.scrollTop = 0;
   }, []);
 
-  // Refs to dynamically size the matches list to match the right column height
+  // Fixed matches-per-page based on active tab
   const rightColRef = useRef<HTMLDivElement>(null);
   const formBoxRef = useRef<HTMLDivElement>(null);
   const gamesHeaderRef = useRef<HTMLDivElement>(null);
-  const [matchesPerPage, setMatchesPerPage] = useState(9);
-
-  useLayoutEffect(() => {
-    const compute = () => {
-      const right = rightColRef.current;
-      const form = formBoxRef.current;
-      const header = gamesHeaderRef.current;
-      if (!right || !form || !header) return;
-      const gap = 12; // gap-3 between form and games in left col
-      const available = right.offsetHeight - form.offsetHeight - header.offsetHeight - gap;
-      const rowH = 62; // approx height per match row
-      const n = Math.max(4, Math.min(20, Math.floor(available / rowH)));
-      setMatchesPerPage(n);
-    };
-    compute();
-    const ro = new ResizeObserver(compute);
-    if (rightColRef.current) ro.observe(rightColRef.current);
-    window.addEventListener("resize", compute);
-    const t = setTimeout(compute, 100);
-    return () => { ro.disconnect(); window.removeEventListener("resize", compute); clearTimeout(t); };
-  }, [activeMainTab, activePlayersTab, matches.length]);
+  const matchesPerPage = useMemo(() => {
+    if (activeMainTab === "standings") return 8;
+    if (activeMainTab === "statistics") return 10;
+    if (activeMainTab === "players") {
+      return activePlayersTab === "squad" ? 17 : 7;
+    }
+    return 9;
+  }, [activeMainTab, activePlayersTab]);
 
   // Sort matches: upcoming first, then played (most recent first)
   const upcomingMatches = matches.filter(m => m.isUpcoming);
