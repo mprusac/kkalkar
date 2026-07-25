@@ -569,7 +569,7 @@ const Statistics = () => {
                               </span>
                             ) : match.competition === "Krešimir Ćosić Cup" ? (
                               <span className="inline-flex items-center gap-1 bg-primary/10 px-1.5 py-0.5 rounded">
-                                <img src={kkcupLogo} alt="Krešimir Ćosić Cup" className="h-4 object-contain" />
+                                <img src={kkcupLogo} alt="Krešimir Ćosić Cup" className="h-6 object-contain" />
                                 <span className="text-xs font-bold text-foreground">Krešimir Ćosić Cup</span>
                               </span>
                             ) : match.competition?.includes("🏆") || match.competition?.includes("Kup") ? (
