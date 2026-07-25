@@ -295,11 +295,24 @@ const Results = () => {
                             alt="SuperSport Premijer Liga"
                             className="h-6 md:h-8 object-contain"
                           />
+                        ) : match.competition === "ENBL" ? (
+                          <img
+                            src={enblLogo.url}
+                            alt="European North Basketball League"
+                            className="h-6 md:h-8 object-contain"
+                          />
+                        ) : match.competition === "Krešimir Ćosić Cup" ? (
+                          <img
+                            src={kkcupLogo.url}
+                            alt="Krešimir Ćosić Cup"
+                            className="h-6 md:h-8 object-contain"
+                          />
                         ) : (
-                          <span className="text-[8px] md:text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                          <span className="text-sm md:text-base font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
                             {match.competition}
                           </span>
                         )}
+
                       </div>
                     )}
                   </div>
