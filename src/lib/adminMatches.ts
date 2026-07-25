@@ -12,6 +12,8 @@ import logoKvarner from "@/assets/logos/kk_kvarner.png";
 import logoSamobor from "@/assets/logos/kk_samobor.png";
 import logoSplit from "@/assets/logos/kk_split.png";
 import logoZabok from "@/assets/logos/kk_zabok.png";
+import logoZadar from "@/assets/logos/kk_zadar.png";
+import logoSibenka from "@/assets/logos/kk_sibenka.png";
 
 export const POSUSJE_NAME = "KK Alkar Sinj";
 
@@ -26,6 +28,8 @@ export const OPPONENT_OPTIONS = [
   "Samobor",
   "Split",
   "Zabok",
+  "Zadar",
+  "Šibenka",
 ];
 
 export const staticTeamLogos: Record<string, string> = {
@@ -53,6 +57,10 @@ export const staticTeamLogos: Record<string, string> = {
   "KK Split": logoSplit,
   "Zabok": logoZabok,
   "KK Zabok": logoZabok,
+  "Zadar": logoZadar,
+  "KK Zadar": logoZadar,
+  "Šibenka": logoSibenka,
+  "KK Šibenka": logoSibenka,
 };
 
 export interface MatchRow {
