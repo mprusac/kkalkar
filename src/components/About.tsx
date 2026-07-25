@@ -270,7 +270,8 @@ const About = () => {
         {/* Vision */}
         <div 
           ref={visRef}
-          className={`max-w-4xl mx-auto transition-all duration-700 ${
+          className={`max-w-6xl mx-auto transition-all duration-700 ${
+
             visVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
