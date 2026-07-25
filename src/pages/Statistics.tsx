@@ -522,13 +522,13 @@ const Statistics = () => {
               <ArrowLeft className="w-5 h-5" />
               Natrag
             </button>
-            <div className="flex items-center gap-2 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:ml-4">
-              <img src={logoAlkar} alt="KK Alkar Sinj" className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110" />
-              <div className="flex flex-col leading-tight">
-                <span className="font-display text-sm text-white">KK Alkar Sinj</span>
-                <div className="flex items-center gap-1">
-                  <img src={supersportLogo} alt="SuperSport PL" className="h-3 object-contain" />
-                  <span className="text-[10px] text-white/70">SuperSport PL</span>
+            <div className="flex items-center gap-3 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:ml-4">
+              <img src={logoAlkar} alt="KK Alkar Sinj" className="w-14 h-14 object-contain transition-transform duration-300 hover:scale-110" />
+              <div className="flex flex-col leading-tight gap-1">
+                <span className="font-display text-base text-white tracking-wide">KK Alkar Sinj</span>
+                <div className="flex items-center gap-1.5">
+                  <img src={supersportLogo} alt="SuperSport PL" className="h-4 object-contain" />
+                  <span className="text-[11px] text-white/80">SuperSport PL</span>
                 </div>
               </div>
             </div>
