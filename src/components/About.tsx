@@ -25,11 +25,10 @@ const maleCategories = [
 ];
 
 const femaleCategories = [
+  "Škola košarke",
   "Mlađe kadetkinje",
-  "Kadetkinje",
-  "Juniorke",
-  "Seniorke",
 ];
+
 
 const achievements = [
   {
@@ -132,17 +131,18 @@ const About = () => {
           </h2>
 
           <div className="gold-border-left mb-10 md:mb-16 text-left mx-auto pl-4 md:pl-6 pr-2 md:pr-0" style={{ maxWidth: "800px" }}>
-            <p className="text-sm md:text-xl text-muted-foreground mb-3 md:mb-6 leading-relaxed">
+            <p className="text-sm md:text-xl text-[hsl(38,75%,38%)] mb-2 md:mb-3 leading-relaxed">
               <span className="text-primary font-bold">KK Alkar Sinj</span> je hrvatski košarkaški klub iz grada Sinja, osnovan{" "}
               <span className="text-primary font-semibold">1955. godine</span>.
             </p>
-            <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4 leading-relaxed">
+            <p className="text-sm md:text-xl text-[hsl(38,75%,38%)] mb-2 md:mb-3 leading-relaxed">
               Klub nosi ime po <span className="text-primary font-semibold">Sinjskoj alci</span> i njeguje <span className="text-primary font-semibold">sedam desetljeća tradicije</span> u najvišem rangu hrvatske košarke.
             </p>
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+            <p className="text-sm md:text-xl text-[hsl(38,75%,38%)] leading-relaxed">
               Kroz sustavan rad s mlađim kategorijama i predan trenerski rad razvijamo temelje za seniorski tim. Vjernom potporom navijača <span className="text-primary font-semibold">„Maligana"</span> gradimo <span className="text-primary font-semibold">zajedništvo, ponos i pripadnost</span> kroz svaku utakmicu. Zajedno nastavljamo pisati priču o klubu koji je srcem uvijek ostao vezan uz grad Sinj.
             </p>
           </div>
+
         </div>
 
         {/* Categories */}
@@ -158,11 +158,12 @@ const About = () => {
           
           {/* Muške selekcije */}
           <div className="mb-8">
-            <h4 className="text-sm font-semibold text-primary uppercase tracking-widest text-center mb-4 flex items-center justify-center gap-2">
+            <h4 className="text-lg md:text-xl font-semibold text-primary uppercase tracking-widest text-center mb-4 flex items-center justify-center gap-2">
               <span className="w-8 h-px bg-primary/50"></span>
               Muške
               <span className="w-8 h-px bg-primary/50"></span>
             </h4>
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {maleCategories.map((category, index) => (
                 <div
@@ -184,7 +185,7 @@ const About = () => {
           
           {/* Ženske selekcije */}
           <div>
-            <h4 className="text-sm font-semibold text-primary uppercase tracking-widest text-center mb-4 flex items-center justify-center gap-2">
+            <h4 className="text-lg md:text-xl font-semibold text-primary uppercase tracking-widest text-center mb-4 flex items-center justify-center gap-2">
               <span className="w-8 h-px bg-primary/50"></span>
               Ženske
               <span className="w-8 h-px bg-primary/50"></span>
@@ -193,7 +194,7 @@ const About = () => {
               {femaleCategories.map((category, index) => (
                 <div
                   key={category}
-                  className="group card-surface-interactive px-4 py-3 text-center font-medium text-foreground hover:bg-primary/20 cursor-default"
+                  className={`group card-surface-interactive px-4 py-3 text-center font-medium text-foreground hover:bg-primary/20 cursor-default ${index === 0 ? "md:col-start-2" : ""}`}
                   style={{ 
                     opacity: catVisible ? 1 : 0,
                     transform: catVisible ? "translateY(0)" : "translateY(20px)",
@@ -206,6 +207,7 @@ const About = () => {
                 </div>
               ))}
             </div>
+
           </div>
         </div>
 
@@ -268,7 +270,8 @@ const About = () => {
         {/* Vision */}
         <div 
           ref={visRef}
-          className={`max-w-4xl mx-auto transition-all duration-700 ${
+          className={`max-w-6xl mx-auto transition-all duration-700 ${
+
             visVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -282,9 +285,10 @@ const About = () => {
               <span className="text-foreground">NAŠA </span>
               <span className="text-primary">VIZIJA</span>
             </h3>
-            <p className="text-muted-foreground max-w-3xl mx-auto leading-relaxed text-sm md:text-lg relative z-10">
+            <p className="text-muted-foreground max-w-5xl mx-auto leading-relaxed text-sm md:text-lg relative z-10">
               Naša vizija temelji se na <span className="text-primary font-bold">očuvanju tradicije</span> uz kontinuiran razvoj mladih igrača kroz sustavan i kvalitetan rad. Naglašavamo vrijednosti kao što su <span className="text-primary font-bold">upornost, zajedništvo i vjernost klubu</span> u svakom aspektu klupskih aktivnosti. Cilj nam je stvoriti okruženje u kojem svaki mladi igrač može napredovati u vrhunskog sportaša i ponosnog nositelja dresa Alkara. Kroz ulaganje u stručni trenerski kadar, infrastrukturu i suradnju s lokalnom zajednicom, nastojimo učvrstiti <span className="text-primary font-bold">KK Alkar kao ponos grada Sinja</span> i simbol sportskih uspjeha i vjernosti navijača kroz generacije.
             </p>
+
           </div>
         </div>
       </div>
