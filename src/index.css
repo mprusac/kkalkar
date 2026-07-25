@@ -443,3 +443,26 @@ textarea:-webkit-autofill:focus {
   color: rgba(14,42,99,0.45) !important;
 }
 .admin-cream-scope label { color: #0E2A63; }
+
+/* Cream palette scope for public content pages (News, Gallery) */
+.cream-page-scope {
+  --background: 44 67% 92%;
+  --foreground: 220 79% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 79% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 79% 15%;
+  --primary: 43 55% 42%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 100%;
+  --secondary-foreground: 220 79% 15%;
+  --muted: 44 60% 88%;
+  --muted-foreground: 220 40% 30%;
+  --accent: 43 75% 88%;
+  --accent-foreground: 220 79% 15%;
+  --border: 43 55% 55%;
+  --input: 43 55% 55%;
+  --ring: 43 55% 45%;
+  background-color: #faf3e0;
+}
+.cream-page-scope .prose-invert { color: #0E2A63; }
