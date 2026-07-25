@@ -95,6 +95,12 @@ function isoToDMY(iso: string) {
   const [y, m, d] = iso.split("-");
   return `${d}.${m}.${y}`;
 }
+function dmyToIso(dmy: string) {
+  if (!dmy) return "";
+  const m = dmy.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+  if (!m) return "";
+  return `${m[3]}-${m[2]}-${m[1]}`;
+
 function todayDMY() {
   const d = new Date();
   return `${String(d.getDate()).padStart(2, "0")}.${String(d.getMonth() + 1).padStart(2, "0")}.${d.getFullYear()}`;
