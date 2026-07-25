@@ -97,6 +97,8 @@ const Results = () => {
     if (teamName.includes("Samobor")) return `${base} scale-[1.05]`;
     if (teamName.includes("Split")) return `${base} scale-[1.0]`;
     if (teamName.includes("Zabok")) return `${base} scale-[1.05]`;
+    if (teamName.includes("Zadar")) return `${base} scale-[1.0]`;
+    if (teamName.includes("Šibenka")) return `${base} scale-[1.0]`;
     return `${base} scale-[0.9]`;
   };
 
