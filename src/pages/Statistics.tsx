@@ -855,30 +855,37 @@ const Statistics = () => {
               {/* Statistics Tab */}
               <TabsContent value="statistics" className="mt-0">
                 <div className="bg-secondary/30 rounded-xl border border-border/30 p-5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 min-h-[700px]">
-                  <h3 className="font-display text-2xl md:text-3xl text-center mb-5">PREGLED</h3>
+                  <h3 className="font-display text-2xl md:text-3xl text-center mb-5">SAŽETAK</h3>
 
-                  {/* Summary cards */}
+                  {/* Per-game summary cards (image-33) */}
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                    <div className="bg-background/30 rounded-lg p-3 text-center border border-border/20 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 hover:scale-105 transition-all duration-300">
-                      <p className="text-xs md:text-sm text-muted-foreground uppercase mb-0.5">Poeni</p>
-                      <p className="text-2xl md:text-3xl font-display text-primary">1007</p>
-                      <p className="text-xs text-muted-foreground">77.5 / utk.</p>
-                    </div>
-                    <div className="bg-background/30 rounded-lg p-3 text-center border border-border/20 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 hover:scale-105 transition-all duration-300">
-                      <p className="text-xs md:text-sm text-muted-foreground uppercase mb-0.5">Skokovi</p>
-                      <p className="text-2xl md:text-3xl font-display text-foreground">491</p>
-                      <p className="text-xs text-muted-foreground">37.8 / utk.</p>
-                    </div>
-                    <div className="bg-background/30 rounded-lg p-3 text-center border border-border/20 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 hover:scale-105 transition-all duration-300">
-                      <p className="text-xs md:text-sm text-muted-foreground uppercase mb-0.5">Asistencije</p>
-                      <p className="text-2xl md:text-3xl font-display text-foreground">210</p>
-                      <p className="text-xs text-muted-foreground">16.2 / utk.</p>
-                    </div>
-                    <div className="bg-background/30 rounded-lg p-3 text-center border border-border/20 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 hover:scale-105 transition-all duration-300">
-                      <p className="text-xs md:text-sm text-muted-foreground uppercase mb-0.5">AST / TO</p>
-                      <p className="text-2xl md:text-3xl font-display text-foreground">1.30</p>
-                      <p className="text-xs text-muted-foreground">210 / 162</p>
-                    </div>
+                    {[
+                      { label: "Postignuti poeni / utk.", value: "70.9", rank: 13, tone: "warn" },
+                      { label: "Primljeni poeni / utk.", value: "78.8", rank: 3, tone: "bad" },
+                      { label: "Asistencije / utk.", value: "17.1", rank: 8, tone: "warn" },
+                      { label: "Omjer AST / TO", value: "1.2", rank: 7, tone: "warn" },
+                    ].map((s, i) => (
+                      <div key={i} className="bg-background/30 rounded-lg p-3 text-center border border-border/20 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 hover:scale-105 transition-all duration-300">
+                        <p className="text-xs md:text-sm text-muted-foreground uppercase mb-0.5">{s.label}</p>
+                        <p className="text-2xl md:text-3xl font-display text-primary">{s.value}</p>
+                        <p className="text-xs text-muted-foreground mt-0.5">#{s.rank}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Totals row (image-34) */}
+                  <div className="grid grid-cols-3 gap-3 mb-6">
+                    {[
+                      { label: "Ukupno poeni", value: "2340", rank: 12 },
+                      { label: "Primljeni koševi", value: "2601", rank: 2 },
+                      { label: "Ukupno asistencije", value: "565", rank: 10 },
+                    ].map((s, i) => (
+                      <div key={i} className="bg-background/30 rounded-lg p-3 text-center border border-border/20 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 hover:scale-105 transition-all duration-300">
+                        <p className="text-xs md:text-sm text-muted-foreground uppercase mb-0.5">{s.label}</p>
+                        <p className="text-2xl md:text-3xl font-display text-foreground">{s.value}</p>
+                        <p className="text-xs text-muted-foreground mt-0.5">#{s.rank}</p>
+                      </div>
+                    ))}
                   </div>
 
                   {/* Download button */}
@@ -892,86 +899,88 @@ const Statistics = () => {
                     </button>
                   </div>
 
-                  <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-                    {/* Shooting */}
-                    <div className="hover:scale-[1.02] transition-transform duration-300">
-                      <h4 className="font-display text-lg md:text-2xl text-center mb-3">Šut</h4>
-                      <div className="space-y-1.5">
-                        {[
-                          { label: "Iz igre (FG)", value: "386 / 851", avg: "29.7 / 65.5", pct: "45.4%" },
-                          { label: "Za 2 poena", value: "242 / 436", avg: "18.6 / 33.5", pct: "55.5%" },
-                          { label: "Za 3 poena", value: "124 / 383", avg: "9.5 / 29.5", pct: "32.4%" },
-                          { label: "Slobodna bacanja", value: "114 / 197", avg: "8.8 / 15.2", pct: "57.9%" },
-                        ].map((stat, i) => (
-                          <div key={i} className="flex items-center justify-between py-1.5 border-b border-border/10 hover:bg-background/20 hover:px-1.5 transition-all duration-200 rounded">
-                            <span className="text-sm md:text-base text-muted-foreground">{stat.label}</span>
-                            <div className="flex items-center gap-2 text-right">
-                              <div className="flex flex-col items-end">
-                                <span className="text-sm md:text-base font-medium">{stat.value}</span>
-                                <span className="text-[10px] md:text-xs text-muted-foreground">{stat.avg} /utk.</span>
-                              </div>
-                              <span className="px-1.5 py-0.5 rounded bg-primary/20 text-primary text-xs md:text-sm font-bold min-w-[48px] text-center">
-                                {stat.pct}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
+                  {(() => {
+                    const rankBadge = (rank: number) => {
+                      const tone =
+                        rank <= 4 ? { bg: "rgba(22,163,74,0.15)", color: "#15803d", border: "#15803d" }
+                        : rank <= 8 ? { bg: "rgba(59,130,246,0.15)", color: "#1d4ed8", border: "#1d4ed8" }
+                        : rank <= 10 ? { bg: "rgba(234,179,8,0.18)", color: "#a16207", border: "#a16207" }
+                        : { bg: "rgba(239,68,68,0.15)", color: "#b91c1c", border: "#b91c1c" };
+                      return (
+                        <span className="stats-rank-badge" style={{ background: tone.bg, color: tone.color, borderColor: tone.border }}>
+                          {rank}
+                        </span>
+                      );
+                    };
+                    const Row = ({ label, value, rank }: { label: string; value: string; rank: number }) => (
+                      <div className="flex items-center justify-between py-1.5 border-b border-border/10 hover:bg-background/20 hover:px-1.5 transition-all duration-200 rounded">
+                        <span className="text-sm md:text-base text-muted-foreground">{label}</span>
+                        <div className="flex items-center gap-2 text-right">
+                          <span className="text-sm md:text-base font-medium min-w-[52px] text-right">{value}</span>
+                          {rankBadge(rank)}
+                        </div>
                       </div>
-                    </div>
+                    );
 
-                    {/* Rebounds only */}
-                    <div className="hover:scale-[1.02] transition-transform duration-300">
-                      <h4 className="font-display text-lg md:text-2xl text-center mb-3">Skokovi</h4>
-                      <div className="space-y-1.5">
-                        {[
-                          { label: "Obrambeni (DR)", total: "365", avg: "28.1" },
-                          { label: "Napadački (OR)", total: "126", avg: "9.7" },
-                          { label: "Ukupno", total: "491", avg: "37.8" },
-                        ].map((stat, i) => (
-                          <div key={i} className="flex items-center justify-between py-1.5 border-b border-border/10 hover:bg-background/20 hover:px-1.5 transition-all duration-200 rounded">
-                            <span className="text-sm md:text-base text-muted-foreground">{stat.label}</span>
-                            <div className="flex flex-col items-end">
-                              <span className="text-sm md:text-base font-medium">{stat.total}</span>
-                              <span className="text-[10px] md:text-xs text-muted-foreground">{stat.avg} /utk.</span>
-                            </div>
+                    return (
+                      <div className="grid md:grid-cols-2 gap-5">
+                        {/* Napad */}
+                        <div className="hover:scale-[1.01] transition-transform duration-300">
+                          <h4 className="font-display text-lg md:text-2xl text-center mb-3">Napad</h4>
+                          <div className="space-y-1.5">
+                            <Row label="Pogođeni šutovi iz igre / utk." value="26.3" rank={13} />
+                            <Row label="Pokušani šutovi iz igre / utk." value="62.2" rank={12} />
+                            <Row label="Šut iz igre %" value="42.3%" rank={11} />
+                            <Row label="Pogođene trojke / utk." value="7.2" rank={13} />
+                            <Row label="Pokušaji za 3 poena / utk." value="22.9" rank={13} />
+                            <Row label="Tri poena %" value="31.6%" rank={11} />
+                            <Row label="Pogođena sl. bacanja / utk." value="11.1" rank={12} />
+                            <Row label="Pokušaji sl. bacanja / utk." value="16.4" rank={12} />
+                            <Row label="Slobodna bacanja %" value="67.7%" rank={12} />
                           </div>
-                        ))}
-                      </div>
-                    </div>
+                        </div>
 
-                    {/* Ostalo */}
-                    <div className="hover:scale-[1.02] transition-transform duration-300">
-                      <h4 className="font-display text-lg md:text-2xl text-center mb-3">Ostalo</h4>
-                      <div className="space-y-1.5">
-                        {[
-                          { label: "Ukradene lopte", total: "95", avg: "7.3" },
-                          { label: "Blokade", total: "30", avg: "2.3" },
-                          { label: "Izgubljene lopte", total: "162", avg: "12.5" },
-                          { label: "Osobne pogreške", total: "265", avg: "20.4" },
-                        ].map((stat, i) => (
-                          <div key={i} className="flex items-center justify-between py-1.5 border-b border-border/10 hover:bg-background/20 hover:px-1.5 transition-all duration-200 rounded">
-                            <span className="text-sm md:text-base text-muted-foreground">{stat.label}</span>
-                            <div className="flex flex-col items-end">
-                              <span className="text-sm md:text-base font-medium">{stat.total}</span>
-                              <span className="text-[10px] md:text-xs text-muted-foreground">{stat.avg} /utk.</span>
-                            </div>
+                        {/* Skokovi */}
+                        <div className="hover:scale-[1.01] transition-transform duration-300">
+                          <h4 className="font-display text-lg md:text-2xl text-center mb-3">Skokovi</h4>
+                          <div className="space-y-1.5">
+                            <Row label="Skokovi u napadu / utk." value="7.9" rank={10} />
+                            <Row label="Skokovi u obrani / utk." value="23.5" rank={9} />
+                            <Row label="Ukupno / utk." value="34.8" rank={9} />
+                            <Row label="Ukupno napadački (sezona)" value="260" rank={11} />
+                            <Row label="Ukupno obrambeni (sezona)" value="777" rank={11} />
+                            <Row label="Ukupno skokovi (sezona)" value="1147" rank={11} />
                           </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                        </div>
 
-                  {/* eFG% and TS% centered below */}
-                  <div className="mt-5 mb-4 flex gap-3 justify-center">
-                    <div className="bg-background/30 rounded-lg px-5 py-2.5 text-center border border-border/20 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 hover:scale-105 transition-all duration-300">
-                      <p className="text-[10px] md:text-xs text-muted-foreground uppercase">eFG%</p>
-                       <p className="text-xl md:text-2xl font-display text-primary">52.6%</p>
-                    </div>
-                    <div className="bg-background/30 rounded-lg px-5 py-2.5 text-center border border-border/20 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 hover:scale-105 transition-all duration-300">
-                      <p className="text-[10px] md:text-xs text-muted-foreground uppercase">TS%</p>
-                       <p className="text-xl md:text-2xl font-display text-primary">53.7%</p>
-                    </div>
-                  </div>
+                        {/* Obrana */}
+                        <div className="hover:scale-[1.01] transition-transform duration-300">
+                          <h4 className="font-display text-lg md:text-2xl text-center mb-3">Obrana</h4>
+                          <div className="space-y-1.5">
+                            <Row label="Blokirani šutovi / utk." value="2.7" rank={1} />
+                            <Row label="Ukradene lopte / utk." value="7.0" rank={9} />
+                            <Row label="Protivnički šut za 3 %" value="33.2%" rank={3} />
+                            <Row label="Protivnički postotak šuta %" value="45.7%" rank={3} />
+                            <Row label="Ukupno blokade (sezona)" value="88" rank={4} />
+                            <Row label="Ukupno ukradene (sezona)" value="230" rank={10} />
+                          </div>
+                        </div>
+
+                        {/* Ostalo */}
+                        <div className="hover:scale-[1.01] transition-transform duration-300">
+                          <h4 className="font-display text-lg md:text-2xl text-center mb-3">Ostalo</h4>
+                          <div className="space-y-1.5">
+                            <Row label="Izgubljene lopte / utk." value="13.9" rank={9} />
+                            <Row label="Ukupno izgubljene (sezona)" value="458" rank={4} />
+                            <Row label="Ukupno prekršaji (sezona)" value="656" rank={2} />
+                            <Row label="Izborene osobne pogreške u napadu" value="669" rank={11} />
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </div>
+
                 </div>
               </TabsContent>
 
