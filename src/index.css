@@ -396,3 +396,13 @@ textarea:-webkit-autofill:focus {
   -webkit-text-fill-color: hsl(var(--foreground)) !important;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+/* Admin login inputs: keep white bg + blue text on autofill */
+.admin-input:-webkit-autofill,
+.admin-input:-webkit-autofill:hover,
+.admin-input:-webkit-autofill:focus,
+.admin-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  -webkit-text-fill-color: #0E2A63 !important;
+  caret-color: #0E2A63 !important;
+}
