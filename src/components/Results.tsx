@@ -87,8 +87,11 @@ const Results = () => {
     return getTeamLogoFor(match, teamName);
   };
 
-  const getLogoScale = (_teamName: string) => {
-    return "w-12 h-12 md:w-16 md:h-16";
+  const getLogoScale = (teamName: string) => {
+    const n = teamName.toLowerCase();
+    if (n.includes("alkar")) return "scale-[1.2]";
+    if (n.includes("dubrovnik") || n.includes("šibenka") || n.includes("sibenka") || n.includes("cibona") || n.includes("cedevita")) return "scale-[0.85]";
+    return "";
   };
 
 
@@ -214,7 +217,7 @@ const Results = () => {
                           <img
                             src={homeLogo}
                             alt={match.homeTeam}
-                            className="object-contain flex-shrink-0 h-12 w-12 md:h-16 md:w-16"
+                            className={`object-contain flex-shrink-0 h-12 w-12 md:h-16 md:w-16 ${getLogoScale(match.homeTeam)}`}
                           />
                         ) : (
                           <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-muted flex items-center justify-center">
@@ -255,7 +258,7 @@ const Results = () => {
                           <img
                             src={awayLogo}
                             alt={match.awayTeam}
-                            className="object-contain flex-shrink-0 h-12 w-12 md:h-16 md:w-16"
+                            className={`object-contain flex-shrink-0 h-12 w-12 md:h-16 md:w-16 ${getLogoScale(match.awayTeam)}`}
                           />
                         ) : (
                           <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-muted flex items-center justify-center">
