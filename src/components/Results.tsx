@@ -274,7 +274,7 @@ const Results = () => {
                     </div>
 
                     {/* Team names row */}
-                    <div className="grid grid-cols-3 items-start gap-3 md:gap-5 mt-1.5 md:mt-2">
+                    <div className="grid grid-cols-3 items-start gap-3 md:gap-5 mt-1 md:mt-1">
                       <span
                         className={`text-[10px] md:text-xs font-semibold text-center leading-tight -translate-x-[15%] ${
                           match.isHome ? "text-primary" : "text-foreground"
