@@ -49,7 +49,7 @@ export interface MatchRow {
   is_home: boolean;
   posusje_score: number | null;
   opponent_score: number | null;
-  competition: "liga" | "kup";
+  competition: string;
   youtube_link: string | null;
   sofascore_link: string | null;
   opponent_logo_url: string | null;
@@ -60,9 +60,17 @@ export function formatDMY(iso: string): string {
   return `${d}.${m}.${y}`;
 }
 
-export function competitionLabel(c: MatchRow["competition"]): string {
-  return c === "kup" ? "Kup 🏆" : "SuperSport PL";
+export function competitionLabel(c: string): string {
+  switch (c) {
+    case "kup": return "Kup 🏆";
+    case "enbl": return "ENBL";
+    case "liburnia": return "Liburnia Kup";
+    case "kkcup": return "Krešimir Ćosić Cup";
+    case "liga":
+    default: return "SuperSport PL";
+  }
 }
+
 
 export interface DisplayMatch {
   id: string;
