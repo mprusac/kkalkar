@@ -223,11 +223,12 @@ const Sponsors = () => {
                     </div>
                     <div>
                       <span className="text-neutral-500 block mb-1">BANKA</span>
-                      <span className="text-neutral-900">UniCredit Bank d.d. Mostar</span>
+                      <span className="text-neutral-900">Zagrebačka banka d.d.</span>
                     </div>
                     <div>
                       <span className="text-neutral-500 block mb-1">IBAN</span>
-                      <span className="text-neutral-900">BA39 0000 0000 0000 0000</span>
+                      <span className="text-neutral-900">HR12 2360 0001 1010 0000 0</span>
+
                     </div>
                   </div>
                 </div>
