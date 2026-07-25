@@ -428,7 +428,15 @@ const Statistics = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white" style={{ zoom: 0.9 }}>
+    <div
+      className="min-h-screen"
+      style={{
+        zoom: 0.9,
+        background:
+          'linear-gradient(135deg, hsl(220 79% 15%) 0%, hsl(217 68% 30%) 50%, hsl(220 79% 12%) 100%)',
+        backgroundAttachment: 'fixed',
+      }}
+    >
       <style>{`
         .stats-light {
           --background: 0 0% 100%;
@@ -442,12 +450,10 @@ const Statistics = () => {
           --card-foreground: 220 75% 23%;
           --input: 43 60% 88%;
           --ring: 38 88% 32%;
-          background-color: #ffffff;
           color: #0E2A63;
         }
         .stats-light .text-green-400 { color: rgb(21 128 61); }
         .stats-light .text-red-400 { color: rgb(185 28 28); }
-        /* Darker gold accents across icons, borders, numbers */
         .stats-light .text-primary { color: #0E2A63; }
         .stats-light svg { transition: transform 0.25s ease, color 0.25s ease; }
         .stats-light [class*="border-border"],
@@ -459,25 +465,24 @@ const Statistics = () => {
         .stats-light .bg-secondary\\/30:hover,
         .stats-light .bg-secondary\\/40:hover,
         .stats-light .bg-secondary\\/50:hover {
-          box-shadow: 0 10px 28px -12px rgba(138, 90, 11, 0.45), 0 0 0 1px rgba(138, 90, 11, 0.35);
+          box-shadow: 0 10px 28px -12px rgba(138, 90, 11, 0.55), 0 0 0 1px rgba(138, 90, 11, 0.4);
           transform: translateY(-2px);
         }
         .stats-light button, .stats-light a { transition: all 0.25s ease; }
         .stats-light button:hover svg { transform: scale(1.08); }
         .stats-light .rounded-xl, .stats-light .rounded-lg { box-shadow: 0 4px 14px -8px rgba(14, 42, 99, 0.15); }
-        .stats-header-navy { background-color: #0E2A63; }
-        .stats-header-navy .stats-back-btn {
-          background-color: #ffffff;
-          color: #0E2A63;
-          border: 1px solid #8a5a0b;
-          box-shadow: 0 4px 12px -4px rgba(138, 90, 11, 0.4);
-          transition: all 0.3s ease;
-        }
-        .stats-header-navy .stats-back-btn:hover {
-          background-color: #8a5a0b;
+        .stats-header-navy { background-color: transparent; }
+        .stats-back-btn-text {
           color: #ffffff;
-          box-shadow: 0 6px 20px -4px rgba(138, 90, 11, 0.6);
-          transform: translateY(-1px) scale(1.03);
+          transition: all 0.25s ease;
+          text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+        }
+        .stats-back-btn-text:hover { color: #f0d78c; transform: translateX(-3px); }
+        .stats-rank-badge {
+          display: inline-flex; align-items: center; justify-content: center;
+          min-width: 22px; height: 22px; padding: 0 6px;
+          border-radius: 9999px; border: 1.5px solid;
+          font-size: 10px; font-weight: 700;
         }
       `}</style>
 
@@ -487,21 +492,20 @@ const Statistics = () => {
         path="/statistika"
       />
       {/* Header */}
-      <header className="stats-header-navy border-b border-[#8a5a0b] sticky top-0 z-50 backdrop-blur-md shadow-lg">
+      <header className="stats-header-navy border-b border-white/10 sticky top-0 z-50 backdrop-blur-md">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center">
-            <Button
+            <button
               type="button"
-              variant="outline"
-              className="stats-back-btn mr-auto"
               onClick={() => {
                 sessionStorage.setItem("restoreHomeScroll", "true");
                 navigate("/");
               }}
+              className="stats-back-btn-text mr-auto inline-flex items-center gap-2 text-base font-display tracking-wider"
             >
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <ArrowLeft className="w-5 h-5" />
               Natrag
-            </Button>
+            </button>
             <div className="flex items-end gap-3 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:ml-4">
               <img src={logoAlkar} alt="KK Alkar Sinj" className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110" />
               <div>
@@ -512,7 +516,7 @@ const Statistics = () => {
                 </div>
               </div>
             </div>
-            <h2 className="font-display text-4xl text-white hidden md:block absolute left-1/2 -translate-x-1/2 tracking-wider drop-shadow-[0_2px_8px_rgba(138,90,11,0.6)]">STATISTIKA</h2>
+            <h2 className="font-display text-4xl text-white hidden md:block absolute left-1/2 -translate-x-1/2 tracking-wider drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">STATISTIKA</h2>
             <div className="w-20 hidden md:block"></div>
           </div>
         </div>
@@ -521,7 +525,8 @@ const Statistics = () => {
 
       <main className="stats-light container mx-auto px-4 py-6">
         {/* Mobile Title */}
-        <h2 className="font-display text-3xl text-primary text-center mb-6 md:hidden">STATISTIKA</h2>
+        <h2 className="font-display text-3xl text-white text-center mb-6 md:hidden drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">STATISTIKA</h2>
+
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-5">
           {/* Left Column - Form & Games */}
