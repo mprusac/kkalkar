@@ -39,6 +39,8 @@ const COMPETITION_OPTIONS: { value: CompetitionValue; label: string; logo?: stri
   { value: "liburnia", label: "Liburnia Kup", emoji: "🏆" },
   { value: "kup", label: "Kup", emoji: "🏆" },
 ];
+const PAGE_SIZE = 30;
+const SIGNED_URL_TTL = 60 * 60 * 24 * 365 * 10; // 10 years
 
 interface NewsItem {
   id: string;
