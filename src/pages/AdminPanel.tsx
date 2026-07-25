@@ -724,7 +724,7 @@ export default function AdminPanel() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-7 w-7"
+                className="h-7 w-7 text-black hover:text-white"
                 onClick={() => setCategoryModal(true)}
                 title="Upravljaj kategorijama"
               >
