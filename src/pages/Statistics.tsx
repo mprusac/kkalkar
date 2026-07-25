@@ -733,7 +733,7 @@ const Statistics = () => {
           {/* Right Column - Tabs */}
           <div className="lg:col-span-9 order-1 lg:order-2">
             <Tabs value={activeMainTab} onValueChange={setActiveMainTab} className="w-full">
-              <TabsList className="w-full bg-secondary/30 border border-border/30 rounded-xl p-1 mb-5 hover:shadow-lg transition-shadow duration-300">
+              <TabsList className="w-full bg-transparent border-0 rounded-xl p-0 mb-5 overflow-hidden gap-0">
                 <TabsTrigger value="standings" className="flex-1 font-display text-xl md:text-2xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-200">
                   Poredak
                 </TabsTrigger>
