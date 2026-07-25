@@ -427,7 +427,27 @@ const Statistics = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background" style={{ zoom: 0.9 }}>
+    <div className="min-h-screen bg-white" style={{ zoom: 0.9 }}>
+      <style>{`
+        .stats-light {
+          --background: 0 0% 100%;
+          --foreground: 220 75% 23%;
+          --secondary: 43 68% 92%;
+          --secondary-foreground: 220 75% 23%;
+          --muted: 43 60% 88%;
+          --muted-foreground: 220 30% 40%;
+          --border: 40 79% 47%;
+          --card: 43 68% 92%;
+          --card-foreground: 220 75% 23%;
+          --input: 43 60% 88%;
+          --ring: 40 79% 47%;
+          background-color: #ffffff;
+          color: #0E2A63;
+        }
+        .stats-light .text-green-400 { color: rgb(21 128 61); }
+        .stats-light .text-red-400 { color: rgb(185 28 28); }
+      `}</style>
+
       <SEO
         title="Statistika i tablica lige — KK Posušje"
         description="Tablica Premijer lige BiH, raspored utakmica, rezultati i statistike igrača KK Posušje u sezoni 2025/26."
