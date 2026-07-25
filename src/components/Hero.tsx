@@ -87,7 +87,7 @@ const Hero = () => {
             </Button>
             <Button
               size="lg"
-              className="group relative overflow-hidden bg-transparent border-2 border-primary text-primary hover:text-primary-foreground font-display uppercase tracking-widest px-4 py-5 sm:py-7 text-base sm:text-lg transition-all duration-500 w-full sm:w-64 whitespace-nowrap"
+              className="group relative overflow-hidden bg-transparent border-2 border-primary text-primary hover:text-primary-foreground font-display uppercase tracking-widest px-5 py-5 sm:py-7 text-base sm:text-lg transition-all duration-500 w-full sm:w-auto whitespace-nowrap"
               asChild
             >
               <a href="#kontakt">
