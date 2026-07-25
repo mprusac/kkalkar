@@ -95,12 +95,13 @@ const Footer = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white border border-[hsl(43,68%,67%)] text-[hsl(38,75%,38%)] flex items-center justify-center hover:scale-110 transition-transform"
+                className="p-2 text-muted-foreground hover:text-primary transition-colors"
                 aria-label={social.label}
               >
                 <social.icon size={20} />
               </a>
             ))}
+
 
           </div>
         </div>
