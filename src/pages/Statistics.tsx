@@ -443,14 +443,12 @@ const Statistics = () => {
               <span className="font-display tracking-wider text-xl">Nazad</span>
             </button>
             <div className="flex items-end gap-3 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:ml-4">
-              <img src={logoPosusje} alt="HKK Posušje" className="w-10 h-10 object-contain" />
+              <img src={logoAlkar} alt="KK Alkar Sinj" className="w-10 h-10 object-contain" />
               <div>
-                <h1 className="font-display text-lg text-foreground leading-none">HKK Posušje</h1>
+                <h1 className="font-display text-lg text-foreground leading-none">KK Alkar Sinj</h1>
                 <div className="flex items-end gap-1 pb-0.5">
-                  <a href="https://www.kshb.ba/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                    <img src={logoKSHB} alt="KSHB" className="w-3 h-3 object-contain" />
-                  </a>
-                  <p className="text-[10px] text-muted-foreground leading-none">Liga KSHB</p>
+                  <img src={supersportLogo} alt="SuperSport PL" className="h-3 object-contain" />
+                  <p className="text-[10px] text-muted-foreground leading-none">SuperSport PL</p>
                 </div>
               </div>
             </div>
