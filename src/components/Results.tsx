@@ -209,12 +209,12 @@ const Results = () => {
                     {/* Logos + score, vertically aligned */}
                     <div className="grid grid-cols-3 items-center gap-3 md:gap-5">
                       {/* Home Team logo */}
-                      <div className="flex justify-end items-center h-14 md:h-20">
+                      <div className="flex justify-center items-center h-14 md:h-20">
                         {homeLogo ? (
                           <img
                             src={homeLogo}
                             alt={match.homeTeam}
-                            className={`object-contain flex-shrink-0 ${getLogoScale(match.homeTeam)}`}
+                            className="object-contain flex-shrink-0 h-12 w-12 md:h-16 md:w-16"
                           />
                         ) : (
                           <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-muted flex items-center justify-center">
@@ -224,6 +224,7 @@ const Results = () => {
                           </div>
                         )}
                       </div>
+
 
                       {/* Score */}
                       <div className="justify-self-center flex items-center gap-1.5 md:gap-3 bg-background/40 px-2 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl border border-border/30 h-10 md:h-14">
