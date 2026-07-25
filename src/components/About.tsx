@@ -185,7 +185,7 @@ const About = () => {
           
           {/* Ženske selekcije */}
           <div>
-            <h4 className="text-sm font-semibold text-primary uppercase tracking-widest text-center mb-4 flex items-center justify-center gap-2">
+            <h4 className="text-lg md:text-xl font-semibold text-primary uppercase tracking-widest text-center mb-4 flex items-center justify-center gap-2">
               <span className="w-8 h-px bg-primary/50"></span>
               Ženske
               <span className="w-8 h-px bg-primary/50"></span>
@@ -194,7 +194,7 @@ const About = () => {
               {femaleCategories.map((category, index) => (
                 <div
                   key={category}
-                  className="group card-surface-interactive px-4 py-3 text-center font-medium text-foreground hover:bg-primary/20 cursor-default"
+                  className={`group card-surface-interactive px-4 py-3 text-center font-medium text-foreground hover:bg-primary/20 cursor-default ${index === 0 ? "md:col-start-2" : ""}`}
                   style={{ 
                     opacity: catVisible ? 1 : 0,
                     transform: catVisible ? "translateY(0)" : "translateY(20px)",
@@ -207,6 +207,7 @@ const About = () => {
                 </div>
               ))}
             </div>
+
           </div>
         </div>
 
