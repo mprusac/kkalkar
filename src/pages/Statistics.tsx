@@ -703,7 +703,7 @@ const Statistics = () => {
                             : team.team === "Cibona" || team.team === "Dubrovnik" ? "w-[92%] h-[92%]"
                             : "w-full h-full";
                           return (
-                            <>
+                            <React.Fragment key={team.position}>
                               {separator && (
                                 <TableRow key={`sep-${team.position}`} className="hover:bg-transparent border-border/20">
                                   <TableCell colSpan={10} className={`text-[10px] md:text-xs font-semibold py-1 md:py-1.5 px-2 md:px-4 ${separator.color}`}>
