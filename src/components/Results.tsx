@@ -163,7 +163,7 @@ const Results = () => {
                   href={match.sofascoreLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex-shrink-0 card-surface p-4 md:p-6 border-2 border-primary cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 hover:[box-shadow:0_0_25px_6px_hsl(var(--primary)/0.45)] snap-start ${
+                  className={`group flex-shrink-0 card-surface px-4 pt-4 pb-[0.85rem] md:px-6 md:pt-6 md:pb-[1.275rem] border-2 border-primary cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 hover:[box-shadow:0_0_25px_6px_hsl(var(--primary)/0.45)] snap-start ${
                     isWin
                       ? "hover:border-primary"
                       : "hover:border-primary"
