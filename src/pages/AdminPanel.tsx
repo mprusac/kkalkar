@@ -558,6 +558,10 @@ export default function AdminPanel() {
               {loggingIn && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
               Prijava
             </Button>
+            <Button type="button" variant="outline" className="w-full" onClick={() => navigate("/")}>
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Natrag
+            </Button>
           </form>
         </Card>
       </div>
