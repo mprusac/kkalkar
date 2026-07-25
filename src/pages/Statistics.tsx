@@ -46,6 +46,11 @@ import logoDinamo from "@/assets/logos/kk_dinamo_zagreb.png";
 import logoSibenka from "@/assets/logos/kk_sibenka.png";
 import logoAlkar from "@/assets/logos/kk_posusje.png";
 const supersportLogo = supersportAsset.url;
+import enblAsset from "@/assets/logos/enbl.png.asset.json";
+import kkcupAsset from "@/assets/logos/kresimir_cosic_cup.png.asset.json";
+const enblLogo = enblAsset.url;
+const kkcupLogo = kkcupAsset.url;
+
 
 // Import ŽKK logos
 import logoZkkPosusje from "@/assets/logos/zkk_posusje.png";
