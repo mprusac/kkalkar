@@ -377,7 +377,7 @@ const Statistics = () => {
   const gamesHeaderRef = useRef<HTMLDivElement>(null);
   const matchesPerPage = useMemo(() => {
     if (activeMainTab === "standings") return 8;
-    if (activeMainTab === "team") return 10;
+    if (activeMainTab === "statistics") return 10;
     if (activeMainTab === "players") {
       return activePlayersTab === "roster" ? 17 : 7;
     }
