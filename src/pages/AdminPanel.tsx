@@ -660,9 +660,10 @@ export default function AdminPanel() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
+    <div className="min-h-screen text-foreground" style={{ backgroundColor: "#faf3e0" }}>
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b" style={{ borderColor: "#c9a24c" }}>
         <div className="max-w-[1600px] mx-auto grid grid-cols-3 items-center px-4 py-3">
+
           <div className="flex justify-start">
             <Button
               variant="outline"
