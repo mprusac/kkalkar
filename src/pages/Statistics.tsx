@@ -427,7 +427,27 @@ const Statistics = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background" style={{ zoom: 0.9 }}>
+    <div className="min-h-screen bg-white" style={{ zoom: 0.9 }}>
+      <style>{`
+        .stats-light {
+          --background: 0 0% 100%;
+          --foreground: 220 75% 23%;
+          --secondary: 43 68% 92%;
+          --secondary-foreground: 220 75% 23%;
+          --muted: 43 60% 88%;
+          --muted-foreground: 220 30% 40%;
+          --border: 40 79% 47%;
+          --card: 43 68% 92%;
+          --card-foreground: 220 75% 23%;
+          --input: 43 60% 88%;
+          --ring: 40 79% 47%;
+          background-color: #ffffff;
+          color: #0E2A63;
+        }
+        .stats-light .text-green-400 { color: rgb(21 128 61); }
+        .stats-light .text-red-400 { color: rgb(185 28 28); }
+      `}</style>
+
       <SEO
         title="Statistika i tablica lige — KK Posušje"
         description="Tablica Premijer lige BiH, raspored utakmica, rezultati i statistike igrača KK Posušje u sezoni 2025/26."
@@ -463,7 +483,7 @@ const Statistics = () => {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-6">
+      <main className="stats-light container mx-auto px-4 py-6">
         {/* Mobile Title */}
         <h2 className="font-display text-3xl text-primary text-center mb-6 md:hidden">STATISTIKA</h2>
         
@@ -1067,7 +1087,7 @@ const Statistics = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-3 right-3 md:bottom-5 md:right-5 z-50 w-[243px] md:w-[324px] bg-secondary border border-border/30 rounded-lg shadow-2xl shadow-black/40 overflow-hidden cursor-default"
+            className="stats-light fixed bottom-3 right-3 md:bottom-5 md:right-5 z-50 w-[243px] md:w-[324px] bg-secondary border border-border/30 rounded-lg shadow-2xl shadow-black/40 overflow-hidden cursor-default"
           >
             <div className="p-3 md:p-4">
               <div className="flex items-center justify-between mb-2">
