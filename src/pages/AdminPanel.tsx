@@ -526,17 +526,21 @@ export default function AdminPanel() {
   // ---------- LOGIN VIEW ----------
   if (!token) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4 relative" style={{ backgroundColor: "#faf3e0" }}>
+      <div className="min-h-screen flex items-center justify-center p-4 relative animate-fade-in" style={{ backgroundColor: "#2a4a94" }}>
         <Button
           type="button"
           variant="outline"
-          className="absolute top-4 left-4 bg-white border-white text-[hsl(217,55%,45%)] hover:bg-[hsl(43,68%,67%)] hover:text-white hover:border-[hsl(43,68%,67%)]"
+          className="absolute top-4 left-4 bg-white text-[#0E2A63] shadow-md transition-all duration-300 hover:bg-[#c9a24c] hover:text-white hover:shadow-lg hover:shadow-[#c9a24c]/40 hover:scale-105"
+          style={{ borderColor: "#c9a24c", borderWidth: 1 }}
           onClick={() => navigate("/")}
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Natrag
         </Button>
-        <Card className="w-full max-w-sm p-6 space-y-4 bg-white shadow-lg" style={{ borderColor: "#c9a24c", borderWidth: 1 }}>
+        <Card
+          className="w-full max-w-sm p-6 space-y-4 bg-white shadow-2xl animate-scale-in transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,162,76,0.35)]"
+          style={{ borderColor: "#c9a24c", borderWidth: 1 }}
+        >
           <div className="space-y-1 text-center">
             <h1 className="text-2xl font-semibold" style={{ color: "#0E2A63" }}>Admin Panel</h1>
             <p className="text-sm" style={{ color: "#0E2A63", opacity: 0.75 }}>Prijavite se za nastavak</p>
@@ -550,6 +554,7 @@ export default function AdminPanel() {
                 value={loginForm.username}
                 onChange={(e) => setLoginForm({ ...loginForm, username: e.target.value })}
                 required
+                className="transition-all duration-300 focus:shadow-[0_0_0_3px_rgba(201,162,76,0.25)]"
                 style={{ backgroundColor: "#ffffff", color: "#0E2A63", borderColor: "#f0e4c2" }}
               />
             </div>
@@ -562,15 +567,22 @@ export default function AdminPanel() {
                 value={loginForm.password}
                 onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
                 required
+                className="transition-all duration-300 focus:shadow-[0_0_0_3px_rgba(201,162,76,0.25)]"
                 style={{ backgroundColor: "#ffffff", color: "#0E2A63", borderColor: "#f0e4c2" }}
               />
             </div>
-            <Button type="submit" className="w-full text-white" disabled={loggingIn} style={{ backgroundColor: "#c9a24c" }}>
+            <Button
+              type="submit"
+              className="w-full text-white shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-[#c9a24c]/50 hover:scale-[1.02] hover:brightness-110"
+              disabled={loggingIn}
+              style={{ backgroundColor: "#c9a24c" }}
+            >
               {loggingIn && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
               Prijava
             </Button>
           </form>
         </Card>
+
       </div>
 
     );
