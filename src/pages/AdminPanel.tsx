@@ -1684,29 +1684,22 @@ function MatchForm({
 
           <div className="space-y-2">
             <Label>Natjecanje</Label>
-            <div className="flex gap-2">
-              <Button
-                type="button"
-                variant={competition === "liga" ? "default" : "outline"}
-                onClick={() => setCompetition("liga")}
-                className={competition === "liga" ? "bg-gold-dark text-foreground hover:bg-gold-dark/90" : undefined}
-              >
-                <span className="flex items-center gap-2">
-                  Liga KSHB
-                  <img src={logoKSHB} alt="KSHB" className="w-5 h-5 object-contain" />
-                </span>
-              </Button>
-              <Button
-                type="button"
-                variant={competition === "kup" ? "default" : "outline"}
-                onClick={() => setCompetition("kup")}
-                className={competition === "kup" ? "bg-gold-dark text-foreground hover:bg-gold-dark/90" : undefined}
-              >
-                <span className="flex items-center gap-2">
-                  Kup KSHB
-                  <span aria-hidden>🏆</span>
-                </span>
-              </Button>
+            <div className="flex flex-wrap gap-2">
+              {COMPETITION_OPTIONS.map((opt) => (
+                <Button
+                  key={opt.value}
+                  type="button"
+                  variant={competition === opt.value ? "default" : "outline"}
+                  onClick={() => setCompetition(opt.value)}
+                  className={competition === opt.value ? "bg-gold-dark text-foreground hover:bg-gold-dark/90" : undefined}
+                >
+                  <span className="flex items-center gap-2">
+                    {opt.label}
+                    {opt.logo && <img src={opt.logo} alt="" className="w-5 h-5 object-contain" />}
+                    {opt.emoji && <span aria-hidden>{opt.emoji}</span>}
+                  </span>
+                </Button>
+              ))}
             </div>
           </div>
 
