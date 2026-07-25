@@ -295,7 +295,7 @@ const Results = () => {
 
                     {/* Competition label below teams/score */}
                     {match.competition && (
-                      <div className="flex justify-center mt-2">
+                      <div className="flex justify-center mt-1">
                         {match.competition === "SuperSport PL" ? (
                           <img
                             src={supersportLogo.url}
