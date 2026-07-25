@@ -278,7 +278,7 @@ const Results = () => {
                       <span
                         className={`text-[10px] md:text-xs font-semibold text-center leading-tight ${
                           match.isHome ? "text-primary" : "text-foreground"
-                        }`}
+                        } ${match.homeTeam.toLowerCase().includes("alkar") ? "[text-shadow:0_0_10px_hsl(var(--primary)/0.9),0_0_18px_hsl(var(--primary)/0.6)]" : ""}`}
                       >
                         {displayTeamName(match.homeTeam)}
                       </span>
@@ -286,7 +286,7 @@ const Results = () => {
                       <span
                         className={`text-[10px] md:text-xs font-semibold text-center leading-tight ${
                           !match.isHome ? "text-primary" : "text-foreground"
-                        }`}
+                        } ${match.awayTeam.toLowerCase().includes("alkar") ? "[text-shadow:0_0_10px_hsl(var(--primary)/0.9),0_0_18px_hsl(var(--primary)/0.6)]" : ""}`}
                       >
                         {displayTeamName(match.awayTeam)}
                       </span>
