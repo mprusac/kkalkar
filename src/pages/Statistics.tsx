@@ -472,7 +472,7 @@ const Statistics = () => {
         .stats-light .bg-secondary\\/30,
         .stats-light .bg-secondary\\/40,
         .stats-light .bg-secondary\\/50,
-        .stats-light .bg-card { transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease; }
+        .stats-light .bg-card { background-color: #faf3e0 !important; transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease; }
         .stats-light .bg-secondary\\/30:hover,
         .stats-light .bg-secondary\\/40:hover,
         .stats-light .bg-secondary\\/50:hover {
