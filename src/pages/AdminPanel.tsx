@@ -526,11 +526,11 @@ export default function AdminPanel() {
   // ---------- LOGIN VIEW ----------
   if (!token) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-4 relative">
+      <div className="min-h-screen flex items-center justify-center p-4 relative" style={{ backgroundColor: "hsl(217, 55%, 45%)" }}>
         <Button
           type="button"
           variant="outline"
-          className="absolute top-4 left-4"
+          className="absolute top-4 left-4 bg-white border-white text-[hsl(217,55%,45%)] hover:bg-[hsl(43,68%,67%)] hover:text-white hover:border-[hsl(43,68%,67%)]"
           onClick={() => navigate("/")}
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
@@ -538,22 +538,23 @@ export default function AdminPanel() {
         </Button>
         <Card className="w-full max-w-sm p-6 space-y-4 bg-white border border-border shadow-lg">
           <div className="space-y-1 text-center">
-            <h1 className="text-2xl font-semibold text-[hsl(var(--background))]">Admin Panel</h1>
-            <p className="text-sm text-[hsl(var(--background))]/70">Prijavite se za nastavak</p>
+            <h1 className="text-2xl font-semibold" style={{ color: "hsl(217, 55%, 45%)" }}>Admin Panel</h1>
+            <p className="text-sm" style={{ color: "hsl(217, 55%, 45%)", opacity: 0.75 }}>Prijavite se za nastavak</p>
           </div>
           <form onSubmit={handleLogin} className="space-y-3">
             <div className="space-y-1.5">
-              <Label htmlFor="username" className="text-[hsl(var(--background))]">Korisničko ime</Label>
+              <Label htmlFor="username" style={{ color: "hsl(217, 55%, 45%)" }}>Korisničko ime</Label>
               <Input
                 id="username"
                 autoComplete="username"
                 value={loginForm.username}
                 onChange={(e) => setLoginForm({ ...loginForm, username: e.target.value })}
                 required
+                style={{ backgroundColor: "hsl(43, 75%, 88%)", color: "hsl(217, 55%, 45%)" }}
               />
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="password" className="text-[hsl(var(--background))]">Lozinka</Label>
+              <Label htmlFor="password" style={{ color: "hsl(217, 55%, 45%)" }}>Lozinka</Label>
               <Input
                 id="password"
                 type="password"
@@ -561,6 +562,7 @@ export default function AdminPanel() {
                 value={loginForm.password}
                 onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
                 required
+                style={{ backgroundColor: "hsl(43, 75%, 88%)", color: "hsl(217, 55%, 45%)" }}
               />
             </div>
             <Button type="submit" className="w-full text-white" disabled={loggingIn}>
