@@ -116,6 +116,43 @@ function maskDate(value: string) {
   }
   return out;
 }
+
+function NativeDateInputDMY({ value, onChange }: { value: string; onChange: (dmy: string) => void }) {
+  const ref = useRef<HTMLInputElement>(null);
+  const open = () => {
+    const el = ref.current;
+    if (!el) return;
+    try {
+      // @ts-ignore
+      if (typeof el.showPicker === "function") el.showPicker();
+      else el.focus();
+    } catch {
+      el.focus();
+    }
+  };
+  return (
+    <div className="relative">
+      <Input
+        ref={ref}
+        type="date"
+        value={dmyToIso(value)}
+        onChange={(e) => onChange(isoToDMY(e.target.value))}
+        onClick={open}
+        className="pl-10 pr-3 date-input-native-picker cursor-pointer"
+      />
+      <button
+        type="button"
+        onClick={open}
+        className="absolute left-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded hover:bg-muted pointer-events-none"
+        aria-label="Odaberi datum"
+        tabIndex={-1}
+      >
+        <Calendar className="w-5 h-5" />
+      </button>
+    </div>
+  );
+}
+
 async function signedUrl(bucket: string, path: string) {
   const { data, error } = await supabase.storage.from(bucket).createSignedUrl(path, SIGNED_URL_TTL);
   if (error) throw error;
