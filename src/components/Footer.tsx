@@ -34,7 +34,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <div>
             <img src={logo} alt="KK Alkar Sinj" className="h-40 w-auto mb-0 mx-auto md:mx-0" />
-            <p className="text-muted-foreground text-sm whitespace-nowrap -mt-2">
+            <p className="text-muted-foreground text-sm whitespace-nowrap -mt-8">
               „Najveći mali klub na svitu."
             </p>
           </div>
