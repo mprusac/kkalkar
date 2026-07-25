@@ -176,7 +176,8 @@ const Results = () => {
                     animationDelay: `${index * 100}ms`,
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible ? "translateX(0)" : "translateX(30px)",
-                    transition: `all 0.5s ease ${index * 0.1}s`
+                    transition: `all 0.5s ease ${index * 0.1}s`,
+                    background: 'linear-gradient(135deg, hsl(220 79% 15%) 0%, hsl(217 68% 30%) 50%, hsl(220 79% 12%) 100%)'
                   }}
                 >
                   {/* Header with date and link */}
