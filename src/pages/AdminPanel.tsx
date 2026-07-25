@@ -526,15 +526,24 @@ export default function AdminPanel() {
   // ---------- LOGIN VIEW ----------
   if (!token) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center p-4">
-        <Card className="w-full max-w-sm p-6 space-y-4 bg-card border border-border shadow-lg">
+      <div className="min-h-screen bg-background flex items-center justify-center p-4 relative">
+        <Button
+          type="button"
+          variant="outline"
+          className="absolute top-4 left-4"
+          onClick={() => navigate("/")}
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Natrag
+        </Button>
+        <Card className="w-full max-w-sm p-6 space-y-4 bg-white border border-border shadow-lg">
           <div className="space-y-1 text-center">
-            <h1 className="text-2xl font-semibold text-foreground">Admin Panel</h1>
-            <p className="text-sm text-muted-foreground">Prijavite se za nastavak</p>
+            <h1 className="text-2xl font-semibold text-[hsl(var(--background))]">Admin Panel</h1>
+            <p className="text-sm text-[hsl(var(--background))]/70">Prijavite se za nastavak</p>
           </div>
           <form onSubmit={handleLogin} className="space-y-3">
             <div className="space-y-1.5">
-              <Label htmlFor="username">Korisničko ime</Label>
+              <Label htmlFor="username" className="text-[hsl(var(--background))]">Korisničko ime</Label>
               <Input
                 id="username"
                 autoComplete="username"
@@ -544,7 +553,7 @@ export default function AdminPanel() {
               />
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="password">Lozinka</Label>
+              <Label htmlFor="password" className="text-[hsl(var(--background))]">Lozinka</Label>
               <Input
                 id="password"
                 type="password"
@@ -557,10 +566,6 @@ export default function AdminPanel() {
             <Button type="submit" className="w-full text-white" disabled={loggingIn}>
               {loggingIn && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
               Prijava
-            </Button>
-            <Button type="button" variant="outline" className="w-full" onClick={() => navigate("/")}>
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Natrag
             </Button>
           </form>
         </Card>
