@@ -562,7 +562,17 @@ const Statistics = () => {
                           <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
                             <span>{match.date}</span>
                             {(match as any).time && <span>{(match as any).time}</span>}
-                            {match.competition?.includes("Kup") ? (
+                            {match.competition === "ENBL" ? (
+                              <span className="inline-flex items-center gap-1 bg-primary/10 px-1.5 py-0.5 rounded">
+                                <img src={enblLogo} alt="ENBL" className="h-4 object-contain" />
+                                <span className="text-xs font-bold text-foreground">ENBL</span>
+                              </span>
+                            ) : match.competition === "Krešimir Ćosić Cup" ? (
+                              <span className="inline-flex items-center gap-1 bg-primary/10 px-1.5 py-0.5 rounded">
+                                <img src={kkcupLogo} alt="Krešimir Ćosić Cup" className="h-4 object-contain" />
+                                <span className="text-xs font-bold text-foreground">Krešimir Ćosić Cup</span>
+                              </span>
+                            ) : match.competition?.includes("🏆") || match.competition?.includes("Kup") ? (
                               <span className="text-xs font-bold text-foreground bg-primary/10 px-1.5 py-0.5 rounded inline-flex items-center gap-1">
                                 {match.competition}
                               </span>
@@ -572,6 +582,7 @@ const Statistics = () => {
                                 <img src={supersportLogo} alt="SuperSport PL" className="h-3.5 object-contain -mt-0.5" />
                               </span>
                             )}
+
                             
                           </div>
                           
