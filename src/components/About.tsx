@@ -133,14 +133,14 @@ const About = () => {
 
           <div className="gold-border-left mb-10 md:mb-16 text-left mx-auto pl-4 md:pl-6 pr-2 md:pr-0" style={{ maxWidth: "800px" }}>
             <p className="text-sm md:text-xl text-muted-foreground mb-3 md:mb-6 leading-relaxed">
-              <span className="text-primary font-bold">HKK Posušje</span> je hrvatski košarkaški klub iz grada Posušja, osnovan{" "}
-              <span className="text-primary font-semibold">1975. godine</span>.
+              <span className="text-primary font-bold">KK Alkar Sinj</span> je hrvatski košarkaški klub iz grada Sinja, osnovan{" "}
+              <span className="text-primary font-semibold">1955. godine</span>.
             </p>
             <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4 leading-relaxed">
-              Klub njeguje više od <span className="text-primary font-semibold">pet desetljeća tradicije</span> rada s mladima i okuplja igrače iz cijele regije.
+              Klub nosi ime po <span className="text-primary font-semibold">Sinjskoj alci</span> i njeguje <span className="text-primary font-semibold">sedam desetljeća tradicije</span> u najvišem rangu hrvatske košarke.
             </p>
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              Kroz sustavan rad u omladinskim kategorijama i disciplinirane treninge razvijamo temelje za seniorski tim. Intenzivnim trudom gradimo <span className="text-primary font-semibold">zajedništvo, odgovornost i timski duh</span> kroz svaki trening. Zajedno težimo stvaranju novih sportskih uspjeha i pozitivnih vrijednosti u lokalnoj zajednici.
+              Kroz sustavan rad s mlađim kategorijama i predan trenerski rad razvijamo temelje za seniorski tim. Vjernom potporom navijača <span className="text-primary font-semibold">„Maligana"</span> gradimo <span className="text-primary font-semibold">zajedništvo, ponos i pripadnost</span> kroz svaku utakmicu. Zajedno nastavljamo pisati priču o klubu koji je srcem uvijek ostao vezan uz grad Sinj.
             </p>
           </div>
         </div>
