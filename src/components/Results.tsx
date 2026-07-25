@@ -262,11 +262,13 @@ const Results = () => {
                       {/* Away Team logo */}
                       <div className="flex justify-center items-center h-12 md:h-16 translate-x-[15%]">
                         {awayLogo ? (
-                          <img
-                            src={awayLogo}
-                            alt={match.awayTeam}
-                            className={`object-contain flex-shrink-0 h-12 w-12 md:h-16 md:w-16 ${getLogoScale(match.awayTeam)}`}
-                          />
+                          <div className="h-12 w-12 md:h-16 md:w-16 rounded-full bg-white flex items-center justify-center shadow-md p-1">
+                            <img
+                              src={awayLogo}
+                              alt={match.awayTeam}
+                              className={`object-contain max-h-full max-w-full ${getLogoScale(match.awayTeam)}`}
+                            />
+                          </div>
                         ) : (
                           <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-muted flex items-center justify-center">
                             <span className="text-[10px] md:text-xs font-bold text-muted-foreground">
