@@ -743,7 +743,7 @@ const Statistics = () => {
           </div>
 
           {/* Right Column - Tabs */}
-          <div className="lg:col-span-9 order-1 lg:order-2">
+          <div ref={rightColRef} className="lg:col-span-9 order-1 lg:order-2">
             <Tabs value={activeMainTab} onValueChange={setActiveMainTab} className="w-full">
               <TabsList className="w-full bg-transparent border-0 rounded-xl p-0 mb-5 overflow-hidden gap-0">
                 <TabsTrigger value="standings" style={{ backgroundColor: '#faf3e0', color: '#0E2A63' }} className="flex-1 font-display text-xl md:text-2xl data-[state=active]:!bg-primary data-[state=active]:!text-primary-foreground transition-all duration-200">
