@@ -234,22 +234,36 @@ const About = () => {
               return (
                 <div
                   key={achievement.title}
-                  className="group relative flex items-start gap-3 md:gap-4 p-3 md:p-5 card-surface-interactive"
+                  className="group relative flex items-start gap-3 md:gap-4 p-3 md:p-5 rounded-xl md:rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
                   style={{ 
                     opacity: achVisible ? 1 : 0,
                     transform: achVisible ? "translateX(0)" : "translateX(-30px)",
-                    transition: `all 0.5s ease ${index * 0.1}s`
+                    transition: `all 0.5s ease ${index * 0.1}s`,
+                    backgroundColor: "#faf3e0",
+                    border: "1.5px solid #d4a017",
+                    boxShadow: "0 4px 20px rgba(212,160,23,0.15)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#fff8e1";
+                    e.currentTarget.style.boxShadow = "0 0 24px rgba(212,160,23,0.35)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#faf3e0";
+                    e.currentTarget.style.boxShadow = "0 4px 20px rgba(212,160,23,0.15)";
                   }}
                 >
                   {/* Icon */}
-                  <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
-                    <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                  <div
+                    className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300"
+                    style={{ backgroundColor: "#f0d78a", border: "1.5px solid #0E2A63" }}
+                  >
+                    <IconComponent className="w-5 h-5 md:w-6 md:h-6" style={{ color: "#0E2A63" }} />
                   </div>
                   
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <h4 className="font-display text-base md:text-xl text-foreground tracking-wide leading-tight">
+                      <h4 className="font-display text-base md:text-xl tracking-wide leading-tight" style={{ color: "#0E2A63" }}>
                         {achievement.title}
                       </h4>
                       {achievement.emoji === "flags" ? (
@@ -261,13 +275,14 @@ const About = () => {
                         <span className="text-base md:text-lg">{achievement.emoji}</span>
                       )}
                     </div>
-                    <p className="text-primary font-medium text-xs md:text-sm mb-1">
+                    <p className="font-medium text-xs md:text-sm mb-1" style={{ color: "#0E2A63" }}>
                       {achievement.subtitle}
                     </p>
-                    <p className="text-muted-foreground text-xs md:text-sm">
+                    <p className="text-xs md:text-sm" style={{ color: "rgba(14,42,99,0.75)" }}>
                       {achievement.description}
                     </p>
                   </div>
+
                 </div>
               );
             })}
