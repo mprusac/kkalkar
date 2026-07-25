@@ -71,6 +71,7 @@ import playerBasicLuka from "@/assets/player-basic-luka.png";
 // Import flag images
 import flagBih from "@/assets/flags/bih-flag.png";
 import flagCro from "@/assets/flags/cro-flag.png";
+import flagUsa from "@/assets/flags/usa-flag.png";
 
 // Logo mapping
 const teamLogos: Record<string, string> = {
@@ -424,6 +425,7 @@ const Statistics = () => {
   const getFlagImage = (nationality: string) => {
     if (nationality === "BIH") return flagBih;
     if (nationality === "HRV" || nationality === "CRO") return flagCro;
+    if (nationality === "USA") return flagUsa;
     return null;
   };
 
@@ -472,7 +474,7 @@ const Statistics = () => {
         .stats-light .bg-secondary\\/30,
         .stats-light .bg-secondary\\/40,
         .stats-light .bg-secondary\\/50,
-        .stats-light .bg-card { transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease; }
+        .stats-light .bg-card { background-color: #faf3e0 !important; transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease; }
         .stats-light .bg-secondary\\/30:hover,
         .stats-light .bg-secondary\\/40:hover,
         .stats-light .bg-secondary\\/50:hover {
