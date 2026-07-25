@@ -379,7 +379,7 @@ const Statistics = () => {
     if (activeMainTab === "standings") return 8;
     if (activeMainTab === "statistics") return 10;
     if (activeMainTab === "players") {
-      return activePlayersTab === "roster" ? 17 : 7;
+      return activePlayersTab === "squad" ? 17 : 7;
     }
     return 9;
   }, [activeMainTab, activePlayersTab]);
