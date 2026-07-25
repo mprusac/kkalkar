@@ -202,7 +202,16 @@ const Sponsors = () => {
                 </div>
 
                 {/* Payment Info - Inside expandable */}
-                <div className="bg-white border border-border/40 rounded-xl shadow-md p-4 md:p-6">
+                <div
+                  className="border rounded-xl p-4 md:p-6"
+                  style={{
+                    background: 'linear-gradient(180deg, #ffffff 0%, #fff8e6 60%, #faf3e0 100%)',
+                    borderColor: '#d4a017',
+                    borderWidth: '1.5px',
+                    boxShadow: '0 4px 16px rgba(212,160,23,0.12)',
+                  }}
+                >
+
                   <h4 className="font-display text-base md:text-lg mb-3 md:mb-4">
                     <span className="text-neutral-900">PODACI ZA </span>
                     <span className="text-[hsl(38,75%,38%)]">PLAĆANJE</span>
