@@ -93,7 +93,7 @@ const Results = () => {
     const n = teamName.toLowerCase();
     if (n.includes("alkar")) return "scale-[1.32]";
     if (n.includes("dinamo") || n.includes("dubrava")) return "scale-[0.9]";
-    if (n.includes("split")) return "scale-[1.1] translate-y-[6px]";
+    if (n.includes("split")) return "scale-[1.1] -translate-y-[6px]";
     if (n.includes("dubrovnik") || n.includes("šibenka") || n.includes("sibenka") || n.includes("cibona") || n.includes("cedevita")) return "scale-[0.85]";
     return "";
   };
