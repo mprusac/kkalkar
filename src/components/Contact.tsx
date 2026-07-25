@@ -179,8 +179,8 @@ const Contact = () => {
           {/* Contact Info & Map */}
           <div className="flex flex-col gap-3 md:gap-4 animate-fade-in-up delay-200 h-full">
             {/* Contact Details */}
-            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive cursor-default flex-1">
-              <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive hover-lift hover-glow cursor-default flex-1 transition-all duration-500 hover:shadow-lg hover:shadow-primary/40">
+              <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-primary/50 transition-all duration-500">
                 <MapPin className="text-primary" size={18} />
               </div>
               <div>
@@ -191,8 +191,8 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive flex-1">
-              <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive hover-lift hover-glow flex-1 transition-all duration-500 hover:shadow-lg hover:shadow-primary/40">
+              <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-primary/50 transition-all duration-500">
                 <Mail className="text-primary" size={18} />
               </div>
               <div>
@@ -206,8 +206,8 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive flex-1">
-              <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive hover-lift hover-glow flex-1 transition-all duration-500 hover:shadow-lg hover:shadow-primary/40">
+              <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-primary/50 transition-all duration-500">
                 <Phone className="text-primary" size={18} />
               </div>
               <div>
