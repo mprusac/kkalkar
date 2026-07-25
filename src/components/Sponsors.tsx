@@ -30,7 +30,7 @@ interface SponsorTier {
 const sponsorTiers: SponsorTier[] = [
   {
     name: "ZLATNI",
-    price: "10.000 BAM",
+    price: "10.000 EUR",
     benefits: [
       "Natpis na prednjem dijelu dresa",
       "Objava na svim kanalima",
@@ -43,14 +43,14 @@ const sponsorTiers: SponsorTier[] = [
   },
   {
     name: "SREBRENI",
-    price: "5.000 BAM",
+    price: "5.000 EUR",
     benefits: ["Natpis na prednjem dijelu dresa", "Objava na svim kanalima"],
     icon: <Medal className="w-4 h-4 md:w-8 md:h-8" />,
     color: "text-[hsl(0,0%,75%)]",
   },
   {
     name: "BRONČANI",
-    price: "2.500 BAM",
+    price: "2.500 EUR",
     benefits: ["Natpis na donjem dijelu dresa", "Objava na svim kanalima"],
     icon: <Award className="w-4 h-4 md:w-8 md:h-8" />,
     color: "text-[hsl(30,60%,45%)]",
