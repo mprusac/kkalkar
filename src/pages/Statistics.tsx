@@ -187,23 +187,33 @@ const womenStandings: WomenStanding[] = [
 
 // Players roster - based on Team.tsx players
 const players: Player[] = [
-  { number: "09", name: "Ante Kovač", position: "Krilo", nationality: "BIH", height: "190 cm", dateOfBirth: "30/05/2001", age: 24, image: playerKovac, sofascoreLink: "https://www.sofascore.com/basketball/player/ante-kovac/1578849" },
-  { number: "13", name: "Ante Begić", position: "Krilo", nationality: "BIH", height: "197 cm", dateOfBirth: "08/09/1995", age: 30, image: playerBegic, sofascoreLink: "https://www.sofascore.com/basketball/player/ante-begic/2046150" },
-  { number: "04", name: "Josip Ramljak", position: "Bek", nationality: "BIH", height: "190 cm", dateOfBirth: "18/08/2000", age: 25, image: playerRamljak, sofascoreLink: "https://www.sofascore.com/basketball/player/josip-ramljak/1578845" },
-  { number: "13", name: "Mirko Đerek", position: "Centar", nationality: "HRV", height: "201 cm", dateOfBirth: "25/06/1990", age: 35, image: playerDerek, sofascoreLink: "https://www.sofascore.com/basketball/player/mirko-derek/1578853" },
-  { number: "18", name: "Marko Protrka", position: "Centar", nationality: "BIH", height: "200 cm", dateOfBirth: "21/01/2007", age: 18, image: playerProtrka, sofascoreLink: "https://www.sofascore.com/basketball/player/marko-protrka/1578855" },
-  { number: "08", name: "Luka Bašić", position: "Bek", nationality: "BIH", height: "193 cm", dateOfBirth: "15/07/2007", age: 18, image: playerBasicLuka, sofascoreLink: "https://www.sofascore.com/basketball/player/luka-basic/1965464" },
-  { number: "12", name: "Josip Pavković", position: "Bek", nationality: "BIH", height: "196 cm", dateOfBirth: "29/05/2008", age: 17, image: playerPavkovic, sofascoreLink: "https://www.sofascore.com/basketball/player/josip-pavkovic/1845527" },
-  { number: "06", name: "David Dragoja", position: "Bek", nationality: "BIH", height: "-", dateOfBirth: "05/09/2007", age: 18, sofascoreLink: "https://www.sofascore.com/basketball/player/david-dragoja/2078664" },
-  { number: "05", name: "Stipe Bešlić", position: "Bek", nationality: "HRV", height: "-", dateOfBirth: "-", age: undefined, sofascoreLink: "https://www.sofascore.com/basketball/player/stipe-beslic/2339336" },
-  { number: "10", name: "Luka Ramljak", position: "Bek", nationality: "HRV", height: "-", dateOfBirth: "-", age: undefined, sofascoreLink: "https://www.sofascore.com/basketball/player/luka-ramljak/2364289" },
-  { number: "07", name: "Jakov Ramljak", position: "Bek", nationality: "HRV", height: "-", dateOfBirth: "-", age: undefined, sofascoreLink: "https://www.sofascore.com/basketball/player/jakov-ramljak/1578854" },
-  { number: "15", name: "Ivan Ramljak", position: "Bek", nationality: "HRV", height: "-", dateOfBirth: "-", age: undefined, sofascoreLink: "https://www.sofascore.com/basketball/player/ivan-ramljak/2339345" },
-  { number: "14", name: "Marko Petrović", position: "Krilo", nationality: "-", height: "-", dateOfBirth: "-", age: undefined, sofascoreLink: "https://www.sofascore.com/basketball/player/marko-petrovic/2358568" },
-  { number: "15", name: "Ante Pišković", position: "Bek", nationality: "HRV", height: "-", dateOfBirth: "-", age: undefined, sofascoreLink: "https://www.sofascore.com/basketball/player/ante-piskovic/2364287" },
-  { number: "14", name: "Ante Ramljak", position: "Bek", nationality: "HRV", height: "189 cm", dateOfBirth: "-", age: undefined, sofascoreLink: "https://www.sofascore.com/basketball/player/ante-ramljak/2339280" },
-  { number: "-", name: "Marko Ramljak", position: "Bek", nationality: "BIH", height: "-", dateOfBirth: "19/10/2009", age: 16, sofascoreLink: "" },
+  // Bekovi
+  { number: "1", name: "Emanuel Domazet", position: "Bek", nationality: "CRO", height: "178 cm", dateOfBirth: "03.02.2007.", age: 19 },
+  { number: "31", name: "Gabriel Karamarko", position: "Bek", nationality: "CRO", height: "186 cm", dateOfBirth: "24.09.2004.", age: 21 },
+  { number: "10", name: "Maksim Matulina", position: "Bek", nationality: "CRO", height: "189 cm", dateOfBirth: "25.11.2003.", age: 22 },
+  { number: "0", name: "Tray Hollowell", position: "Bek", nationality: "USA", height: "190 cm", dateOfBirth: "16.07.1998.", age: 28 },
+  { number: "1", name: "Terrell Burden", position: "Bek", nationality: "USA", height: "178 cm", dateOfBirth: "25.11.2000.", age: 25 },
+  { number: "35", name: "Mirko Jukić", position: "Bek", nationality: "CRO", height: "198 cm", dateOfBirth: "26.06.2003.", age: 23 },
+  { number: "7", name: "Ivan Pavela", position: "Bek", nationality: "CRO", height: "184 cm", dateOfBirth: "07.10.2005.", age: 20 },
+  { number: "24", name: "Borna Jurela", position: "Bek", nationality: "CRO", height: "196 cm", dateOfBirth: "15.12.2003.", age: 22 },
+  { number: "0", name: "Jarred Hyder", position: "Bek", nationality: "USA", height: "190 cm", dateOfBirth: "16.06.2001.", age: 25 },
+  { number: "3", name: "Luka Cvitanović", position: "Bek", nationality: "CRO", height: "192 cm", dateOfBirth: "08.01.2000.", age: 26 },
+  { number: "-", name: "Quinton Morton-Robertson", position: "Bek", nationality: "USA", height: "173 cm", dateOfBirth: "12.04.2001.", age: 25 },
+  // Krila
+  { number: "1", name: "Ante Brzović", position: "Krilo", nationality: "CRO", height: "208 cm", dateOfBirth: "02.06.2000.", age: 26 },
+  { number: "8", name: "Fabian Šiško", position: "Krilo", nationality: "CRO", height: "198 cm", dateOfBirth: "11.04.2003.", age: 23 },
+  { number: "9", name: "Antonio Klepo", position: "Krilo", nationality: "CRO", height: "190 cm", dateOfBirth: "12.04.2004.", age: 22 },
+  { number: "12", name: "Duje Brala", position: "Krilo", nationality: "CRO", height: "196 cm", dateOfBirth: "04.02.2003.", age: 23 },
+  { number: "2", name: "Pavle Marčinković", position: "Krilo", nationality: "CRO", height: "197 cm", dateOfBirth: "06.05.1989.", age: 37 },
+  { number: "11", name: "Marijan Mastelić", position: "Krilo", nationality: "CRO", height: "198 cm", dateOfBirth: "10.10.2007.", age: 18 },
+  // Centri
+  { number: "17", name: "Mladen Tomašević", position: "Centar", nationality: "CRO", height: "203 cm", dateOfBirth: "18.09.2003.", age: 22 },
+  { number: "12", name: "Mario Krešić", position: "Centar", nationality: "CRO", height: "203 cm", dateOfBirth: "26.11.2002.", age: 23 },
+  { number: "4", name: "Deantoni Gordon", position: "Centar", nationality: "USA", height: "203 cm", dateOfBirth: "28.09.2000.", age: 25 },
+  { number: "32", name: "Vlatko Granic", position: "Centar", nationality: "CRO", height: "206 cm", dateOfBirth: "15.07.1994.", age: 32 },
+  { number: "15", name: "Mario Spaleta", position: "Centar", nationality: "CRO", height: "210 cm", dateOfBirth: "04.12.1995.", age: 30 },
 ];
+
 
 // Top players data
 const topScorers: TopPlayer[] = [
