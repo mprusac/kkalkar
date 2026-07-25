@@ -12,6 +12,8 @@ import logoKvarner from "@/assets/logos/kk_kvarner.png";
 import logoSamobor from "@/assets/logos/kk_samobor.png";
 import logoSplit from "@/assets/logos/kk_split.png";
 import logoZabok from "@/assets/logos/kk_zabok.png";
+import logoZadar from "@/assets/logos/kk_zadar.png";
+import logoSibenka from "@/assets/logos/kk_sibenka.png";
 
 export const POSUSJE_NAME = "KK Alkar Sinj";
 
