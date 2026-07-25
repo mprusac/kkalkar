@@ -28,6 +28,8 @@ export const OPPONENT_OPTIONS = [
   "Samobor",
   "Split",
   "Zabok",
+  "Zadar",
+  "Šibenka",
 ];
 
 export const staticTeamLogos: Record<string, string> = {
