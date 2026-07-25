@@ -980,9 +980,8 @@ const Statistics = () => {
                     );
                   })()}
                 </div>
-
-                </div>
               </TabsContent>
+
 
               {/* Players Tab */}
               <TabsContent value="players" className="mt-0">
