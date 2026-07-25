@@ -483,7 +483,7 @@ const Statistics = () => {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-6">
+      <main className="stats-light container mx-auto px-4 py-6">
         {/* Mobile Title */}
         <h2 className="font-display text-3xl text-primary text-center mb-6 md:hidden">STATISTIKA</h2>
         
