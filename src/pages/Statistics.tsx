@@ -21,6 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 
 // Import team logos
 import logoGrude from "@/assets/logos/hkk_grude.png";
@@ -436,52 +437,87 @@ const Statistics = () => {
           --secondary-foreground: 220 75% 23%;
           --muted: 43 60% 88%;
           --muted-foreground: 220 30% 40%;
-          --border: 40 79% 47%;
+          --border: 38 88% 32%;
           --card: 43 68% 92%;
           --card-foreground: 220 75% 23%;
           --input: 43 60% 88%;
-          --ring: 40 79% 47%;
+          --ring: 38 88% 32%;
           background-color: #ffffff;
           color: #0E2A63;
         }
         .stats-light .text-green-400 { color: rgb(21 128 61); }
         .stats-light .text-red-400 { color: rgb(185 28 28); }
+        /* Darker gold accents across icons, borders, numbers */
+        .stats-light .text-primary { color: #0E2A63; }
+        .stats-light svg { transition: transform 0.25s ease, color 0.25s ease; }
+        .stats-light [class*="border-border"],
+        .stats-light [class*="border-primary"] { border-color: #8a5a0b !important; }
+        .stats-light .bg-secondary\\/30,
+        .stats-light .bg-secondary\\/40,
+        .stats-light .bg-secondary\\/50,
+        .stats-light .bg-card { transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease; }
+        .stats-light .bg-secondary\\/30:hover,
+        .stats-light .bg-secondary\\/40:hover,
+        .stats-light .bg-secondary\\/50:hover {
+          box-shadow: 0 10px 28px -12px rgba(138, 90, 11, 0.45), 0 0 0 1px rgba(138, 90, 11, 0.35);
+          transform: translateY(-2px);
+        }
+        .stats-light button, .stats-light a { transition: all 0.25s ease; }
+        .stats-light button:hover svg { transform: scale(1.08); }
+        .stats-light .rounded-xl, .stats-light .rounded-lg { box-shadow: 0 4px 14px -8px rgba(14, 42, 99, 0.15); }
+        .stats-header-navy { background-color: #0E2A63; }
+        .stats-header-navy .stats-back-btn {
+          background-color: #ffffff;
+          color: #0E2A63;
+          border: 1px solid #8a5a0b;
+          box-shadow: 0 4px 12px -4px rgba(138, 90, 11, 0.4);
+          transition: all 0.3s ease;
+        }
+        .stats-header-navy .stats-back-btn:hover {
+          background-color: #8a5a0b;
+          color: #ffffff;
+          box-shadow: 0 6px 20px -4px rgba(138, 90, 11, 0.6);
+          transform: translateY(-1px) scale(1.03);
+        }
       `}</style>
 
       <SEO
-        title="Statistika i tablica lige — KK Posušje"
-        description="Tablica Premijer lige BiH, raspored utakmica, rezultati i statistike igrača KK Posušje u sezoni 2025/26."
+        title="Statistika i tablica lige — KK Alkar Sinj"
+        description="Tablica SuperSport Premijer lige, raspored utakmica, rezultati i statistike igrača KK Alkar Sinj u sezoni 2025/26."
         path="/statistika"
       />
       {/* Header */}
-      <header className="bg-secondary/50 border-b border-border/50 sticky top-0 z-50 backdrop-blur-md">
+      <header className="stats-header-navy border-b border-[#8a5a0b] sticky top-0 z-50 backdrop-blur-md shadow-lg">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center">
-            <button 
+            <Button
+              type="button"
+              variant="outline"
+              className="stats-back-btn mr-auto"
               onClick={() => {
                 sessionStorage.setItem("restoreHomeScroll", "true");
                 navigate("/");
-              }} 
-              className="inline-flex items-center gap-3 text-primary hover:text-primary/80 transition-colors mr-auto text-lg"
+              }}
             >
-              <ArrowLeft className="w-6 h-6" />
-              <span className="font-display tracking-wider text-xl">Nazad</span>
-            </button>
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Natrag
+            </Button>
             <div className="flex items-end gap-3 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:ml-4">
-              <img src={logoAlkar} alt="KK Alkar Sinj" className="w-10 h-10 object-contain" />
+              <img src={logoAlkar} alt="KK Alkar Sinj" className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110" />
               <div>
-                <h1 className="font-display text-lg text-foreground leading-none">KK Alkar Sinj</h1>
+                <h1 className="font-display text-lg text-white leading-none">KK Alkar Sinj</h1>
                 <div className="flex items-end gap-1 pb-0.5">
                   <img src={supersportLogo} alt="SuperSport PL" className="h-3 object-contain" />
-                  <p className="text-[10px] text-muted-foreground leading-none">SuperSport PL</p>
+                  <p className="text-[10px] text-white/70 leading-none">SuperSport PL</p>
                 </div>
               </div>
             </div>
-            <h2 className="font-display text-4xl text-primary hidden md:block absolute left-1/2 -translate-x-1/2">STATISTIKA</h2>
+            <h2 className="font-display text-4xl text-white hidden md:block absolute left-1/2 -translate-x-1/2 tracking-wider drop-shadow-[0_2px_8px_rgba(138,90,11,0.6)]">STATISTIKA</h2>
             <div className="w-20 hidden md:block"></div>
           </div>
         </div>
       </header>
+
 
       <main className="stats-light container mx-auto px-4 py-6">
         {/* Mobile Title */}
