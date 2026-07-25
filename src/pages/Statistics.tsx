@@ -85,6 +85,18 @@ const teamLogos: Record<string, string> = {
   "ŽKK Zrinjski 2010": logoZkkZrinjski,
   "ŽKK Livno": logoZkkLivno,
   "HŽKK Tomislav": logoZkkTomislav,
+  "Zadar": logoZadar,
+  "Cibona": logoCibona,
+  "Split": logoSplit,
+  "Samobor": logoSamobor,
+  "Dubrovnik": logoDubrovnik,
+  "Zabok": logoZabok,
+  "Dubrava": logoDubrava,
+  "Kvarner": logoKvarner,
+  "Alkar": logoAlkar,
+  "Cedevita Junior": logoCedevitaJunior,
+  "Dinamo": logoDinamo,
+  "Šibenka": logoSibenka,
 };
 
 interface Match {
