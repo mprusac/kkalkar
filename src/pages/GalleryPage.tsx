@@ -5,82 +5,8 @@ import { ArrowLeft, Camera, X, ChevronLeft, ChevronRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 
-import eventTomislav from "@/assets/event-tomislav.png";
-import eventSiroki from "@/assets/event-siroki.png";
-import eventRama from "@/assets/event-rama.png";
-import eventLjubuski from "@/assets/event-ljubuski.jpg";
 
-// Import Berlin images
-import berlinG1 from "@/assets/berlin/berlin-g1.jpg";
-import berlinG2 from "@/assets/berlin/berlin-g2.jpg";
-import berlinG3 from "@/assets/berlin/berlin-g3.jpg";
-import berlinG4 from "@/assets/berlin/berlin-g4.jpg";
-import berlinG5 from "@/assets/berlin/berlin-g5.jpg";
-import berlinG6 from "@/assets/berlin/berlin-g6.jpg";
-import berlinG7 from "@/assets/berlin/berlin-g7.jpg";
-import berlinG8 from "@/assets/berlin/berlin-g8.jpg";
-import berlinG9 from "@/assets/berlin/berlin-g9.jpg";
-import berlin9 from "@/assets/berlin/berlin-9.jpg";
-import berlinGalleryCover from "@/assets/berlin/berlin-gallery-cover.jpg";
 
-// Import Xmas Gear images
-import xmasGear1 from "@/assets/xmas-gear/xmas-gear-1.jpg";
-import xmasGear2 from "@/assets/xmas-gear/xmas-gear-2.jpg";
-import xmasGear3 from "@/assets/xmas-gear/xmas-gear-3.jpg";
-import xmasGear4 from "@/assets/xmas-gear/xmas-gear-4.jpg";
-import xmasGear5 from "@/assets/xmas-gear/xmas-gear-5.jpg";
-import xmasGear6 from "@/assets/xmas-gear/xmas-gear-6.jpg";
-import xmasGear7 from "@/assets/xmas-gear/xmas-gear-7.jpg";
-import xmasGear8 from "@/assets/xmas-gear/xmas-gear-8.jpg";
-import xmasGearCover from "@/assets/xmas-gear/xmas-gear-cover.png";
-
-// Import Tomislav images
-import tomislav1 from "@/assets/tomislav/tomislav-1.jpg";
-import tomislav2 from "@/assets/tomislav/tomislav-2.jpg";
-import tomislav3 from "@/assets/tomislav/tomislav-3.png";
-import tomislav4 from "@/assets/tomislav/tomislav-4.jpg";
-import tomislav5 from "@/assets/tomislav/tomislav-5.jpg";
-import tomislav6 from "@/assets/tomislav/tomislav-6.jpg";
-import tomislav7 from "@/assets/tomislav/tomislav-7.png";
-import tomislav8 from "@/assets/tomislav/tomislav-8.jpg";
-import tomislav9 from "@/assets/tomislav/tomislav-9.png";
-import tomislav10 from "@/assets/tomislav/tomislav-10.jpg";
-
-// Import Rama images
-import rama1 from "@/assets/rama/rama-1.png";
-import rama2 from "@/assets/rama/rama-2.jpg";
-import rama3 from "@/assets/rama/rama-3.jpg";
-import rama4 from "@/assets/rama/rama-4.jpg";
-import rama5 from "@/assets/rama/rama-5.jpg";
-import rama6 from "@/assets/rama/rama-6.jpg";
-import rama7 from "@/assets/rama/rama-7.jpg";
-import rama8 from "@/assets/rama/rama-8.png";
-import rama9 from "@/assets/rama/rama-9.png";
-import rama10 from "@/assets/rama/rama-10.jpg";
-
-// Import Široki images
-import siroki1 from "@/assets/siroki/siroki-1.jpg";
-import siroki2 from "@/assets/siroki/siroki-2.jpg";
-import siroki3 from "@/assets/siroki/siroki-3.jpg";
-import siroki4 from "@/assets/siroki/siroki-4.jpg";
-import siroki5 from "@/assets/siroki/siroki-5.jpg";
-import siroki6 from "@/assets/siroki/siroki-6.jpg";
-import siroki7 from "@/assets/siroki/siroki-7.png";
-import siroki8 from "@/assets/siroki/siroki-8.png";
-import siroki9 from "@/assets/siroki/siroki-9.png";
-import siroki10 from "@/assets/siroki/siroki-10.png";
-
-// Import Ljubuški images
-import ljubuski1 from "@/assets/ljubuski/ljubuski-1.jpg";
-import ljubuski2 from "@/assets/ljubuski/ljubuski-2.jpg";
-import ljubuski3 from "@/assets/ljubuski/ljubuski-3.jpg";
-import ljubuski4 from "@/assets/ljubuski/ljubuski-4.jpg";
-import ljubuski5 from "@/assets/ljubuski/ljubuski-5.jpg";
-import ljubuski6 from "@/assets/ljubuski/ljubuski-6.jpg";
-import ljubuski7 from "@/assets/ljubuski/ljubuski-7.png";
-import ljubuski8 from "@/assets/ljubuski/ljubuski-8.png";
-import ljubuski9 from "@/assets/ljubuski/ljubuski-9.png";
-import ljubuski10 from "@/assets/ljubuski/ljubuski-10.jpg";
 
 // Image orientation type - vertical or horizontal
 type ImageWithOrientation = {
