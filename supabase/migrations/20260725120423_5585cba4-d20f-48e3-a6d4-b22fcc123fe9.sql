@@ -1,0 +1,2 @@
+ALTER TABLE public.matches DROP CONSTRAINT IF EXISTS matches_competition_check;
+ALTER TABLE public.matches ADD CONSTRAINT matches_competition_check CHECK (competition IN ('liga','kup','enbl','liburnia','kkcup'));
