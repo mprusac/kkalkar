@@ -149,7 +149,7 @@
   }
 
   .stat-label {
-    @apply text-xs md:text-sm uppercase tracking-widest text-muted-foreground mt-2;
+    @apply text-xs md:text-sm uppercase tracking-widest mt-2 text-[hsl(38,75%,38%)];
   }
 
   .player-number {
