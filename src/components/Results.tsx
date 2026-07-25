@@ -181,7 +181,7 @@ const Results = () => {
                   }}
                 >
                   {/* Header with date and link */}
-                  <div className="relative z-30 grid grid-cols-3 items-center gap-3 md:gap-5 mb-3 md:mb-4">
+                  <div className="relative z-20 grid grid-cols-3 items-center gap-3 md:gap-5 mb-3 md:mb-4">
                     <div className="flex justify-center items-center -translate-x-[15%]">
                       {match.youtubeLink ? (
                         <a
@@ -189,15 +189,13 @@ const Results = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="relative z-30 inline-flex items-center justify-center bg-white rounded-md p-1 shadow-md transition-transform hover:scale-110"
+                          className="transition-transform hover:scale-110"
                           title="YouTube"
                         >
-                          <img src={youtubeIcon.url} alt="YouTube" className="h-4 md:h-5 w-auto object-contain" />
+                          <img src={youtubeIcon.url} alt="YouTube" className="h-5 md:h-6 w-auto object-contain" />
                         </a>
                       ) : (
-                        <span className="relative z-30 inline-flex items-center justify-center bg-white/70 rounded-md p-1 shadow-md opacity-50">
-                          <img src={youtubeIcon.url} alt="YouTube" className="h-4 md:h-5 w-auto object-contain" />
-                        </span>
+                        <img src={youtubeIcon.url} alt="YouTube" className="h-5 md:h-6 w-auto object-contain opacity-30" />
                       )}
                     </div>
                     <div className="flex justify-center">
@@ -206,8 +204,8 @@ const Results = () => {
                       </span>
                     </div>
                     <div className="flex justify-center items-center translate-x-[15%]">
-                      <span title="SofaScore" className="relative z-30 inline-flex items-center justify-center bg-white rounded-md p-1 shadow-md transition-transform group-hover:scale-110">
-                        <img src={sofascoreIcon.url} alt="SofaScore" className="h-4 md:h-5 w-4 md:w-5 object-contain" />
+                      <span title="SofaScore" className="transition-transform group-hover:scale-110 inline-flex">
+                        <img src={sofascoreIcon.url} alt="SofaScore" className="h-5 md:h-6 w-5 md:w-6 object-contain rounded" />
                       </span>
                     </div>
                   </div>
@@ -219,13 +217,11 @@ const Results = () => {
                       {/* Home Team logo */}
                       <div className="flex justify-center items-center h-12 md:h-16 -translate-x-[15%]">
                         {homeLogo ? (
-                          <div className="h-12 w-12 md:h-16 md:w-16 rounded-full bg-white flex items-center justify-center shadow-md p-1">
-                            <img
-                              src={homeLogo}
-                              alt={match.homeTeam}
-                              className={`object-contain max-h-full max-w-full ${getLogoScale(match.homeTeam)}`}
-                            />
-                          </div>
+                          <img
+                            src={homeLogo}
+                            alt={match.homeTeam}
+                            className={`object-contain flex-shrink-0 h-12 w-12 md:h-16 md:w-16 ${getLogoScale(match.homeTeam)}`}
+                          />
                         ) : (
                           <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-muted flex items-center justify-center">
                             <span className="text-[10px] md:text-xs font-bold text-muted-foreground">
@@ -262,13 +258,11 @@ const Results = () => {
                       {/* Away Team logo */}
                       <div className="flex justify-center items-center h-12 md:h-16 translate-x-[15%]">
                         {awayLogo ? (
-                          <div className="h-12 w-12 md:h-16 md:w-16 rounded-full bg-white flex items-center justify-center shadow-md p-1">
-                            <img
-                              src={awayLogo}
-                              alt={match.awayTeam}
-                              className={`object-contain max-h-full max-w-full ${getLogoScale(match.awayTeam)}`}
-                            />
-                          </div>
+                          <img
+                            src={awayLogo}
+                            alt={match.awayTeam}
+                            className={`object-contain flex-shrink-0 h-12 w-12 md:h-16 md:w-16 ${getLogoScale(match.awayTeam)}`}
+                          />
                         ) : (
                           <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-muted flex items-center justify-center">
                             <span className="text-[10px] md:text-xs font-bold text-muted-foreground">
