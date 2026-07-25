@@ -75,7 +75,13 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto items-stretch">
           {/* Contact Form */}
           <div className="animate-fade-in-up h-full">
-            <div className="card-surface-interactive hover-lift hover-glow p-5 md:p-8 h-full flex flex-col shadow-lg hover:shadow-primary/40 transition-all duration-500">
+            <div
+              className="rounded-xl overflow-hidden border-2 border-primary shadow-[0_0_30px_hsl(48,96%,53%,0.2)] hover-lift hover-glow p-5 md:p-8 h-full flex flex-col transition-all duration-500"
+              style={{
+                background:
+                  'linear-gradient(135deg, hsl(220 79% 15%) 0%, hsl(217 68% 30%) 50%, hsl(220 79% 12%) 100%)',
+              }}
+            >
               <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5 flex-1 flex flex-col gap-4">
                 <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
                   <div className="group">

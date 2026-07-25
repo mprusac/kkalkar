@@ -718,7 +718,7 @@ export default function AdminPanel() {
           {/* Vijesti */}
           <section className="space-y-3 min-w-0">
             <div className="flex items-center justify-center gap-2">
-              <h2 className="font-display text-xl text-primary uppercase tracking-wider text-center">
+              <h2 className="font-display text-xl uppercase tracking-wider text-center text-[hsl(38,75%,38%)]">
                 Vijesti
               </h2>
               <Button
@@ -733,7 +733,7 @@ export default function AdminPanel() {
             </div>
 
             {news.length === 0 && !loading && (
-              <p className="text-muted-foreground py-8 text-center">Nema vijesti.</p>
+              <p className="text-black py-8 text-center">Nema vijesti.</p>
             )}
 
             <div className="space-y-2">
@@ -769,12 +769,12 @@ export default function AdminPanel() {
 
           {/* Galerije */}
           <section className="space-y-3 min-w-0">
-            <h2 className="font-display text-xl text-primary uppercase tracking-wider text-center">
+            <h2 className="font-display text-xl uppercase tracking-wider text-center text-[hsl(38,75%,38%)]">
               Galerije
             </h2>
 
             {galleries.length === 0 && !loading && (
-              <p className="text-muted-foreground py-8 text-center">Nema galerija.</p>
+              <p className="text-black py-8 text-center">Nema galerija.</p>
             )}
 
             <div className="space-y-2">
@@ -806,11 +806,11 @@ export default function AdminPanel() {
 
           {/* Utakmice */}
           <section className="space-y-3 min-w-0">
-            <h2 className="font-display text-xl text-primary uppercase tracking-wider text-center">
+            <h2 className="font-display text-xl uppercase tracking-wider text-center text-[hsl(38,75%,38%)]">
               Utakmice
             </h2>
             {matches.length === 0 && !loading && (
-              <p className="text-muted-foreground py-8 text-center">Nema utakmica.</p>
+              <p className="text-black py-8 text-center">Nema utakmica.</p>
             )}
             <div className="space-y-2">
               {matches.map((m) => {
@@ -862,11 +862,11 @@ export default function AdminPanel() {
 
           {/* Igrači */}
           <section className="space-y-3 min-w-0">
-            <h2 className="font-display text-xl text-primary uppercase tracking-wider text-center">
+            <h2 className="font-display text-xl uppercase tracking-wider text-center text-[hsl(38,75%,38%)]">
               Igrači
             </h2>
             {players.length === 0 && !loading && (
-              <p className="text-muted-foreground py-8 text-center">Nema igrača.</p>
+              <p className="text-black py-8 text-center">Nema igrača.</p>
             )}
             <div className="space-y-2">
               {players.map((p) => (
@@ -1668,16 +1668,18 @@ function MatchForm({
                 type="date"
                 value={matchDate}
                 onChange={(e) => setMatchDate(e.target.value)}
+                onClick={openDatePicker}
                 required
                 className="pl-10 pr-3 date-input-native-picker cursor-pointer"
               />
               <button
                 type="button"
                 onClick={openDatePicker}
-                className="absolute left-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded hover:bg-muted"
+                className="absolute left-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded hover:bg-muted pointer-events-none"
                 aria-label="Odaberi datum"
+                tabIndex={-1}
               >
-                <Calendar className="w-5 h-5 text-white" />
+                <Calendar className="w-5 h-5" />
               </button>
             </div>
           </div>
