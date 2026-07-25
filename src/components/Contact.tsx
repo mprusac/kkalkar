@@ -222,7 +222,7 @@ const Contact = () => {
             </div>
 
             {/* Map */}
-            <div className="card-surface-interactive overflow-hidden flex-[2]">
+            <div className="card-surface-interactive hover-lift hover-glow overflow-hidden flex-[2] transition-all duration-500 hover:shadow-lg hover:shadow-primary/40">
               <iframe
                 src="https://www.google.com/maps?q=Ulica+Alaj%C4%8Dau%C5%A1a+Frane+Bareze+%C5%A0ore+1,+21230+Sinj&output=embed"
                 width="100%"
