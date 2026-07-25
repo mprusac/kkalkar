@@ -20,35 +20,25 @@ import {
   Plus, Edit, Trash2, Save, X, Upload, Pin, ArrowLeft, LogOut,
   ImagePlus, Newspaper, Loader2, Tag, Calendar, Users, Trophy,
 } from "lucide-react";
-import logoGrude from "@/assets/logos/hkk_grude.png";
-import logoLjubuski from "@/assets/logos/hkk_ljubuski.png";
-import logoMostar from "@/assets/logos/hkk_mostar.png";
-import logoRama from "@/assets/logos/hkk_rama.png";
-import logoSiroki from "@/assets/logos/hkk_siroki.png";
-import logoTomislav from "@/assets/logos/hkk_tomislav.png";
-import logoCapljina from "@/assets/logos/hkk_capljina.png";
-import logoKSHB from "@/assets/logos/kshb_logo.png";
+import { OPPONENT_OPTIONS, staticTeamLogos as OPPONENT_LOGOS, competitionLabel } from "@/lib/adminMatches";
+import logoSupersport from "@/assets/logos/supersport-premijer.png.asset.json";
+import logoEnbl from "@/assets/logos/enbl.png.asset.json";
+import logoKKCup from "@/assets/logos/kresimir_cosic_cup.png.asset.json";
 
 const NEWS_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-news`;
 const GALLERY_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-galleries`;
 const MATCHES_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-matches`;
 const PLAYERS_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-players`;
 const DEFAULT_CATEGORIES = ["2026", "2025", "Najava"];
-const OPPONENT_OPTIONS = [
-  "HKK Grude", "HKK Ljubuški", "HKK Mostar", "HKK Rama",
-  "HKK Široki II", "HKK Tomislav", "HKK Čapljina",
+
+type CompetitionValue = "liga" | "kup" | "enbl" | "kkcup" | "liburnia";
+const COMPETITION_OPTIONS: { value: CompetitionValue; label: string; logo?: string; emoji?: string }[] = [
+  { value: "liga", label: "SuperSport PL", logo: logoSupersport.url },
+  { value: "enbl", label: "ENBL", logo: logoEnbl.url },
+  { value: "kkcup", label: "Krešimir Ćosić Cup", logo: logoKKCup.url },
+  { value: "liburnia", label: "Liburnia Kup", emoji: "🏆" },
+  { value: "kup", label: "Kup", emoji: "🏆" },
 ];
-const OPPONENT_LOGOS: Record<string, string> = {
-  "HKK Grude": logoGrude,
-  "HKK Ljubuški": logoLjubuski,
-  "HKK Mostar": logoMostar,
-  "HKK Rama": logoRama,
-  "HKK Široki II": logoSiroki,
-  "HKK Tomislav": logoTomislav,
-  "HKK Čapljina": logoCapljina,
-};
-const PAGE_SIZE = 30;
-const SIGNED_URL_TTL = 60 * 60 * 24 * 365 * 10; // 10 years
 
 interface NewsItem {
   id: string;
