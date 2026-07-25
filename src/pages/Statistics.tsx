@@ -350,6 +350,18 @@ const Statistics = () => {
     : remainingAfterPage0.slice((matchPage - 1) * matchesPerPage, matchPage * matchesPerPage);
 
   const getTeamLogo = (teamName: string) => teamLogos[teamName] || null;
+  const getMatchTeamLogo = (match: any, teamName: string) => {
+    if (match?._display) return getTeamLogoFor(match._display, teamName);
+    return teamLogos[teamName] || null;
+  };
+  const getStatsLogoClass = (teamName: string) => {
+    if (teamName.includes("Alkar")) return "w-7 h-7";
+    if (teamName.includes("Široki")) return "w-6 h-6";
+    if (teamName.includes("Tomislav")) return "w-4 h-4";
+    if (teamName.includes("Dubrava") || teamName.includes("Kvarner") || teamName.includes("Samobor") || teamName.includes("Zabok")) return "w-[18px] h-[18px]";
+    if (teamName.includes("Cibona") || teamName.includes("Dubrovnik")) return "w-[17px] h-[17px]";
+    return "w-5 h-5";
+  };
 
   const getMatchResult = (match: Match) => {
     if (match.isUpcoming) return null;
