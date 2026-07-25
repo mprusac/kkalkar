@@ -145,14 +145,18 @@ interface TopPlayer {
 
 // Standings data
 const standings: Standing[] = [
-  { position: 1, team: "HKK Mostar", played: 14, won: 10, lost: 4, diff: 237, last5: ["W", "W", "W", "L", "W"], points: 24 },
-  { position: 2, team: "HKK Ljubuški", played: 14, won: 10, lost: 4, diff: 113, last5: ["W", "L", "L", "W", "L"], points: 24 },
-  { position: 3, team: "HKK Grude", played: 14, won: 9, lost: 5, diff: 53, last5: ["W", "L", "L", "W", "L"], points: 23 },
-  { position: 4, team: "HKK Tomislav", played: 14, won: 8, lost: 6, diff: -19, last5: ["L", "W", "W", "W", "L"], points: 22 },
-  { position: 5, team: "HKK Posušje", played: 14, won: 8, lost: 6, diff: 140, last5: ["L", "W", "W", "W", "W"], points: 22 },
-  { position: 6, team: "HKK Široki II", played: 14, won: 7, lost: 7, diff: 89, last5: ["W", "W", "W", "L", "W"], points: 21 },
-  { position: 7, team: "HKK Rama", played: 13, won: 3, lost: 10, diff: -92, last5: ["L", "L", "L", "L", "L"], points: 16 },
-  { position: 8, team: "HKK Čapljina", played: 13, won: 0, lost: 13, diff: -521, last5: ["L", "L", "L", "L", "L"], points: 13 },
+  { position: 1, team: "Zadar", played: 33, won: 29, lost: 4, pct: "0.879", diff: 525, last5: ["W","L","W","W","W"], points: 62, streak: "W3", group: "playoff" },
+  { position: 2, team: "Cibona", played: 33, won: 25, lost: 8, pct: "0.758", diff: 287, last5: ["W","W","W","W","W"], points: 58, streak: "W10", group: "playoff" },
+  { position: 3, team: "Split", played: 33, won: 25, lost: 8, pct: "0.758", diff: 339, last5: ["L","W","W","L","W"], points: 58, streak: "W1", group: "playoff" },
+  { position: 4, team: "Samobor", played: 33, won: 18, lost: 15, pct: "0.545", diff: 53, last5: ["W","L","W","W","W"], points: 51, streak: "W2", group: "playoff" },
+  { position: 5, team: "Dubrovnik", played: 33, won: 17, lost: 16, pct: "0.515", diff: -70, last5: ["L","W","W","W","W"], points: 50, streak: "W4", group: "playoff" },
+  { position: 6, team: "Zabok", played: 33, won: 15, lost: 18, pct: "0.455", diff: -30, last5: ["L","L","L","L","W"], points: 48, streak: "W1", group: "playoff" },
+  { position: 7, team: "Dubrava", played: 33, won: 15, lost: 18, pct: "0.455", diff: -56, last5: ["W","W","L","L","L"], points: 48, streak: "L3", group: "playoff" },
+  { position: 8, team: "Kvarner", played: 33, won: 12, lost: 21, pct: "0.364", diff: -140, last5: ["L","L","L","W","L"], points: 45, streak: "L1", group: "playoff" },
+  { position: 9, team: "Alkar", played: 33, won: 12, lost: 21, pct: "0.364", diff: -261, last5: ["W","L","W","L","L"], points: 45, streak: "L2", group: "playoff" },
+  { position: 10, team: "Cedevita Junior", played: 33, won: 12, lost: 21, pct: "0.364", diff: -102, last5: ["W","W","W","L","L"], points: 45, streak: "L2", group: "playoff" },
+  { position: 11, team: "Dinamo", played: 33, won: 10, lost: 23, pct: "0.303", diff: -181, last5: ["L","L","L","L","L"], points: 43, streak: "L10", group: "playout" },
+  { position: 12, team: "Šibenka", played: 33, won: 8, lost: 25, pct: "0.242", diff: -364, last5: ["W","L","W","W","L"], points: 41, streak: "L1", group: "relegation" },
 ];
 
 // Women standings data
