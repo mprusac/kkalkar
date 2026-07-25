@@ -371,7 +371,7 @@ const Statistics = () => {
   const upcomingMatches = matches.filter(m => m.isUpcoming);
   const playedMatches = matches.filter(m => !m.isUpcoming);
   
-  const baseCount = Math.max(0, 10 - upcomingMatches.length);
+  const baseCount = Math.max(0, 9 - upcomingMatches.length);
   const baseFirstPageMatches = [...upcomingMatches, ...playedMatches.slice(0, baseCount)];
   const remainingMatchesPool = [...playedMatches.slice(baseCount)];
   
@@ -380,7 +380,7 @@ const Statistics = () => {
   
   // Remaining matches for pages 1+ (always skip those shown on page 0)
   const remainingAfterPage0 = remainingMatchesPool.slice(extraMatchesCount);
-  const matchesPerPage = 10;
+  const matchesPerPage = 9;
   const totalMatchPages = remainingAfterPage0.length > 0 ? 1 + Math.ceil(remainingAfterPage0.length / matchesPerPage) : 1;
   
   const displayedMatches = matchPage === 0 
