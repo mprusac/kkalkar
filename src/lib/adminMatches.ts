@@ -106,7 +106,7 @@ export function competitionLabel(c: string): string {
   switch (c) {
     case "kup": return "Kup 🏆";
     case "enbl": return "ENBL";
-    case "liburnia": return "Liburnia Kup";
+    case "liburnia": return "🏆";
     case "kkcup": return "Krešimir Ćosić Cup";
     case "liga":
     default: return "SuperSport PL";
