@@ -89,7 +89,8 @@ const Results = () => {
 
   const getLogoScale = (teamName: string) => {
     const n = teamName.toLowerCase();
-    if (n.includes("alkar")) return "scale-[1.2]";
+    if (n.includes("alkar")) return "scale-[1.32]";
+    if (n.includes("dinamo")) return "scale-[0.9]";
     if (n.includes("dubrovnik") || n.includes("šibenka") || n.includes("sibenka") || n.includes("cibona") || n.includes("cedevita")) return "scale-[0.85]";
     return "";
   };
