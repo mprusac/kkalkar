@@ -70,7 +70,19 @@ export const staticTeamLogos: Record<string, string> = {
   "KK Zadar": logoZadar,
   "Šibenka": logoSibenka,
   "KK Šibenka": logoSibenka,
+  "Syntainics MBC": logoSyntainics.url,
+  "Fyllingen Lions": logoFyllingen.url,
+  "Donar": logoDonar.url,
+  "Bulls": logoKapfenberg.url,
+  "Kapfenberg Bulls": logoKapfenberg.url,
+  "Bristol Flyers": logoBristol.url,
+  "Voluntari": logoVoluntari.url,
+  "CSO Voluntari": logoVoluntari.url,
+  "TalTech": logoTalTech.url,
+  "TalTech Alexela": logoTalTech.url,
+  "Valmiera Glass VIA": logoValmiera.url,
 };
+
 
 export interface MatchRow {
   id: string;
