@@ -1,10 +1,12 @@
-import { ChevronLeft, ChevronRight, SquarePlay, SquareArrowOutUpRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import supersportLogo from "@/assets/logos/supersport-premijer.png.asset.json";
 import enblLogo from "@/assets/logos/enbl.png.asset.json";
 import kkcupLogo from "@/assets/logos/kresimir_cosic_cup.png.asset.json";
+import youtubeIcon from "@/assets/youtube.png.asset.json";
+import sofascoreIcon from "@/assets/sofascore.png.asset.json";
 
 import { fetchMatches, getTeamLogoFor, type DisplayMatch } from "@/lib/adminMatches";
 
