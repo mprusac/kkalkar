@@ -25,11 +25,10 @@ const maleCategories = [
 ];
 
 const femaleCategories = [
+  "Škola košarke",
   "Mlađe kadetkinje",
-  "Kadetkinje",
-  "Juniorke",
-  "Seniorke",
 ];
+
 
 const achievements = [
   {
