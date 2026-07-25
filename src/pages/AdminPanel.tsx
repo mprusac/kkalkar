@@ -832,15 +832,20 @@ export default function AdminPanel() {
                       </div>
                       <div className="text-[11px] text-muted-foreground mt-0.5 flex items-center gap-1.5">
                         <span>{isoToDMY(m.match_date)}</span>
-                        <span className="text-[9px] font-bold text-foreground bg-gold-dark px-1.5 py-0.5 rounded-full inline-flex items-center gap-1">
-                          {m.competition === "kup" ? (
-                            <>Kup <span aria-hidden>🏆</span></>
-                          ) : (
-                            <>Liga <img src={logoKSHB} alt="KSHB" className="w-3 h-3 object-contain" /></>
-                          )}
-                        </span>
+                        {(() => {
+                          const compOpt = COMPETITION_OPTIONS.find((c) => c.value === m.competition);
+                          const label = compOpt?.label ?? competitionLabel(m.competition);
+                          return (
+                            <span className="text-[9px] font-bold text-foreground bg-gold-dark px-1.5 py-0.5 rounded-full inline-flex items-center gap-1">
+                              {label}
+                              {compOpt?.logo && <img src={compOpt.logo} alt="" className="w-3 h-3 object-contain" />}
+                              {compOpt?.emoji && <span aria-hidden>{compOpt.emoji}</span>}
+                            </span>
+                          );
+                        })()}
                       </div>
                     </div>
+
                     <div className="flex items-center gap-1 shrink-0">
                       <Button variant="outline" size="icon" className="h-7 w-7" onClick={() => { setEditingMatch(m); setView("match-form"); }}>
                         <Edit className="w-3.5 h-3.5" />
