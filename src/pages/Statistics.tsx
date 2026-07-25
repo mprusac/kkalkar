@@ -447,7 +447,7 @@ const Statistics = () => {
     <div
       className="min-h-screen"
       style={{
-        zoom: 0.9,
+        
         background:
           'linear-gradient(135deg, hsl(220 79% 15%) 0%, hsl(217 68% 30%) 50%, hsl(220 79% 12%) 100%)',
         backgroundAttachment: 'fixed',
@@ -539,7 +539,7 @@ const Statistics = () => {
       </header>
 
 
-      <main className="stats-light container mx-auto px-4 py-6">
+      <main className="stats-light container mx-auto px-4 py-6" style={{ zoom: 0.85 }}>
         {/* Mobile Title */}
         <h2 className="font-display text-3xl text-white text-center mb-6 md:hidden drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">STATISTIKA</h2>
 

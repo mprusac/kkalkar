@@ -73,7 +73,7 @@ const Index = () => {
       />
       <ScrollProgressBar />
       <Navbar />
-      <main>
+      <main style={{ zoom: 0.85 }}>
         <Hero />
         <Results />
         <News />
