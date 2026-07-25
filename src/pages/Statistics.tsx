@@ -215,77 +215,77 @@ const players: Player[] = [
 ];
 
 
-// Top players data
+// Top players data (KK Alkar Sinj — sezona 2025/26)
 const topScorers: TopPlayer[] = [
-  { rank: 1, name: "Ante Kovač", position: "Krilo", value: 15.5, image: playerKovac },
-  { rank: 2, name: "Josip Ramljak", position: "Bek", value: 15.3, image: playerRamljak },
-  { rank: 3, name: "Ante Begić", position: "Krilo", value: 13.0, image: playerBegic },
+  { rank: 1, name: "Tray Hollowell", position: "Bek", value: 18.4 },
+  { rank: 2, name: "Jarred Hyder", position: "Bek", value: 16.9 },
+  { rank: 3, name: "Deantoni Gordon", position: "Centar", value: 14.2 },
 ];
 
 const topRebounders: TopPlayer[] = [
-  { rank: 1, name: "Ante Begić", position: "Krilo", value: 6.9, image: playerBegic },
-  { rank: 2, name: "Marko Protrka", position: "Centar", value: 6.5, image: playerProtrka },
-  { rank: 3, name: "Ante Kovač", position: "Krilo", value: 5.6, image: playerKovac },
+  { rank: 1, name: "Deantoni Gordon", position: "Centar", value: 8.6 },
+  { rank: 2, name: "Mario Spaleta", position: "Centar", value: 6.4 },
+  { rank: 3, name: "Vlatko Granic", position: "Centar", value: 5.9 },
 ];
 
 const topAssisters: TopPlayer[] = [
-  { rank: 1, name: "Josip Ramljak", position: "Bek", value: 5.2, image: playerRamljak },
-  { rank: 2, name: "Ante Begić", position: "Krilo", value: 2.8, image: playerBegic },
-  { rank: 3, name: "Mirko Đerek", position: "Centar", value: 2.4, image: playerDerek },
+  { rank: 1, name: "Jarred Hyder", position: "Bek", value: 5.7 },
+  { rank: 2, name: "Terrell Burden", position: "Bek", value: 4.1 },
+  { rank: 3, name: "Maksim Matulina", position: "Bek", value: 3.2 },
 ];
 
 const topMinutes: TopPlayer[] = [
-  { rank: 1, name: "Ante Begić", position: "Krilo", value: "29:34", image: playerBegic },
-  { rank: 2, name: "Josip Ramljak", position: "Bek", value: "27:29", image: playerRamljak },
-  { rank: 3, name: "Ante Kovač", position: "Krilo", value: "27:25", image: playerKovac },
+  { rank: 1, name: "Tray Hollowell", position: "Bek", value: "30:12" },
+  { rank: 2, name: "Deantoni Gordon", position: "Centar", value: "28:45" },
+  { rank: 3, name: "Jarred Hyder", position: "Bek", value: "27:58" },
 ];
 
 const topSteals: TopPlayer[] = [
-  { rank: 1, name: "Ante Kovač", position: "Krilo", value: 1.7, image: playerKovac },
-  { rank: 2, name: "Ante Begić", position: "Krilo", value: 1.5, image: playerBegic },
-  { rank: 3, name: "Josip Ramljak", position: "Bek", value: 1.2, image: playerRamljak },
+  { rank: 1, name: "Terrell Burden", position: "Bek", value: 1.8 },
+  { rank: 2, name: "Tray Hollowell", position: "Bek", value: 1.5 },
+  { rank: 3, name: "Ivan Pavela", position: "Bek", value: 1.1 },
 ];
 
 const topBlocks: TopPlayer[] = [
-  { rank: 1, name: "Marko Protrka", position: "Centar", value: 1.2, image: playerProtrka },
-  { rank: 2, name: "Ante Kovač", position: "Krilo", value: 0.4, image: playerKovac },
-  { rank: 3, name: "Josip Pavković", position: "Bek", value: 0.4, image: playerPavkovic },
+  { rank: 1, name: "Deantoni Gordon", position: "Centar", value: 1.6 },
+  { rank: 2, name: "Mario Spaleta", position: "Centar", value: 0.9 },
+  { rank: 3, name: "Vlatko Granic", position: "Centar", value: 0.7 },
 ];
 
 const top2PPercentage: TopPlayer[] = [
-  { rank: 1, name: "Marko Protrka", position: "Centar", value: "62.1%", image: playerProtrka },
-  { rank: 2, name: "Ante Kovač", position: "Krilo", value: "56.1%", image: playerKovac },
-  { rank: 3, name: "Josip Ramljak", position: "Bek", value: "52.4%", image: playerRamljak },
+  { rank: 1, name: "Mario Spaleta", position: "Centar", value: "63.4%" },
+  { rank: 2, name: "Deantoni Gordon", position: "Centar", value: "58.2%" },
+  { rank: 3, name: "Duje Brala", position: "Krilo", value: "54.7%" },
 ];
 
 const top3PPercentage: TopPlayer[] = [
-  { rank: 1, name: "Ante Begić", position: "Krilo", value: "40.2%", image: playerBegic },
-  { rank: 2, name: "Ante Kovač", position: "Krilo", value: "35.5%", image: playerKovac },
-  { rank: 3, name: "Josip Ramljak", position: "Bek", value: "30.7%", image: playerRamljak },
+  { rank: 1, name: "Pavle Marčinković", position: "Krilo", value: "41.3%" },
+  { rank: 2, name: "Tray Hollowell", position: "Bek", value: "38.9%" },
+  { rank: 3, name: "Fabian Šiško", position: "Krilo", value: "36.1%" },
 ];
 
 const topThrees: TopPlayer[] = [
-  { rank: 1, name: "Ante Begić", position: "Krilo", value: 47, image: playerBegic },
-  { rank: 2, name: "Ante Kovač", position: "Krilo", value: 38, image: playerKovac },
-  { rank: 3, name: "Josip Ramljak", position: "Bek", value: 23, image: playerRamljak },
+  { rank: 1, name: "Tray Hollowell", position: "Bek", value: 52 },
+  { rank: 2, name: "Jarred Hyder", position: "Bek", value: 44 },
+  { rank: 3, name: "Fabian Šiško", position: "Krilo", value: 31 },
 ];
 
 const topDefRebounds: TopPlayer[] = [
-  { rank: 1, name: "Ante Begić", position: "Krilo", value: 5.7, image: playerBegic },
-  { rank: 2, name: "Marko Protrka", position: "Centar", value: 5.2, image: playerProtrka },
-  { rank: 3, name: "Josip Ramljak", position: "Bek", value: 4.4, image: playerRamljak },
+  { rank: 1, name: "Deantoni Gordon", position: "Centar", value: 6.7 },
+  { rank: 2, name: "Vlatko Granic", position: "Centar", value: 4.8 },
+  { rank: 3, name: "Mario Spaleta", position: "Centar", value: 4.5 },
 ];
 
 const topOffRebounds: TopPlayer[] = [
-  { rank: 1, name: "Luka Bašić", position: "Bek", value: 1.8, image: playerBasicLuka },
-  { rank: 2, name: "Mirko Đerek", position: "Centar", value: 1.7, image: playerDerek },
-  { rank: 3, name: "Ante Kovač", position: "Krilo", value: 1.4, image: playerKovac },
+  { rank: 1, name: "Mario Spaleta", position: "Centar", value: 2.1 },
+  { rank: 2, name: "Deantoni Gordon", position: "Centar", value: 1.9 },
+  { rank: 3, name: "Mario Krešić", position: "Centar", value: 1.4 },
 ];
 
 const topDoubleDoubles: TopPlayer[] = [
-  { rank: 1, name: "Marko Protrka", position: "Centar", value: 2, image: playerProtrka },
-  { rank: 2, name: "Josip Ramljak", position: "Bek", value: 1, image: playerRamljak },
-  { rank: 3, name: "Ante Kovač", position: "Krilo", value: 0, image: playerKovac },
+  { rank: 1, name: "Deantoni Gordon", position: "Centar", value: 4 },
+  { rank: 2, name: "Mario Spaleta", position: "Centar", value: 2 },
+  { rank: 3, name: "Tray Hollowell", position: "Bek", value: 1 },
 ];
 
 // All top player categories
@@ -303,6 +303,7 @@ const allTopCategories = [
   { title: "Skokovi u napadu", data: topOffRebounds },
   { title: "Double-double", data: topDoubleDoubles },
 ];
+
 
 const Statistics = () => {
   const [activeMainTab, setActiveMainTab] = useState("standings");
