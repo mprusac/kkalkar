@@ -285,11 +285,17 @@ const GalleryPage = () => {
           </motion.div>
 
           {/* Events Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
-            {events.map((event, index) => (
-              <EventCard key={event.id} event={event} index={index} />
-            ))}
-          </div>
+          {events.length === 0 ? (
+            <p className="text-center text-muted-foreground text-lg py-16">
+              Trenutno nema dostupnih galerija.
+            </p>
+          ) : (
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
+              {events.map((event, index) => (
+                <EventCard key={event.id} event={event} index={index} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <Footer />
