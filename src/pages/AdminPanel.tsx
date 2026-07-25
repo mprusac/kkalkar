@@ -20,33 +20,25 @@ import {
   Plus, Edit, Trash2, Save, X, Upload, Pin, ArrowLeft, LogOut,
   ImagePlus, Newspaper, Loader2, Tag, Calendar, Users, Trophy,
 } from "lucide-react";
-import logoGrude from "@/assets/logos/hkk_grude.png";
-import logoLjubuski from "@/assets/logos/hkk_ljubuski.png";
-import logoMostar from "@/assets/logos/hkk_mostar.png";
-import logoRama from "@/assets/logos/hkk_rama.png";
-import logoSiroki from "@/assets/logos/hkk_siroki.png";
-import logoTomislav from "@/assets/logos/hkk_tomislav.png";
-import logoCapljina from "@/assets/logos/hkk_capljina.png";
-import logoKSHB from "@/assets/logos/kshb_logo.png";
+import { OPPONENT_OPTIONS, staticTeamLogos as OPPONENT_LOGOS, competitionLabel } from "@/lib/adminMatches";
+import logoSupersport from "@/assets/logos/supersport-premijer.png.asset.json";
+import logoEnbl from "@/assets/logos/enbl.png.asset.json";
+import logoKKCup from "@/assets/logos/kresimir_cosic_cup.png.asset.json";
 
 const NEWS_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-news`;
 const GALLERY_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-galleries`;
 const MATCHES_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-matches`;
 const PLAYERS_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-players`;
 const DEFAULT_CATEGORIES = ["2026", "2025", "Najava"];
-const OPPONENT_OPTIONS = [
-  "HKK Grude", "HKK Ljubuški", "HKK Mostar", "HKK Rama",
-  "HKK Široki II", "HKK Tomislav", "HKK Čapljina",
+
+type CompetitionValue = "liga" | "kup" | "enbl" | "kkcup" | "liburnia";
+const COMPETITION_OPTIONS: { value: CompetitionValue; label: string; logo?: string; emoji?: string }[] = [
+  { value: "liga", label: "SuperSport PL", logo: logoSupersport.url },
+  { value: "enbl", label: "ENBL", logo: logoEnbl.url },
+  { value: "kkcup", label: "Krešimir Ćosić Cup", logo: logoKKCup.url },
+  { value: "liburnia", label: "Liburnia Kup", emoji: "🏆" },
+  { value: "kup", label: "Kup", emoji: "🏆" },
 ];
-const OPPONENT_LOGOS: Record<string, string> = {
-  "HKK Grude": logoGrude,
-  "HKK Ljubuški": logoLjubuski,
-  "HKK Mostar": logoMostar,
-  "HKK Rama": logoRama,
-  "HKK Široki II": logoSiroki,
-  "HKK Tomislav": logoTomislav,
-  "HKK Čapljina": logoCapljina,
-};
 const PAGE_SIZE = 30;
 const SIGNED_URL_TTL = 60 * 60 * 24 * 365 * 10; // 10 years
 
@@ -840,15 +832,20 @@ export default function AdminPanel() {
                       </div>
                       <div className="text-[11px] text-muted-foreground mt-0.5 flex items-center gap-1.5">
                         <span>{isoToDMY(m.match_date)}</span>
-                        <span className="text-[9px] font-bold text-foreground bg-gold-dark px-1.5 py-0.5 rounded-full inline-flex items-center gap-1">
-                          {m.competition === "kup" ? (
-                            <>Kup <span aria-hidden>🏆</span></>
-                          ) : (
-                            <>Liga <img src={logoKSHB} alt="KSHB" className="w-3 h-3 object-contain" /></>
-                          )}
-                        </span>
+                        {(() => {
+                          const compOpt = COMPETITION_OPTIONS.find((c) => c.value === m.competition);
+                          const label = compOpt?.label ?? competitionLabel(m.competition);
+                          return (
+                            <span className="text-[9px] font-bold text-foreground bg-gold-dark px-1.5 py-0.5 rounded-full inline-flex items-center gap-1">
+                              {label}
+                              {compOpt?.logo && <img src={compOpt.logo} alt="" className="w-3 h-3 object-contain" />}
+                              {compOpt?.emoji && <span aria-hidden>{compOpt.emoji}</span>}
+                            </span>
+                          );
+                        })()}
                       </div>
                     </div>
+
                     <div className="flex items-center gap-1 shrink-0">
                       <Button variant="outline" size="icon" className="h-7 w-7" onClick={() => { setEditingMatch(m); setView("match-form"); }}>
                         <Edit className="w-3.5 h-3.5" />
@@ -1019,7 +1016,7 @@ function NewsForm({
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground admin-cream-scope">
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
         <div className="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
           <Button variant="ghost" size="sm" onClick={onCancel}>
@@ -1217,7 +1214,7 @@ function GalleryForm({
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground admin-cream-scope">
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
         <div className="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
           <Button variant="ghost" size="sm" onClick={onCancel}>
@@ -1446,7 +1443,9 @@ function MatchForm({
     initial?.opponent_score != null ? String(initial.opponent_score) : "",
   );
   const [matchDate, setMatchDate] = useState(initial?.match_date ?? todayISO());
-  const [competition, setCompetition] = useState<"liga" | "kup">(initial?.competition ?? "liga");
+  const [competition, setCompetition] = useState<CompetitionValue>(
+    (initial?.competition as CompetitionValue) ?? "liga",
+  );
   const [youtubeLink, setYoutubeLink] = useState(initial?.youtube_link ?? "");
   const [sofascoreLink, setSofascoreLink] = useState(initial?.sofascore_link ?? "");
   const [opponentLogoUrl, setOpponentLogoUrl] = useState<string | null>(initial?.opponent_logo_url ?? null);
@@ -1516,7 +1515,7 @@ function MatchForm({
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground admin-cream-scope">
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
         <div className="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
           <Button variant="outline" size="sm" onClick={onCancel}>
@@ -1626,21 +1625,21 @@ function MatchForm({
                 variant={isHome ? "default" : "outline"}
                 onClick={() => setIsHome(true)}
               >
-                HKK Posušje domaćin
+                KK Alkar Sinj domaćin
               </Button>
               <Button
                 type="button"
                 variant={!isHome ? "default" : "outline"}
                 onClick={() => setIsHome(false)}
               >
-                HKK Posušje gost
+                KK Alkar Sinj gost
               </Button>
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-2">
-              <Label>Posušje rezultat</Label>
+              <Label>KK Alkar Sinj rezultat</Label>
               <Input
                 type="number"
                 min={0}
@@ -1685,29 +1684,22 @@ function MatchForm({
 
           <div className="space-y-2">
             <Label>Natjecanje</Label>
-            <div className="flex gap-2">
-              <Button
-                type="button"
-                variant={competition === "liga" ? "default" : "outline"}
-                onClick={() => setCompetition("liga")}
-                className={competition === "liga" ? "bg-gold-dark text-foreground hover:bg-gold-dark/90" : undefined}
-              >
-                <span className="flex items-center gap-2">
-                  Liga KSHB
-                  <img src={logoKSHB} alt="KSHB" className="w-5 h-5 object-contain" />
-                </span>
-              </Button>
-              <Button
-                type="button"
-                variant={competition === "kup" ? "default" : "outline"}
-                onClick={() => setCompetition("kup")}
-                className={competition === "kup" ? "bg-gold-dark text-foreground hover:bg-gold-dark/90" : undefined}
-              >
-                <span className="flex items-center gap-2">
-                  Kup KSHB
-                  <span aria-hidden>🏆</span>
-                </span>
-              </Button>
+            <div className="flex flex-wrap gap-2">
+              {COMPETITION_OPTIONS.map((opt) => (
+                <Button
+                  key={opt.value}
+                  type="button"
+                  variant={competition === opt.value ? "default" : "outline"}
+                  onClick={() => setCompetition(opt.value)}
+                  className={competition === opt.value ? "bg-gold-dark text-foreground hover:bg-gold-dark/90" : undefined}
+                >
+                  <span className="flex items-center gap-2">
+                    {opt.label}
+                    {opt.logo && <img src={opt.logo} alt="" className="w-5 h-5 object-contain" />}
+                    {opt.emoji && <span aria-hidden>{opt.emoji}</span>}
+                  </span>
+                </Button>
+              ))}
             </div>
           </div>
 
@@ -1837,7 +1829,7 @@ function PlayerForm({
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground admin-cream-scope">
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
         <div className="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
           <Button variant="ghost" size="sm" onClick={onCancel}>

@@ -406,3 +406,40 @@ textarea:-webkit-autofill:focus {
   -webkit-text-fill-color: #0E2A63 !important;
   caret-color: #0E2A63 !important;
 }
+
+/* Admin CRUD form pages: white + light gold + gold, with dark navy accents */
+.admin-cream-scope {
+  --background: 44 67% 92%;         /* soft cream */
+  --foreground: 220 79% 15%;        /* dark navy */
+  --card: 0 0% 100%;                /* white */
+  --card-foreground: 220 79% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 79% 15%;
+  --primary: 43 55% 45%;            /* deeper gold for buttons */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 43 75% 88%;          /* light gold */
+  --secondary-foreground: 220 79% 15%;
+  --muted: 44 60% 90%;
+  --muted-foreground: 220 40% 30%;
+  --accent: 43 75% 88%;
+  --accent-foreground: 220 79% 15%;
+  --border: 43 55% 55%;             /* gold border */
+  --input: 43 55% 55%;
+  --ring: 43 55% 45%;
+  background-color: #faf3e0;
+}
+.admin-cream-scope header {
+  background-color: rgba(255,255,255,0.95) !important;
+  border-color: #c9a24c !important;
+}
+.admin-cream-scope input,
+.admin-cream-scope textarea,
+.admin-cream-scope [role="combobox"] {
+  background-color: #ffffff !important;
+  color: #0E2A63 !important;
+}
+.admin-cream-scope input::placeholder,
+.admin-cream-scope textarea::placeholder {
+  color: rgba(14,42,99,0.45) !important;
+}
+.admin-cream-scope label { color: #0E2A63; }
