@@ -554,7 +554,7 @@ export default function AdminPanel() {
                 value={loginForm.username}
                 onChange={(e) => setLoginForm({ ...loginForm, username: e.target.value })}
                 required
-                className="transition-all duration-300 focus:shadow-[0_0_0_3px_rgba(201,162,76,0.25)]"
+                className="admin-input transition-all duration-300 focus:shadow-[0_0_0_3px_rgba(201,162,76,0.25)]"
                 style={{ backgroundColor: "#ffffff", color: "#0E2A63", borderColor: "#f0e4c2" }}
               />
             </div>
@@ -567,7 +567,7 @@ export default function AdminPanel() {
                 value={loginForm.password}
                 onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
                 required
-                className="transition-all duration-300 focus:shadow-[0_0_0_3px_rgba(201,162,76,0.25)]"
+                className="admin-input transition-all duration-300 focus:shadow-[0_0_0_3px_rgba(201,162,76,0.25)]"
                 style={{ backgroundColor: "#ffffff", color: "#0E2A63", borderColor: "#f0e4c2" }}
               />
             </div>
