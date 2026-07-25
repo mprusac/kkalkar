@@ -425,6 +425,7 @@ const Statistics = () => {
   const getFlagImage = (nationality: string) => {
     if (nationality === "BIH") return flagBih;
     if (nationality === "HRV" || nationality === "CRO") return flagCro;
+    if (nationality === "USA") return flagUsa;
     return null;
   };
 
