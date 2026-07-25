@@ -508,7 +508,7 @@ const Statistics = () => {
         path="/statistika"
       />
       {/* Header */}
-      <header className="stats-header-navy border-b border-white/10 sticky top-0 z-50 backdrop-blur-md">
+      <header className="stats-header-navy border-b border-white/10 sticky top-0 z-50 backdrop-blur-md" style={{ zoom: 0.9 }}>
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center">
             <button
