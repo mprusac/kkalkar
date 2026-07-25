@@ -1625,14 +1625,14 @@ function MatchForm({
                 variant={isHome ? "default" : "outline"}
                 onClick={() => setIsHome(true)}
               >
-                HKK Posušje domaćin
+                KK Alkar Sinj domaćin
               </Button>
               <Button
                 type="button"
                 variant={!isHome ? "default" : "outline"}
                 onClick={() => setIsHome(false)}
               >
-                HKK Posušje gost
+                KK Alkar Sinj gost
               </Button>
             </div>
           </div>
