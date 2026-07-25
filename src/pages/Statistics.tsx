@@ -659,136 +659,108 @@ const Statistics = () => {
               <TabsContent value="standings" className="mt-0">
                 <div className="bg-secondary/30 rounded-xl border border-border/30 overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
                   <div className="p-3 border-b border-border/30">
-                    <div className="flex items-center gap-2">
-                      <a href="https://www.kshb.ba/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                        <img src={logoKSHB} alt="" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                      </a>
-                      <span className="text-xs md:text-sm text-foreground">Liga Košarkaškog saveza Herceg Bosne</span>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <img src={supersportLogo} alt="SuperSport PL" className="h-8 md:h-10 object-contain" />
+                      <span className="text-xs md:text-sm text-foreground">SuperSport Premijer Liga</span>
                       <span className="text-xs md:text-sm text-muted-foreground bg-background/50 px-2 py-0.5 rounded">25/26</span>
-                      <Select value={leagueCategory} onValueChange={(v) => setLeagueCategory(v as "seniori" | "seniorke")}>
-                        <SelectTrigger className="w-[108px] md:w-28 h-7 md:h-8 text-[11px] md:text-base bg-background/50 border-border/30 ml-1">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent className="bg-secondary border-border/50">
-                          <SelectItem value="seniori" className="text-sm md:text-base">Seniori</SelectItem>
-                          <SelectItem value="seniorke" className="text-sm md:text-base">Seniorke</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <span className="text-xs md:text-sm text-foreground bg-background/50 px-2 py-0.5 rounded ml-1">Seniori</span>
                     </div>
                   </div>
-                  
-                  {leagueCategory === "seniori" ? (
-                    <div className="overflow-x-auto">
-                      <Table>
-                        <TableHeader>
-                          <TableRow className="hover:bg-transparent border-border/30">
-                            <TableHead className="w-6 md:w-10 text-center text-[10px] md:text-sm font-bold px-0.5 md:px-4 py-1 md:py-3">#</TableHead>
-                            <TableHead className="text-[10px] md:text-sm font-bold px-0.5 md:px-4 py-1 md:py-3">Ekipa</TableHead>
-                            <TableHead className="text-center w-5 md:w-10 text-[10px] md:text-sm font-bold px-0 md:px-4 py-1 md:py-3">UT</TableHead>
-                            <TableHead className="text-center w-5 md:w-10 text-[10px] md:text-sm font-bold px-0 md:px-4 py-1 md:py-3">W</TableHead>
-                            <TableHead className="text-center w-5 md:w-10 text-[10px] md:text-sm font-bold px-0 md:px-4 py-1 md:py-3">L</TableHead>
-                            <TableHead className="text-center w-7 md:w-14 text-[10px] md:text-sm font-bold px-0 md:px-4 py-1 md:py-3">+/-</TableHead>
-                            <TableHead className="text-center w-28 text-sm font-bold hidden sm:table-cell py-1 md:py-3">Zadnjih 5</TableHead>
-                            <TableHead className="text-center w-7 md:w-14 text-[10px] md:text-sm font-bold px-0 md:px-4 py-1 md:py-3">BOD</TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {standings.map((team) => (
-                            <TableRow 
-                              key={team.position} 
-                              className={`border-border/20 transition-all duration-200 hover:bg-secondary/50 hover:shadow-md ${team.team === "HKK Posušje" ? "bg-primary/10 hover:bg-primary/20" : ""}`}
-                            >
-                              <TableCell className="text-center font-bold text-[10px] md:text-sm px-0.5 md:px-4 py-0.5 md:py-4">{team.position}</TableCell>
-                              <TableCell className="px-0.5 md:px-4 py-0.5 md:py-4">
-                                <div className="flex items-center gap-1 md:gap-2">
-                                {getTeamLogo(team.team) && (
-                                    <div className="w-5 h-5 md:w-8 md:h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
-                                      <img 
-                                        src={getTeamLogo(team.team)!} 
-                                        alt="" 
-                                        className={`object-contain ${
-                                          team.team === "HKK Široki" || team.team === "HKK Široki II"
-                                            ? "w-[250%] h-[250%]"
-                                            : team.team === "HKK Grude"
-                                            ? "w-[300%] h-[300%]"
-                                            : team.team === "HKK Ljubuški"
-                                            ? "w-[130%] h-[130%]"
-                                            : team.team === "HKK Rama"
-                                            ? "w-[120%] h-[120%]"
-                                            : team.team === "HKK Posušje" || team.team === "HKK Tomislav" || team.team === "HKK Mostar"
-                                            ? "w-[85%] h-[85%]"
-                                            : team.team === "HKK Čapljina" || team.team === "Čapljina"
-                                            ? "w-[90%] h-[90%]"
-                                            : "w-full h-full"
-                                        }`}
-                                      />
-                                    </div>
-                                  )}
-                                  <span className={`text-[10px] md:text-sm font-bold ${team.team === "HKK Posušje" ? "text-primary" : ""}`}>
-                                    {team.team}
-                                  </span>
-                                </div>
-                              </TableCell>
-                              <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4">{team.played}</TableCell>
-                              <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4">{team.won}</TableCell>
-                              <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4">{team.lost}</TableCell>
-                              <TableCell className={`text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4 ${team.diff > 0 ? "text-green-400" : team.diff < 0 ? "text-red-400" : ""}`}>
-                                {team.diff > 0 ? `+${team.diff}` : team.diff}
-                              </TableCell>
-                              <TableCell className="text-center hidden sm:table-cell">
-                                <div className="flex gap-0.5 justify-center items-center">
-                                  {team.last5.map((result, i) => (
-                                    <span 
-                                      key={i} 
-                                      className={`w-5 h-5 text-[10px] font-bold rounded flex items-center justify-center transition-transform duration-200 hover:scale-110 ${
-                                        result === "W" ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"
-                                      }`}
-                                    >
-                                      {result}
-                                    </span>
-                                  ))}
-                                </div>
-                              </TableCell>
-                              <TableCell className="text-center font-bold text-[10px] md:text-sm px-0 md:px-4 py-0.5 md:py-4">{team.points}</TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </div>
-                  ) : (
+
+                  <div className="overflow-x-auto">
                     <Table>
                       <TableHeader>
                         <TableRow className="hover:bg-transparent border-border/30">
-                          <TableHead className="w-10 text-center text-sm font-bold">#</TableHead>
-                          <TableHead className="text-sm font-bold">Ekipa</TableHead>
-                          <TableHead className="text-center w-14 text-sm font-bold">BOD</TableHead>
+                          <TableHead className="w-6 md:w-10 text-center text-[10px] md:text-sm font-bold px-0.5 md:px-4 py-1 md:py-3">#</TableHead>
+                          <TableHead className="text-[10px] md:text-sm font-bold px-0.5 md:px-4 py-1 md:py-3">Ekipa</TableHead>
+                          <TableHead className="text-center w-5 md:w-10 text-[10px] md:text-sm font-bold px-0 md:px-4 py-1 md:py-3">P</TableHead>
+                          <TableHead className="text-center w-5 md:w-10 text-[10px] md:text-sm font-bold px-0 md:px-4 py-1 md:py-3">W</TableHead>
+                          <TableHead className="text-center w-5 md:w-10 text-[10px] md:text-sm font-bold px-0 md:px-4 py-1 md:py-3">L</TableHead>
+                          <TableHead className="text-center w-8 md:w-14 text-[10px] md:text-sm font-bold px-0 md:px-4 py-1 md:py-3">PCT</TableHead>
+                          <TableHead className="text-center w-7 md:w-14 text-[10px] md:text-sm font-bold px-0 md:px-4 py-1 md:py-3">DIFF</TableHead>
+                          <TableHead className="text-center w-28 text-sm font-bold hidden sm:table-cell py-1 md:py-3">Zadnjih 5</TableHead>
+                          <TableHead className="text-center w-7 md:w-14 text-[10px] md:text-sm font-bold px-0 md:px-4 py-1 md:py-3">PTS</TableHead>
+                          <TableHead className="text-center w-8 md:w-12 text-[10px] md:text-sm font-bold px-0 md:px-4 py-1 md:py-3">STR</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                        {womenStandings.map((team) => (
-                          <TableRow 
-                            key={team.position} 
-                            className={`border-border/20 transition-all duration-200 hover:bg-secondary/50 hover:shadow-md ${team.team.includes("Posušje") ? "bg-primary/10 hover:bg-primary/20" : ""}`}
-                          >
-                            <TableCell className="text-center font-bold text-sm">{team.position}</TableCell>
-                            <TableCell>
-                              <div className="flex items-center gap-2">
-                                {getTeamLogo(team.team) && (
-                                  <div className="w-9 h-9 flex items-center justify-center flex-shrink-0">
-                                    <img src={getTeamLogo(team.team)!} alt="" className={`object-contain ${team.team === "ŽKK Livno" ? "w-9 h-9" : "w-7 h-7"}`} />
+                        {standings.map((team, idx) => {
+                          const prev = standings[idx - 1];
+                          const separator = (() => {
+                            if (team.group === "playout" && (!prev || prev.group !== "playout")) {
+                              return { label: "Doigravanje za ostanak", color: "text-orange-400" };
+                            }
+                            if (team.group === "relegation" && (!prev || prev.group !== "relegation")) {
+                              return { label: "Ispadanje", color: "text-red-400" };
+                            }
+                            return null;
+                          })();
+                          const isAlkar = team.team === "Alkar";
+                          const logo = getTeamLogo(team.team);
+                          const logoScale =
+                            team.team === "Alkar" ? "w-[110%] h-[110%]"
+                            : team.team === "Dubrava" || team.team === "Kvarner" || team.team === "Samobor" || team.team === "Zabok" ? "w-[105%] h-[105%]"
+                            : team.team === "Cibona" || team.team === "Dubrovnik" ? "w-[92%] h-[92%]"
+                            : "w-full h-full";
+                          return (
+                            <>
+                              {separator && (
+                                <TableRow key={`sep-${team.position}`} className="hover:bg-transparent border-border/20">
+                                  <TableCell colSpan={10} className={`text-[10px] md:text-xs font-semibold py-1 md:py-1.5 px-2 md:px-4 ${separator.color}`}>
+                                    <span className="inline-flex items-center gap-1.5">
+                                      <span className={`w-1.5 h-1.5 rounded-full ${team.group === "playout" ? "bg-orange-400" : "bg-red-400"}`} />
+                                      {separator.label}
+                                    </span>
+                                  </TableCell>
+                                </TableRow>
+                              )}
+                              <TableRow
+                                key={team.position}
+                                className={`border-border/20 transition-all duration-200 hover:bg-secondary/50 hover:shadow-md ${isAlkar ? "bg-primary/10 hover:bg-primary/20" : ""}`}
+                              >
+                                <TableCell className="text-center font-bold text-[10px] md:text-sm px-0.5 md:px-4 py-0.5 md:py-4">{team.position}</TableCell>
+                                <TableCell className="px-0.5 md:px-4 py-0.5 md:py-4">
+                                  <div className="flex items-center gap-1 md:gap-2">
+                                    {logo && (
+                                      <div className="w-5 h-5 md:w-8 md:h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
+                                        <img src={logo} alt="" className={`object-contain ${logoScale}`} />
+                                      </div>
+                                    )}
+                                    <span className={`text-[10px] md:text-sm font-bold ${isAlkar ? "text-primary" : ""}`}>
+                                      {team.team}
+                                    </span>
                                   </div>
-                                )}
-                                <span className={`text-sm font-bold ${team.team.includes("Posušje") ? "text-primary" : ""}`}>
-                                  {team.team}
-                                </span>
-                              </div>
-                            </TableCell>
-                            <TableCell className="text-center font-bold text-sm">{team.points}</TableCell>
-                          </TableRow>
-                        ))}
+                                </TableCell>
+                                <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4">{team.played}</TableCell>
+                                <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4">{team.won}</TableCell>
+                                <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4">{team.lost}</TableCell>
+                                <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4">{team.pct}</TableCell>
+                                <TableCell className={`text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4 ${team.diff > 0 ? "text-green-400" : team.diff < 0 ? "text-red-400" : ""}`}>
+                                  {team.diff > 0 ? `+${team.diff}` : team.diff}
+                                </TableCell>
+                                <TableCell className="text-center hidden sm:table-cell">
+                                  <div className="flex gap-0.5 justify-center items-center">
+                                    {team.last5.map((result, i) => (
+                                      <span
+                                        key={i}
+                                        className={`w-5 h-5 text-[10px] font-bold rounded flex items-center justify-center transition-transform duration-200 hover:scale-110 ${
+                                          result === "W" ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"
+                                        }`}
+                                      >
+                                        {result}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </TableCell>
+                                <TableCell className="text-center font-bold text-[10px] md:text-sm px-0 md:px-4 py-0.5 md:py-4">{team.points}</TableCell>
+                                <TableCell className={`text-center font-bold text-[10px] md:text-sm px-0 md:px-4 py-0.5 md:py-4 ${team.streak.startsWith("W") ? "text-green-400" : "text-red-400"}`}>{team.streak}</TableCell>
+                              </TableRow>
+                            </>
+                          );
+                        })}
                       </TableBody>
                     </Table>
-                  )}
+                  </div>
                 </div>
               </TabsContent>
 
