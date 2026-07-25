@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import supersportLogo from "@/assets/logos/supersport-premijer.png.asset.json";
+import enblLogo from "@/assets/logos/enbl.png.asset.json";
+import kkcupLogo from "@/assets/logos/kresimir_cosic_cup.png.asset.json";
+
 import { fetchMatches, getTeamLogoFor, type DisplayMatch } from "@/lib/adminMatches";
 
 const displayTeamName = (name: string) =>
