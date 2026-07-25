@@ -213,7 +213,7 @@ const Sponsors = () => {
                 >
 
                   <h4 className="font-display text-base md:text-lg mb-3 md:mb-4">
-                    <span className="text-neutral-900">PODACI ZA </span>
+                    <span className="text-[hsl(38,75%,38%)]">PODACI ZA </span>
                     <span className="text-[hsl(38,75%,38%)]">PLAĆANJE</span>
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 text-xs md:text-sm">
