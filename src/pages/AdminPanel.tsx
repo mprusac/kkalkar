@@ -1084,11 +1084,11 @@ function NewsForm({
         <div className="grid grid-cols-2 gap-3">
           <div className="space-y-1.5">
             <Label>Datum *</Label>
-            <Input
+            <NativeDateInputDMY
               value={form.date}
-              onChange={(e) => setForm({ ...form, date: maskDate(e.target.value) })}
-              placeholder="DD.MM.YYYY"
+              onChange={(v) => setForm({ ...form, date: v })}
             />
+
           </div>
           <div className="space-y-1.5">
             <Label>Kategorija</Label>
