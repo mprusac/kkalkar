@@ -95,6 +95,14 @@ function isoToDMY(iso: string) {
   const [y, m, d] = iso.split("-");
   return `${d}.${m}.${y}`;
 }
+function dmyToIso(dmy: string) {
+  if (!dmy) return "";
+  const m = dmy.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+  if (!m) return "";
+  return `${m[3]}-${m[2]}-${m[1]}`;
+}
+
+
 function todayDMY() {
   const d = new Date();
   return `${String(d.getDate()).padStart(2, "0")}.${String(d.getMonth() + 1).padStart(2, "0")}.${d.getFullYear()}`;
@@ -108,6 +116,43 @@ function maskDate(value: string) {
   }
   return out;
 }
+
+function NativeDateInputDMY({ value, onChange }: { value: string; onChange: (dmy: string) => void }) {
+  const ref = useRef<HTMLInputElement>(null);
+  const open = () => {
+    const el = ref.current;
+    if (!el) return;
+    try {
+      // @ts-ignore
+      if (typeof el.showPicker === "function") el.showPicker();
+      else el.focus();
+    } catch {
+      el.focus();
+    }
+  };
+  return (
+    <div className="relative">
+      <Input
+        ref={ref}
+        type="date"
+        value={dmyToIso(value)}
+        onChange={(e) => onChange(isoToDMY(e.target.value))}
+        onClick={open}
+        className="pl-10 pr-3 date-input-native-picker cursor-pointer"
+      />
+      <button
+        type="button"
+        onClick={open}
+        className="absolute left-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded hover:bg-muted pointer-events-none"
+        aria-label="Odaberi datum"
+        tabIndex={-1}
+      >
+        <Calendar className="w-5 h-5" />
+      </button>
+    </div>
+  );
+}
+
 async function signedUrl(bucket: string, path: string) {
   const { data, error } = await supabase.storage.from(bucket).createSignedUrl(path, SIGNED_URL_TTL);
   if (error) throw error;
@@ -1039,11 +1084,11 @@ function NewsForm({
         <div className="grid grid-cols-2 gap-3">
           <div className="space-y-1.5">
             <Label>Datum *</Label>
-            <Input
+            <NativeDateInputDMY
               value={form.date}
-              onChange={(e) => setForm({ ...form, date: maskDate(e.target.value) })}
-              placeholder="DD.MM.YYYY"
+              onChange={(v) => setForm({ ...form, date: v })}
             />
+
           </div>
           <div className="space-y-1.5">
             <Label>Kategorija</Label>
@@ -1236,11 +1281,11 @@ function GalleryForm({
 
         <div className="space-y-1.5">
           <Label>Datum *</Label>
-          <Input
+          <NativeDateInputDMY
             value={form.date}
-            onChange={(e) => setForm({ ...form, date: maskDate(e.target.value) })}
-            placeholder="DD.MM.YYYY"
+            onChange={(v) => setForm({ ...form, date: v })}
           />
+
         </div>
 
         <div className="space-y-2">
