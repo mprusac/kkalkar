@@ -172,9 +172,16 @@ const Sponsors = () => {
                     return (
                       <div
                         key={tier.name}
-                        className={`group bg-white border border-border/40 rounded-xl shadow-md p-3 md:p-6 transition-all duration-300 animate-fade-in-up hover:scale-[1.03] ${shadowColor}`}
-                        style={{ animationDelay: `${index * 100}ms` }}
+                        className={`group border rounded-xl p-3 md:p-6 transition-all duration-300 animate-fade-in-up hover:scale-[1.03] ${shadowColor}`}
+                        style={{
+                          animationDelay: `${index * 100}ms`,
+                          background: 'linear-gradient(180deg, #ffffff 0%, #fff8e6 60%, #faf3e0 100%)',
+                          borderColor: '#d4a017',
+                          borderWidth: '1.5px',
+                          boxShadow: '0 4px 16px rgba(212,160,23,0.12)',
+                        }}
                       >
+
                         <div className={`${tier.color} mb-2 md:mb-3 transition-transform duration-300 group-hover:scale-110`}>{tier.icon}</div>
                         <h4 className={`font-semibold text-xs md:text-base ${tier.color} transition-colors duration-300`}>{tier.name}</h4>
                         <p className="text-[hsl(38,75%,38%)] text-sm md:text-lg font-display mt-1">{tier.price}</p>
