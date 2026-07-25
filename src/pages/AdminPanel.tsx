@@ -1639,7 +1639,7 @@ function MatchForm({
 
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-2">
-              <Label>Posušje rezultat</Label>
+              <Label>KK Alkar Sinj rezultat</Label>
               <Input
                 type="number"
                 min={0}
