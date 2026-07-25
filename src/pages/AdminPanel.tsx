@@ -1443,7 +1443,9 @@ function MatchForm({
     initial?.opponent_score != null ? String(initial.opponent_score) : "",
   );
   const [matchDate, setMatchDate] = useState(initial?.match_date ?? todayISO());
-  const [competition, setCompetition] = useState<"liga" | "kup">(initial?.competition ?? "liga");
+  const [competition, setCompetition] = useState<CompetitionValue>(
+    (initial?.competition as CompetitionValue) ?? "liga",
+  );
   const [youtubeLink, setYoutubeLink] = useState(initial?.youtube_link ?? "");
   const [sofascoreLink, setSofascoreLink] = useState(initial?.sofascore_link ?? "");
   const [opponentLogoUrl, setOpponentLogoUrl] = useState<string | null>(initial?.opponent_logo_url ?? null);
