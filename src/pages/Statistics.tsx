@@ -1071,7 +1071,7 @@ const Statistics = () => {
                               <TableCell className="text-center px-1 md:px-4">
                                 <div className="flex items-center justify-center gap-0.5 md:gap-1">
                                   {getFlagImage(player.nationality) ? (
-                                    <img src={getFlagImage(player.nationality)!} alt={player.nationality} className="w-4 h-4 md:w-6 md:h-6 rounded-full object-cover flex-shrink-0" />
+                                    <img src={getFlagImage(player.nationality)!} alt={player.nationality} className={`rounded-full object-cover flex-shrink-0 ${player.nationality === "USA" ? "w-[13.6px] h-[13.6px] md:w-[20.4px] md:h-[20.4px]" : "w-4 h-4 md:w-6 md:h-6"}`} />
                                   ) : player.nationality !== "-" ? (
                                     <span className="text-xs md:text-base">{getFlagEmoji(player.nationality)}</span>
                                   ) : null}
