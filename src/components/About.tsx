@@ -283,7 +283,7 @@ const About = () => {
               <span className="text-primary">VIZIJA</span>
             </h3>
             <p className="text-muted-foreground max-w-3xl mx-auto leading-relaxed text-sm md:text-lg relative z-10">
-              Naša vizija temelji se na kontinuiranom razvoju mladih talenata kroz sustavan i kvalitetan rad. Naglašavamo vrijednosti kao što su <span className="text-primary font-bold">odgovornost, disciplina i timski duh</span> u svakom aspektu klupskih aktivnosti. Cilj nam je stvoriti okruženje u kojem svaki mladi igrač može napredovati u vrhunskog sportaša i odgovornu osobu. Kroz ulaganja u stručni trenažni kadar, infrastrukturu i partnersku suradnju, nastojimo učvrstiti <span className="text-primary font-bold">HKK Posušje kao košarkaški centar BiH</span> i simbol sportskih uspjeha i pozitivnih životnih vrijednosti.
+              Naša vizija temelji se na <span className="text-primary font-bold">očuvanju tradicije</span> uz kontinuiran razvoj mladih igrača kroz sustavan i kvalitetan rad. Naglašavamo vrijednosti kao što su <span className="text-primary font-bold">upornost, zajedništvo i vjernost klubu</span> u svakom aspektu klupskih aktivnosti. Cilj nam je stvoriti okruženje u kojem svaki mladi igrač može napredovati u vrhunskog sportaša i ponosnog nositelja dresa Alkara. Kroz ulaganje u stručni trenerski kadar, infrastrukturu i suradnju s lokalnom zajednicom, nastojimo učvrstiti <span className="text-primary font-bold">KK Alkar kao ponos grada Sinja</span> i simbol sportskih uspjeha i vjernosti navijača kroz generacije.
             </p>
           </div>
         </div>
