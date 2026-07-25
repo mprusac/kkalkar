@@ -5,82 +5,8 @@ import { ArrowLeft, Camera, X, ChevronLeft, ChevronRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 
-import eventTomislav from "@/assets/event-tomislav.png";
-import eventSiroki from "@/assets/event-siroki.png";
-import eventRama from "@/assets/event-rama.png";
-import eventLjubuski from "@/assets/event-ljubuski.jpg";
 
-// Import Berlin images
-import berlinG1 from "@/assets/berlin/berlin-g1.jpg";
-import berlinG2 from "@/assets/berlin/berlin-g2.jpg";
-import berlinG3 from "@/assets/berlin/berlin-g3.jpg";
-import berlinG4 from "@/assets/berlin/berlin-g4.jpg";
-import berlinG5 from "@/assets/berlin/berlin-g5.jpg";
-import berlinG6 from "@/assets/berlin/berlin-g6.jpg";
-import berlinG7 from "@/assets/berlin/berlin-g7.jpg";
-import berlinG8 from "@/assets/berlin/berlin-g8.jpg";
-import berlinG9 from "@/assets/berlin/berlin-g9.jpg";
-import berlin9 from "@/assets/berlin/berlin-9.jpg";
-import berlinGalleryCover from "@/assets/berlin/berlin-gallery-cover.jpg";
 
-// Import Xmas Gear images
-import xmasGear1 from "@/assets/xmas-gear/xmas-gear-1.jpg";
-import xmasGear2 from "@/assets/xmas-gear/xmas-gear-2.jpg";
-import xmasGear3 from "@/assets/xmas-gear/xmas-gear-3.jpg";
-import xmasGear4 from "@/assets/xmas-gear/xmas-gear-4.jpg";
-import xmasGear5 from "@/assets/xmas-gear/xmas-gear-5.jpg";
-import xmasGear6 from "@/assets/xmas-gear/xmas-gear-6.jpg";
-import xmasGear7 from "@/assets/xmas-gear/xmas-gear-7.jpg";
-import xmasGear8 from "@/assets/xmas-gear/xmas-gear-8.jpg";
-import xmasGearCover from "@/assets/xmas-gear/xmas-gear-cover.png";
-
-// Import Tomislav images
-import tomislav1 from "@/assets/tomislav/tomislav-1.jpg";
-import tomislav2 from "@/assets/tomislav/tomislav-2.jpg";
-import tomislav3 from "@/assets/tomislav/tomislav-3.png";
-import tomislav4 from "@/assets/tomislav/tomislav-4.jpg";
-import tomislav5 from "@/assets/tomislav/tomislav-5.jpg";
-import tomislav6 from "@/assets/tomislav/tomislav-6.jpg";
-import tomislav7 from "@/assets/tomislav/tomislav-7.png";
-import tomislav8 from "@/assets/tomislav/tomislav-8.jpg";
-import tomislav9 from "@/assets/tomislav/tomislav-9.png";
-import tomislav10 from "@/assets/tomislav/tomislav-10.jpg";
-
-// Import Rama images
-import rama1 from "@/assets/rama/rama-1.png";
-import rama2 from "@/assets/rama/rama-2.jpg";
-import rama3 from "@/assets/rama/rama-3.jpg";
-import rama4 from "@/assets/rama/rama-4.jpg";
-import rama5 from "@/assets/rama/rama-5.jpg";
-import rama6 from "@/assets/rama/rama-6.jpg";
-import rama7 from "@/assets/rama/rama-7.jpg";
-import rama8 from "@/assets/rama/rama-8.png";
-import rama9 from "@/assets/rama/rama-9.png";
-import rama10 from "@/assets/rama/rama-10.jpg";
-
-// Import Široki images
-import siroki1 from "@/assets/siroki/siroki-1.jpg";
-import siroki2 from "@/assets/siroki/siroki-2.jpg";
-import siroki3 from "@/assets/siroki/siroki-3.jpg";
-import siroki4 from "@/assets/siroki/siroki-4.jpg";
-import siroki5 from "@/assets/siroki/siroki-5.jpg";
-import siroki6 from "@/assets/siroki/siroki-6.jpg";
-import siroki7 from "@/assets/siroki/siroki-7.png";
-import siroki8 from "@/assets/siroki/siroki-8.png";
-import siroki9 from "@/assets/siroki/siroki-9.png";
-import siroki10 from "@/assets/siroki/siroki-10.png";
-
-// Import Ljubuški images
-import ljubuski1 from "@/assets/ljubuski/ljubuski-1.jpg";
-import ljubuski2 from "@/assets/ljubuski/ljubuski-2.jpg";
-import ljubuski3 from "@/assets/ljubuski/ljubuski-3.jpg";
-import ljubuski4 from "@/assets/ljubuski/ljubuski-4.jpg";
-import ljubuski5 from "@/assets/ljubuski/ljubuski-5.jpg";
-import ljubuski6 from "@/assets/ljubuski/ljubuski-6.jpg";
-import ljubuski7 from "@/assets/ljubuski/ljubuski-7.png";
-import ljubuski8 from "@/assets/ljubuski/ljubuski-8.png";
-import ljubuski9 from "@/assets/ljubuski/ljubuski-9.png";
-import ljubuski10 from "@/assets/ljubuski/ljubuski-10.jpg";
 
 // Image orientation type - vertical or horizontal
 type ImageWithOrientation = {
@@ -88,132 +14,16 @@ type ImageWithOrientation = {
   orientation: "vertical" | "horizontal";
 };
 
-export const events = [
-  {
-    id: "berlin",
-    homeTeam: "ALBA Berlin",
-    awayTeam: "Winterturnier 2026",
-    date: "05.01.2026.",
-    description: "Galerija sa ALBA Berlin turnira",
-    coverImage: berlinGalleryCover,
-    images: [] as string[],
-    imagesWithOrientation: [
-      { src: berlinG1, orientation: "horizontal" },
-      { src: berlinG2, orientation: "horizontal" },
-      { src: berlinG3, orientation: "horizontal" },
-      { src: berlinG9, orientation: "horizontal" },
-      { src: berlinG5, orientation: "horizontal" },
-      { src: berlinG6, orientation: "horizontal" },
-      { src: berlinG7, orientation: "horizontal" },
-      { src: berlinG8, orientation: "horizontal" },
-      { src: berlinG4, orientation: "horizontal" },
-      { src: berlin9, orientation: "horizontal" },
-    ] as ImageWithOrientation[],
-  },
-  {
-    id: "ljubuski",
-    homeTeam: "HKK Posušje",
-    awayTeam: "HKK Ljubuški",
-    date: "14.12.2025.",
-    description: "Galerija s utakmice Posušje - Ljubuški",
-    coverImage: eventLjubuski,
-    images: [] as string[],
-    imagesWithOrientation: [
-      { src: ljubuski10, orientation: "horizontal" },
-      { src: ljubuski1, orientation: "horizontal" },
-      { src: ljubuski7, orientation: "vertical" },
-      { src: ljubuski2, orientation: "horizontal" },
-      { src: ljubuski8, orientation: "vertical" },
-      { src: ljubuski3, orientation: "vertical" },
-      { src: ljubuski4, orientation: "horizontal" },
-      { src: ljubuski9, orientation: "vertical" },
-      { src: ljubuski5, orientation: "horizontal" },
-      { src: ljubuski6, orientation: "horizontal" },
-    ] as ImageWithOrientation[],
-  },
-  {
-    id: "bozicno-darivanje",
-    homeTeam: "Božićno darivanje službene opreme",
-    awayTeam: "",
-    date: "12.12.2025.",
-    description: "Božićno darivanje službene opreme",
-    coverImage: xmasGearCover,
-    images: [] as string[],
-    imagesWithOrientation: [
-      { src: xmasGear1, orientation: "vertical" },
-      { src: xmasGear2, orientation: "vertical" },
-      { src: xmasGear3, orientation: "vertical" },
-      { src: xmasGear4, orientation: "vertical" },
-      { src: xmasGear5, orientation: "vertical" },
-      { src: xmasGear6, orientation: "vertical" },
-      { src: xmasGear7, orientation: "vertical" },
-      { src: xmasGear8, orientation: "vertical" },
-    ] as ImageWithOrientation[],
-  },
-  {
-    id: "rama",
-    homeTeam: "HKK Posušje",
-    awayTeam: "HKK Rama",
-    date: "23.11.2025.",
-    description: "Galerija s utakmice Posušje - Rama",
-    coverImage: eventRama,
-    images: [] as string[],
-    imagesWithOrientation: [
-      { src: rama9, orientation: "horizontal" },
-      { src: rama7, orientation: "vertical" },
-      { src: rama1, orientation: "vertical" },
-      { src: rama10, orientation: "horizontal" },
-      { src: rama4, orientation: "vertical" },
-      { src: rama2, orientation: "vertical" },
-      { src: rama3, orientation: "horizontal" },
-      { src: rama8, orientation: "vertical" },
-      { src: rama5, orientation: "vertical" },
-      { src: rama6, orientation: "horizontal" },
-    ] as ImageWithOrientation[],
-  },
-  {
-    id: "siroki",
-    homeTeam: "HKK Posušje",
-    awayTeam: "HKK Široki II",
-    date: "15.11.2025.",
-    description: "Galerija s utakmice Posušje - Široki II",
-    coverImage: eventSiroki,
-    images: [] as string[],
-    imagesWithOrientation: [
-      { src: siroki7, orientation: "horizontal" },
-      { src: siroki1, orientation: "vertical" },
-      { src: siroki2, orientation: "vertical" },
-      { src: siroki8, orientation: "horizontal" },
-      { src: siroki5, orientation: "vertical" },
-      { src: siroki3, orientation: "vertical" },
-      { src: siroki9, orientation: "horizontal" },
-      { src: siroki4, orientation: "vertical" },
-      { src: siroki10, orientation: "horizontal" },
-      { src: siroki6, orientation: "vertical" },
-    ] as ImageWithOrientation[],
-  },
-  {
-    id: "tomislav",
-    homeTeam: "HKK Posušje",
-    awayTeam: "HKK Tomislav",
-    date: "02.11.2025.",
-    description: "Galerija s utakmice Posušje - Tomislav",
-    coverImage: eventTomislav,
-    images: [] as string[],
-    imagesWithOrientation: [
-      { src: tomislav3, orientation: "horizontal" },
-      { src: tomislav1, orientation: "vertical" },
-      { src: tomislav2, orientation: "vertical" },
-      { src: tomislav7, orientation: "horizontal" },
-      { src: tomislav4, orientation: "vertical" },
-      { src: tomislav5, orientation: "vertical" },
-      { src: tomislav9, orientation: "horizontal" },
-      { src: tomislav6, orientation: "vertical" },
-      { src: tomislav8, orientation: "vertical" },
-      { src: tomislav10, orientation: "vertical" },
-    ] as ImageWithOrientation[],
-  },
-];
+export const events: {
+  id: string;
+  homeTeam: string;
+  awayTeam: string;
+  date: string;
+  description: string;
+  coverImage: string;
+  images: string[];
+  imagesWithOrientation: ImageWithOrientation[];
+}[] = [];
 
 const EventCard = ({ event, index }: { event: typeof events[0]; index: number }) => {
   return (
@@ -475,11 +285,17 @@ const GalleryPage = () => {
           </motion.div>
 
           {/* Events Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
-            {events.map((event, index) => (
-              <EventCard key={event.id} event={event} index={index} />
-            ))}
-          </div>
+          {events.length === 0 ? (
+            <p className="text-center text-muted-foreground text-lg py-16">
+              Trenutno nema dostupnih galerija.
+            </p>
+          ) : (
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
+              {events.map((event, index) => (
+                <EventCard key={event.id} event={event} index={index} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <Footer />
