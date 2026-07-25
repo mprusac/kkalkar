@@ -71,6 +71,7 @@ import playerBasicLuka from "@/assets/player-basic-luka.png";
 // Import flag images
 import flagBih from "@/assets/flags/bih-flag.png";
 import flagCro from "@/assets/flags/cro-flag.png";
+import flagUsa from "@/assets/flags/usa-flag.png";
 
 // Logo mapping
 const teamLogos: Record<string, string> = {
