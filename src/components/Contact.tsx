@@ -75,7 +75,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto items-stretch">
           {/* Contact Form */}
           <div className="animate-fade-in-up h-full">
-            <div className="card-surface-interactive p-5 md:p-8 h-full flex flex-col">
+            <div className="card-surface-interactive hover-lift hover-glow p-5 md:p-8 h-full flex flex-col shadow-lg hover:shadow-primary/40 transition-all duration-500">
               <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5 flex-1 flex flex-col gap-4">
                 <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
                   <div className="group">
@@ -158,7 +158,7 @@ const Contact = () => {
                   type="submit"
                   size="lg"
                   disabled={isSubmitting}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] uppercase tracking-wider font-display text-lg transition-all duration-300"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/50 uppercase tracking-wider font-display text-lg transition-all duration-500"
                 >
                   {isSubmitting ? (
                     <>
@@ -179,8 +179,8 @@ const Contact = () => {
           {/* Contact Info & Map */}
           <div className="flex flex-col gap-3 md:gap-4 animate-fade-in-up delay-200 h-full">
             {/* Contact Details */}
-            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive cursor-default flex-1">
-              <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive hover-lift hover-glow cursor-default flex-1 transition-all duration-500 hover:shadow-lg hover:shadow-primary/40">
+              <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-primary/50 transition-all duration-500">
                 <MapPin className="text-primary" size={18} />
               </div>
               <div>
@@ -191,8 +191,8 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive flex-1">
-              <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive hover-lift hover-glow flex-1 transition-all duration-500 hover:shadow-lg hover:shadow-primary/40">
+              <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-primary/50 transition-all duration-500">
                 <Mail className="text-primary" size={18} />
               </div>
               <div>
@@ -206,8 +206,8 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive flex-1">
-              <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+            <div className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 card-surface-interactive hover-lift hover-glow flex-1 transition-all duration-500 hover:shadow-lg hover:shadow-primary/40">
+              <div className="p-2 md:p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-primary/50 transition-all duration-500">
                 <Phone className="text-primary" size={18} />
               </div>
               <div>
@@ -222,7 +222,7 @@ const Contact = () => {
             </div>
 
             {/* Map */}
-            <div className="card-surface-interactive overflow-hidden flex-[2]">
+            <div className="card-surface-interactive hover-lift hover-glow overflow-hidden flex-[2] transition-all duration-500 hover:shadow-lg hover:shadow-primary/40">
               <iframe
                 src="https://www.google.com/maps?q=Ulica+Alaj%C4%8Dau%C5%A1a+Frane+Bareze+%C5%A0ore+1,+21230+Sinj&output=embed"
                 width="100%"

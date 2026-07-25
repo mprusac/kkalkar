@@ -13,7 +13,7 @@ interface StatItem {
 const stats: StatItem[] = [
   { value: 1955, label: "GODINA OSNUTKA" },
   { value: 120, suffix: "+", label: "REGISTRIRANIH IGRAČA" },
-  { value: 5, label: "UZRASNE KATEGORIJE" },
+  { value: 5, label: "UZRASNIH KATEGORIJA" },
   { value: 71, label: "GODINA POSTOJANJA" },
 ];
 
