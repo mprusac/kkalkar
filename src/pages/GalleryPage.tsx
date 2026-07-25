@@ -114,7 +114,7 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen cream-page-scope">
       <div className="pt-8 pb-16">
         <div className="container mx-auto px-4">
           {/* Back link */}
@@ -141,11 +141,12 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
           >
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-2">
               <span className="text-primary">{event.homeTeam}</span>
-              <span className="text-white"> - {event.awayTeam}</span>
+              <span className="text-[#0E2A63]"> - {event.awayTeam}</span>
             </h1>
             <p className="text-primary font-display text-2xl md:text-3xl mt-2">{event.date}</p>
-            <p className="text-muted-foreground mt-4">{event.description}</p>
+            <p className="text-[#0E2A63]/70 mt-4">{event.description}</p>
           </motion.div>
+
 
           {/* Masonry Gallery - clean columns layout */}
           <div className="columns-2 md:columns-3 gap-1.5 max-w-5xl mx-auto">
@@ -245,7 +246,7 @@ const GalleryPage = () => {
 
   // Otherwise show the events list
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen cream-page-scope">
       <SEO
         title="Galerija — KK Posušje"
         description="Fotografije s utakmica, priprema i događanja Košarkaškog kluba Posušje."
@@ -276,17 +277,17 @@ const GalleryPage = () => {
             className="text-center mb-16"
           >
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl mb-4">
-              <span className="text-white">FOTO</span>
+              <span className="text-[#0E2A63]">FOTO</span>
               <span className="text-primary"> GALERIJA</span>
             </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-[#0E2A63]/70 text-lg max-w-2xl mx-auto">
               Zabilježeni trenuci sa naših utakmica
             </p>
           </motion.div>
 
           {/* Events Grid */}
           {events.length === 0 ? (
-            <p className="text-center text-muted-foreground text-lg py-16">
+            <p className="text-center text-[#0E2A63]/70 text-lg py-16">
               Trenutno nema dostupnih galerija.
             </p>
           ) : (
@@ -299,6 +300,7 @@ const GalleryPage = () => {
         </div>
       </div>
       <Footer />
+
     </div>
   );
 };
