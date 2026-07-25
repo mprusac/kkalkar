@@ -517,8 +517,8 @@ const Statistics = () => {
                 >
                   {displayedMatches.map((match) => {
                     const result = getMatchResult(match);
-                    const homeLogo = getTeamLogo(match.homeTeam);
-                    const awayLogo = getTeamLogo(match.awayTeam);
+                    const homeLogo = getMatchTeamLogo(match, match.homeTeam);
+                    const awayLogo = getMatchTeamLogo(match, match.awayTeam);
                     
                     const matchContent = (
                       <div className={`px-2 py-[7px] hover:bg-secondary/50 transition-all duration-200 ${!match.isUpcoming ? 'cursor-pointer hover:shadow-md' : ''}`}>
