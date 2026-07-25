@@ -371,7 +371,7 @@ const Statistics = () => {
   const upcomingMatches = matches.filter(m => m.isUpcoming);
   const playedMatches = matches.filter(m => !m.isUpcoming);
   
-  const baseCount = Math.max(0, 10 - upcomingMatches.length);
+  const baseCount = Math.max(0, 9 - upcomingMatches.length);
   const baseFirstPageMatches = [...upcomingMatches, ...playedMatches.slice(0, baseCount)];
   const remainingMatchesPool = [...playedMatches.slice(baseCount)];
   
