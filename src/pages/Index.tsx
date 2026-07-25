@@ -88,24 +88,25 @@ const Index = () => {
       {/* Fixed social icons - bottom right */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <a
-          href="https://www.instagram.com/kkposusje/"
+          href="https://www.instagram.com/kk.alkar.official/?hl=en"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
-          className="w-11 h-11 rounded-full bg-background/80 border border-primary/40 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/30"
+          className="w-11 h-11 rounded-full bg-white/80 border border-[hsl(43,68%,67%)] backdrop-blur-sm flex items-center justify-center text-[hsl(38,75%,38%)] transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/30"
         >
           <Instagram size={20} />
         </a>
         <a
-          href="https://www.facebook.com/kosarkaposusje/"
+          href="https://www.facebook.com/kk.alkar.official"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook"
-          className="w-11 h-11 rounded-full bg-background/80 border border-primary/40 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/30"
+          className="w-11 h-11 rounded-full bg-white/80 border border-[hsl(43,68%,67%)] backdrop-blur-sm flex items-center justify-center text-[hsl(38,75%,38%)] transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/30"
         >
           <Facebook size={20} />
         </a>
       </div>
+
     </div>
   );
 };
