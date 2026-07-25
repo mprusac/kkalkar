@@ -203,35 +203,27 @@ const Results = () => {
 
                   {/* Match content - Teams with logos */}
                   <div>
-                    <div className="flex items-center justify-between gap-2 md:gap-4">
-                      {/* Home Team */}
-                      <div className="flex-1 flex flex-col items-center">
-                        <div className="w-14 h-14 md:w-20 md:h-20 flex items-center justify-center overflow-hidden">
-                          {homeLogo ? (
-                            <img 
-                              src={homeLogo} 
-                              alt={match.homeTeam}
-                              className={`object-contain flex-shrink-0 ${getLogoScale(match.homeTeam)}`}
-                            />
-                          ) : (
-                            <div className="w-full h-full rounded-full bg-muted flex items-center justify-center">
-                              <span className="text-[10px] md:text-xs font-bold text-muted-foreground">
-                                {match.homeTeam.substring(0, 2).toUpperCase()}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                        <span
-                          className={`text-[10px] md:text-xs font-semibold text-center leading-tight mt-1.5 md:mt-2 ${
-                            match.isHome ? "text-primary" : "text-foreground"
-                          }`}
-                        >
-                          {displayTeamName(match.homeTeam)}
-                        </span>
+                    {/* Logos + score, vertically aligned */}
+                    <div className="grid grid-cols-3 items-center gap-3 md:gap-5">
+                      {/* Home Team logo */}
+                      <div className="flex justify-end items-center h-14 md:h-20">
+                        {homeLogo ? (
+                          <img
+                            src={homeLogo}
+                            alt={match.homeTeam}
+                            className={`object-contain flex-shrink-0 ${getLogoScale(match.homeTeam)}`}
+                          />
+                        ) : (
+                          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-muted flex items-center justify-center">
+                            <span className="text-[10px] md:text-xs font-bold text-muted-foreground">
+                              {match.homeTeam.substring(0, 2).toUpperCase()}
+                            </span>
+                          </div>
+                        )}
                       </div>
 
                       {/* Score */}
-                      <div className="flex items-center gap-1.5 md:gap-3 bg-background/40 px-2 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl border border-border/30 h-10 md:h-14">
+                      <div className="justify-self-center flex items-center gap-1.5 md:gap-3 bg-background/40 px-2 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl border border-border/30 h-10 md:h-14">
                         <span
                           className={`text-xl md:text-3xl font-display font-bold ${
                             match.homeScore > match.awayScore
@@ -253,32 +245,43 @@ const Results = () => {
                         </span>
                       </div>
 
-                      {/* Away Team */}
-                      <div className="flex-1 flex flex-col items-center">
-                        <div className="w-14 h-14 md:w-20 md:h-20 flex items-center justify-center overflow-hidden">
-                          {awayLogo ? (
-                            <img 
-                              src={awayLogo} 
-                              alt={match.awayTeam}
-                              className={`object-contain flex-shrink-0 ${getLogoScale(match.awayTeam)}`}
-                            />
-                          ) : (
-                            <div className="w-full h-full rounded-full bg-muted flex items-center justify-center">
-                              <span className="text-[10px] md:text-xs font-bold text-muted-foreground">
-                                {match.awayTeam.substring(0, 2).toUpperCase()}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                        <span
-                          className={`text-[10px] md:text-xs font-semibold text-center leading-tight mt-1.5 md:mt-2 ${
-                            !match.isHome ? "text-primary" : "text-foreground"
-                          }`}
-                        >
-                          {displayTeamName(match.awayTeam)}
-                        </span>
+                      {/* Away Team logo */}
+                      <div className="flex justify-start items-center h-14 md:h-20">
+                        {awayLogo ? (
+                          <img
+                            src={awayLogo}
+                            alt={match.awayTeam}
+                            className={`object-contain flex-shrink-0 ${getLogoScale(match.awayTeam)}`}
+                          />
+                        ) : (
+                          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-muted flex items-center justify-center">
+                            <span className="text-[10px] md:text-xs font-bold text-muted-foreground">
+                              {match.awayTeam.substring(0, 2).toUpperCase()}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </div>
+
+                    {/* Team names row */}
+                    <div className="grid grid-cols-3 items-start gap-3 md:gap-5 mt-1.5 md:mt-2">
+                      <span
+                        className={`text-[10px] md:text-xs font-semibold text-center leading-tight ${
+                          match.isHome ? "text-primary" : "text-foreground"
+                        }`}
+                      >
+                        {displayTeamName(match.homeTeam)}
+                      </span>
+                      <span />
+                      <span
+                        className={`text-[10px] md:text-xs font-semibold text-center leading-tight ${
+                          !match.isHome ? "text-primary" : "text-foreground"
+                        }`}
+                      >
+                        {displayTeamName(match.awayTeam)}
+                      </span>
+                    </div>
+
 
                     {/* Competition label below teams/score */}
                     {match.competition && (
