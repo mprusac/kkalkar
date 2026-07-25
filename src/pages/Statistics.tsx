@@ -106,9 +106,12 @@ interface Standing {
   played: number;
   won: number;
   lost: number;
+  pct: string;
   diff: number;
   last5: ("W" | "L")[];
   points: number;
+  streak: string;
+  group?: "playoff" | "playout" | "relegation";
 }
 
 interface WomenStanding {
