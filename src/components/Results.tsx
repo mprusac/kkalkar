@@ -180,7 +180,7 @@ const Results = () => {
                   }}
                 >
                   {/* Header with date and link */}
-                  <div className="grid grid-cols-3 items-center gap-3 md:gap-5 mb-3 md:mb-4">
+                  <div className="grid grid-cols-3 items-center gap-3 md:gap-5 mb-2 md:mb-2">
                     <div className="flex justify-center items-center -translate-x-[15%]">
                       {match.youtubeLink ? (
                         <a
