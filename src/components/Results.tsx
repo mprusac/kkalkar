@@ -214,7 +214,7 @@ const Results = () => {
                     {/* Logos + score, vertically aligned */}
                     <div className="grid grid-cols-3 items-center gap-3 md:gap-5">
                       {/* Home Team logo */}
-                      <div className="flex justify-center items-center h-14 md:h-20 -translate-x-[15%]">
+                      <div className="flex justify-center items-center h-12 md:h-16 -translate-x-[15%]">
                         {homeLogo ? (
                           <img
                             src={homeLogo}
