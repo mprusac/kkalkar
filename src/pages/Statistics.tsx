@@ -32,6 +32,20 @@ import logoTomislav from "@/assets/logos/hkk_tomislav.png";
 import logoPosusje from "@/assets/logos/kk_posusje.png";
 import logoCapljina from "@/assets/logos/hkk_capljina.png";
 import logoKSHB from "@/assets/logos/kshb_logo.png";
+import supersportAsset from "@/assets/logos/supersport-premijer.png.asset.json";
+import logoZadar from "@/assets/logos/kk_zadar.png";
+import logoCibona from "@/assets/logos/kk_cibona.png";
+import logoSplit from "@/assets/logos/kk_split.png";
+import logoSamobor from "@/assets/logos/kk_samobor.png";
+import logoDubrovnik from "@/assets/logos/kk_dubrovnik.png";
+import logoZabok from "@/assets/logos/kk_zabok.png";
+import logoDubrava from "@/assets/logos/kk_dubrava.png";
+import logoKvarner from "@/assets/logos/kk_kvarner.png";
+import logoCedevitaJunior from "@/assets/logos/kk_cedevita_junior.png";
+import logoDinamo from "@/assets/logos/kk_dinamo_zagreb.png";
+import logoSibenka from "@/assets/logos/kk_sibenka.png";
+import logoAlkar from "@/assets/logos/kk_posusje.png";
+const supersportLogo = supersportAsset.url;
 
 // Import ŽKK logos
 import logoZkkPosusje from "@/assets/logos/zkk_posusje.png";
