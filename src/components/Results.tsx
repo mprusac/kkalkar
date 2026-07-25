@@ -180,8 +180,8 @@ const Results = () => {
                   }}
                 >
                   {/* Header with date and link */}
-                  <div className="flex items-center justify-between mb-3 md:mb-4">
-                    <div className="flex-1 flex justify-start items-center">
+                  <div className="grid grid-cols-3 items-center gap-3 md:gap-5 mb-3 md:mb-4">
+                    <div className="flex justify-center items-center -translate-x-[15%]">
                       {match.youtubeLink ? (
                         <a
                           href={match.youtubeLink}
@@ -197,14 +197,14 @@ const Results = () => {
                         <img src={youtubeIcon.url} alt="YouTube" className="h-5 md:h-6 w-auto object-contain opacity-30" />
                       )}
                     </div>
-                    <div className="flex-shrink-0">
-                      <span className="text-[10px] md:text-xs font-medium text-muted-foreground bg-background/50 px-3 py-1 rounded-full">
+                    <div className="flex justify-center">
+                      <span className="text-[10px] md:text-xs font-medium text-muted-foreground bg-background/50 px-3 py-1 rounded-full whitespace-nowrap">
                         {match.date}
                       </span>
                     </div>
-                    <div className="flex-1 flex justify-end items-center">
-                      <span title="SofaScore" className="transition-transform group-hover:scale-110">
-                        <img src={sofascoreIcon.url} alt="SofaScore" className="h-5 md:h-6 w-auto object-contain rounded" />
+                    <div className="flex justify-center items-center translate-x-[15%]">
+                      <span title="SofaScore" className="transition-transform group-hover:scale-110 inline-flex">
+                        <img src={sofascoreIcon.url} alt="SofaScore" className="h-5 md:h-6 w-5 md:w-6 object-contain rounded" />
                       </span>
                     </div>
                   </div>
@@ -214,7 +214,7 @@ const Results = () => {
                     {/* Logos + score, vertically aligned */}
                     <div className="grid grid-cols-3 items-center gap-3 md:gap-5">
                       {/* Home Team logo */}
-                      <div className="flex justify-center items-center h-14 md:h-20">
+                      <div className="flex justify-center items-center h-14 md:h-20 -translate-x-[15%]">
                         {homeLogo ? (
                           <img
                             src={homeLogo}
@@ -255,7 +255,7 @@ const Results = () => {
                       </div>
 
                       {/* Away Team logo */}
-                      <div className="flex justify-center items-center h-14 md:h-20">
+                      <div className="flex justify-center items-center h-14 md:h-20 translate-x-[15%]">
                         {awayLogo ? (
                           <img
                             src={awayLogo}
@@ -276,7 +276,7 @@ const Results = () => {
                     {/* Team names row */}
                     <div className="grid grid-cols-3 items-start gap-3 md:gap-5 mt-1.5 md:mt-2">
                       <span
-                        className={`text-[10px] md:text-xs font-semibold text-center leading-tight ${
+                        className={`text-[10px] md:text-xs font-semibold text-center leading-tight -translate-x-[15%] ${
                           match.isHome ? "text-primary" : "text-foreground"
                         } ${match.homeTeam.toLowerCase().includes("alkar") ? "[text-shadow:0_0_10px_hsl(var(--primary)/0.9),0_0_18px_hsl(var(--primary)/0.6)]" : ""}`}
                       >
@@ -284,7 +284,7 @@ const Results = () => {
                       </span>
                       <span />
                       <span
-                        className={`text-[10px] md:text-xs font-semibold text-center leading-tight ${
+                        className={`text-[10px] md:text-xs font-semibold text-center leading-tight translate-x-[15%] ${
                           !match.isHome ? "text-primary" : "text-foreground"
                         } ${match.awayTeam.toLowerCase().includes("alkar") ? "[text-shadow:0_0_10px_hsl(var(--primary)/0.9),0_0_18px_hsl(var(--primary)/0.6)]" : ""}`}
                       >
