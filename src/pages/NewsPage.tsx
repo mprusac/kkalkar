@@ -178,7 +178,8 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
   }, []);
 
   return (
-    <div className="min-h-screen cream-page-scope" style={{ zoom: 0.9 }}>
+    <div className="min-h-screen cream-page-scope">
+      <div style={{ zoom: 0.85 }}>
       <SEO
         title={`${article.title} — KK Posušje`}
         description={(article.content || article.title).replace(/\n+/g, ' ').slice(0, 155)}
@@ -245,6 +246,7 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
           </motion.div>
         </div>
       </div>
+      </div>
       <Footer />
 
 
@@ -309,7 +311,8 @@ const NewsPage = () => {
   const filteredNews = activeCategory === "sve" ? mergedNews : mergedNews.filter((item: any) => item.category === activeCategory);
 
   return (
-    <div className="min-h-screen cream-page-scope" style={{ zoom: 0.9 }}>
+    <div className="min-h-screen cream-page-scope">
+      <div style={{ zoom: 0.85 }}>
       <SEO
         title="Vijesti — KK Posušje"
         description="Najnovije vijesti, najave utakmica, izvještaji i priopćenja Košarkaškog kluba Posušje."
@@ -371,6 +374,7 @@ const NewsPage = () => {
             ))}
           </div>
         </div>
+      </div>
       </div>
       <Footer />
     </div>
