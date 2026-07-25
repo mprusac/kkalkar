@@ -371,33 +371,45 @@ const Statistics = () => {
     document.body.scrollTop = 0;
   }, []);
 
-  // Calculate extra matches based on active tab
-  const getExtraMatches = () => {
-    if (activeMainTab === "statistics") return 1;
-    if (activeMainTab === "players" && activePlayersTab === "squad") return 9;
-    if (activeMainTab === "players" && activePlayersTab === "top") return 3;
-    return 0;
-  };
-  const extraMatchesCount = getExtraMatches();
-  
-  // Sort matches: Page 0 = upcoming + past (6 total), Page 1+ = remaining
+  // Refs to dynamically size the matches list to match the right column height
+  const rightColRef = useRef<HTMLDivElement>(null);
+  const formBoxRef = useRef<HTMLDivElement>(null);
+  const gamesHeaderRef = useRef<HTMLDivElement>(null);
+  const [matchesPerPage, setMatchesPerPage] = useState(9);
+
+  useLayoutEffect(() => {
+    const compute = () => {
+      const right = rightColRef.current;
+      const form = formBoxRef.current;
+      const header = gamesHeaderRef.current;
+      if (!right || !form || !header) return;
+      const gap = 12; // gap-3 between form and games in left col
+      const available = right.offsetHeight - form.offsetHeight - header.offsetHeight - gap;
+      const rowH = 62; // approx height per match row
+      const n = Math.max(4, Math.min(20, Math.floor(available / rowH)));
+      setMatchesPerPage(n);
+    };
+    compute();
+    const ro = new ResizeObserver(compute);
+    if (rightColRef.current) ro.observe(rightColRef.current);
+    window.addEventListener("resize", compute);
+    const t = setTimeout(compute, 100);
+    return () => { ro.disconnect(); window.removeEventListener("resize", compute); clearTimeout(t); };
+  }, [activeMainTab, activePlayersTab, matches.length]);
+
+  // Sort matches: upcoming first, then played (most recent first)
   const upcomingMatches = matches.filter(m => m.isUpcoming);
   const playedMatches = matches.filter(m => !m.isUpcoming);
-  
-  const baseCount = Math.max(0, 9 - upcomingMatches.length);
-  const baseFirstPageMatches = [...upcomingMatches, ...playedMatches.slice(0, baseCount)];
-  const remainingMatchesPool = [...playedMatches.slice(baseCount)];
-  
-  // On page 0, append extra matches from the remaining pool
-  const firstPageMatches = [...baseFirstPageMatches, ...remainingMatchesPool.slice(0, extraMatchesCount)];
-  
-  // Remaining matches for pages 1+ (always skip those shown on page 0)
-  const remainingAfterPage0 = remainingMatchesPool.slice(extraMatchesCount);
-  const matchesPerPage = 9;
-  const totalMatchPages = remainingAfterPage0.length > 0 ? 1 + Math.ceil(remainingAfterPage0.length / matchesPerPage) : 1;
-  
-  const displayedMatches = matchPage === 0 
-    ? firstPageMatches 
+
+  const firstPagePlayedCount = Math.max(0, matchesPerPage - upcomingMatches.length);
+  const firstPageMatches = [...upcomingMatches, ...playedMatches.slice(0, firstPagePlayedCount)];
+  const remainingAfterPage0 = playedMatches.slice(firstPagePlayedCount);
+  const totalMatchPages = remainingAfterPage0.length > 0
+    ? 1 + Math.ceil(remainingAfterPage0.length / matchesPerPage)
+    : 1;
+
+  const displayedMatches = matchPage === 0
+    ? firstPageMatches
     : remainingAfterPage0.slice((matchPage - 1) * matchesPerPage, matchPage * matchesPerPage);
 
   const getTeamLogo = (teamName: string) => teamLogos[teamName] || null;
