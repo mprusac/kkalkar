@@ -554,7 +554,7 @@ export default function AdminPanel() {
                 required
               />
             </div>
-            <Button type="submit" className="w-full" disabled={loggingIn}>
+            <Button type="submit" className="w-full text-white" disabled={loggingIn}>
               {loggingIn && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
               Prijava
             </Button>
