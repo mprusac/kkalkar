@@ -755,7 +755,7 @@ const Statistics = () => {
                                 <TableCell className="text-center font-bold text-[10px] md:text-sm px-0 md:px-4 py-0.5 md:py-4">{team.points}</TableCell>
                                 <TableCell className={`text-center font-bold text-[10px] md:text-sm px-0 md:px-4 py-0.5 md:py-4 ${team.streak.startsWith("W") ? "text-green-400" : "text-red-400"}`}>{team.streak}</TableCell>
                               </TableRow>
-                            </>
+                            </React.Fragment>
                           );
                         })}
                       </TableBody>
