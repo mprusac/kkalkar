@@ -1,10 +1,12 @@
-import { ChevronLeft, ChevronRight, SquarePlay, SquareArrowOutUpRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import supersportLogo from "@/assets/logos/supersport-premijer.png.asset.json";
 import enblLogo from "@/assets/logos/enbl.png.asset.json";
 import kkcupLogo from "@/assets/logos/kresimir_cosic_cup.png.asset.json";
+import youtubeIcon from "@/assets/youtube.png.asset.json";
+import sofascoreIcon from "@/assets/sofascore.png.asset.json";
 
 import { fetchMatches, getTeamLogoFor, type DisplayMatch } from "@/lib/adminMatches";
 
@@ -186,15 +188,13 @@ const Results = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="text-muted-foreground hover:text-primary transition-colors"
+                          className="transition-transform hover:scale-110"
                           title="YouTube"
                         >
-                          <SquarePlay size={18} />
+                          <img src={youtubeIcon.url} alt="YouTube" className="h-5 md:h-6 w-auto object-contain" />
                         </a>
                       ) : (
-                        <span className="text-muted-foreground/40">
-                          <SquarePlay size={18} />
-                        </span>
+                        <img src={youtubeIcon.url} alt="YouTube" className="h-5 md:h-6 w-auto object-contain opacity-30" />
                       )}
                     </div>
                     <div className="flex-shrink-0">
@@ -203,8 +203,8 @@ const Results = () => {
                       </span>
                     </div>
                     <div className="flex-1 flex justify-end items-center">
-                      <span title="SofaScore" className="text-muted-foreground group-hover:text-primary transition-colors">
-                        <SquareArrowOutUpRight size={18} />
+                      <span title="SofaScore" className="transition-transform group-hover:scale-110">
+                        <img src={sofascoreIcon.url} alt="SofaScore" className="h-5 md:h-6 w-auto object-contain rounded" />
                       </span>
                     </div>
                   </div>
@@ -278,7 +278,7 @@ const Results = () => {
                       <span
                         className={`text-[10px] md:text-xs font-semibold text-center leading-tight ${
                           match.isHome ? "text-primary" : "text-foreground"
-                        }`}
+                        } ${match.homeTeam.toLowerCase().includes("alkar") ? "[text-shadow:0_0_10px_hsl(var(--primary)/0.9),0_0_18px_hsl(var(--primary)/0.6)]" : ""}`}
                       >
                         {displayTeamName(match.homeTeam)}
                       </span>
@@ -286,7 +286,7 @@ const Results = () => {
                       <span
                         className={`text-[10px] md:text-xs font-semibold text-center leading-tight ${
                           !match.isHome ? "text-primary" : "text-foreground"
-                        }`}
+                        } ${match.awayTeam.toLowerCase().includes("alkar") ? "[text-shadow:0_0_10px_hsl(var(--primary)/0.9),0_0_18px_hsl(var(--primary)/0.6)]" : ""}`}
                       >
                         {displayTeamName(match.awayTeam)}
                       </span>
