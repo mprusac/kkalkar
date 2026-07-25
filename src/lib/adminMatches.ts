@@ -14,6 +14,15 @@ import logoSplit from "@/assets/logos/kk_split.png";
 import logoZabok from "@/assets/logos/kk_zabok.png";
 import logoZadar from "@/assets/logos/kk_zadar.png";
 import logoSibenka from "@/assets/logos/kk_sibenka.png";
+import logoSyntainics from "@/assets/logos/SYNTAINICS_BC.png.asset.json";
+import logoFyllingen from "@/assets/logos/fyllingen_lions.png.asset.json";
+import logoDonar from "@/assets/logos/donar_groningen.png.asset.json";
+import logoKapfenberg from "@/assets/logos/kapfenberg_bulls.png.asset.json";
+import logoBristol from "@/assets/logos/bristol_fylers.png.asset.json";
+import logoVoluntari from "@/assets/logos/CSO_Voluntari.png.asset.json";
+import logoTalTech from "@/assets/logos/taltech_alexela.png.asset.json";
+import logoValmiera from "@/assets/logos/Valmiera_Glass_VIA.png.asset.json";
+
 
 export const POSUSJE_NAME = "KK Alkar Sinj";
 
