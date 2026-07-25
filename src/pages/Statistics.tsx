@@ -412,6 +412,10 @@ const Statistics = () => {
     ? firstPageMatches
     : remainingAfterPage0.slice((matchPage - 1) * matchesPerPage, matchPage * matchesPerPage);
 
+  useEffect(() => {
+    if (matchPage > totalMatchPages - 1) setMatchPage(0);
+  }, [totalMatchPages, matchPage]);
+
   const getTeamLogo = (teamName: string) => teamLogos[teamName] || null;
   const getMatchTeamLogo = (match: any, teamName: string) => {
     if (match?._display) return getTeamLogoFor(match._display, teamName);
