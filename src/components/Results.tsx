@@ -250,12 +250,12 @@ const Results = () => {
                       </div>
 
                       {/* Away Team logo */}
-                      <div className="flex justify-start items-center h-14 md:h-20">
+                      <div className="flex justify-center items-center h-14 md:h-20">
                         {awayLogo ? (
                           <img
                             src={awayLogo}
                             alt={match.awayTeam}
-                            className={`object-contain flex-shrink-0 ${getLogoScale(match.awayTeam)}`}
+                            className="object-contain flex-shrink-0 h-12 w-12 md:h-16 md:w-16"
                           />
                         ) : (
                           <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-muted flex items-center justify-center">
@@ -265,6 +265,7 @@ const Results = () => {
                           </div>
                         )}
                       </div>
+
                     </div>
 
                     {/* Team names row */}
