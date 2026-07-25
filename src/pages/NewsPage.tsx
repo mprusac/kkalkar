@@ -178,7 +178,7 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background" style={{ zoom: 0.9 }}>
+    <div className="min-h-screen cream-page-scope" style={{ zoom: 0.9 }}>
       <SEO
         title={`${article.title} — KK Posušje`}
         description={(article.content || article.title).replace(/\n+/g, ' ').slice(0, 155)}
@@ -211,7 +211,7 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <span className="inline-block px-3 py-1 bg-primary text-primary-foreground text-sm rounded mb-4">{getCategoryLabel(article.category)}</span>
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-primary mb-4">{article.title}{article.flagImage && <img src={article.flagImage} alt="flag" className="inline-block w-8 h-5 md:w-10 md:h-6 ml-2 align-middle" />}</h1>
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-[#0E2A63] mb-4">{article.title}{article.flagImage && <img src={article.flagImage} alt="flag" className="inline-block w-8 h-5 md:w-10 md:h-6 ml-2 align-middle" />}</h1>
             <div className="flex items-center gap-2 text-muted-foreground mb-8">
               <Calendar size={16} />
               <span>{article.date}</span>
@@ -219,24 +219,26 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
               <span>{getCategoryLabel(article.category)}</span>
             </div>
             
-            <div className="relative overflow-hidden rounded-lg mb-8">
+            <div className="relative overflow-hidden rounded-lg mb-8 shadow-lg ring-1 ring-[#c9a24c]/40">
               <img src={article.image} alt={article.title} className="w-full rounded-lg" />
             </div>
 
-            <div className="prose prose-invert max-w-none">
-              {article.content.split('\n\n').map((paragraph, i) => (
-                <p key={i} className="text-foreground/90 text-lg leading-relaxed mb-4">
-                  {paragraph.split('\n').map((line, j, arr) => (
-                    <span key={j}>{line}{i === 0 && j === 0 && article.flagImage && <img src={article.flagImage} alt="flag" className="inline-block w-6 h-4 ml-1.5 align-middle" />}{j < arr.length - 1 && <br />}</span>
-                  ))}
-                </p>
-              ))}
+            <div className="bg-white rounded-lg p-6 md:p-8 shadow-md ring-1 ring-[#c9a24c]/30">
+              <div className="prose max-w-none">
+                {article.content.split('\n\n').map((paragraph, i) => (
+                  <p key={i} className="text-[#0E2A63]/90 text-lg leading-relaxed mb-4">
+                    {paragraph.split('\n').map((line, j, arr) => (
+                      <span key={j}>{line}{i === 0 && j === 0 && article.flagImage && <img src={article.flagImage} alt="flag" className="inline-block w-6 h-4 ml-1.5 align-middle" />}{j < arr.length - 1 && <br />}</span>
+                    ))}
+                  </p>
+                ))}
+              </div>
             </div>
 
             {galleryImages.length > 0 && (
               <div className="mt-8 columns-2 md:columns-3 gap-3">
                 {galleryImages.map((img, i) => (
-                  <img key={i} src={img} alt={`${article.title} - slika ${i + 1}`} className="w-full rounded-lg mb-3 break-inside-avoid cursor-pointer hover:opacity-90 transition-opacity" onClick={() => openLightbox(i)} />
+                  <img key={i} src={img} alt={`${article.title} - slika ${i + 1}`} className="w-full rounded-lg mb-3 break-inside-avoid cursor-pointer hover:opacity-90 transition-opacity shadow-md ring-1 ring-[#c9a24c]/30" onClick={() => openLightbox(i)} />
                 ))}
               </div>
             )}
@@ -244,6 +246,7 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
         </div>
       </div>
       <Footer />
+
 
       {/* Lightbox */}
       <AnimatePresence>
