@@ -57,6 +57,10 @@ export const staticTeamLogos: Record<string, string> = {
   "KK Split": logoSplit,
   "Zabok": logoZabok,
   "KK Zabok": logoZabok,
+  "Zadar": logoZadar,
+  "KK Zadar": logoZadar,
+  "Šibenka": logoSibenka,
+  "KK Šibenka": logoSibenka,
 };
 
 export interface MatchRow {
