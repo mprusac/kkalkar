@@ -255,7 +255,7 @@ const Results = () => {
                       </div>
 
                       {/* Away Team logo */}
-                      <div className="flex justify-center items-center h-14 md:h-20 translate-x-[15%]">
+                      <div className="flex justify-center items-center h-12 md:h-16 translate-x-[15%]">
                         {awayLogo ? (
                           <img
                             src={awayLogo}
