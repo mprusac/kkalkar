@@ -6,6 +6,7 @@ import playerAlkar2 from "@/assets/player-alkar-2.jpg";
 import playerAlkar3 from "@/assets/player-alkar-3.jpg";
 import playerAlkar4 from "@/assets/player-alkar-4.jpg";
 import playerAlkar5 from "@/assets/player-alkar-5.png";
+import playerDujeBrala from "@/assets/duje_brala.png.asset.json";
 
 interface Player {
   id: number;
