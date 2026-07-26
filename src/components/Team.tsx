@@ -200,7 +200,7 @@ const Team = () => {
                       alt={player.name}
                       className={`w-full h-full object-cover object-top transition-transform duration-500 ${
                         player.id === 1
-                          ? 'scale-[1.13] translate-y-[10%] group-hover:scale-[1.21]'
+                          ? 'scale-[1.13] translate-y-[3%] group-hover:scale-[1.21]'
                           : player.id === 3
                           ? 'scale-[1.13] group-hover:scale-[1.21]'
                           : 'scale-[1.03] group-hover:scale-110'
