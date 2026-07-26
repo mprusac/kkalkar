@@ -19,6 +19,7 @@ import playerLukaCvitanovic from "@/assets/luka_cvitanovic.png.asset.json";
 import playerAntonioKlepo from "@/assets/antonio_klepo.png.asset.json";
 import playerMladenTomasevic from "@/assets/mladen_tomasevic.png.asset.json";
 import playerMarioSpaleta from "@/assets/mario_spaleta.png.asset.json";
+import playerGabrielKaramarko from "@/assets/gabriel_karamarko.png.asset.json";
 
 interface Player {
   id: number;
@@ -52,7 +53,7 @@ const players: Player[] = [
   { id: 11, name: "Antonio Klepo", position: "Guard", number: "06", image: playerAntonioKlepo.url, description: "Bek šuter iz splitske škole, prošao posudbu u Kaštelima, odličan strijelac s vanjske linije.", stats: { ppg: 6, rpg: 1, apg: 1 } },
   { id: 12, name: "Mladen Tomašević", position: "Guard", number: "15", image: playerMladenTomasevic.url, description: "Domaći visoki igrač i klupsko dijete, dugogodišnji član Alkara pouzdan u reketu i skok igri.", stats: { ppg: 5, rpg: 3, apg: 1 } },
   { id: 13, name: "Mario Spaleta", position: "Center", number: "22", image: playerMarioSpaleta.url, description: "Iskusni pokretljivi centar s vrlo bogatim inozemnim stažem, pouzdan pod košem i u skok igri.", stats: { ppg: 5, rpg: 3, bpg: 1 } },
-  { id: 14, name: "Gabriel Karamarko", position: "Forward", number: "12", image: "", description: "Razigravač školovan u Zadru s iskustvom iz Širokog, kreator igre i važan kotačić rotacije.", stats: { ppg: 4, rpg: 2, apg: 2 } },
+  { id: 14, name: "Gabriel Karamarko", position: "Forward", number: "12", image: playerGabrielKaramarko.url, description: "Razigravač školovan u Zadru s iskustvom iz Širokog, kreator igre i važan kotačić rotacije.", stats: { ppg: 4, rpg: 2, apg: 2 } },
   { id: 15, name: "Borna Jurela", position: "Guard", number: "14", image: "", description: "Sinjanin i klupsko dijete, povratnik iz Puntamik, borben i koristan playmaker.", stats: { ppg: 4, rpg: 2, apg: 2 } },
   { id: 16, name: "Maksim Matulina", position: "Guard", number: "10", image: "", description: "Zadarski bek s iskustvom iz Jazina, energičan rotacijski igrač u vrlo mladom sinjskom sastavu.", stats: { ppg: 3, rpg: 2, apg: 1 } },
   { id: 17, name: "Jonathan Cisse", position: "Forward", number: "05", image: "", description: "Atletski krilni igrač, odlikuje ga velika želja za napretkom i požrtvovnost za tim.", stats: { ppg: 3, rpg: 0, apg: 0 } },
@@ -234,6 +235,8 @@ const Team = () => {
                           ? 'scale-[1.16] translate-y-[5%] group-hover:scale-[1.24]'
                           : player.id === 13
                           ? 'scale-[1.25] translate-y-[5%] group-hover:scale-[1.33]'
+                          : player.id === 14
+                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
                           : 'scale-[1.03] group-hover:scale-110'
                       }`}
                     />
