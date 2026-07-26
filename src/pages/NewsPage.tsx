@@ -244,11 +244,11 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
               </div>
             )}
           </motion.div>
-        </div>
       </div>
       </div>
       </div>
       <Footer />
+
 
 
 
