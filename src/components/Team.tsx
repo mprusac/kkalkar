@@ -36,7 +36,7 @@ const players: Player[] = [
   { id: 2, name: "Duje Brala", position: "Forward", number: "13", image: playerDujeBrala.url, description: "Zadarski krilni igrač i strijelac, prekaljen u Širokom i Šibeniku, svestran na više pozicija.", stats: { ppg: 11, rpg: 5, apg: 2 } },
   { id: 3, name: "Tray Hollowell", position: "Guard", number: "3", image: playerTrayHollowell.url, description: "Iskusni američki bek i strijelac, dokazan u europskim ligama, glavni ofenzivni adut Alkara.", stats: { ppg: 11, rpg: 4, apg: 3 } },
   { id: 4, name: "Terrell Burden", position: "Guard", number: "1", image: playerTerrellBurden.url, description: "Nizak i brz američki razigravač iz Kennesawa, pravi kreator igre i vođa napada cijele momčadi.", stats: { ppg: 10, rpg: 3, apg: 4 } },
-  { id: 5, name: "Pavle Marčinković", position: "Forward", number: "17", image: playerPavleMarcinkovic.url, description: "Iskusni veteran i bivši reprezentativac, dugogodišnji as hrvatske košarke te vođa svlačionice.", stats: { ppg: 9, rpg: 5, apg: 3 } },
+  { id: 5, name: "Pavle Marčinković", position: "Forward", number: "17", image: playerPavleMarcinkovic.url, description: "Iskusni veteran i bivši reprezentativac, vođa i dugogodišnji as hrvatske košarke.", stats: { ppg: 9, rpg: 5, apg: 3 } },
   { id: 6, name: "Fabian Šiško", position: "Forward", number: "8", image: playerFabianSisko.url, description: "Svestran krilni igrač iz splitske škole, vrlo dobar u oba smjera i koristan na više pozicija.", stats: { ppg: 8, rpg: 4, apg: 2 } },
   { id: 7, name: "Mirko Jukić", position: "Center", number: "0", image: playerAlkar1, description: "Kapetan i dijete kluba, svestran krilni igrač i vođa koji Alkar predano vodi već godinama.", stats: { ppg: 8, rpg: 3, apg: 1 } },
   { id: 8, name: "Mario Krešić", position: "Guard", number: "15", image: "", description: "Mladi centar iz Kaštela s reprezentativnim stažem, čvrst u reketu i sve sigurniji pod košem.", stats: { ppg: 7, rpg: 5, apg: 2 } },
@@ -46,7 +46,7 @@ const players: Player[] = [
   { id: 12, name: "Mladen Tomašević", position: "Guard", number: "15", image: "", description: "Domaći visoki igrač i klupsko dijete, dugogodišnji član Alkara pouzdan u reketu i skok igri.", stats: { ppg: 5, rpg: 3, apg: 1 } },
   { id: 13, name: "Mario Spaleta", position: "Center", number: "22", image: "", description: "Iskusni pokretljivi centar s vrlo bogatim inozemnim stažem, pouzdan pod košem i u skok igri.", stats: { ppg: 5, rpg: 3, bpg: 1 } },
   { id: 14, name: "Gabriel Karamarko", position: "Forward", number: "12", image: "", description: "Razigravač školovan u Zadru s iskustvom iz Širokog, kreator igre i važan kotačić rotacije.", stats: { ppg: 4, rpg: 2, apg: 2 } },
-  { id: 15, name: "Borna Jurela", position: "Guard", number: "14", image: "", description: "Sinjanin i klupsko dijete, razigravač povratnik iz Puntamike, borben i koristan playmaker.", stats: { ppg: 4, rpg: 2, apg: 2 } },
+  { id: 15, name: "Borna Jurela", position: "Guard", number: "14", image: "", description: "Sinjanin i klupsko dijete, povratnik iz Puntamik, borben i koristan playmaker.", stats: { ppg: 4, rpg: 2, apg: 2 } },
   { id: 16, name: "Maksim Matulina", position: "Guard", number: "10", image: "", description: "Zadarski bek s iskustvom iz Jazina, energičan rotacijski igrač u vrlo mladom sinjskom sastavu.", stats: { ppg: 3, rpg: 2, apg: 1 } },
   { id: 17, name: "Jonathan Cisse", position: "Forward", number: "05", image: "", description: "Atletski krilni igrač, odlikuje ga velika želja za napretkom i požrtvovnost za tim.", stats: { ppg: 3, rpg: 0, apg: 0 } },
   { id: 18, name: "Emanuel Domazet", position: "Guard", number: "4", image: playerAlkar4, description: "Najmlađi domaći bek ponikao u Alkarovoj školi, obećavajući šuter i klupska nada budućnosti.", stats: { ppg: 1, rpg: 1, apg: 0 } },
@@ -55,7 +55,7 @@ const players: Player[] = [
   { id: 21, name: "Ante Brzović", position: "Center", number: "18", image: "", description: "Visoki krilni centar školovan na Charlestonu, izražen šut za tricu i igra s visokog posta.", stats: {} },
   { id: 22, name: "Quinton Morton-Robertson", position: "Guard", number: "2", image: "", description: "Niski američki razigravač velike brzine, snažan strijelac za tricu i kreator sa NCAA staža.", stats: {} },
   { id: 23, name: "Šime Jusup", position: "Forward", number: "14", image: "", description: "Brzi krilni igrač koji pokazuje zrelost i snalažljivost na terenu.", stats: {} },
-  { id: 24, name: "Vlatko Granić", position: "Forward", number: "20", image: "", description: "Iskusni krilni centar i pravi povratnik u Sinj, provjerena visina i čvrstina u skoku pod košem.", stats: {} },
+  { id: 24, name: "Vlatko Granić", position: "Forward", number: "20", image: "", description: "Iskusni krilni centar i pravi povratnik u Sinj, provjerena visina i čvrstina u skoku.", stats: {} },
 ];
 
 const Team = () => {
