@@ -44,7 +44,8 @@ const Hero = () => {
   return (
     <section
       id="pocetna"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative flex items-center justify-center overflow-hidden"
+      style={{ minHeight: "calc(100vh / 0.85)" }}
     >
       {/* Parallax Background Image - Full Width & Centered */}
       <div
