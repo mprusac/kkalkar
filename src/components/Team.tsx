@@ -16,6 +16,7 @@ import playerMirkoJukic from "@/assets/mirko_jukic.png.asset.json";
 import playerMarioKresic from "@/assets/mario_kresic.png.asset.json";
 import playerJarredHyder from "@/assets/jarred_hyder.png.asset.json";
 import playerLukaCvitanovic from "@/assets/luka_cvitanovic.png.asset.json";
+import playerAntonioKlepo from "@/assets/antonio_klepo.png.asset.json";
 
 interface Player {
   id: number;
@@ -46,7 +47,7 @@ const players: Player[] = [
   { id: 8, name: "Mario Krešić", position: "Guard", number: "15", image: playerMarioKresic.url, description: "Mladi centar iz Kaštela s reprezentativnim stažem, čvrst u reketu i sve sigurniji pod košem.", stats: { ppg: 7, rpg: 5, apg: 2 } },
   { id: 9, name: "Jarred Hyder", position: "Guard", number: "11", image: playerJarredHyder.url, description: "Američki bek školovan na NCAA razini, kreativan strijelac i playmaker s bogatim iskustvom.", stats: { ppg: 7, rpg: 1, apg: 2 } },
   { id: 10, name: "Luka Cvitanović", position: "Guard", number: "9", image: playerLukaCvitanovic.url, description: "Iskusan vanjski igrač s dobrim šutem, stigao iz Kvarnera kao pouzdan strijelac i kreator igre.", stats: { ppg: 6, rpg: 1, apg: 2 } },
-  { id: 11, name: "Antonio Klepo", position: "Guard", number: "06", image: "", description: "Bek šuter iz splitske škole, prošao posudbu u Kaštelima, odličan strijelac s vanjske linije.", stats: { ppg: 6, rpg: 1, apg: 1 } },
+  { id: 11, name: "Antonio Klepo", position: "Guard", number: "06", image: playerAntonioKlepo.url, description: "Bek šuter iz splitske škole, prošao posudbu u Kaštelima, odličan strijelac s vanjske linije.", stats: { ppg: 6, rpg: 1, apg: 1 } },
   { id: 12, name: "Mladen Tomašević", position: "Guard", number: "15", image: "", description: "Domaći visoki igrač i klupsko dijete, dugogodišnji član Alkara pouzdan u reketu i skok igri.", stats: { ppg: 5, rpg: 3, apg: 1 } },
   { id: 13, name: "Mario Spaleta", position: "Center", number: "22", image: "", description: "Iskusni pokretljivi centar s vrlo bogatim inozemnim stažem, pouzdan pod košem i u skok igri.", stats: { ppg: 5, rpg: 3, bpg: 1 } },
   { id: 14, name: "Gabriel Karamarko", position: "Forward", number: "12", image: "", description: "Razigravač školovan u Zadru s iskustvom iz Širokog, kreator igre i važan kotačić rotacije.", stats: { ppg: 4, rpg: 2, apg: 2 } },
@@ -225,6 +226,8 @@ const Team = () => {
                           ? 'scale-[1.25] translate-y-[12%] group-hover:scale-[1.33]'
                           : player.id === 10
                           ? 'scale-[1.25] translate-y-[7%] group-hover:scale-[1.33]'
+                          : player.id === 11
+                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
                           : 'scale-[1.03] group-hover:scale-110'
                       }`}
                     />
