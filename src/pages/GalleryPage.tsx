@@ -220,6 +220,7 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
         )}
       </AnimatePresence>
 
+      </div>
       <Footer />
     </div>
   );
