@@ -178,8 +178,8 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
   }, []);
 
   return (
-    <div className="min-h-screen cream-page-scope">
-      <div style={{ zoom: 0.85 }}>
+    <div className="min-h-screen">
+      <div className="cream-page-scope" style={{ zoom: 0.85 }}>
       <SEO
         title={`${article.title} — KK Posušje`}
         description={(article.content || article.title).replace(/\n+/g, ' ').slice(0, 155)}
