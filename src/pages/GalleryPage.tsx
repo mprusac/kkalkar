@@ -114,7 +114,7 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
   };
 
   return (
-    <div className="min-h-screen cream-page-scope">
+    <div className="min-h-screen"><div className="cream-page-scope">
       <div className="pt-8 pb-16">
         <div className="container mx-auto px-4">
           {/* Back link */}
