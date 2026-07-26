@@ -13,6 +13,7 @@ import playerTerrellBurden from "@/assets/terrell_burden.png.asset.json";
 import playerPavleMarcinkovic from "@/assets/pavle_marcinkovic.png.asset.json";
 import playerFabianSisko from "@/assets/fabian_sisko.png.asset.json";
 import playerMirkoJukic from "@/assets/mirko_jukic.png.asset.json";
+import playerMarioKresic from "@/assets/mario_kresic.png.asset.json";
 
 interface Player {
   id: number;
@@ -40,7 +41,7 @@ const players: Player[] = [
   { id: 5, name: "Pavle Marčinković", position: "Forward", number: "17", image: playerPavleMarcinkovic.url, description: "Iskusni veteran i bivši reprezentativac, vođa i dugogodišnji as hrvatske košarke.", stats: { ppg: 9, rpg: 5, apg: 3 } },
   { id: 6, name: "Fabian Šiško", position: "Forward", number: "8", image: playerFabianSisko.url, description: "Svestran krilni igrač iz splitske škole, vrlo dobar u oba smjera i koristan na više pozicija.", stats: { ppg: 8, rpg: 4, apg: 2 } },
   { id: 7, name: "Mirko Jukić", position: "Center", number: "0", image: playerMirkoJukic.url, description: "Kapetan i dijete kluba, svestran krilni igrač i vođa koji Alkar predano vodi već godinama.", stats: { ppg: 8, rpg: 3, apg: 1 } },
-  { id: 8, name: "Mario Krešić", position: "Guard", number: "15", image: "", description: "Mladi centar iz Kaštela s reprezentativnim stažem, čvrst u reketu i sve sigurniji pod košem.", stats: { ppg: 7, rpg: 5, apg: 2 } },
+  { id: 8, name: "Mario Krešić", position: "Guard", number: "15", image: playerMarioKresic.url, description: "Mladi centar iz Kaštela s reprezentativnim stažem, čvrst u reketu i sve sigurniji pod košem.", stats: { ppg: 7, rpg: 5, apg: 2 } },
   { id: 9, name: "Jarred Hyder", position: "Guard", number: "11", image: "", description: "Američki bek školovan na NCAA razini, kreativan strijelac i playmaker s bogatim iskustvom.", stats: { ppg: 7, rpg: 1, apg: 2 } },
   { id: 10, name: "Luka Cvitanović", position: "Guard", number: "9", image: "", description: "Iskusan vanjski igrač s dobrim šutem, stigao iz Kvarnera kao pouzdan strijelac i kreator igre.", stats: { ppg: 6, rpg: 1, apg: 2 } },
   { id: 11, name: "Antonio Klepo", position: "Guard", number: "06", image: "", description: "Bek šuter iz splitske škole, prošao posudbu u Kaštelima, odličan strijelac s vanjske linije.", stats: { ppg: 6, rpg: 1, apg: 1 } },
@@ -215,6 +216,8 @@ const Team = () => {
                           : player.id === 6
                           ? 'scale-[1.32] translate-y-[10%] group-hover:scale-[1.40]'
                           : player.id === 7
+                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
+                          : player.id === 8
                           ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
                           : 'scale-[1.03] group-hover:scale-110'
                       }`}
