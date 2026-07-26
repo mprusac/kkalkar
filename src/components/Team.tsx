@@ -229,6 +229,8 @@ const Team = () => {
                           ? 'scale-[1.25] translate-y-[7%] group-hover:scale-[1.33]'
                           : player.id === 11
                           ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
+                          : player.id === 12
+                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
                           : 'scale-[1.03] group-hover:scale-110'
                       }`}
                     />
