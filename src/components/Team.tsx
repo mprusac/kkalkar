@@ -10,6 +10,7 @@ import playerAlkar5 from "@/assets/player-alkar-5.png";
 import playerDujeBrala from "@/assets/duje_brala.png.asset.json";
 import playerTrayHollowell from "@/assets/tray_hollowell.png.asset.json";
 import playerTerrellBurden from "@/assets/terrell_burden.png.asset.json";
+import playerPavleMarcinkovic from "@/assets/pavle_marcinkovic.png.asset.json";
 
 interface Player {
   id: number;
