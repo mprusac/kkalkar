@@ -204,17 +204,17 @@ const Team = () => {
                       alt={player.name}
                       className={`w-full h-full object-cover object-top transition-transform duration-500 ${
                         player.id === 1
-                          ? 'scale-[1.13] translate-y-[3%] group-hover:scale-[1.21]'
+                          ? 'scale-[1.13] translate-y-[8%] group-hover:scale-[1.21]'
                           : player.id === 3
                           ? 'scale-[1.24] translate-y-[5%] group-hover:scale-[1.32]'
                           : player.id === 4
-                          ? 'scale-[1.18] group-hover:scale-[1.26]'
+                          ? 'scale-[1.18] translate-y-[5%] group-hover:scale-[1.26]'
                           : player.id === 2
-                          ? 'scale-[1.13] group-hover:scale-[1.21]'
+                          ? 'scale-[1.13] translate-y-[5%] group-hover:scale-[1.21]'
                           : player.id === 5
                           ? 'scale-[1.32] translate-y-[12%] group-hover:scale-[1.40]'
                           : player.id === 6
-                          ? 'scale-[1.32] translate-y-[10%] group-hover:scale-[1.40]'
+                          ? 'scale-[1.32] translate-y-[15%] group-hover:scale-[1.40]'
                           : player.id === 7
                           ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
                           : player.id === 8
