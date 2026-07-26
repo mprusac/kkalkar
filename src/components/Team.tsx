@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import playerAlkar1 from "@/assets/player-alkar-1.jpg";
-import playerAlkar2 from "@/assets/player-alkar-2.jpg";
+import playerAlkar2 from "@/assets/deantoni_gordon.png.asset.json";
 import playerAlkar3 from "@/assets/player-alkar-3.jpg";
 import playerAlkar4 from "@/assets/player-alkar-4.jpg";
 import playerAlkar5 from "@/assets/player-alkar-5.png";
