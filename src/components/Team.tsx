@@ -7,6 +7,7 @@ import playerAlkar3 from "@/assets/player-alkar-3.jpg";
 import playerAlkar4 from "@/assets/player-alkar-4.jpg";
 import playerAlkar5 from "@/assets/player-alkar-5.png";
 import playerDujeBrala from "@/assets/duje_brala.png.asset.json";
+import playerTrayHollowell from "@/assets/tray_hollowell.png.asset.json";
 
 interface Player {
   id: number;
@@ -29,7 +30,7 @@ interface Player {
 const players: Player[] = [
   { id: 1, name: "Deantoni Gordon", position: "Center", number: "14", image: playerAlkar2, description: "Snažan američki centar i skakač, najbolji strijelac Alkara i pravi nositelj igre pod košem.", stats: { ppg: 11, rpg: 5, bpg: 1 } },
   { id: 2, name: "Duje Brala", position: "Forward", number: "13", image: playerDujeBrala.url, description: "Zadarski krilni igrač i strijelac, prekaljen u Širokom i Šibeniku, svestran na više pozicija.", stats: { ppg: 11, rpg: 5, apg: 2 } },
-  { id: 3, name: "Tray Hollowell", position: "Guard", number: "3", image: "", description: "Iskusni američki bek i strijelac, dokazan u europskim ligama, glavni ofenzivni adut Alkara.", stats: { ppg: 11, rpg: 4, apg: 3 } },
+  { id: 3, name: "Tray Hollowell", position: "Guard", number: "3", image: playerTrayHollowell.url, description: "Iskusni američki bek i strijelac, dokazan u europskim ligama, glavni ofenzivni adut Alkara.", stats: { ppg: 11, rpg: 4, apg: 3 } },
   { id: 4, name: "Terrell Burden", position: "Guard", number: "1", image: "", description: "Nizak i brz američki razigravač iz Kennesawa, pravi kreator igre i vođa napada cijele momčadi.", stats: { ppg: 10, rpg: 3, apg: 4 } },
   { id: 5, name: "Pavle Marčinković", position: "Forward", number: "17", image: playerAlkar3, description: "Iskusni veteran i bivši reprezentativac, dugogodišnji as hrvatske košarke te vođa svlačionice.", stats: { ppg: 9, rpg: 5, apg: 3 } },
   { id: 6, name: "Fabian Šiško", position: "Forward", number: "8", image: playerAlkar5, description: "Svestran krilni igrač iz splitske škole, vrlo dobar u oba smjera i koristan na više pozicija.", stats: { ppg: 8, rpg: 4, apg: 2 } },
