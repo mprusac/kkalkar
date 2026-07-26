@@ -233,30 +233,36 @@ const Team = () => {
                   )}
 
                   {/* Stats */}
-                  {(player.stats.ppg >= 1 || player.stats.rpg >= 1 || player.stats.apg >= 1 || (player.stats.bpg && player.stats.bpg >= 1)) && (
+                  {((player.stats.ppg ?? 0) >= 1 || (player.stats.rpg ?? 0) >= 1 || (player.stats.apg ?? 0) >= 1 || (player.stats.spg ?? 0) >= 1 || (player.stats.bpg ?? 0) >= 1) && (
                     <div className={`flex flex-wrap gap-2 ${player.description ? 'md:mt-2' : 'md:mt-4'} mt-3`}>
-                      {player.stats.ppg >= 1 && (
+                      {(player.stats.ppg ?? 0) >= 1 && (
                         <span className="px-2 py-1 bg-primary/20 text-primary text-sm md:text-xs rounded whitespace-nowrap">
                           {player.stats.ppg} PPG
                         </span>
                       )}
-                      {player.stats.rpg >= 1 && (
+                      {(player.stats.rpg ?? 0) >= 1 && (
                         <span className="px-2 py-1 bg-primary/20 text-primary text-sm md:text-xs rounded whitespace-nowrap">
                           {player.stats.rpg} RPG
                         </span>
                       )}
-                      {player.stats.apg >= 1 && (
+                      {(player.stats.apg ?? 0) >= 1 && (
                         <span className="px-2 py-1 bg-primary/20 text-primary text-sm md:text-xs rounded whitespace-nowrap">
                           {player.stats.apg} APG
                         </span>
                       )}
-                      {player.stats.bpg && player.stats.bpg >= 1 && (
+                      {(player.stats.spg ?? 0) >= 1 && (
+                        <span className="px-2 py-1 bg-primary/20 text-primary text-sm md:text-xs rounded whitespace-nowrap">
+                          {player.stats.spg} SPG
+                        </span>
+                      )}
+                      {(player.stats.bpg ?? 0) >= 1 && (
                         <span className="px-2 py-1 bg-primary/20 text-primary text-sm md:text-xs rounded whitespace-nowrap">
                           {player.stats.bpg} BPG
                         </span>
                       )}
                     </div>
                   )}
+
 
                   {/* Hover yellow line animation */}
                   <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
