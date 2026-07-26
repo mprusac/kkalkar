@@ -247,7 +247,7 @@ const GalleryPage = () => {
 
   // Otherwise show the events list
   return (
-    <div className="min-h-screen cream-page-scope">
+    <div className="min-h-screen"><div className="cream-page-scope">
       <SEO
         title="Galerija — KK Posušje"
         description="Fotografije s utakmica, priprema i događanja Košarkaškog kluba Posušje."
