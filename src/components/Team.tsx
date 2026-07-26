@@ -18,6 +18,7 @@ import playerJarredHyder from "@/assets/jarred_hyder.png.asset.json";
 import playerLukaCvitanovic from "@/assets/luka_cvitanovic.png.asset.json";
 import playerAntonioKlepo from "@/assets/antonio_klepo.png.asset.json";
 import playerMladenTomasevic from "@/assets/mladen_tomasevic.png.asset.json";
+import playerMarioSpaleta from "@/assets/mario_spaleta.png.asset.json";
 
 interface Player {
   id: number;
