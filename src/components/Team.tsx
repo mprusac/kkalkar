@@ -209,7 +209,7 @@ const Team = () => {
                           : player.id === 3
                           ? 'scale-[1.24] translate-y-[5%] group-hover:scale-[1.32]'
                           : player.id === 4
-                          ? 'scale-[1.18] translate-y-[5%] group-hover:scale-[1.26]'
+                          ? 'scale-[1.24] translate-y-[5%] group-hover:scale-[1.32]'
                           : player.id === 2
                           ? 'scale-[1.13] translate-y-[2%] group-hover:scale-[1.21]'
                           : player.id === 5
