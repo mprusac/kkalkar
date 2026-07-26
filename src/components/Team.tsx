@@ -26,7 +26,7 @@ interface Player {
 }
 
 const players: Player[] = [
-  { id: 1, name: "Deantoni Gordon", position: "Center", number: "14", image: playerAlkar4, description: "Snažan američki centar i skakač, najbolji strijelac Alkara i pravi nositelj igre pod košem.", stats: { ppg: 11, rpg: 5, bpg: 1 } },
+  { id: 1, name: "Deantoni Gordon", position: "Center", number: "14", image: playerAlkar2, description: "Snažan američki centar i skakač, najbolji strijelac Alkara i pravi nositelj igre pod košem.", stats: { ppg: 11, rpg: 5, bpg: 1 } },
   { id: 2, name: "Duje Brala", position: "Forward", number: "13", image: "", description: "Zadarski krilni igrač i strijelac, prekaljen u Širokom i Šibeniku, svestran na više pozicija.", stats: { ppg: 11, rpg: 5, apg: 2 } },
   { id: 3, name: "Tray Hollowell", position: "Guard", number: "3", image: "", description: "Iskusni američki bek i strijelac, dokazan u europskim ligama, glavni ofenzivni adut Alkara.", stats: { ppg: 11, rpg: 4, apg: 3 } },
   { id: 4, name: "Terrell Burden", position: "Guard", number: "1", image: "", description: "Nizak i brz američki razigravač iz Kennesawa, pravi kreator igre i vođa napada cijele momčadi.", stats: { ppg: 10, rpg: 3, apg: 4 } },
@@ -43,7 +43,7 @@ const players: Player[] = [
   { id: 15, name: "Borna Jurela", position: "Guard", number: "14", image: "", description: "Sinjanin i klupsko dijete, razigravač povratnik iz Puntamike, borben i koristan playmaker.", stats: { ppg: 4, rpg: 2, apg: 2 } },
   { id: 16, name: "Maksim Matulina", position: "Guard", number: "10", image: "", description: "Zadarski bek s iskustvom iz Jazina, energičan rotacijski igrač u vrlo mladom sinjskom sastavu.", stats: { ppg: 3, rpg: 2, apg: 1 } },
   { id: 17, name: "Jonathan Cisse", position: "Forward", number: "05", image: "", description: "Atletski krilni igrač, odlikuje ga velika želja za napretkom i požrtvovnost za tim.", stats: { ppg: 3, rpg: 0, apg: 0 } },
-  { id: 18, name: "Emanuel Domazet", position: "Guard", number: "4", image: playerAlkar2, description: "Najmlađi domaći bek ponikao u Alkarovoj školi, obećavajući šuter i klupska nada budućnosti.", stats: { ppg: 1, rpg: 1, apg: 0 } },
+  { id: 18, name: "Emanuel Domazet", position: "Guard", number: "4", image: playerAlkar4, description: "Najmlađi domaći bek ponikao u Alkarovoj školi, obećavajući šuter i klupska nada budućnosti.", stats: { ppg: 1, rpg: 1, apg: 0 } },
   { id: 19, name: "Ivan Pavela", position: "Guard", number: "07", image: "", description: "Mladi domaći razigravač ponikao u Alkaru, perspektivan igrač u razvoju pod vodstvom seniora.", stats: { ppg: 0, rpg: 0, apg: 1 } },
   { id: 20, name: "Marijan Mastelić", position: "Guard", number: "16", image: "", description: "Vrlo mladi krilni igrač iz Alkarove škole, visoki potencijal u ranoj fazi seniorskog razvoja.", stats: {} },
   { id: 21, name: "Ante Brzović", position: "Center", number: "18", image: "", description: "Visoki krilni centar školovan na Charlestonu, izražen šut za tricu i igra s visokog posta.", stats: {} },
