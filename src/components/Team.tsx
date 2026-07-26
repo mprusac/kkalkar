@@ -16,141 +16,40 @@ interface Player {
   sofascoreLink?: string;
   description?: string;
   stats: {
-    ppg: number;
-    rpg: number;
-    apg: number;
+    ppg?: number;
+    rpg?: number;
+    apg?: number;
+    spg?: number;
     bpg?: number;
-    mpg: string;
+    mpg?: string;
   };
 }
 
 const players: Player[] = [
-  {
-    id: 1,
-    name: "Mirko Jukić",
-    position: "Center",
-    number: "0",
-    image: playerAlkar1,
-    description: "Iskusni centar i pouzdana figura pod košem koji donosi sigurnost i vodstvo mladom sastavu.",
-    stats: { ppg: 14, rpg: 8, apg: 2, mpg: "" },
-  },
-  {
-    id: 2,
-    name: "Emanuel Domazet",
-    position: "Guard",
-    number: "4",
-    image: playerAlkar2,
-    description: "Eksplozivni bek s izraženim šuterskim instinktom i sposobnošću da promijeni tijek utakmice.",
-    stats: { ppg: 17, rpg: 5, apg: 6, mpg: "" },
-  },
-  {
-    id: 3,
-    name: "Pavle Marčinković",
-    position: "Forward",
-    number: "17",
-    image: playerAlkar3,
-    description: "Mladi krilni igrač iz vlastite škole košarke, atletski nadaren i pun potencijala za budućnost.",
-    stats: { ppg: 8, rpg: 5, apg: 2, mpg: "" },
-  },
-  {
-    id: 4,
-    name: "DeAntoni Gordon",
-    position: "Guard",
-    number: "14",
-    image: playerAlkar4,
-    description: "Perspektivni bek šuter koji svojom energijom i borbenošću plijeni pažnju u svakoj utakmici.",
-    stats: { ppg: 9, rpg: 3, apg: 4, mpg: "" },
-  },
-  {
-    id: 5,
-    name: "Fabian Šiško",
-    position: "Forward",
-    number: "8",
-    image: playerAlkar5,
-    description: "Svestrani krilni igrač i vođa u svlačionici, s dugom karijerom u hrvatskoj košarci.",
-    stats: { ppg: 11, rpg: 6, apg: 3, mpg: "" },
-  },
-  {
-    id: 8,
-    name: "Antonio Klepo",
-    position: "Guard",
-    number: "06",
-    image: "",
-    description: "Mladi krilni igrač koji stječe seniorsko iskustvo, ističe se trudom i potencijalom za prvi tim.",
-    stats: { ppg: 3, rpg: 1, apg: 1, mpg: "" },
-  },
-  {
-    id: 9,
-    name: "Ivan Pavela",
-    position: "Guard",
-    number: "07",
-    image: "",
-    description: "Mladi bek koji marljivo gradi svoju ulogu u ekipi, borben na parketu i sve zapaženiji u rotaciji.",
-    stats: { ppg: 3, rpg: 1, apg: 0, mpg: "" },
-  },
-  {
-    id: 10,
-    name: "Maksim Matulina",
-    position: "Guard",
-    number: "10",
-    image: "",
-    description: "Mladi bek šuter i perspektivan talent s pozivom u mlade selekcije.",
-    stats: { ppg: 5, rpg: 2, apg: 1, mpg: "" },
-  },
-  {
-    id: 11,
-    name: "Jonathan Cisse",
-    position: "Forward",
-    number: "05",
-    image: "",
-    description: "Atletski krilni igrač, odlikuje ga velika želja za napretkom i požrtvovnost za tim.",
-    stats: { ppg: 3, rpg: 0, apg: 0, mpg: "" },
-  },
-  {
-    id: 12,
-    name: "Mario Krešić",
-    position: "Guard",
-    number: "15",
-    image: "",
-    description: "Iskusno ime u sastavu koje pridonosi znanjem i autoritetom.",
-    stats: { ppg: 3, rpg: 2, apg: 1, mpg: "" },
-  },
-  {
-    id: 13,
-    name: "Šime Jusup",
-    position: "Forward",
-    number: "14",
-    image: "",
-    description: "Brzi krilni igrač koji pokazuje zrelost i snalažljivost na terenu.",
-    stats: { ppg: 0, rpg: 0, apg: 0, mpg: "" },
-  },
-  {
-    id: 14,
-    name: "Mladen Tomašević",
-    position: "Guard",
-    number: "15",
-    image: "",
-    description: "Mladi razigravač koji unosi energiju s klupe te sazrijeva u seniorskoj konkurenciji.",
-    stats: { ppg: 0, rpg: 0, apg: 0, mpg: "" },
-  },
-  {
-    id: 15,
-    name: "Borna Jurela",
-    position: "Guard",
-    number: "14",
-    image: "",
-    description: "Vjerni igrač poznat po preciznom šutu izvana i preuzimanju napadačke odgovornosti.",
-    stats: { ppg: 0, rpg: 0, apg: 0, mpg: "" },
-  },
-  {
-    id: 16,
-    name: "Gabriel Karamarko",
-    position: "Forward",
-    number: "12",
-    image: "",
-    description: "Svestrani krilni igrač koji donosi energiju i borbenost u svakoj utakmici.",
-    stats: { ppg: 0, rpg: 0, apg: 0, mpg: "" },
-  },
+  { id: 1, name: "Mirko Jukić", position: "Center", number: "0", image: playerAlkar1, stats: { ppg: 8, rpg: 3, apg: 1 } },
+  { id: 2, name: "Emanuel Domazet", position: "Guard", number: "4", image: playerAlkar2, stats: { ppg: 1, rpg: 1, apg: 0 } },
+  { id: 3, name: "Pavle Marčinković", position: "Forward", number: "17", image: playerAlkar3, stats: { ppg: 9, rpg: 5, apg: 3 } },
+  { id: 4, name: "Deantoni Gordon", position: "Guard", number: "14", image: playerAlkar4, stats: { ppg: 11, rpg: 5, bpg: 1 } },
+  { id: 5, name: "Fabian Šiško", position: "Forward", number: "8", image: playerAlkar5, stats: { ppg: 8, rpg: 4, apg: 2 } },
+  { id: 6, name: "Gabriel Karamarko", position: "Forward", number: "12", image: "", stats: { ppg: 4, rpg: 2, apg: 2 } },
+  { id: 7, name: "Maksim Matulina", position: "Guard", number: "10", image: "", stats: { ppg: 3, rpg: 2, apg: 1 } },
+  { id: 8, name: "Tray Hollowell", position: "Guard", number: "3", image: "", stats: { ppg: 11, rpg: 4, apg: 3 } },
+  { id: 9, name: "Ivan Pavela", position: "Guard", number: "07", image: "", stats: { ppg: 0, rpg: 0, apg: 1 } },
+  { id: 10, name: "Borna Jurela", position: "Guard", number: "14", image: "", stats: { ppg: 4, rpg: 2, apg: 2 } },
+  { id: 11, name: "Jarred Hyder", position: "Guard", number: "11", image: "", stats: { ppg: 7, rpg: 1, apg: 2 } },
+  { id: 12, name: "Luka Cvitanović", position: "Guard", number: "9", image: "", stats: { ppg: 6, rpg: 1, apg: 2 } },
+  { id: 13, name: "Antonio Klepo", position: "Guard", number: "06", image: "", stats: { ppg: 6, rpg: 1, apg: 1 } },
+  { id: 14, name: "Duje Brala", position: "Forward", number: "13", image: "", stats: { ppg: 11, rpg: 5, apg: 2 } },
+  { id: 15, name: "Marijan Mastelić", position: "Guard", number: "16", image: "", stats: {} },
+  { id: 16, name: "Ante Brzović", position: "Center", number: "18", image: "", stats: {} },
+  { id: 17, name: "Quinton Morton-Robertson", position: "Guard", number: "2", image: "", stats: {} },
+  { id: 18, name: "Terrell Burden", position: "Guard", number: "1", image: "", stats: { ppg: 10, rpg: 3, apg: 4 } },
+  { id: 19, name: "Mario Spaleta", position: "Center", number: "22", image: "", stats: { ppg: 5, rpg: 3, bpg: 1 } },
+  { id: 20, name: "Mladen Tomašević", position: "Guard", number: "15", image: "", stats: { ppg: 5, rpg: 3, apg: 1 } },
+  { id: 21, name: "Mario Krešić", position: "Guard", number: "15", image: "", stats: { ppg: 7, rpg: 5, apg: 2 } },
+  { id: 22, name: "Jonathan Cisse", position: "Forward", number: "05", image: "", stats: { ppg: 3, rpg: 0, apg: 0 } },
+  { id: 23, name: "Šime Jusup", position: "Forward", number: "14", image: "", stats: {} },
+  { id: 24, name: "Vlatko Granić", position: "Forward", number: "20", image: "", stats: {} },
 ];
 
 const Team = () => {
