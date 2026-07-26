@@ -218,27 +218,27 @@ const players: Player[] = [
 
 // Top players data (KK Alkar Sinj — sezona 2025/26)
 const topScorers: TopPlayer[] = [
-  { rank: 1, name: "Tray Hollowell", position: "Bek", value: 18.4 },
-  { rank: 2, name: "Jarred Hyder", position: "Bek", value: 16.9 },
-  { rank: 3, name: "Deantoni Gordon", position: "Centar", value: 14.2 },
+  { rank: 1, name: "Deantoni Gordon", position: "Centar", value: 11 },
+  { rank: 2, name: "Duje Brala", position: "Krilo", value: 11 },
+  { rank: 3, name: "Tray Hollowell", position: "Bek", value: 11 },
 ];
 
 const topRebounders: TopPlayer[] = [
-  { rank: 1, name: "Deantoni Gordon", position: "Centar", value: 8.6 },
-  { rank: 2, name: "Mario Spaleta", position: "Centar", value: 6.4 },
-  { rank: 3, name: "Vlatko Granic", position: "Centar", value: 5.9 },
+  { rank: 1, name: "Deantoni Gordon", position: "Centar", value: 5 },
+  { rank: 2, name: "Duje Brala", position: "Krilo", value: 5 },
+  { rank: 3, name: "Pavle Marčinković", position: "Krilo", value: 5 },
 ];
 
 const topAssisters: TopPlayer[] = [
-  { rank: 1, name: "Jarred Hyder", position: "Bek", value: 5.7 },
-  { rank: 2, name: "Terrell Burden", position: "Bek", value: 4.1 },
-  { rank: 3, name: "Maksim Matulina", position: "Bek", value: 3.2 },
+  { rank: 1, name: "Terrell Burden", position: "Bek", value: 4 },
+  { rank: 2, name: "Pavle Marčinković", position: "Krilo", value: 3 },
+  { rank: 3, name: "Tray Hollowell", position: "Bek", value: 3 },
 ];
 
 const topMinutes: TopPlayer[] = [
   { rank: 1, name: "Tray Hollowell", position: "Bek", value: "30:12" },
   { rank: 2, name: "Deantoni Gordon", position: "Centar", value: "28:45" },
-  { rank: 3, name: "Jarred Hyder", position: "Bek", value: "27:58" },
+  { rank: 3, name: "Terrell Burden", position: "Bek", value: "27:58" },
 ];
 
 const topSteals: TopPlayer[] = [
@@ -248,9 +248,9 @@ const topSteals: TopPlayer[] = [
 ];
 
 const topBlocks: TopPlayer[] = [
-  { rank: 1, name: "Deantoni Gordon", position: "Centar", value: 1.6 },
-  { rank: 2, name: "Mario Spaleta", position: "Centar", value: 0.9 },
-  { rank: 3, name: "Vlatko Granic", position: "Centar", value: 0.7 },
+  { rank: 1, name: "Deantoni Gordon", position: "Centar", value: 1 },
+  { rank: 2, name: "Mario Spaleta", position: "Centar", value: 1 },
+  { rank: 3, name: "Ante Brzović", position: "Krilo", value: 0.5 },
 ];
 
 const top2PPercentage: TopPlayer[] = [
