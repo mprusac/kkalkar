@@ -247,7 +247,9 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
         </div>
       </div>
       </div>
+      </div>
       <Footer />
+
 
 
       {/* Lightbox */}
