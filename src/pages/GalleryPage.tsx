@@ -300,8 +300,8 @@ const GalleryPage = () => {
           )}
         </div>
       </div>
+      </div>
       <Footer />
-
     </div>
   );
 };
