@@ -93,17 +93,25 @@ const Sponsors = () => {
               href={sponsor.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`bg-[#0E2A63] border-2 ${goldBorder} rounded-2xl overflow-hidden hover:scale-[1.05] ${goldGlow} transition-all duration-300 animate-fade-in-up aspect-[2/1] flex items-center justify-center p-3 md:p-4`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`group rounded-2xl overflow-hidden hover:scale-[1.05] ${goldGlow} transition-all duration-300 animate-fade-in-up aspect-[2/1] flex items-center justify-center p-4 md:p-6`}
+              style={{
+                animationDelay: `${index * 100}ms`,
+                background: 'linear-gradient(180deg, #ffffff 0%, #fff8e6 60%, #faf3e0 100%)',
+                borderColor: '#d4a017',
+                borderWidth: '1.5px',
+                borderStyle: 'solid',
+                boxShadow: '0 4px 16px rgba(212,160,23,0.15)',
+              }}
             >
               <img
                 src={sponsor.image}
                 alt={sponsor.name}
-                className="max-w-full max-h-full w-auto h-auto object-contain"
+                className="max-w-[85%] max-h-[85%] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-110"
               />
             </a>
           ))}
         </div>
+
 
         {/* Become a Sponsor */}
         <div className="max-w-4xl mx-auto">
