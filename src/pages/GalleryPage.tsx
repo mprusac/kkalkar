@@ -27,6 +27,16 @@ import g17 from "@/assets/gallery-sezona-2025/g17.jpg.asset.json";
 import g18 from "@/assets/gallery-sezona-2025/g18.jpg.asset.json";
 import g19 from "@/assets/gallery-sezona-2025/g19.jpg.asset.json";
 import g20 from "@/assets/gallery-sezona-2025/g20.jpg.asset.json";
+import g21 from "@/assets/gallery-sezona-2025/g21.jpg.asset.json";
+import g22 from "@/assets/gallery-sezona-2025/g22.jpg.asset.json";
+import g23 from "@/assets/gallery-sezona-2025/g23.jpg.asset.json";
+import g24 from "@/assets/gallery-sezona-2025/g24.jpg.asset.json";
+import g25 from "@/assets/gallery-sezona-2025/g25.jpg.asset.json";
+import g26 from "@/assets/gallery-sezona-2025/g26.jpg.asset.json";
+import g27 from "@/assets/gallery-sezona-2025/g27.jpg.asset.json";
+import g28 from "@/assets/gallery-sezona-2025/g28.jpg.asset.json";
+import g29 from "@/assets/gallery-sezona-2025/g29.jpg.asset.json";
+import g30 from "@/assets/gallery-sezona-2025/g30.jpg.asset.json";
 
 // Image orientation type - vertical or horizontal
 type ImageWithOrientation = {
