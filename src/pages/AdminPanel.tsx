@@ -744,19 +744,20 @@ export default function AdminPanel() {
 
         {/* Top action buttons */}
         <div className="flex justify-center gap-3 flex-wrap mb-8">
-          <Button variant="outline" onClick={() => { setEditing(null); setView("news-form"); }}>
+          <Button variant="outline" className="admin-nav-btn" onClick={() => { setEditing(null); setView("news-form"); }}>
             <Newspaper className="w-4 h-4 mr-2" /> Nova vijest
           </Button>
-          <Button variant="outline" onClick={() => { setEditingGallery(null); setView("gallery-form"); }}>
+          <Button variant="outline" className="admin-nav-btn" onClick={() => { setEditingGallery(null); setView("gallery-form"); }}>
             <ImagePlus className="w-4 h-4 mr-2" /> Nova galerija
           </Button>
-          <Button variant="outline" onClick={() => { setEditingMatch(null); setView("match-form"); }}>
+          <Button variant="outline" className="admin-nav-btn" onClick={() => { setEditingMatch(null); setView("match-form"); }}>
             <Trophy className="w-4 h-4 mr-2" /> Nova utakmica
           </Button>
-          <Button variant="outline" onClick={() => { setEditingPlayer(null); setView("player-form"); }}>
+          <Button variant="outline" className="admin-nav-btn" onClick={() => { setEditingPlayer(null); setView("player-form"); }}>
             <Users className="w-4 h-4 mr-2" /> Novi igrač
           </Button>
         </div>
+
 
         {/* Four column layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -917,7 +918,7 @@ export default function AdminPanel() {
               {players.map((p) => (
                 <Card key={p.id} className="p-3 bg-card border-border flex items-center gap-3">
                   {p.image_url ? (
-                    <img src={p.image_url} className="aspect-square w-14 rounded object-cover border border-border shrink-0" />
+                    <img src={p.image_url} className="aspect-square w-14 rounded object-cover object-top border border-border shrink-0" />
                   ) : (
                     <div className="aspect-square w-14 rounded bg-muted shrink-0 flex items-center justify-center">
                       <Users className="w-5 h-5 text-muted-foreground" />
@@ -1061,7 +1062,7 @@ function NewsForm({
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground admin-blue-scope">
+    <div className="min-h-screen bg-background text-foreground admin-cream-scope">
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
         <div className="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
           <Button variant="ghost" size="sm" onClick={onCancel}>
@@ -1259,7 +1260,7 @@ function GalleryForm({
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground admin-blue-scope">
+    <div className="min-h-screen bg-background text-foreground admin-cream-scope">
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
         <div className="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
           <Button variant="ghost" size="sm" onClick={onCancel}>
@@ -1560,7 +1561,7 @@ function MatchForm({
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground admin-blue-scope">
+    <div className="min-h-screen bg-background text-foreground admin-cream-scope">
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
         <div className="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
           <Button variant="outline" size="sm" onClick={onCancel}>
@@ -1876,7 +1877,7 @@ function PlayerForm({
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground admin-blue-scope">
+    <div className="min-h-screen bg-background text-foreground admin-cream-scope">
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
         <div className="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
           <Button variant="ghost" size="sm" onClick={onCancel}>
