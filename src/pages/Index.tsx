@@ -61,14 +61,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Košarkaški klub Posušje — Službena web stranica"
-        description="Službena stranica KK Posušje. Vijesti, raspored utakmica, rezultati, tablica lige, momčad i škola košarke u Posušju."
+        title="Košarkaški klub Alkar Sinj — Službena web stranica"
+        description="Službena stranica KK Alkar Sinj. Vijesti, raspored utakmica, rezultati, tablica lige, momčad i škola košarke u Sinju."
         path="/"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "Košarkaški klub Posušje",
-          url: "https://kkposusje.ba/",
+          name: "Košarkaški klub Alkar Sinj",
+          url: "https://kkalkar.hr/",
         }}
       />
       <ScrollProgressBar />

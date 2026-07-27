@@ -249,7 +249,7 @@ const GalleryPage = () => {
   return (
     <div className="min-h-screen"><div className="cream-page-scope">
       <SEO
-        title="Galerija — KK Posušje"
+        title="Galerija — KK Alkar Sinj"
         description="Fotografije s utakmica, priprema i događanja Košarkaškog kluba Posušje."
         path="/galerija"
       />
