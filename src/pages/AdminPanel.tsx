@@ -406,46 +406,30 @@ function CategorySelect({
     if (value === cat) onChange(categories[0] ?? "");
   };
 
+  const submitAdd = () => {
+    const v = newValue.trim();
+    if (!v) return;
+    addOne(v);
+    setAdding(false);
+  };
+
   if (adding) {
     return (
-      <div className="space-y-2">
-        <div className="flex gap-2">
-          <Input
-            autoFocus
-            value={newValue}
-            onChange={(e) => setNewValue(e.target.value)}
-            placeholder="Nova kategorija"
-            onKeyDown={(e) => {
-              if (e.key === "Enter") { e.preventDefault(); addOne(newValue); }
-            }}
-          />
-          <Button type="button" size="sm" onClick={() => addOne(newValue)}>Dodaj</Button>
-          <Button type="button" size="sm" variant="ghost" onClick={() => { setAdding(false); setNewValue(""); }}>
-            Gotovo
-          </Button>
-        </div>
-        {localAdded.length > 0 && (
-          <div className="flex flex-wrap gap-1.5">
-            {localAdded.map((c) => (
-              <span
-                key={c}
-                className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs ${
-                  value === c ? "border-primary bg-primary/10" : "border-border"
-                }`}
-              >
-                {c}
-                <button
-                  type="button"
-                  onClick={() => removeLocal(c)}
-                  className="text-destructive hover:opacity-80"
-                  aria-label={`Ukloni ${c}`}
-                >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            ))}
-          </div>
-        )}
+      <div className="flex gap-2">
+        <Input
+          autoFocus
+          value={newValue}
+          onChange={(e) => setNewValue(e.target.value)}
+          placeholder="Nova kategorija"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") { e.preventDefault(); submitAdd(); }
+            if (e.key === "Escape") { e.preventDefault(); setAdding(false); setNewValue(""); }
+          }}
+        />
+        <Button type="button" size="sm" onClick={submitAdd}>Dodaj</Button>
+        <Button type="button" size="sm" variant="ghost" onClick={() => { setAdding(false); setNewValue(""); }}>
+          Odustani
+        </Button>
       </div>
     );
   }
@@ -470,10 +454,11 @@ function CategorySelect({
                   type="button"
                   onPointerDown={(e) => { e.preventDefault(); e.stopPropagation(); }}
                   onClick={(e) => { e.preventDefault(); e.stopPropagation(); removeLocal(c); }}
-                  className="p-1 rounded hover:bg-destructive/10 text-destructive"
-                  aria-label={`Ukloni ${c}`}
+                  className="p-1 rounded hover:bg-muted text-muted-foreground hover:text-destructive"
+                  aria-label={`Obriši ${c}`}
+                  title="Obriši kategoriju"
                 >
-                  <X className="w-3.5 h-3.5" />
+                  <Trash2 className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>
