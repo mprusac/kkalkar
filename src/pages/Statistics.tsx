@@ -90,6 +90,7 @@ import imgIvan from "@/assets/ivan_pavela.png.asset.json";
 import imgMarijan from "@/assets/marijan_mastelic.png.asset.json";
 import imgBrzovic from "@/assets/ante_brzovic.png.asset.json";
 import imgQuinton from "@/assets/quinton_morton.png.asset.json";
+import imgVlatko from "@/assets/vlatko_granic.png.asset.json";
 
 const playerImageMap: Record<string, string> = {
   "Deantoni Gordon": imgDeantoni.url,
@@ -113,6 +114,8 @@ const playerImageMap: Record<string, string> = {
   "Marijan Mastelić": imgMarijan.url,
   "Ante Brzović": imgBrzovic.url,
   "Quinton Morton-Robertson": imgQuinton.url,
+  "Vlatko Granic": imgVlatko.url,
+  "Vlatko Granić": imgVlatko.url,
 };
 
 // Import flag images
