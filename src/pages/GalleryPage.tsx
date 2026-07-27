@@ -174,8 +174,9 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
           >
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-2">
               <span className="text-primary">{event.homeTeam}</span>
-              <span className="text-[#0E2A63]"> - {event.awayTeam}</span>
+              {event.awayTeam && <span className="text-[#0E2A63]"> - {event.awayTeam}</span>}
             </h1>
+
             <p className="text-primary font-display text-2xl md:text-3xl mt-2">{event.date}</p>
             <p className="text-[#0E2A63]/70 mt-4">{event.description}</p>
           </motion.div>
