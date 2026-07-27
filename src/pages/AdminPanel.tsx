@@ -384,9 +384,19 @@ function AutoResizeTextarea({
 function CategorySelect({
   value, onChange, categories,
 }: { value: string; onChange: (v: string) => void; categories: string[] }) {
+  const LS_KEY = "admin_extra_categories";
   const [adding, setAdding] = useState(false);
   const [newValue, setNewValue] = useState("");
-  const [localAdded, setLocalAdded] = useState<string[]>([]);
+  const [localAdded, setLocalAdded] = useState<string[]>(() => {
+    try {
+      const raw = localStorage.getItem(LS_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch { return []; }
+  });
+
+  useEffect(() => {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(localAdded)); } catch {}
+  }, [localAdded]);
 
   const merged = useMemo(
     () => Array.from(new Set([...(value ? [value] : []), ...localAdded, ...categories])),
