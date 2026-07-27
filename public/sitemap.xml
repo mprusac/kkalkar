@@ -25,6 +25,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://kkposusje.ba/vijesti/0a9b97a3-69aa-4579-aee1-c4f1c439d651</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://kkposusje.ba/vijesti/8dc5ebd4-88a2-43fb-a232-cbce29a0eb79</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
