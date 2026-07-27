@@ -174,7 +174,7 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <span className="inline-block px-3 py-1 bg-primary text-primary-foreground text-sm rounded mb-4">{getCategoryLabel(article.category)}</span>
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-[#0E2A63] mb-4">{article.title}{article.flagImage && <img src={article.flagImage} alt="flag" className="inline-block w-8 h-5 md:w-10 md:h-6 ml-2 align-middle" />}</h1>
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-[#0E2A63] mb-4">{article.title}{article.flagImage && <img loading="lazy" decoding="async" src={article.flagImage} alt="flag" className="inline-block w-8 h-5 md:w-10 md:h-6 ml-2 align-middle" />}</h1>
             <div className="flex items-center gap-2 text-muted-foreground mb-8">
               <Calendar size={16} />
               <span>{article.date}</span>
@@ -183,7 +183,7 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
             </div>
             
             <div className="relative overflow-hidden rounded-lg mb-8 shadow-lg ring-1 ring-[#c9a24c]/40">
-              <img src={article.image} alt={article.title} className="w-full rounded-lg" />
+              <img loading="lazy" decoding="async" src={article.image} alt={article.title} className="w-full rounded-lg" />
             </div>
 
             <div className="bg-white rounded-lg p-6 md:p-8 shadow-md ring-1 ring-[#c9a24c]/30">
@@ -191,7 +191,7 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
                 {article.content.split('\n\n').map((paragraph, i) => (
                   <p key={i} className="text-[#0E2A63]/90 text-lg leading-relaxed mb-4">
                     {paragraph.split('\n').map((line, j, arr) => (
-                      <span key={j}>{line}{i === 0 && j === 0 && article.flagImage && <img src={article.flagImage} alt="flag" className="inline-block w-6 h-4 ml-1.5 align-middle" />}{j < arr.length - 1 && <br />}</span>
+                      <span key={j}>{line}{i === 0 && j === 0 && article.flagImage && <img loading="lazy" decoding="async" src={article.flagImage} alt="flag" className="inline-block w-6 h-4 ml-1.5 align-middle" />}{j < arr.length - 1 && <br />}</span>
                     ))}
                   </p>
                 ))}
@@ -201,7 +201,7 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
             {galleryImages.length > 0 && (
               <div className="mt-8 columns-2 md:columns-3 gap-3">
                 {galleryImages.map((img, i) => (
-                  <img key={i} src={img} alt={`${article.title} - slika ${i + 1}`} className="w-full rounded-lg mb-3 break-inside-avoid cursor-pointer hover:opacity-90 transition-opacity shadow-md ring-1 ring-[#c9a24c]/30" onClick={() => openLightbox(i)} />
+                  <img loading="lazy" decoding="async" key={i} src={img} alt={`${article.title} - slika ${i + 1}`} className="w-full rounded-lg mb-3 break-inside-avoid cursor-pointer hover:opacity-90 transition-opacity shadow-md ring-1 ring-[#c9a24c]/30" onClick={() => openLightbox(i)} />
                 ))}
               </div>
             )}
@@ -231,7 +231,7 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
             <button onClick={(e) => { e.stopPropagation(); goToPrevious(); }} className="absolute left-4 p-2 rounded-full bg-muted/50 hover:bg-muted text-foreground transition-colors z-10">
               <ChevronLeft className="w-8 h-8" />
             </button>
-            <img src={galleryImages[currentIndex]} alt={`Slika ${currentIndex + 1}`} className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl" onClick={(e) => e.stopPropagation()} />
+            <img loading="lazy" decoding="async" src={galleryImages[currentIndex]} alt={`Slika ${currentIndex + 1}`} className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl" onClick={(e) => e.stopPropagation()} />
             <button onClick={(e) => { e.stopPropagation(); goToNext(); }} className="absolute right-4 p-2 rounded-full bg-muted/50 hover:bg-muted text-foreground transition-colors z-10">
               <ChevronRight className="w-8 h-8" />
             </button>
@@ -316,7 +316,7 @@ const NewsPage = () => {
               <motion.div key={item.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: index * 0.05 }}>
                 <Link to={`/vijesti/${item.id}`} className="group flex flex-col h-[340px] md:h-[440px] bg-white rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover-lift shadow-md ring-1 ring-[#c9a24c]/40 hover:ring-[#c9a24c]">
                   <div className="relative h-48 overflow-hidden">
-                    <img src={item.cardImage || item.image} alt={item.title} className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${item.cardImagePosition === 'center' ? 'object-center' : item.cardImagePosition === 'upper' ? 'object-[center_5%]' : item.cardImagePosition === 'top' ? 'object-top' : item.cardImagePosition === 'lower' ? 'object-[center_35%]' : item.cardImagePosition === 'bottom' ? 'object-bottom' : 'object-[center_25%]'}`} />
+                    <img loading="lazy" decoding="async" src={item.cardImage || item.image} alt={item.title} className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${item.cardImagePosition === 'center' ? 'object-center' : item.cardImagePosition === 'upper' ? 'object-[center_5%]' : item.cardImagePosition === 'top' ? 'object-top' : item.cardImagePosition === 'lower' ? 'object-[center_35%]' : item.cardImagePosition === 'bottom' ? 'object-bottom' : 'object-[center_25%]'}`} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                     <span className="absolute top-3 left-3 px-2 py-1 bg-primary/90 text-primary-foreground text-xs rounded flex items-center gap-1 font-bold">
                       {(() => { const cat = item.category; const icons: Record<string, typeof Trophy> = { utakmica: Trophy, najava: Megaphone, klub: Newspaper }; const labels: Record<string, string> = { utakmica: "Utakmice", najava: "Najave", klub: "Klub" }; const Icon = icons[cat]; return <><Icon size={12} strokeWidth={3} />{labels[cat]}</>; })()}
@@ -327,7 +327,7 @@ const NewsPage = () => {
                       <Calendar size={14} />
                       {item.date}
                     </div>
-                    <h3 className="text-xl font-display text-[#0E2A63] mb-3 line-clamp-2 group-hover:text-primary transition-colors">{item.title}{item.flagImage && <img src={item.flagImage} alt="flag" className="inline-block h-4 md:h-5 ml-1.5 align-middle object-contain" />}</h3>
+                    <h3 className="text-xl font-display text-[#0E2A63] mb-3 line-clamp-2 group-hover:text-primary transition-colors">{item.title}{item.flagImage && <img loading="lazy" decoding="async" src={item.flagImage} alt="flag" className="inline-block h-4 md:h-5 ml-1.5 align-middle object-contain" />}</h3>
                     <p className="text-[#0E2A63]/70 text-sm mb-4 line-clamp-3">{item.excerpt}</p>
                     <div className="mt-auto inline-flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
                       Pročitaj više <ArrowRight size={16} />

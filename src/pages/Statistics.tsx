@@ -573,7 +573,7 @@ const Statistics = () => {
               Natrag
             </button>
             <div className="flex items-center gap-2 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:ml-4">
-              <img src={logoAlkar} alt="KK Alkar Sinj" className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110" />
+              <img loading="lazy" decoding="async" src={logoAlkar} alt="KK Alkar Sinj" className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110" />
               <span className="font-display text-sm text-white">KK Alkar Sinj</span>
             </div>
             <h2 className="font-display text-4xl text-white hidden md:block absolute left-1/2 -translate-x-1/2 tracking-wider drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">STATISTIKA</h2>
@@ -613,7 +613,7 @@ const Statistics = () => {
                     onMouseEnter={() => setHoveredFormIndex(index)}
                     onMouseLeave={() => setHoveredFormIndex(null)}
                   >
-                    <img src={game.logo} alt={game.opponent} className={`object-contain w-full h-full ${
+                    <img loading="lazy" decoding="async" src={game.logo} alt={game.opponent} className={`object-contain w-full h-full ${
                       game.opponent.includes("Široki") || game.opponent.includes("Grude")
                         ? "scale-[1.6]" 
                         : game.opponent.includes("Rama") || game.opponent.includes("Ljubuš")
@@ -685,12 +685,12 @@ const Statistics = () => {
                             {(match as any).time && <span>{(match as any).time}</span>}
                             {match.competition === "ENBL" ? (
                               <span className="inline-flex items-center gap-1 bg-primary/10 px-1.5 py-0.5 rounded">
-                                <img src={enblLogo} alt="ENBL" className="h-4 object-contain" />
+                                <img loading="lazy" decoding="async" src={enblLogo} alt="ENBL" className="h-4 object-contain" />
                                 <span className="text-xs font-bold text-foreground">ENBL</span>
                               </span>
                             ) : match.competition === "Krešimir Ćosić Cup" ? (
                               <span className="inline-flex items-center gap-1 bg-primary/10 px-1.5 py-0.5 rounded">
-                                <img src={kkcupLogo} alt="Krešimir Ćosić Cup" className="h-6 object-contain" />
+                                <img loading="lazy" decoding="async" src={kkcupLogo} alt="Krešimir Ćosić Cup" className="h-6 object-contain" />
                                 <span className="text-xs font-bold text-foreground">Krešimir Ćosić Cup</span>
                               </span>
                             ) : match.competition?.includes("🏆") || match.competition?.includes("Kup") ? (
@@ -700,7 +700,7 @@ const Statistics = () => {
                             ) : (
                               <span className="text-xs font-bold text-foreground bg-primary/10 px-1.5 py-0.5 rounded inline-flex items-center gap-1">
                                 {match.competition || "SuperSport PL"}
-                                <img src={supersportLogo} alt="SuperSport PL" className="h-3.5 object-contain -mt-0.5" />
+                                <img loading="lazy" decoding="async" src={supersportLogo} alt="SuperSport PL" className="h-3.5 object-contain -mt-0.5" />
                               </span>
                             )}
 
@@ -713,7 +713,7 @@ const Statistics = () => {
                               <div className="flex items-center justify-between mb-0.5">
                                 <div className="flex items-center gap-1.5">
                                   <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
-                                    {homeLogo && <img src={homeLogo} alt="" className={`object-contain ${getStatsLogoClass(match.homeTeam)}`} />}
+                                    {homeLogo && <img loading="lazy" decoding="async" src={homeLogo} alt="" className={`object-contain ${getStatsLogoClass(match.homeTeam)}`} />}
                                   </div>
                                   <span className={`text-sm font-medium ${(match.homeTeam.includes("Alkar") || match.homeTeam.includes("Posušje")) ? "text-primary" : "text-foreground"}`}>
                                     {match.homeTeam}
@@ -730,7 +730,7 @@ const Statistics = () => {
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-1.5">
                                   <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
-                                    {awayLogo && <img src={awayLogo} alt="" className={`object-contain ${getStatsLogoClass(match.awayTeam)}`} />}
+                                    {awayLogo && <img loading="lazy" decoding="async" src={awayLogo} alt="" className={`object-contain ${getStatsLogoClass(match.awayTeam)}`} />}
                                   </div>
                                   <span className={`text-sm font-medium ${(match.awayTeam.includes("Alkar") || match.awayTeam.includes("Posušje")) ? "text-primary" : "text-foreground"}`}>
                                     {match.awayTeam}
@@ -797,7 +797,7 @@ const Statistics = () => {
                 <div className="bg-secondary/30 rounded-xl border border-border/30 overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
                   <div className="p-3 border-b border-border/30">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <img src={supersportLogo} alt="SuperSport PL" className="h-8 md:h-10 object-contain" />
+                      <img loading="lazy" decoding="async" src={supersportLogo} alt="SuperSport PL" className="h-8 md:h-10 object-contain" />
                       <span className="text-xs md:text-sm text-foreground">SuperSport Premijer Liga</span>
                       <span className="text-xs md:text-sm text-muted-foreground bg-background/50 px-2 py-0.5 rounded">25/26</span>
                       <span className="text-xs md:text-sm text-foreground bg-background/50 px-2 py-0.5 rounded ml-1">Seniori</span>
@@ -860,7 +860,7 @@ const Statistics = () => {
                                   <div className="flex items-center gap-1 md:gap-2">
                                     {logo && (
                                       <div className="w-5 h-5 md:w-8 md:h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
-                                        <img src={logo} alt="" className={`object-contain ${logoScale}`} />
+                                        <img loading="lazy" decoding="async" src={logo} alt="" className={`object-contain ${logoScale}`} />
                                       </div>
                                     )}
                                     <span className={`text-[10px] md:text-sm font-bold ${isAlkar ? "text-primary" : ""}`}>
@@ -1099,7 +1099,7 @@ const Statistics = () => {
                                 <div className="flex items-center gap-2 md:gap-3">
                                   <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-secondary overflow-hidden group-hover:ring-2 group-hover:ring-primary/30 transition-all duration-200 flex-shrink-0">
                                     {(player.image || playerImageMap[player.name]) ? (
-                                      <img src={player.image || playerImageMap[player.name]} alt={player.name} className="w-full h-full object-cover object-top" />
+                                      <img loading="lazy" decoding="async" src={player.image || playerImageMap[player.name]} alt={player.name} className="w-full h-full object-cover object-top" />
                                     ) : (
                                       <div className="w-full h-full bg-muted flex items-center justify-center text-muted-foreground text-xs">
                                         {player.name.charAt(0)}
@@ -1115,7 +1115,7 @@ const Statistics = () => {
                               <TableCell className="text-center px-1 md:px-4">
                                 <div className="flex items-center justify-center gap-0.5 md:gap-1">
                                   {getFlagImage(player.nationality) ? (
-                                    <img src={getFlagImage(player.nationality)!} alt={player.nationality} className={`rounded-full object-cover flex-shrink-0 ${player.nationality === "USA" ? "w-[13.6px] h-[13.6px] md:w-[20.4px] md:h-[20.4px]" : "w-4 h-4 md:w-6 md:h-6"}`} />
+                                    <img loading="lazy" decoding="async" src={getFlagImage(player.nationality)!} alt={player.nationality} className={`rounded-full object-cover flex-shrink-0 ${player.nationality === "USA" ? "w-[13.6px] h-[13.6px] md:w-[20.4px] md:h-[20.4px]" : "w-4 h-4 md:w-6 md:h-6"}`} />
                                   ) : player.nationality !== "-" ? (
                                     <span className="text-xs md:text-base">{getFlagEmoji(player.nationality)}</span>
                                   ) : null}
@@ -1163,7 +1163,7 @@ const Statistics = () => {
                                   <span className="text-primary font-bold w-3 md:w-4 text-xs md:text-sm mb-0.5 md:mb-0">{player.rank}</span>
                                   <div className="w-7 h-7 md:w-9 md:h-9 rounded-full bg-secondary overflow-hidden flex-shrink-0 mb-0.5 md:mb-0">
                                     {(player.image || playerImageMap[player.name]) ? (
-                                      <img src={player.image || playerImageMap[player.name]} alt={player.name} className="w-full h-full object-cover object-top" />
+                                      <img loading="lazy" decoding="async" src={player.image || playerImageMap[player.name]} alt={player.name} className="w-full h-full object-cover object-top" />
                                     ) : (
                                       <div className="w-full h-full bg-muted" />
                                     )}
