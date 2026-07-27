@@ -94,23 +94,22 @@ const Sponsors = () => {
               href={sponsor.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group rounded-2xl overflow-hidden hover:scale-[1.05] ${goldGlow} transition-all duration-300 animate-fade-in-up aspect-[2/1] flex items-center justify-center p-4 md:p-6`}
+              className={`group rounded-2xl overflow-hidden hover:scale-[1.05] ${goldGlow} transition-all duration-300 animate-fade-in-up aspect-[2/1] flex items-center justify-center p-4 md:p-6 border-2 border-primary shadow-[0_0_30px_hsl(48,96%,53%,0.2)]`}
               style={{
                 animationDelay: `${index * 100}ms`,
-                background: 'linear-gradient(180deg, #ffffff 0%, #fff8e6 60%, #faf3e0 100%)',
-                borderColor: '#d4a017',
-                borderWidth: '1.5px',
-                borderStyle: 'solid',
-                boxShadow: '0 4px 16px rgba(212,160,23,0.15)',
+                background:
+                  'linear-gradient(135deg, hsl(220 79% 15%) 0%, hsl(217 68% 30%) 50%, hsl(220 79% 12%) 100%)',
               }}
             >
               <img
                 src={sponsor.image}
                 alt={sponsor.name}
                 className="max-w-[85%] max-h-[85%] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                style={{ transform: `scale(${sponsor.scale})` }}
               />
             </a>
           ))}
+
         </div>
 
 

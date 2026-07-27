@@ -214,4 +214,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://kkposusje.ba/vijesti/ed33af28-0011-4b46-8f52-85b34910573c</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
