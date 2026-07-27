@@ -68,6 +68,53 @@ import playerBegic from "@/assets/player-begic.png";
 import playerPavkovic from "@/assets/player-pavkovic-new.png";
 import playerBasicLuka from "@/assets/player-basic-luka.png";
 
+// Alkar player images
+import imgDeantoni from "@/assets/deantoni_gordon.png.asset.json";
+import imgDuje from "@/assets/duje_brala.png.asset.json";
+import imgTray from "@/assets/tray_hollowell.png.asset.json";
+import imgTerrell from "@/assets/terrell_burden.png.asset.json";
+import imgPavle from "@/assets/pavle_marcinkovic.png.asset.json";
+import imgFabian from "@/assets/fabian_sisko.png.asset.json";
+import imgMirko from "@/assets/mirko_jukic.png.asset.json";
+import imgMarioK from "@/assets/mario_kresic.png.asset.json";
+import imgJarred from "@/assets/jarred_hyder.png.asset.json";
+import imgLuka from "@/assets/luka_cvitanovic.png.asset.json";
+import imgKlepo from "@/assets/antonio_klepo.png.asset.json";
+import imgMladen from "@/assets/mladen_tomasevic.png.asset.json";
+import imgSpaleta from "@/assets/mario_spaleta.png.asset.json";
+import imgKaramarko from "@/assets/gabriel_karamarko.png.asset.json";
+import imgBorna from "@/assets/borna_jurela.png.asset.json";
+import imgMaksim from "@/assets/maksim_matulina.png.asset.json";
+import imgEmanuel from "@/assets/emanuel_domazet.png.asset.json";
+import imgIvan from "@/assets/ivan_pavela.png.asset.json";
+import imgMarijan from "@/assets/marijan_mastelic.png.asset.json";
+import imgBrzovic from "@/assets/ante_brzovic.png.asset.json";
+import imgQuinton from "@/assets/quinton_morton.png.asset.json";
+
+const playerImageMap: Record<string, string> = {
+  "Deantoni Gordon": imgDeantoni.url,
+  "Duje Brala": imgDuje.url,
+  "Tray Hollowell": imgTray.url,
+  "Terrell Burden": imgTerrell.url,
+  "Pavle Marčinković": imgPavle.url,
+  "Fabian Šiško": imgFabian.url,
+  "Mirko Jukić": imgMirko.url,
+  "Mario Krešić": imgMarioK.url,
+  "Jarred Hyder": imgJarred.url,
+  "Luka Cvitanović": imgLuka.url,
+  "Antonio Klepo": imgKlepo.url,
+  "Mladen Tomašević": imgMladen.url,
+  "Mario Spaleta": imgSpaleta.url,
+  "Gabriel Karamarko": imgKaramarko.url,
+  "Borna Jurela": imgBorna.url,
+  "Maksim Matulina": imgMaksim.url,
+  "Emanuel Domazet": imgEmanuel.url,
+  "Ivan Pavela": imgIvan.url,
+  "Marijan Mastelić": imgMarijan.url,
+  "Ante Brzović": imgBrzovic.url,
+  "Quinton Morton-Robertson": imgQuinton.url,
+};
+
 // Import flag images
 import flagBih from "@/assets/flags/bih-flag.png";
 import flagCro from "@/assets/flags/cro-flag.png";
