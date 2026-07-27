@@ -27,6 +27,16 @@ import g17 from "@/assets/gallery-sezona-2025/g17.jpg.asset.json";
 import g18 from "@/assets/gallery-sezona-2025/g18.jpg.asset.json";
 import g19 from "@/assets/gallery-sezona-2025/g19.jpg.asset.json";
 import g20 from "@/assets/gallery-sezona-2025/g20.jpg.asset.json";
+import g21 from "@/assets/gallery-sezona-2025/g21.jpg.asset.json";
+import g22 from "@/assets/gallery-sezona-2025/g22.jpg.asset.json";
+import g23 from "@/assets/gallery-sezona-2025/g23.jpg.asset.json";
+import g24 from "@/assets/gallery-sezona-2025/g24.jpg.asset.json";
+import g25 from "@/assets/gallery-sezona-2025/g25.jpg.asset.json";
+import g26 from "@/assets/gallery-sezona-2025/g26.jpg.asset.json";
+import g27 from "@/assets/gallery-sezona-2025/g27.jpg.asset.json";
+import g28 from "@/assets/gallery-sezona-2025/g28.jpg.asset.json";
+import g29 from "@/assets/gallery-sezona-2025/g29.jpg.asset.json";
+import g30 from "@/assets/gallery-sezona-2025/g30.jpg.asset.json";
 
 // Image orientation type - vertical or horizontal
 type ImageWithOrientation = {
@@ -51,24 +61,34 @@ export const events: {
     date: "Sezona 2025/26",
     description: "Trenuci s utakmica, slavlja i navijača u dvorani u Sinju.",
     coverImage: g2.url,
-    images: [g1.url, g2.url, g3.url, g4.url, g5.url, g6.url, g7.url, g8.url, g9.url, g10.url, g11.url, g12.url, g13.url, g14.url, g15.url, g16.url, g17.url, g18.url, g19.url, g20.url],
+    images: [g1.url, g2.url, g3.url, g4.url, g5.url, g6.url, g7.url, g8.url, g9.url, g10.url, g11.url, g12.url, g13.url, g14.url, g15.url, g16.url, g17.url, g18.url, g19.url, g20.url, g21.url, g22.url, g23.url, g24.url, g25.url, g26.url, g27.url, g28.url, g29.url, g30.url],
     imagesWithOrientation: [
       { src: g2.url, orientation: "horizontal" },
       { src: g4.url, orientation: "vertical" },
       { src: g5.url, orientation: "horizontal" },
-      { src: g11.url, orientation: "horizontal" },
+      { src: g22.url, orientation: "horizontal" },
       { src: g12.url, orientation: "vertical" },
+      { src: g26.url, orientation: "horizontal" },
+      { src: g11.url, orientation: "horizontal" },
       { src: g15.url, orientation: "horizontal" },
-      { src: g3.url, orientation: "horizontal" },
       { src: g9.url, orientation: "vertical" },
+      { src: g27.url, orientation: "horizontal" },
+      { src: g25.url, orientation: "horizontal" },
+      { src: g3.url, orientation: "horizontal" },
+      { src: g29.url, orientation: "horizontal" },
       { src: g8.url, orientation: "horizontal" },
       { src: g14.url, orientation: "horizontal" },
+      { src: g30.url, orientation: "horizontal" },
       { src: g17.url, orientation: "horizontal" },
+      { src: g28.url, orientation: "horizontal" },
       { src: g16.url, orientation: "horizontal" },
+      { src: g21.url, orientation: "horizontal" },
       { src: g1.url, orientation: "horizontal" },
       { src: g18.url, orientation: "horizontal" },
+      { src: g23.url, orientation: "horizontal" },
       { src: g6.url, orientation: "horizontal" },
       { src: g13.url, orientation: "horizontal" },
+      { src: g24.url, orientation: "horizontal" },
       { src: g20.url, orientation: "horizontal" },
       { src: g10.url, orientation: "horizontal" },
       { src: g19.url, orientation: "horizontal" },
@@ -76,6 +96,7 @@ export const events: {
     ],
   },
 ];
+
 
 
 
