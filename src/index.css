@@ -646,3 +646,19 @@ textarea:-webkit-autofill:focus {
   animation: admin-glow-pulse 1.4s ease-in-out infinite;
   border-color: #ff6b6b !important;
 }
+
+/* Blue navigation buttons on admin dashboard */
+.admin-nav-btn {
+  background-color: #0E2A63 !important;
+  border-color: #c9a24c !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(14, 42, 99, 0.25), 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+.admin-nav-btn svg { color: #ffffff !important; }
+.admin-nav-btn:hover {
+  background-color: #1a3a7a !important;
+  border-color: #f0c96b !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(201, 162, 76, 0.45), 0 4px 10px rgba(14, 42, 99, 0.3) !important;
+}
