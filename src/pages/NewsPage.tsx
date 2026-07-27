@@ -181,7 +181,7 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
     <div className="min-h-screen">
       <div className="cream-page-scope" style={{ zoom: 0.85 }}>
       <SEO
-        title={`${article.title} — KK Posušje`}
+        title={`${article.title} — KK Alkar Sinj`}
         description={(article.content || article.title).replace(/\n+/g, ' ').slice(0, 155)}
         path={`/vijesti/${article.id}`}
         image={typeof article.image === 'string' ? article.image : undefined}
@@ -316,7 +316,7 @@ const NewsPage = () => {
     <div className="min-h-screen">
       <div className="cream-page-scope" style={{ zoom: 0.85 }}>
       <SEO
-        title="Vijesti — KK Posušje"
+        title="Vijesti — KK Alkar Sinj"
         description="Najnovije vijesti, najave utakmica, izvještaji i priopćenja Košarkaškog kluba Posušje."
         path="/vijesti"
       />

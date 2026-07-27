@@ -230,7 +230,7 @@ const standings: Standing[] = [
 
 // Women standings data
 const womenStandings: WomenStanding[] = [
-  { position: 1, team: "HŽKK Posušje", points: 3 },
+  { position: 1, team: "ŽKK Alkar Sinj", points: 3 },
   { position: 2, team: "ŽKK Zrinjski 2010", points: 3 },
   { position: 3, team: "ŽKK Livno", points: 2 },
   { position: 4, team: "HŽKK Tomislav", points: 1 },
@@ -406,8 +406,8 @@ const Statistics = () => {
 
   const handleDownloadStats = () => {
     const link = document.createElement("a");
-    link.href = "/data/KK_Posusje_statistika_25-26.xlsx";
-    link.download = "KK_Posusje_statistika_25-26.xlsx";
+    link.href = "/data/KK_Alkar_Sinj_statistika_25-26.xlsx";
+    link.download = "KK_Alkar_Sinj_statistika_25-26.xlsx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -469,7 +469,7 @@ const Statistics = () => {
 
   const getMatchResult = (match: Match) => {
     if (match.isUpcoming) return null;
-    const isPosusjeHome = match.homeTeam.includes("Posušje");
+    const isPosusjeHome = match.homeTeam.includes("Alkar") || match.homeTeam.includes("Posušje");
     const posusjeScore = isPosusjeHome ? match.homeScore : match.awayScore;
     const opponentScore = isPosusjeHome ? match.awayScore : match.homeScore;
     return posusjeScore! > opponentScore! ? "W" : "L";
@@ -574,13 +574,7 @@ const Statistics = () => {
             </button>
             <div className="flex items-center gap-2 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:ml-4">
               <img src={logoAlkar} alt="KK Alkar Sinj" className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110" />
-              <div className="flex flex-col leading-tight">
-                <span className="font-display text-sm text-white">KK Alkar Sinj</span>
-                <div className="flex items-center gap-1">
-                  <img src={supersportLogo} alt="SuperSport PL" className="h-3 object-contain" />
-                  <span className="text-[10px] text-white/70">SuperSport PL</span>
-                </div>
-              </div>
+              <span className="font-display text-sm text-white">KK Alkar Sinj</span>
             </div>
             <h2 className="font-display text-4xl text-white hidden md:block absolute left-1/2 -translate-x-1/2 tracking-wider drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">STATISTIKA</h2>
             <div className="w-20 hidden md:block"></div>
@@ -721,7 +715,7 @@ const Statistics = () => {
                                   <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
                                     {homeLogo && <img src={homeLogo} alt="" className={`object-contain ${getStatsLogoClass(match.homeTeam)}`} />}
                                   </div>
-                                  <span className={`text-sm font-medium ${match.homeTeam.includes("Posušje") ? "text-primary" : "text-foreground"}`}>
+                                  <span className={`text-sm font-medium ${(match.homeTeam.includes("Alkar") || match.homeTeam.includes("Posušje")) ? "text-primary" : "text-foreground"}`}>
                                     {match.homeTeam}
                                   </span>
                                 </div>
@@ -738,7 +732,7 @@ const Statistics = () => {
                                   <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
                                     {awayLogo && <img src={awayLogo} alt="" className={`object-contain ${getStatsLogoClass(match.awayTeam)}`} />}
                                   </div>
-                                  <span className={`text-sm font-medium ${match.awayTeam.includes("Posušje") ? "text-primary" : "text-foreground"}`}>
+                                  <span className={`text-sm font-medium ${(match.awayTeam.includes("Alkar") || match.awayTeam.includes("Posušje")) ? "text-primary" : "text-foreground"}`}>
                                     {match.awayTeam}
                                   </span>
                                 </div>
@@ -1137,7 +1131,7 @@ const Statistics = () => {
                       </Table>
                     </div>
                   ) : (
-                    <div className="p-5">
+                    <div className="p-5" style={{ zoom: 1.18 }}>
                       {/* Pagination controls */}
                       <div className="flex items-center justify-center gap-4 mb-4">
                         <button 
