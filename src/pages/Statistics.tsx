@@ -1165,8 +1165,8 @@ const Statistics = () => {
                                 <div key={player.rank} className="flex items-start md:items-center gap-1 md:gap-2 hover:bg-background/30 p-1 md:p-1.5 rounded-lg transition-all duration-200 hover:scale-[1.02]">
                                   <span className="text-primary font-bold w-3 md:w-4 text-xs md:text-sm mb-0.5 md:mb-0">{player.rank}</span>
                                   <div className="w-7 h-7 md:w-9 md:h-9 rounded-full bg-secondary overflow-hidden flex-shrink-0 mb-0.5 md:mb-0">
-                                    {player.image ? (
-                                      <img src={player.image} alt={player.name} className="w-full h-full object-cover object-top" />
+                                    {(player.image || playerImageMap[player.name]) ? (
+                                      <img src={player.image || playerImageMap[player.name]} alt={player.name} className="w-full h-full object-cover object-top" />
                                     ) : (
                                       <div className="w-full h-full bg-muted" />
                                     )}
