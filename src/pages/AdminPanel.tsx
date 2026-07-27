@@ -709,7 +709,7 @@ export default function AdminPanel() {
   };
 
   return (
-    <div className="min-h-screen text-foreground animate-fade-in" style={{ backgroundColor: "#faf3e0" }}>
+    <div className="min-h-screen text-foreground animate-fade-in admin-cream-scope" style={{ backgroundColor: "#faf3e0" }}>
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b shadow-sm" style={{ borderColor: "#c9a24c" }}>
 
         <div className="max-w-[1600px] mx-auto grid grid-cols-3 items-center px-4 py-3">

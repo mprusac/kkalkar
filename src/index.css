@@ -444,6 +444,87 @@ textarea:-webkit-autofill:focus {
 }
 .admin-cream-scope label { color: #0E2A63; }
 
+/* Global smooth transitions + hover/glow/shadow polish for the admin panel */
+.admin-cream-scope * {
+  transition-property: background-color, border-color, color, box-shadow, transform, opacity, filter;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.admin-cream-scope input,
+.admin-cream-scope textarea,
+.admin-cream-scope [role="combobox"] {
+  box-shadow: 0 1px 2px rgba(14, 42, 99, 0.05);
+}
+.admin-cream-scope input:hover,
+.admin-cream-scope textarea:hover,
+.admin-cream-scope [role="combobox"]:hover {
+  border-color: #c9a24c !important;
+  box-shadow: 0 2px 8px rgba(201, 162, 76, 0.18);
+}
+.admin-cream-scope input:focus,
+.admin-cream-scope input:focus-visible,
+.admin-cream-scope textarea:focus,
+.admin-cream-scope textarea:focus-visible,
+.admin-cream-scope [role="combobox"]:focus,
+.admin-cream-scope [role="combobox"]:focus-visible {
+  border-color: #c9a24c !important;
+  box-shadow: 0 0 0 3px rgba(201, 162, 76, 0.28), 0 4px 14px rgba(201, 162, 76, 0.22) !important;
+  outline: none !important;
+}
+.admin-cream-scope [data-slot="card"],
+.admin-cream-scope .admin-card {
+  box-shadow: 0 2px 8px rgba(14, 42, 99, 0.06), 0 1px 2px rgba(14, 42, 99, 0.04);
+  will-change: transform, box-shadow;
+}
+.admin-cream-scope [data-slot="card"]:hover,
+.admin-cream-scope .admin-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -8px rgba(201, 162, 76, 0.35), 0 4px 12px rgba(14, 42, 99, 0.08);
+  border-color: #c9a24c !important;
+}
+.admin-cream-scope button {
+  will-change: transform, box-shadow;
+}
+.admin-cream-scope button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -6px rgba(201, 162, 76, 0.45), 0 2px 6px rgba(14, 42, 99, 0.1);
+  filter: brightness(1.05);
+}
+.admin-cream-scope button:not(:disabled):active {
+  transform: translateY(0);
+  filter: brightness(0.97);
+}
+.admin-cream-scope header {
+  transition: box-shadow 300ms ease;
+}
+.admin-cream-scope header:hover {
+  box-shadow: 0 4px 20px rgba(201, 162, 76, 0.18);
+}
+.admin-cream-scope img {
+  transition: transform 300ms ease, box-shadow 300ms ease, filter 300ms ease;
+}
+.admin-cream-scope .group:hover img {
+  filter: brightness(1.03);
+}
+.admin-cream-scope [role="tab"] {
+  transition: all 250ms ease;
+}
+.admin-cream-scope [role="tab"]:hover {
+  color: #c9a24c;
+}
+.admin-cream-scope [data-state="open"] > [data-slot="dropdown-menu-content"],
+.admin-cream-scope [data-radix-popper-content-wrapper] {
+  animation: fade-in 200ms ease-out;
+}
+@keyframes admin-glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 76, 0.0); }
+  50% { box-shadow: 0 0 0 6px rgba(201, 162, 76, 0.15); }
+}
+.admin-cream-scope [aria-invalid="true"] {
+  animation: admin-glow-pulse 1.4s ease-in-out infinite;
+  border-color: #dc2626 !important;
+}
+
 /* Cream palette scope for public content pages (News, Gallery) */
 .cream-page-scope {
   --background: 44 67% 92%;
