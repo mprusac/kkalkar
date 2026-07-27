@@ -172,7 +172,7 @@ serve(async (req) => {
       );
     }
 
-    const FROM = `${CLUB_NAME} <onboarding@resend.dev>`;
+    const FROM = `${CLUB_NAME} <kontakt@kkposusje.ba>`;
 
     const ownerRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',
