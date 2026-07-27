@@ -51,21 +51,32 @@ export const events: {
     date: "Sezona 2025/26",
     description: "Trenuci s utakmica, slavlja i navijača u dvorani u Sinju.",
     coverImage: g2.url,
-    images: [g1.url, g2.url, g3.url, g4.url, g5.url, g6.url, g7.url, g8.url, g9.url, g10.url],
+    images: [g1.url, g2.url, g3.url, g4.url, g5.url, g6.url, g7.url, g8.url, g9.url, g10.url, g11.url, g12.url, g13.url, g14.url, g15.url, g16.url, g17.url, g18.url, g19.url, g20.url],
     imagesWithOrientation: [
       { src: g2.url, orientation: "horizontal" },
       { src: g4.url, orientation: "vertical" },
       { src: g5.url, orientation: "horizontal" },
+      { src: g11.url, orientation: "horizontal" },
+      { src: g12.url, orientation: "vertical" },
+      { src: g15.url, orientation: "horizontal" },
       { src: g3.url, orientation: "horizontal" },
       { src: g9.url, orientation: "vertical" },
       { src: g8.url, orientation: "horizontal" },
+      { src: g14.url, orientation: "horizontal" },
+      { src: g17.url, orientation: "horizontal" },
+      { src: g16.url, orientation: "horizontal" },
       { src: g1.url, orientation: "horizontal" },
+      { src: g18.url, orientation: "horizontal" },
       { src: g6.url, orientation: "horizontal" },
+      { src: g13.url, orientation: "horizontal" },
+      { src: g20.url, orientation: "horizontal" },
       { src: g10.url, orientation: "horizontal" },
+      { src: g19.url, orientation: "horizontal" },
       { src: g7.url, orientation: "horizontal" },
     ],
   },
 ];
+
 
 
 const EventCard = ({ event, index }: { event: typeof events[0]; index: number }) => {
