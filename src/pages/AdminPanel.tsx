@@ -1061,7 +1061,7 @@ function NewsForm({
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground admin-cream-scope">
+    <div className="min-h-screen bg-background text-foreground admin-blue-scope">
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
         <div className="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
           <Button variant="ghost" size="sm" onClick={onCancel}>
@@ -1259,7 +1259,7 @@ function GalleryForm({
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground admin-cream-scope">
+    <div className="min-h-screen bg-background text-foreground admin-blue-scope">
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
         <div className="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
           <Button variant="ghost" size="sm" onClick={onCancel}>
@@ -1560,7 +1560,7 @@ function MatchForm({
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground admin-cream-scope">
+    <div className="min-h-screen bg-background text-foreground admin-blue-scope">
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
         <div className="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
           <Button variant="outline" size="sm" onClick={onCancel}>
@@ -1876,7 +1876,7 @@ function PlayerForm({
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground admin-cream-scope">
+    <div className="min-h-screen bg-background text-foreground admin-blue-scope">
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
         <div className="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
           <Button variant="ghost" size="sm" onClick={onCancel}>

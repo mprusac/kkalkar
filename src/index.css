@@ -547,3 +547,102 @@ textarea:-webkit-autofill:focus {
   background-color: #faf3e0;
 }
 .cream-page-scope .prose-invert { color: #0E2A63; }
+
+/* Admin CRUD form subpages: lighter navy blue with white text/icons */
+.admin-blue-scope {
+  --background: 220 60% 22%;
+  --foreground: 0 0% 100%;
+  --card: 220 55% 26%;
+  --card-foreground: 0 0% 100%;
+  --popover: 220 55% 26%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 43 68% 60%;
+  --primary-foreground: 220 79% 15%;
+  --secondary: 220 45% 32%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 220 45% 30%;
+  --muted-foreground: 0 0% 90%;
+  --accent: 43 68% 60%;
+  --accent-foreground: 220 79% 15%;
+  --border: 43 55% 55%;
+  --input: 43 55% 55%;
+  --ring: 43 68% 60%;
+  background-color: #1a3a7a !important;
+  color: #ffffff;
+}
+.admin-blue-scope header {
+  background-color: rgba(14, 28, 70, 0.95) !important;
+  border-color: #c9a24c !important;
+  color: #ffffff !important;
+}
+.admin-blue-scope h1,
+.admin-blue-scope h2,
+.admin-blue-scope h3,
+.admin-blue-scope h4,
+.admin-blue-scope label,
+.admin-blue-scope p,
+.admin-blue-scope span {
+  color: #ffffff;
+}
+.admin-blue-scope svg {
+  color: #ffffff;
+}
+.admin-blue-scope input,
+.admin-blue-scope textarea,
+.admin-blue-scope [role="combobox"] {
+  background-color: rgba(255,255,255,0.08) !important;
+  color: #ffffff !important;
+  border-color: rgba(201,162,76,0.6) !important;
+}
+.admin-blue-scope input::placeholder,
+.admin-blue-scope textarea::placeholder {
+  color: rgba(255,255,255,0.55) !important;
+}
+.admin-blue-scope [data-slot="card"] {
+  background-color: #21447f !important;
+  border-color: rgba(201,162,76,0.35) !important;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.admin-blue-scope [data-slot="card"]:hover {
+  transform: translateY(-2px);
+  border-color: #c9a24c !important;
+  box-shadow: 0 12px 30px -8px rgba(201, 162, 76, 0.45), 0 4px 12px rgba(0,0,0,0.3);
+}
+.admin-blue-scope * {
+  transition-property: background-color, border-color, color, box-shadow, transform, opacity, filter;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.admin-blue-scope input:hover,
+.admin-blue-scope textarea:hover,
+.admin-blue-scope [role="combobox"]:hover {
+  border-color: #c9a24c !important;
+  box-shadow: 0 2px 8px rgba(201, 162, 76, 0.25);
+}
+.admin-blue-scope input:focus,
+.admin-blue-scope input:focus-visible,
+.admin-blue-scope textarea:focus,
+.admin-blue-scope textarea:focus-visible,
+.admin-blue-scope [role="combobox"]:focus,
+.admin-blue-scope [role="combobox"]:focus-visible {
+  border-color: #c9a24c !important;
+  box-shadow: 0 0 0 3px rgba(201, 162, 76, 0.35), 0 4px 14px rgba(201, 162, 76, 0.25) !important;
+  outline: none !important;
+}
+.admin-blue-scope button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -6px rgba(201, 162, 76, 0.5), 0 2px 6px rgba(0,0,0,0.2);
+  filter: brightness(1.08);
+}
+.admin-blue-scope button:not(:disabled):active {
+  transform: translateY(0);
+  filter: brightness(0.95);
+}
+.admin-blue-scope [role="tab"]:hover {
+  color: #f0c96b;
+}
+.admin-blue-scope [aria-invalid="true"] {
+  animation: admin-glow-pulse 1.4s ease-in-out infinite;
+  border-color: #ff6b6b !important;
+}
