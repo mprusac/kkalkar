@@ -637,7 +637,7 @@ export default function AdminPanel() {
           setEditing(null);
         }}
         apiFetch={apiFetch}
-        existingCategories={Array.from(new Set([...DEFAULT_CATEGORIES, ...news.map((n) => n.category)]))}
+        existingCategories={Array.from(new Set(news.map((n) => n.category).filter(Boolean)))}
       />
     );
   }
@@ -1350,9 +1350,12 @@ function CategoriesModal({
   const [reassignTo, setReassignTo] = useState("");
 
   const all = useMemo(
-    () => Array.from(new Set([...DEFAULT_CATEGORIES, ...news.map((n) => n.category), ...local])),
+    () => Array.from(new Set([...news.map((n) => n.category).filter(Boolean), ...local])),
     [news, local],
   );
+
+  const countFor = (cat: string) => news.filter((n) => n.category === cat).length;
+
 
   const rename = async () => {
     if (!renamingFrom || !renameTo.trim()) return;
@@ -1371,12 +1374,16 @@ function CategoriesModal({
   };
 
   const confirmDelete = async () => {
-    if (!deleting || !reassignTo) return;
+    if (!deleting) return;
     try {
-      await apiFetch(`${NEWS_URL}/update-category`, {
-        method: "PUT",
-        body: JSON.stringify({ category: deleting, newCategory: reassignTo }),
-      });
+      const hasNews = countFor(deleting) > 0;
+      if (hasNews) {
+        if (!reassignTo) return;
+        await apiFetch(`${NEWS_URL}/update-category`, {
+          method: "PUT",
+          body: JSON.stringify({ category: deleting, newCategory: reassignTo }),
+        });
+      }
       toast.success("Kategorija obrisana");
       setDeleting(null);
       setReassignTo("");
@@ -1386,6 +1393,7 @@ function CategoriesModal({
       toast.error("Greška", { description: (e as Error).message });
     }
   };
+
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -1433,25 +1441,39 @@ function CategoriesModal({
 
         {deleting && (
           <div className="border border-destructive/50 rounded-md p-3 space-y-2">
-            <p className="text-sm">
-              Premjesti vijesti iz <b>{deleting}</b> u:
-            </p>
-            <Select value={reassignTo} onValueChange={setReassignTo}>
-              <SelectTrigger><SelectValue placeholder="Odaberite kategoriju" /></SelectTrigger>
-              <SelectContent>
-                {all.filter((c) => c !== deleting).map((c) => (
-                  <SelectItem key={c} value={c}>{c}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {countFor(deleting) > 0 ? (
+              <>
+                <p className="text-sm">
+                  Kategorija <b>{deleting}</b> ima {countFor(deleting)} vijesti. Premjesti ih u:
+                </p>
+                <Select value={reassignTo} onValueChange={setReassignTo}>
+                  <SelectTrigger><SelectValue placeholder="Odaberite kategoriju" /></SelectTrigger>
+                  <SelectContent>
+                    {all.filter((c) => c !== deleting).map((c) => (
+                      <SelectItem key={c} value={c}>{c}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </>
+            ) : (
+              <p className="text-sm">
+                Obrisati praznu kategoriju <b>{deleting}</b>?
+              </p>
+            )}
             <div className="flex gap-2 justify-end">
-              <Button variant="ghost" size="sm" onClick={() => setDeleting(null)}>Odustani</Button>
-              <Button variant="destructive" size="sm" onClick={confirmDelete} disabled={!reassignTo}>
+              <Button variant="ghost" size="sm" onClick={() => { setDeleting(null); setReassignTo(""); }}>Odustani</Button>
+              <Button
+                variant="destructive"
+                size="sm"
+                onClick={confirmDelete}
+                disabled={countFor(deleting) > 0 && !reassignTo}
+              >
                 Obriši
               </Button>
             </div>
           </div>
         )}
+
 
         <DialogFooter>
           <Button variant="outline" onClick={() => onOpenChange(false)}>Zatvori</Button>
