@@ -20,6 +20,13 @@ import playerAntonioKlepo from "@/assets/antonio_klepo.png.asset.json";
 import playerMladenTomasevic from "@/assets/mladen_tomasevic.png.asset.json";
 import playerMarioSpaleta from "@/assets/mario_spaleta.png.asset.json";
 import playerGabrielKaramarko from "@/assets/gabriel_karamarko.png.asset.json";
+import playerBornaJurela from "@/assets/borna_jurela.png.asset.json";
+import playerMaksimMatulina from "@/assets/maksim_matulina.png.asset.json";
+import playerEmanuelDomazet from "@/assets/emanuel_domazet.png.asset.json";
+import playerIvanPavela from "@/assets/ivan_pavela.png.asset.json";
+import playerMarijanMastelic from "@/assets/marijan_mastelic.png.asset.json";
+import playerAnteBrzovic from "@/assets/ante_brzovic.png.asset.json";
+import playerQuintonMorton from "@/assets/quinton_morton.png.asset.json";
 
 interface Player {
   id: number;
