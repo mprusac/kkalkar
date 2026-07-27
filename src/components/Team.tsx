@@ -237,7 +237,7 @@ const Team = () => {
                           : player.id === 14
                           ? 'scale-[1.25] translate-y-[8%] group-hover:scale-[1.33]'
                           : player.id === 15
-                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
+                          ? 'scale-[1.25] translate-y-[8%] group-hover:scale-[1.33]'
                           : player.id === 16
                           ? 'scale-[1.25] translate-y-[3%] group-hover:scale-[1.33]'
                           : player.id === 18
@@ -245,9 +245,9 @@ const Team = () => {
                           : player.id === 19
                           ? 'scale-[1.25] translate-y-[8%] group-hover:scale-[1.33]'
                           : player.id === 20
-                          ? 'scale-[1.25] translate-y-[9%] group-hover:scale-[1.33]'
+                          ? 'scale-[1.25] translate-y-[11%] group-hover:scale-[1.33]'
                           : player.id === 21
-                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
+                          ? 'scale-[1.25] translate-y-[12%] group-hover:scale-[1.33]'
                           : player.id === 22
                           ? 'scale-[1.22] translate-y-[8%] group-hover:scale-[1.30]'
                           : player.id === 24
