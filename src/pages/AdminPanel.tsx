@@ -1441,25 +1441,39 @@ function CategoriesModal({
 
         {deleting && (
           <div className="border border-destructive/50 rounded-md p-3 space-y-2">
-            <p className="text-sm">
-              Premjesti vijesti iz <b>{deleting}</b> u:
-            </p>
-            <Select value={reassignTo} onValueChange={setReassignTo}>
-              <SelectTrigger><SelectValue placeholder="Odaberite kategoriju" /></SelectTrigger>
-              <SelectContent>
-                {all.filter((c) => c !== deleting).map((c) => (
-                  <SelectItem key={c} value={c}>{c}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {countFor(deleting) > 0 ? (
+              <>
+                <p className="text-sm">
+                  Kategorija <b>{deleting}</b> ima {countFor(deleting)} vijesti. Premjesti ih u:
+                </p>
+                <Select value={reassignTo} onValueChange={setReassignTo}>
+                  <SelectTrigger><SelectValue placeholder="Odaberite kategoriju" /></SelectTrigger>
+                  <SelectContent>
+                    {all.filter((c) => c !== deleting).map((c) => (
+                      <SelectItem key={c} value={c}>{c}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </>
+            ) : (
+              <p className="text-sm">
+                Obrisati praznu kategoriju <b>{deleting}</b>?
+              </p>
+            )}
             <div className="flex gap-2 justify-end">
-              <Button variant="ghost" size="sm" onClick={() => setDeleting(null)}>Odustani</Button>
-              <Button variant="destructive" size="sm" onClick={confirmDelete} disabled={!reassignTo}>
+              <Button variant="ghost" size="sm" onClick={() => { setDeleting(null); setReassignTo(""); }}>Odustani</Button>
+              <Button
+                variant="destructive"
+                size="sm"
+                onClick={confirmDelete}
+                disabled={countFor(deleting) > 0 && !reassignTo}
+              >
                 Obriši
               </Button>
             </div>
           </div>
         )}
+
 
         <DialogFooter>
           <Button variant="outline" onClick={() => onOpenChange(false)}>Zatvori</Button>
