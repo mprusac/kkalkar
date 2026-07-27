@@ -1374,12 +1374,16 @@ function CategoriesModal({
   };
 
   const confirmDelete = async () => {
-    if (!deleting || !reassignTo) return;
+    if (!deleting) return;
     try {
-      await apiFetch(`${NEWS_URL}/update-category`, {
-        method: "PUT",
-        body: JSON.stringify({ category: deleting, newCategory: reassignTo }),
-      });
+      const hasNews = countFor(deleting) > 0;
+      if (hasNews) {
+        if (!reassignTo) return;
+        await apiFetch(`${NEWS_URL}/update-category`, {
+          method: "PUT",
+          body: JSON.stringify({ category: deleting, newCategory: reassignTo }),
+        });
+      }
       toast.success("Kategorija obrisana");
       setDeleting(null);
       setReassignTo("");
@@ -1389,6 +1393,7 @@ function CategoriesModal({
       toast.error("Greška", { description: (e as Error).message });
     }
   };
+
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
