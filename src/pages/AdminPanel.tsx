@@ -918,7 +918,7 @@ export default function AdminPanel() {
               {players.map((p) => (
                 <Card key={p.id} className="p-3 bg-card border-border flex items-center gap-3">
                   {p.image_url ? (
-                    <img src={p.image_url} className="aspect-square w-14 rounded object-cover object-top border border-border shrink-0" style={{ objectPosition: '50% 20%' }} />
+                    <img src={p.image_url} className="aspect-square w-14 rounded object-cover object-top border border-border shrink-0" />
                   ) : (
                     <div className="aspect-square w-14 rounded bg-muted shrink-0 flex items-center justify-center">
                       <Users className="w-5 h-5 text-muted-foreground" />
