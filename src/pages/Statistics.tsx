@@ -68,6 +68,53 @@ import playerBegic from "@/assets/player-begic.png";
 import playerPavkovic from "@/assets/player-pavkovic-new.png";
 import playerBasicLuka from "@/assets/player-basic-luka.png";
 
+// Alkar player images
+import imgDeantoni from "@/assets/deantoni_gordon.png.asset.json";
+import imgDuje from "@/assets/duje_brala.png.asset.json";
+import imgTray from "@/assets/tray_hollowell.png.asset.json";
+import imgTerrell from "@/assets/terrell_burden.png.asset.json";
+import imgPavle from "@/assets/pavle_marcinkovic.png.asset.json";
+import imgFabian from "@/assets/fabian_sisko.png.asset.json";
+import imgMirko from "@/assets/mirko_jukic.png.asset.json";
+import imgMarioK from "@/assets/mario_kresic.png.asset.json";
+import imgJarred from "@/assets/jarred_hyder.png.asset.json";
+import imgLuka from "@/assets/luka_cvitanovic.png.asset.json";
+import imgKlepo from "@/assets/antonio_klepo.png.asset.json";
+import imgMladen from "@/assets/mladen_tomasevic.png.asset.json";
+import imgSpaleta from "@/assets/mario_spaleta.png.asset.json";
+import imgKaramarko from "@/assets/gabriel_karamarko.png.asset.json";
+import imgBorna from "@/assets/borna_jurela.png.asset.json";
+import imgMaksim from "@/assets/maksim_matulina.png.asset.json";
+import imgEmanuel from "@/assets/emanuel_domazet.png.asset.json";
+import imgIvan from "@/assets/ivan_pavela.png.asset.json";
+import imgMarijan from "@/assets/marijan_mastelic.png.asset.json";
+import imgBrzovic from "@/assets/ante_brzovic.png.asset.json";
+import imgQuinton from "@/assets/quinton_morton.png.asset.json";
+
+const playerImageMap: Record<string, string> = {
+  "Deantoni Gordon": imgDeantoni.url,
+  "Duje Brala": imgDuje.url,
+  "Tray Hollowell": imgTray.url,
+  "Terrell Burden": imgTerrell.url,
+  "Pavle Marčinković": imgPavle.url,
+  "Fabian Šiško": imgFabian.url,
+  "Mirko Jukić": imgMirko.url,
+  "Mario Krešić": imgMarioK.url,
+  "Jarred Hyder": imgJarred.url,
+  "Luka Cvitanović": imgLuka.url,
+  "Antonio Klepo": imgKlepo.url,
+  "Mladen Tomašević": imgMladen.url,
+  "Mario Spaleta": imgSpaleta.url,
+  "Gabriel Karamarko": imgKaramarko.url,
+  "Borna Jurela": imgBorna.url,
+  "Maksim Matulina": imgMaksim.url,
+  "Emanuel Domazet": imgEmanuel.url,
+  "Ivan Pavela": imgIvan.url,
+  "Marijan Mastelić": imgMarijan.url,
+  "Ante Brzović": imgBrzovic.url,
+  "Quinton Morton-Robertson": imgQuinton.url,
+};
+
 // Import flag images
 import flagBih from "@/assets/flags/bih-flag.png";
 import flagCro from "@/assets/flags/cro-flag.png";
@@ -539,7 +586,7 @@ const Statistics = () => {
       </header>
 
 
-      <main className="stats-light container mx-auto px-4 py-6" style={{ zoom: 0.85 }}>
+      <main className="stats-light container mx-auto px-4 py-6" style={{ zoom: 0.72 }}>
         {/* Mobile Title */}
         <h2 className="font-display text-3xl text-white text-center mb-6 md:hidden drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">STATISTIKA</h2>
 
@@ -1054,8 +1101,8 @@ const Statistics = () => {
                               <TableCell>
                                 <div className="flex items-center gap-2 md:gap-3">
                                   <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-secondary overflow-hidden group-hover:ring-2 group-hover:ring-primary/30 transition-all duration-200 flex-shrink-0">
-                                    {player.image ? (
-                                      <img src={player.image} alt={player.name} className="w-full h-full object-cover object-top" />
+                                    {(player.image || playerImageMap[player.name]) ? (
+                                      <img src={player.image || playerImageMap[player.name]} alt={player.name} className="w-full h-full object-cover object-top" />
                                     ) : (
                                       <div className="w-full h-full bg-muted flex items-center justify-center text-muted-foreground text-xs">
                                         {player.name.charAt(0)}
@@ -1118,8 +1165,8 @@ const Statistics = () => {
                                 <div key={player.rank} className="flex items-start md:items-center gap-1 md:gap-2 hover:bg-background/30 p-1 md:p-1.5 rounded-lg transition-all duration-200 hover:scale-[1.02]">
                                   <span className="text-primary font-bold w-3 md:w-4 text-xs md:text-sm mb-0.5 md:mb-0">{player.rank}</span>
                                   <div className="w-7 h-7 md:w-9 md:h-9 rounded-full bg-secondary overflow-hidden flex-shrink-0 mb-0.5 md:mb-0">
-                                    {player.image ? (
-                                      <img src={player.image} alt={player.name} className="w-full h-full object-cover object-top" />
+                                    {(player.image || playerImageMap[player.name]) ? (
+                                      <img src={player.image || playerImageMap[player.name]} alt={player.name} className="w-full h-full object-cover object-top" />
                                     ) : (
                                       <div className="w-full h-full bg-muted" />
                                     )}

@@ -20,6 +20,13 @@ import playerAntonioKlepo from "@/assets/antonio_klepo.png.asset.json";
 import playerMladenTomasevic from "@/assets/mladen_tomasevic.png.asset.json";
 import playerMarioSpaleta from "@/assets/mario_spaleta.png.asset.json";
 import playerGabrielKaramarko from "@/assets/gabriel_karamarko.png.asset.json";
+import playerBornaJurela from "@/assets/borna_jurela.png.asset.json";
+import playerMaksimMatulina from "@/assets/maksim_matulina.png.asset.json";
+import playerEmanuelDomazet from "@/assets/emanuel_domazet.png.asset.json";
+import playerIvanPavela from "@/assets/ivan_pavela.png.asset.json";
+import playerMarijanMastelic from "@/assets/marijan_mastelic.png.asset.json";
+import playerAnteBrzovic from "@/assets/ante_brzovic.png.asset.json";
+import playerQuintonMorton from "@/assets/quinton_morton.png.asset.json";
 
 interface Player {
   id: number;
@@ -54,15 +61,13 @@ const players: Player[] = [
   { id: 12, name: "Mladen Tomašević", position: "Guard", number: "15", image: playerMladenTomasevic.url, description: "Domaći visoki igrač i klupsko dijete, dugogodišnji član Alkara pouzdan u reketu i skok igri.", stats: { ppg: 5, rpg: 3, apg: 1 } },
   { id: 13, name: "Mario Spaleta", position: "Center", number: "22", image: playerMarioSpaleta.url, description: "Iskusni pokretljivi centar s vrlo bogatim inozemnim stažem, pouzdan pod košem i u skok igri.", stats: { ppg: 5, rpg: 3, bpg: 1 } },
   { id: 14, name: "Gabriel Karamarko", position: "Forward", number: "12", image: playerGabrielKaramarko.url, description: "Razigravač školovan u Zadru s iskustvom iz Širokog, kreator igre i važan kotačić rotacije.", stats: { ppg: 4, rpg: 2, apg: 2 } },
-  { id: 15, name: "Borna Jurela", position: "Guard", number: "14", image: "", description: "Sinjanin i klupsko dijete, povratnik iz Puntamik, borben i koristan playmaker.", stats: { ppg: 4, rpg: 2, apg: 2 } },
-  { id: 16, name: "Maksim Matulina", position: "Guard", number: "10", image: "", description: "Zadarski bek s iskustvom iz Jazina, energičan rotacijski igrač u vrlo mladom sinjskom sastavu.", stats: { ppg: 3, rpg: 2, apg: 1 } },
-  { id: 17, name: "Jonathan Cisse", position: "Forward", number: "05", image: "", description: "Atletski krilni igrač, odlikuje ga velika želja za napretkom i požrtvovnost za tim.", stats: { ppg: 3, rpg: 0, apg: 0 } },
-  { id: 18, name: "Emanuel Domazet", position: "Guard", number: "4", image: playerAlkar4, description: "Najmlađi domaći bek ponikao u Alkarovoj školi, obećavajući šuter i klupska nada budućnosti.", stats: { ppg: 1, rpg: 1, apg: 0 } },
-  { id: 19, name: "Ivan Pavela", position: "Guard", number: "07", image: "", description: "Mladi domaći razigravač ponikao u Alkaru, perspektivan igrač u razvoju pod vodstvom seniora.", stats: { ppg: 0, rpg: 0, apg: 1 } },
-  { id: 20, name: "Marijan Mastelić", position: "Guard", number: "16", image: "", description: "Vrlo mladi krilni igrač iz Alkarove škole, visoki potencijal u ranoj fazi seniorskog razvoja.", stats: {} },
-  { id: 21, name: "Ante Brzović", position: "Center", number: "18", image: "", description: "Visoki krilni centar školovan na Charlestonu, izražen šut za tricu i igra s visokog posta.", stats: {} },
-  { id: 22, name: "Quinton Morton-Robertson", position: "Guard", number: "2", image: "", description: "Niski američki razigravač velike brzine, snažan strijelac za tricu i kreator sa NCAA staža.", stats: {} },
-  { id: 23, name: "Šime Jusup", position: "Forward", number: "14", image: "", description: "Brzi krilni igrač koji pokazuje zrelost i snalažljivost na terenu.", stats: {} },
+  { id: 15, name: "Borna Jurela", position: "Guard", number: "24", image: playerBornaJurela.url, description: "Sinjanin i klupsko dijete, povratnik iz Puntamik, borben i koristan playmaker.", stats: { ppg: 4, rpg: 2, apg: 2 } },
+  { id: 16, name: "Maksim Matulina", position: "Guard", number: "10", image: playerMaksimMatulina.url, description: "Zadarski bek s iskustvom iz Jazina, energičan rotacijski igrač u vrlo mladom sinjskom sastavu.", stats: { ppg: 3, rpg: 2, apg: 1 } },
+  { id: 18, name: "Emanuel Domazet", position: "Guard", number: "1", image: playerEmanuelDomazet.url, description: "Najmlađi domaći bek ponikao u Alkarovoj školi, obećavajući šuter i klupska nada budućnosti.", stats: { ppg: 1, rpg: 1, apg: 0 } },
+  { id: 19, name: "Ivan Pavela", position: "Guard", number: "7", image: playerIvanPavela.url, description: "Mladi domaći razigravač ponikao u Alkaru, perspektivan igrač u razvoju pod vodstvom seniora.", stats: { ppg: 0, rpg: 0, apg: 1 } },
+  { id: 20, name: "Marijan Mastelić", position: "Guard", number: "14", image: playerMarijanMastelic.url, description: "Vrlo mladi krilni igrač iz Alkarove škole, visoki potencijal u ranoj fazi seniorskog razvoja.", stats: {} },
+  { id: 21, name: "Ante Brzović", position: "Center", number: "1", image: playerAnteBrzovic.url, description: "Visoki krilni centar školovan na Charlestonu, izražen šut za tricu i igra s visokog posta.", stats: {} },
+  { id: 22, name: "Quinton Morton-Robertson", position: "Guard", number: "00", image: playerQuintonMorton.url, description: "Niski američki razigravač velike brzine, snažan strijelac za tricu i kreator sa NCAA staža.", stats: {} },
   { id: 24, name: "Vlatko Granić", position: "Forward", number: "20", image: "", description: "Iskusni krilni centar i pravi povratnik u Sinj, provjerena visina i čvrstina u skoku.", stats: {} },
 ];
 
@@ -92,21 +97,14 @@ const Team = () => {
   };
 
   const scroll = (direction: "left" | "right") => {
-    if (isMobile) {
-      const newIndex = direction === "left" 
-        ? Math.max(0, activeIndex - 1) 
-        : Math.min(players.length - 1, activeIndex + 1);
-      scrollToIndex(newIndex);
-    } else if (scrollRef.current) {
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -300 : 300,
-        behavior: "smooth",
-      });
-    }
+    const maxIndex = isMobile ? players.length - 1 : Math.max(0, players.length - 5);
+    const newIndex = direction === "left"
+      ? Math.max(0, activeIndex - 1)
+      : Math.min(maxIndex, activeIndex + 1);
+    scrollToIndex(newIndex);
   };
 
   useEffect(() => {
-    if (!isMobile) return;
     const container = scrollRef.current;
     if (!container) return;
     const handleScroll = () => {
@@ -152,16 +150,16 @@ const Team = () => {
           {/* Scroll Buttons */}
           <button
             onClick={() => scroll("left")}
-            disabled={isMobile && activeIndex === 0}
-            className={`flex absolute left-0 md:left-0 top-[40%] md:top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-lg ${isMobile && activeIndex === 0 ? 'opacity-40' : ''}`}
+            disabled={activeIndex === 0}
+            className={`flex absolute left-0 md:left-0 top-[40%] md:top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-lg ${activeIndex === 0 ? 'opacity-40' : ''}`}
           >
             <ChevronLeft size={16} className="md:hidden" />
             <ChevronLeft size={24} className="hidden md:block" />
           </button>
           <button
             onClick={() => scroll("right")}
-            disabled={isMobile && activeIndex === players.length - 1}
-            className={`flex absolute right-0 md:right-0 top-[40%] md:top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-lg ${isMobile && activeIndex === players.length - 1 ? 'opacity-40' : ''}`}
+            disabled={isMobile ? activeIndex === players.length - 1 : activeIndex >= players.length - 5}
+            className={`flex absolute right-0 md:right-0 top-[40%] md:top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-lg ${(isMobile ? activeIndex === players.length - 1 : activeIndex >= players.length - 5) ? 'opacity-40' : ''}`}
           >
             <ChevronRight size={16} className="md:hidden" />
             <ChevronRight size={24} className="hidden md:block" />
@@ -230,13 +228,27 @@ const Team = () => {
                           : player.id === 10
                           ? 'scale-[1.25] translate-y-[7%] group-hover:scale-[1.33]'
                           : player.id === 11
-                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
+                          ? 'scale-[1.31] translate-y-[10%] group-hover:scale-[1.39]'
                           : player.id === 12
                           ? 'scale-[1.16] translate-y-[5%] group-hover:scale-[1.24]'
                           : player.id === 13
                           ? 'scale-[1.25] translate-y-[5%] group-hover:scale-[1.33]'
                           : player.id === 14
                           ? 'scale-[1.25] translate-y-[8%] group-hover:scale-[1.33]'
+                          : player.id === 15
+                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
+                          : player.id === 16
+                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
+                          : player.id === 18
+                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
+                          : player.id === 19
+                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
+                          : player.id === 20
+                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
+                          : player.id === 21
+                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
+                          : player.id === 22
+                          ? 'scale-[1.20] translate-y-[8%] group-hover:scale-[1.28]'
                           : 'scale-[1.03] group-hover:scale-110'
                       }`}
                     />
