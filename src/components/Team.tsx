@@ -27,6 +27,7 @@ import playerIvanPavela from "@/assets/ivan_pavela.png.asset.json";
 import playerMarijanMastelic from "@/assets/marijan_mastelic.png.asset.json";
 import playerAnteBrzovic from "@/assets/ante_brzovic.png.asset.json";
 import playerQuintonMorton from "@/assets/quinton_morton.png.asset.json";
+import playerVlatkoGranic from "@/assets/vlatko_granic.png.asset.json";
 
 interface Player {
   id: number;
@@ -68,7 +69,7 @@ const players: Player[] = [
   { id: 20, name: "Marijan Mastelić", position: "Guard", number: "14", image: playerMarijanMastelic.url, description: "Vrlo mladi krilni igrač iz Alkarove škole, visoki potencijal u ranoj fazi seniorskog razvoja.", stats: {} },
   { id: 21, name: "Ante Brzović", position: "Center", number: "1", image: playerAnteBrzovic.url, description: "Visoki krilni centar školovan na Charlestonu, izražen šut za tricu i igra s visokog posta.", stats: {} },
   { id: 22, name: "Quinton Morton-Robertson", position: "Guard", number: "00", image: playerQuintonMorton.url, description: "Niski američki razigravač velike brzine, snažan strijelac za tricu i kreator sa NCAA staža.", stats: {} },
-  { id: 24, name: "Vlatko Granić", position: "Forward", number: "20", image: "", description: "Iskusni krilni centar i pravi povratnik u Sinj, provjerena visina i čvrstina u skoku.", stats: {} },
+  { id: 24, name: "Vlatko Granić", position: "Forward", number: "20", image: playerVlatkoGranic.url, description: "Iskusni krilni centar i pravi povratnik u Sinj, provjerena visina i čvrstina u skoku.", stats: {} },
 ];
 
 const Team = () => {
@@ -249,6 +250,8 @@ const Team = () => {
                           ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
                           : player.id === 22
                           ? 'scale-[1.20] translate-y-[8%] group-hover:scale-[1.28]'
+                          : player.id === 24
+                          ? 'scale-[1.25] translate-y-[10%] group-hover:scale-[1.33]'
                           : 'scale-[1.03] group-hover:scale-110'
                       }`}
                     />
