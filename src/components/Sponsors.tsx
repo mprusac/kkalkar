@@ -1,23 +1,14 @@
 import { useState } from "react";
 import { ChevronUp, ChevronDown, Crown, Medal, Award, Heart, Star, Trophy } from "lucide-react";
 
-import vokelLogo from "@/assets/sponsors/vokel-logo.png";
-import planetLogo from "@/assets/sponsors/planet-logo.png";
-import mivikoLogo from "@/assets/sponsors/miviko-logo.png";
-import mrveljiLogo from "@/assets/sponsors/mrvelji-logo.png";
-import weltplastLogo from "@/assets/sponsors/weltplast-logo.png";
-import ktmBrinaLogo from "@/assets/sponsors/ktm-brina-logo.png";
-import lagunaLogo from "@/assets/sponsors/laguna-logo.png";
-import binvestLogo from "@/assets/sponsors/binvest-logo.png";
-import sisovicLogo from "@/assets/sponsors/sisovic.png";
-import ledaLogo from "@/assets/sponsors/leda-logo.png";
-import croatiaOsiguranjeLogo from "@/assets/sponsors/croatia-osiguranje-logo.png";
-
-import ljekarnaBlanka from "@/assets/sponsors/ljekarna-blanka-logo.png";
-import winnersLogo from "@/assets/sponsors/winners-logo.png";
-import bosiljnaLogo from "@/assets/sponsors/bosiljna-logo.png";
-import wwinLogo from "@/assets/sponsors/wwin-logo.png";
-import arduLogo from "@/assets/sponsors/ardu-logo.png";
+import hotelAlkarAsset from "@/assets/sponsors/hotel_alkar.png.asset.json";
+import adriaticketAsset from "@/assets/sponsors/adriaticket.png.asset.json";
+import papirkoAsset from "@/assets/sponsors/papirko.png.asset.json";
+import zsuAsset from "@/assets/sponsors/zajednica_sportskih_udruga.png.asset.json";
+import idsAsset from "@/assets/sponsors/ids.png.asset.json";
+import no1Asset from "@/assets/sponsors/no1.png.asset.json";
+import jakoAsset from "@/assets/sponsors/jako.png.asset.json";
+import gradSinjAsset from "@/assets/sponsors/grad_sinj.png.asset.json";
 
 interface SponsorTier {
   name: string;
@@ -68,23 +59,16 @@ const goldBorder = "border-[hsl(48,96%,53%)]";
 const goldGlow = "hover:[box-shadow:0_0_25px_8px_hsl(48,96%,53%,0.35)]";
 
 const sponsors = [
-  { name: "Vokel d.o.o.", tier: "Gold", image: vokelLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "scale-[1.3]", url: "https://vokel.com/" },
-  { name: "Bin Vest", tier: "Gold", image: binvestLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "!object-contain scale-[1.6]", url: "https://binvest-po.com/" },
-  { name: "Miviko", tier: "Silver", image: mivikoLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "scale-[1.6]", url: "https://www.miviko-cables.com/" },
-  { name: "Planet", tier: "Silver", image: planetLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "scale-[1.6]", url: "https://www.facebook.com/planetbih/" },
-  { name: "WWin", tier: "Bronze", image: wwinLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "!object-contain scale-[1.65]", url: "https://wwin.ba/" },
-  { name: "Agencija Laguna", tier: "Silver", image: lagunaLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "scale-[1.4]", url: "https://agencija-laguna.com/index.php/about" },
-  { name: "Mrvelji d.o.o.", tier: "Bronze", image: mrveljiLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "!object-contain scale-[1.15]", url: "https://www.mrvelji.com/" },
-  { name: "Šišović Rakitno", tier: "Gold", image: sisovicLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "!object-contain scale-[2.5]", url: "https://www.sisovic.com/" },
-  { name: "Weltplast", tier: "Bronze", image: weltplastLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "scale-[1.2]", url: "https://weltplast.com/hr/" },
-  { name: "Leda", tier: "Gold", image: ledaLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "", url: "http://www.leda.ba/" },
-  { name: "Croatia Osiguranje", tier: "Gold", image: croatiaOsiguranjeLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "scale-[1.25]", url: "https://crosig.ba/" },
-  { name: "Ljekarna Blanka", tier: "Gold", image: ljekarnaBlanka, borderColor: goldBorder, glowColor: goldGlow, imgClass: "", url: "https://www.facebook.com/ljekarna.blanka/" },
-  { name: "Winners", tier: "Bronze", image: winnersLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "!object-contain scale-[1.65]", url: "https://www.facebook.com/pages/Caffe%20Winners%20Posusje/235220287284078/" },
-  { name: "Restoran Bosiljna", tier: "Bronze", image: bosiljnaLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "!object-contain scale-[1.4]", url: "https://www.facebook.com/p/Restoran-Bosiljna-100088386104760/" },
-  { name: "KTM Brina", tier: "Silver", image: ktmBrinaLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "scale-[1.35]", url: "https://ktm-brina.com/" },
-  { name: "Ardu", tier: "Bronze", image: arduLogo, borderColor: goldBorder, glowColor: goldGlow, imgClass: "!object-contain scale-[1.3]", url: "https://www.ardusport.com/" },
+  { name: "Hotel Alkar", image: hotelAlkarAsset.url, url: "https://hotelalkar.com/" },
+  { name: "Adriaticket", image: adriaticketAsset.url, url: "https://adriaticket.com/" },
+  { name: "Papirko", image: papirkoAsset.url, url: "https://www.facebook.com/papirko.sinj/" },
+  { name: "Zajednica športskih udruga Grada Sinja", image: zsuAsset.url, url: "https://sinj.hr/" },
+  { name: "IDS Industrieservice", image: idsAsset.url, url: "https://www.ids-gmbh.at/" },
+  { name: "No1", image: no1Asset.url, url: "#" },
+  { name: "Jako", image: jakoAsset.url, url: "https://www.jako.de/" },
+  { name: "Grad Sinj", image: gradSinjAsset.url, url: "https://sinj.hr/" },
 ];
+
 
 const Sponsors = () => {
   const [isExpanded, setIsExpanded] = useState(false);
