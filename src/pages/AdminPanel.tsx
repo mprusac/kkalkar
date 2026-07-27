@@ -1350,9 +1350,12 @@ function CategoriesModal({
   const [reassignTo, setReassignTo] = useState("");
 
   const all = useMemo(
-    () => Array.from(new Set([...DEFAULT_CATEGORIES, ...news.map((n) => n.category), ...local])),
+    () => Array.from(new Set([...news.map((n) => n.category).filter(Boolean), ...local])),
     [news, local],
   );
+
+  const countFor = (cat: string) => news.filter((n) => n.category === cat).length;
+
 
   const rename = async () => {
     if (!renamingFrom || !renameTo.trim()) return;
