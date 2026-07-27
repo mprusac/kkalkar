@@ -539,7 +539,7 @@ const Statistics = () => {
       </header>
 
 
-      <main className="stats-light container mx-auto px-4 py-6" style={{ zoom: 0.85 }}>
+      <main className="stats-light container mx-auto px-4 py-6" style={{ zoom: 0.72 }}>
         {/* Mobile Title */}
         <h2 className="font-display text-3xl text-white text-center mb-6 md:hidden drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">STATISTIKA</h2>
 
