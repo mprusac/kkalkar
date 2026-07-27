@@ -637,7 +637,7 @@ export default function AdminPanel() {
           setEditing(null);
         }}
         apiFetch={apiFetch}
-        existingCategories={Array.from(new Set([...DEFAULT_CATEGORIES, ...news.map((n) => n.category)]))}
+        existingCategories={Array.from(new Set(news.map((n) => n.category).filter(Boolean)))}
       />
     );
   }
