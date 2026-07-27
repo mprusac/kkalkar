@@ -34,7 +34,7 @@ const EventCard = ({ event, index }: { event: typeof events[0]; index: number })
     >
       <Link to={`/galerija/${event.id}`} className="group block">
         <div className="relative overflow-hidden rounded-lg aspect-[4/3] shadow-[0_0_20px_rgba(234,179,8,0.15)] hover:shadow-[0_0_30px_rgba(234,179,8,0.25)] transition-shadow duration-300">
-          <img
+          <img loading="lazy" decoding="async"
             src={event.coverImage}
             alt={`${event.homeTeam} - ${event.awayTeam}`}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -159,7 +159,7 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
                 className="group relative overflow-hidden cursor-pointer mb-1.5 break-inside-avoid"
                 onClick={() => openLightbox(index)}
               >
-                <img
+                <img loading="lazy" decoding="async"
                   src={img}
                   alt={`Slika ${index + 1}`}
                   className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
@@ -199,7 +199,7 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
               <ChevronLeft className="w-8 h-8" />
             </button>
 
-            <img
+            <img loading="lazy" decoding="async"
               src={allImages[currentIndex]}
               alt={`Slika ${currentIndex + 1}`}
               className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"

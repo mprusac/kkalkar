@@ -101,7 +101,7 @@ const Sponsors = () => {
                   'linear-gradient(135deg, hsl(220 79% 15%) 0%, hsl(217 68% 30%) 50%, hsl(220 79% 12%) 100%)',
               }}
             >
-              <img
+              <img loading="lazy" decoding="async"
                 src={sponsor.image}
                 alt={sponsor.name}
                 className="max-w-[85%] max-h-[85%] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-110"
