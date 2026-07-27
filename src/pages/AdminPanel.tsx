@@ -386,36 +386,66 @@ function CategorySelect({
 }: { value: string; onChange: (v: string) => void; categories: string[] }) {
   const [adding, setAdding] = useState(false);
   const [newValue, setNewValue] = useState("");
+  const [localAdded, setLocalAdded] = useState<string[]>([]);
+
   const merged = useMemo(
-    () => Array.from(new Set([...(value ? [value] : []), ...categories])),
-    [value, categories],
+    () => Array.from(new Set([...(value ? [value] : []), ...localAdded, ...categories])),
+    [value, categories, localAdded],
   );
+
+  const addOne = (raw: string) => {
+    const v = raw.trim();
+    if (!v) return;
+    setLocalAdded((l) => (l.includes(v) || categories.includes(v) ? l : [...l, v]));
+    onChange(v);
+    setNewValue("");
+  };
+
+  const removeLocal = (cat: string) => {
+    setLocalAdded((l) => l.filter((c) => c !== cat));
+    if (value === cat) onChange(categories[0] ?? "");
+  };
 
   if (adding) {
     return (
-      <div className="flex gap-2">
-        <Input
-          autoFocus
-          value={newValue}
-          onChange={(e) => setNewValue(e.target.value)}
-          placeholder="Nova kategorija"
-        />
-        <Button
-          type="button"
-          size="sm"
-          onClick={() => {
-            const v = newValue.trim();
-            if (!v) return;
-            onChange(v);
-            setAdding(false);
-            setNewValue("");
-          }}
-        >
-          Dodaj
-        </Button>
-        <Button type="button" size="sm" variant="ghost" onClick={() => { setAdding(false); setNewValue(""); }}>
-          <X className="w-4 h-4" />
-        </Button>
+      <div className="space-y-2">
+        <div className="flex gap-2">
+          <Input
+            autoFocus
+            value={newValue}
+            onChange={(e) => setNewValue(e.target.value)}
+            placeholder="Nova kategorija"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") { e.preventDefault(); addOne(newValue); }
+            }}
+          />
+          <Button type="button" size="sm" onClick={() => addOne(newValue)}>Dodaj</Button>
+          <Button type="button" size="sm" variant="ghost" onClick={() => { setAdding(false); setNewValue(""); }}>
+            Gotovo
+          </Button>
+        </div>
+        {localAdded.length > 0 && (
+          <div className="flex flex-wrap gap-1.5">
+            {localAdded.map((c) => (
+              <span
+                key={c}
+                className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs ${
+                  value === c ? "border-primary bg-primary/10" : "border-border"
+                }`}
+              >
+                {c}
+                <button
+                  type="button"
+                  onClick={() => removeLocal(c)}
+                  className="text-destructive hover:opacity-80"
+                  aria-label={`Ukloni ${c}`}
+                >
+                  <X className="w-3 h-3" />
+                </button>
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     );
   }
@@ -430,9 +460,25 @@ function CategorySelect({
     >
       <SelectTrigger><SelectValue /></SelectTrigger>
       <SelectContent>
-        {merged.map((c) => (
-          <SelectItem key={c} value={c}>{c}</SelectItem>
-        ))}
+        {merged.map((c) => {
+          const isLocal = localAdded.includes(c) && !categories.includes(c);
+          return (
+            <div key={c} className="flex items-center pr-1">
+              <SelectItem value={c} className="flex-1">{c}</SelectItem>
+              {isLocal && (
+                <button
+                  type="button"
+                  onPointerDown={(e) => { e.preventDefault(); e.stopPropagation(); }}
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); removeLocal(c); }}
+                  className="p-1 rounded hover:bg-destructive/10 text-destructive"
+                  aria-label={`Ukloni ${c}`}
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+          );
+        })}
         <SelectItem value="__new__" className="text-primary">
           + Dodaj novu kategoriju
         </SelectItem>
