@@ -1101,8 +1101,8 @@ const Statistics = () => {
                               <TableCell>
                                 <div className="flex items-center gap-2 md:gap-3">
                                   <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-secondary overflow-hidden group-hover:ring-2 group-hover:ring-primary/30 transition-all duration-200 flex-shrink-0">
-                                    {player.image ? (
-                                      <img src={player.image} alt={player.name} className="w-full h-full object-cover object-top" />
+                                    {(player.image || playerImageMap[player.name]) ? (
+                                      <img src={player.image || playerImageMap[player.name]} alt={player.name} className="w-full h-full object-cover object-top" />
                                     ) : (
                                       <div className="w-full h-full bg-muted flex items-center justify-center text-muted-foreground text-xs">
                                         {player.name.charAt(0)}
