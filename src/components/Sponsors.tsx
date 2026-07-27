@@ -59,15 +59,16 @@ const goldBorder = "border-[hsl(48,96%,53%)]";
 const goldGlow = "hover:[box-shadow:0_0_25px_8px_hsl(48,96%,53%,0.35)]";
 
 const sponsors = [
-  { name: "Hotel Alkar", image: hotelAlkarAsset.url, url: "https://hotelalkar.com/" },
-  { name: "Adriaticket", image: adriaticketAsset.url, url: "https://adriaticket.com/" },
-  { name: "Papirko", image: papirkoAsset.url, url: "https://www.facebook.com/papirko.sinj/" },
-  { name: "Zajednica športskih udruga Grada Sinja", image: zsuAsset.url, url: "https://sinj.hr/" },
-  { name: "IDS Industrieservice", image: idsAsset.url, url: "https://www.ids-gmbh.at/" },
-  { name: "No1", image: no1Asset.url, url: "#" },
-  { name: "Jako", image: jakoAsset.url, url: "https://www.jako.de/" },
-  { name: "Grad Sinj", image: gradSinjAsset.url, url: "https://sinj.hr/" },
+  { name: "Hotel Alkar", image: hotelAlkarAsset.url, url: "https://hotelalkar.com/", scale: 1.15 },
+  { name: "Adriaticket", image: adriaticketAsset.url, url: "https://adriaticket.com/", scale: 1 },
+  { name: "Papirko", image: papirkoAsset.url, url: "https://www.facebook.com/papirko.sinj/", scale: 1 },
+  { name: "Zajednica športskih udruga Grada Sinja", image: zsuAsset.url, url: "https://sinj.hr/", scale: 1.2 },
+  { name: "IDS Industrieservice", image: idsAsset.url, url: "https://www.ids-gmbh.at/", scale: 1 },
+  { name: "No1", image: no1Asset.url, url: "#", scale: 1 },
+  { name: "Jako", image: jakoAsset.url, url: "https://www.jako.de/", scale: 1 },
+  { name: "Grad Sinj", image: gradSinjAsset.url, url: "https://sinj.hr/", scale: 1.15 },
 ];
+
 
 
 const Sponsors = () => {
@@ -93,23 +94,22 @@ const Sponsors = () => {
               href={sponsor.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group rounded-2xl overflow-hidden hover:scale-[1.05] ${goldGlow} transition-all duration-300 animate-fade-in-up aspect-[2/1] flex items-center justify-center p-4 md:p-6`}
+              className={`group rounded-2xl overflow-hidden hover:scale-[1.05] ${goldGlow} transition-all duration-300 animate-fade-in-up aspect-[2/1] flex items-center justify-center p-4 md:p-6 border-2 border-primary shadow-[0_0_30px_hsl(48,96%,53%,0.2)]`}
               style={{
                 animationDelay: `${index * 100}ms`,
-                background: 'linear-gradient(180deg, #ffffff 0%, #fff8e6 60%, #faf3e0 100%)',
-                borderColor: '#d4a017',
-                borderWidth: '1.5px',
-                borderStyle: 'solid',
-                boxShadow: '0 4px 16px rgba(212,160,23,0.15)',
+                background:
+                  'linear-gradient(135deg, hsl(220 79% 15%) 0%, hsl(217 68% 30%) 50%, hsl(220 79% 12%) 100%)',
               }}
             >
               <img
                 src={sponsor.image}
                 alt={sponsor.name}
                 className="max-w-[85%] max-h-[85%] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                style={{ transform: `scale(${sponsor.scale})` }}
               />
             </a>
           ))}
+
         </div>
 
 
