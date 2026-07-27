@@ -93,13 +93,13 @@ const Sponsors = () => {
               href={sponsor.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`bg-secondary/50 border-2 ${sponsor.borderColor} rounded-2xl overflow-hidden hover:scale-[1.05] ${sponsor.glowColor} transition-all duration-300 animate-fade-in-up aspect-[2/1] ${sponsor.name === "Ardu" ? "hidden md:block" : ""}`}
+              className={`bg-[#0E2A63] border-2 ${goldBorder} rounded-2xl overflow-hidden hover:scale-[1.05] ${goldGlow} transition-all duration-300 animate-fade-in-up aspect-[2/1] flex items-center justify-center p-3 md:p-4`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <img 
-                src={sponsor.image} 
-                alt={sponsor.name} 
-                className={`w-full h-full object-cover ${sponsor.imgClass}`}
+              <img
+                src={sponsor.image}
+                alt={sponsor.name}
+                className="max-w-full max-h-full w-auto h-auto object-contain"
               />
             </a>
           ))}
