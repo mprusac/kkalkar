@@ -715,7 +715,7 @@ const Statistics = () => {
                                   <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
                                     {homeLogo && <img loading="lazy" decoding="async" src={homeLogo} alt="" className={`object-contain ${getStatsLogoClass(match.homeTeam)}`} />}
                                   </div>
-                                  <span className={`text-sm font-medium ${(match.homeTeam.includes("Alkar") || match.homeTeam.includes("Posušje")) ? "text-primary" : "text-foreground"}`}>
+                                  <span className={`text-sm font-bold ${(match.homeTeam.includes("Alkar") || match.homeTeam.includes("Posušje")) ? "text-primary" : "text-foreground"}`}>
                                     {match.homeTeam}
                                   </span>
                                 </div>
