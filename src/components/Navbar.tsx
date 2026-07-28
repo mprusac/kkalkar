@@ -4,8 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { href: "#pocetna", label: "KK Alkar Sinj" },
-  { href: "/statistika", label: "Statistika i tablica lige", isRoute: true },
+  { href: "#pocetna", label: "Početna" },
+  { href: "/statistika", label: "Statistika", isRoute: true },
   { href: "#vijesti", label: "Vijesti" },
   { href: "#tim", label: "Tim" },
   { href: "/galerija", label: "Galerija", isRoute: true },

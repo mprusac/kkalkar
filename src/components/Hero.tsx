@@ -70,7 +70,7 @@ const Hero = () => {
             <span className="text-foreground">ALKAR SINJ</span>
           </h1>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground italic mb-6 sm:mb-8 animate-fade-in-up delay-200" style={{ fontFamily: "'Newsreader', serif", fontStyle: "italic" }}>
+          <p className="text-[1.4rem] sm:text-[1.625rem] md:text-[2rem] text-muted-foreground italic mb-6 sm:mb-8 animate-fade-in-up delay-200" style={{ fontFamily: "'Newsreader', serif", fontStyle: "italic" }}>
             {displayedText}
             {showCursor && <span className="inline-block w-[2px] h-[1em] bg-primary ml-1 animate-pulse align-middle" />}
           </p>
