@@ -27,6 +27,20 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
+    // Cross-route quick-link target
+    const scrollToSection = sessionStorage.getItem("scrollToSection");
+    if (scrollToSection) {
+      sessionStorage.removeItem("scrollToSection");
+      const attempts = [80, 200, 400, 700];
+      const timers = attempts.map((d) =>
+        setTimeout(() => {
+          const el = document.getElementById(scrollToSection);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, d)
+      );
+      return () => timers.forEach(clearTimeout);
+    }
+
     // Restore scroll position if coming back from a sub-page
     const restoreScroll = sessionStorage.getItem("restoreHomeScroll");
     const savedY = sessionStorage.getItem("homeScrollY");

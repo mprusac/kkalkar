@@ -37,6 +37,14 @@ import g27 from "@/assets/gallery-sezona-2025/g27.jpg.asset.json";
 import g28 from "@/assets/gallery-sezona-2025/g28.jpg.asset.json";
 import g29 from "@/assets/gallery-sezona-2025/g29.jpg.asset.json";
 import g30 from "@/assets/gallery-sezona-2025/g30.jpg.asset.json";
+import n1 from "@/assets/gallery-sezona-2025/n1.jpg.asset.json";
+import n2 from "@/assets/gallery-sezona-2025/n2.jpg.asset.json";
+import n3 from "@/assets/gallery-sezona-2025/n3.jpg.asset.json";
+import n4 from "@/assets/gallery-sezona-2025/n4.jpg.asset.json";
+import n5 from "@/assets/gallery-sezona-2025/n5.jpg.asset.json";
+import n6 from "@/assets/gallery-sezona-2025/n6.jpg.asset.json";
+import n7 from "@/assets/gallery-sezona-2025/n7.jpg.asset.json";
+import n8 from "@/assets/gallery-sezona-2025/n8.jpg.asset.json";
 
 // Image orientation type - vertical or horizontal
 type ImageWithOrientation = {
@@ -61,20 +69,28 @@ export const events: {
     date: "Sezona 2025/26",
     description: "Trenuci s utakmica, slavlja i navijača u dvorani u Sinju.",
     coverImage: g2.url,
-    images: [g1.url, g2.url, g3.url, g4.url, g5.url, g6.url, g7.url, g8.url, g9.url, g10.url, g11.url, g12.url, g13.url, g14.url, g15.url, g16.url, g17.url, g18.url, g19.url, g20.url, g21.url, g22.url, g23.url, g24.url, g25.url, g26.url, g27.url, g28.url, g29.url, g30.url],
+    images: [g1.url, g2.url, g3.url, g4.url, g5.url, g6.url, g7.url, g8.url, g9.url, g10.url, g11.url, g12.url, g13.url, g14.url, g15.url, g16.url, g17.url, g18.url, g19.url, g20.url, g21.url, g22.url, g23.url, g24.url, g25.url, g26.url, g27.url, g28.url, g29.url, g30.url, n1.url, n2.url, n3.url, n4.url, n5.url, n6.url, n7.url, n8.url],
     imagesWithOrientation: [
       { src: g2.url, orientation: "horizontal" },
+      { src: n5.url, orientation: "vertical" },
       { src: g4.url, orientation: "vertical" },
+      { src: n4.url, orientation: "horizontal" },
       { src: g5.url, orientation: "horizontal" },
       { src: g22.url, orientation: "horizontal" },
+      { src: n6.url, orientation: "vertical" },
       { src: g12.url, orientation: "vertical" },
+      { src: n1.url, orientation: "horizontal" },
       { src: g26.url, orientation: "horizontal" },
       { src: g11.url, orientation: "horizontal" },
+      { src: n7.url, orientation: "vertical" },
       { src: g15.url, orientation: "horizontal" },
       { src: g9.url, orientation: "vertical" },
+      { src: n8.url, orientation: "horizontal" },
       { src: g27.url, orientation: "horizontal" },
+      { src: n2.url, orientation: "vertical" },
       { src: g25.url, orientation: "horizontal" },
       { src: g3.url, orientation: "horizontal" },
+      { src: n3.url, orientation: "vertical" },
       { src: g29.url, orientation: "horizontal" },
       { src: g8.url, orientation: "horizontal" },
       { src: g14.url, orientation: "horizontal" },
@@ -98,6 +114,33 @@ export const events: {
 ];
 
 
+
+const MasonryImage = ({ src, index }: { src: string; index: number }) => {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <div className="relative w-full">
+      {!loaded && (
+        <div
+          className="w-full animate-pulse bg-gradient-to-br from-[hsl(43,68%,88%)] via-[hsl(43,68%,92%)] to-[hsl(43,68%,85%)]"
+          style={{ aspectRatio: "4 / 3" }}
+        />
+      )}
+      <motion.img
+        src={src}
+        alt={`Slika ${index + 1}`}
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setLoaded(true)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: loaded ? 1 : 0 }}
+        transition={{ duration: 0.4 }}
+        className={`w-full h-auto object-cover transition-transform duration-500 hover:scale-110 ${
+          loaded ? "block" : "absolute inset-0 opacity-0"
+        }`}
+      />
+    </div>
+  );
+};
 
 
 const EventCard = ({ event, index }: { event: typeof events[0]; index: number }) => {
@@ -227,25 +270,20 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
           {/* Masonry Gallery - clean columns layout */}
           <div className="columns-2 md:columns-3 gap-1.5 max-w-5xl mx-auto">
             {allImages.map((img, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
                 className="group relative overflow-hidden cursor-pointer mb-1.5 break-inside-avoid"
                 onClick={() => openLightbox(index)}
               >
-                <img loading="lazy" decoding="async"
-                  src={img}
-                  alt={`Slika ${index + 1}`}
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300" />
-              </motion.div>
+                <MasonryImage src={img} index={index} />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 pointer-events-none" />
+              </div>
             ))}
           </div>
         </div>
       </div>
+
+
 
       {/* Lightbox */}
       <AnimatePresence>
