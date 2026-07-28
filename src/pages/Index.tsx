@@ -75,7 +75,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Košarkaški klub Alkar Sinj — Službena web stranica"
+        title="KK Alkar Sinj"
         description="Službena stranica KK Alkar Sinj. Vijesti, raspored utakmica, rezultati, tablica lige, momčad i škola košarke u Sinju."
         path="/"
         jsonLd={{
