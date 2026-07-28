@@ -1,11 +1,12 @@
 import { Facebook, Instagram, Youtube } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const footerLinks = [
   { label: "O klubu", href: "#o-klubu" },
   { label: "Statistika", href: "/statistika" },
   { label: "Vijesti", href: "#vijesti" },
-  { label: "Galerija", href: "#galerija" },
+  { label: "Galerija", href: "/galerija" },
   { label: "Kontakt", href: "#kontakt" },
   { label: "Admin", href: "/admin" },
 ];
@@ -16,14 +17,20 @@ const socialLinks = [
 ];
 
 const Footer = () => {
-  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("#")) {
       e.preventDefault();
       const id = href.slice(1);
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (location.pathname !== "/") {
+        sessionStorage.setItem("scrollToSection", id);
+        navigate("/");
+        return;
       }
+      const element = document.getElementById(id);
+      if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
