@@ -732,7 +732,7 @@ const Statistics = () => {
                                   <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
                                     {awayLogo && <img loading="lazy" decoding="async" src={awayLogo} alt="" className={`object-contain ${getStatsLogoClass(match.awayTeam)}`} />}
                                   </div>
-                                  <span className={`text-sm font-medium ${(match.awayTeam.includes("Alkar") || match.awayTeam.includes("Posušje")) ? "text-primary" : "text-foreground"}`}>
+                                  <span className={`text-sm font-bold ${(match.awayTeam.includes("Alkar") || match.awayTeam.includes("Posušje")) ? "text-primary" : "text-foreground"}`}>
                                     {match.awayTeam}
                                   </span>
                                 </div>
