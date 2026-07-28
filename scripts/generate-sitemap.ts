@@ -5,7 +5,7 @@ import { resolve } from "path";
 import { allNews } from "../src/pages/NewsPage.tsx";
 import { events } from "../src/pages/GalleryPage.tsx";
 
-const BASE_URL = "https://kkposusje.ba";
+const BASE_URL = "https://kkposusje-digital-court.lovable.app";
 
 const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
 const SUPABASE_PUBLISHABLE_KEY = process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
@@ -84,13 +84,11 @@ async function main() {
   const allNewsIds = Array.from(new Set([...localNewsIds, ...dbNewsIds]));
   const allGalleryIds = Array.from(new Set([...localGalleryIds, ...dbGalleryIds]));
 
-  const now = new Date().toISOString().split("T")[0];
-
   const entries: SitemapEntry[] = [
-    { path: "/", lastmod: now, changefreq: "weekly", priority: "1.0" },
-    { path: "/vijesti", lastmod: now, changefreq: "weekly", priority: "0.9" },
-    { path: "/statistika", lastmod: now, changefreq: "weekly", priority: "0.8" },
-    { path: "/galerija", lastmod: now, changefreq: "monthly", priority: "0.7" },
+    { path: "/", changefreq: "weekly", priority: "1.0" },
+    { path: "/vijesti", changefreq: "weekly", priority: "0.9" },
+    { path: "/statistika", changefreq: "weekly", priority: "0.8" },
+    { path: "/galerija", changefreq: "monthly", priority: "0.7" },
     ...allNewsIds.map((id) => ({ path: `/vijesti/${id}`, changefreq: "monthly" as const, priority: "0.6" })),
     ...allGalleryIds.map((id) => ({ path: `/galerija/${id}`, changefreq: "monthly" as const, priority: "0.6" })),
   ];
