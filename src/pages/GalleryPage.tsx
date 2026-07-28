@@ -115,6 +115,33 @@ export const events: {
 
 
 
+const MasonryImage = ({ src, index }: { src: string; index: number }) => {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <div className="relative w-full">
+      {!loaded && (
+        <div
+          className="w-full animate-pulse bg-gradient-to-br from-[hsl(43,68%,88%)] via-[hsl(43,68%,92%)] to-[hsl(43,68%,85%)]"
+          style={{ aspectRatio: "4 / 3" }}
+        />
+      )}
+      <motion.img
+        src={src}
+        alt={`Slika ${index + 1}`}
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setLoaded(true)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: loaded ? 1 : 0 }}
+        transition={{ duration: 0.4 }}
+        className={`w-full h-auto object-cover transition-transform duration-500 hover:scale-110 ${
+          loaded ? "block" : "absolute inset-0 opacity-0"
+        }`}
+      />
+    </div>
+  );
+};
+
 
 const EventCard = ({ event, index }: { event: typeof events[0]; index: number }) => {
   return (
