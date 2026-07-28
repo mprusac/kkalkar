@@ -243,25 +243,20 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
           {/* Masonry Gallery - clean columns layout */}
           <div className="columns-2 md:columns-3 gap-1.5 max-w-5xl mx-auto">
             {allImages.map((img, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
                 className="group relative overflow-hidden cursor-pointer mb-1.5 break-inside-avoid"
                 onClick={() => openLightbox(index)}
               >
-                <img loading="lazy" decoding="async"
-                  src={img}
-                  alt={`Slika ${index + 1}`}
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300" />
-              </motion.div>
+                <MasonryImage src={img} index={index} />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 pointer-events-none" />
+              </div>
             ))}
           </div>
         </div>
       </div>
+
+
 
       {/* Lightbox */}
       <AnimatePresence>
