@@ -573,8 +573,8 @@ const Statistics = () => {
               Natrag
             </button>
             <div className="flex items-center gap-2 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:ml-4">
-              <img loading="lazy" decoding="async" src={logoAlkar} alt="KK Alkar Sinj" className="w-[3.125rem] h-[3.125rem] object-contain transition-transform duration-300 hover:scale-110" />
-              <span className="font-display text-[1.09375rem] text-white">KK Alkar Sinj</span>
+              <img loading="lazy" decoding="async" src={logoAlkar} alt="KK Alkar Sinj" className="w-[4.375rem] h-[4.375rem] object-contain transition-transform duration-300 hover:scale-110" />
+              <span className="font-display text-[1.53rem] text-white">KK Alkar Sinj</span>
             </div>
             <h2 className="font-display text-4xl text-white hidden md:block absolute left-1/2 -translate-x-1/2 tracking-wider drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">STATISTIKA</h2>
             <div className="w-20 hidden md:block"></div>
