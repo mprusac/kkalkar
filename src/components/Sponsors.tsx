@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { ChevronUp, ChevronDown, Crown, Medal, Award, Heart, Star, Trophy } from "lucide-react";
 
 import hotelAlkarAsset from "@/assets/sponsors/hotel_alkar.png.asset.json";
@@ -72,6 +73,7 @@ const sponsors = [
 
 
 const Sponsors = () => {
+  const isMobile = useIsMobile();
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
