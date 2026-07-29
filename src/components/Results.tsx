@@ -194,10 +194,10 @@ const Results = () => {
                           className="relative z-[60] transition-transform hover:scale-110"
                           title="YouTube"
                         >
-                          <img loading="lazy" decoding="async" src={youtubeIcon.url} alt="YouTube" className="relative z-[60] h-[1.4375rem] md:h-[1.725rem] w-auto object-contain" />
+                          <img loading="lazy" decoding="async" src={youtubeIcon.url} alt="YouTube video snimka" className="relative z-[60] h-[1.4375rem] md:h-[1.725rem] w-auto object-contain" />
                         </a>
                       ) : (
-                        <img loading="lazy" decoding="async" src={youtubeIcon.url} alt="YouTube" className="relative z-[60] h-[1.4375rem] md:h-[1.725rem] w-auto object-contain opacity-30" />
+                        <img loading="lazy" decoding="async" src={youtubeIcon.url} alt="YouTube video snimka" className="relative z-[60] h-[1.4375rem] md:h-[1.725rem] w-auto object-contain opacity-30" />
                       )}
                     </div>
                     <div className="relative z-[60] flex justify-center">
@@ -207,7 +207,7 @@ const Results = () => {
                     </div>
                     <div className="relative z-[60] flex justify-center items-center translate-x-[15%]">
                       <span title="SofaScore" className="relative z-[60] transition-transform group-hover:scale-110 inline-flex">
-                        <img loading="lazy" decoding="async" src={sofascoreIcon.url} alt="SofaScore" className="relative z-[60] h-5 md:h-6 w-5 md:w-6 object-contain rounded" />
+                        <img loading="lazy" decoding="async" src={sofascoreIcon.url} alt="SofaScore statistika" className="relative z-[60] h-5 md:h-6 w-5 md:w-6 object-contain rounded" />
                       </span>
                     </div>
                   </div>

@@ -279,7 +279,7 @@ const NewsPage = () => {
       <div className="cream-page-scope" style={{ zoom: 0.85 }}>
       <SEO
         title="Vijesti — KK Alkar Sinj"
-        description="Najnovije vijesti, najave utakmica, izvještaji i priopćenja Košarkaškog kluba Posušje."
+        description="Najnovije vijesti, najave utakmica, izvještaji i priopćenja KK Alkar Sinj."
         path="/vijesti"
       />
       <div className="pt-8 pb-16">
