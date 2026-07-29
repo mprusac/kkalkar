@@ -577,9 +577,10 @@ const Statistics = () => {
         <h2 className="font-display text-3xl text-white text-center mb-6 md:hidden drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">STATISTIKA</h2>
 
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-5 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-5 items-start lg:items-stretch">
           {/* Left Column - Form & Games */}
-          <div className="lg:col-span-3 flex flex-col gap-3 order-2 lg:order-1">
+          <div className="lg:col-span-3 flex flex-col gap-3 order-2 lg:order-1 h-full">
+
             {/* Recent Form */}
             <div ref={formBoxRef} className="bg-secondary/30 rounded-xl p-2 border border-border/30 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
               <h3 className="font-display text-lg text-foreground mb-1 text-center">Nedavna forma</h3>
