@@ -662,3 +662,16 @@ textarea:-webkit-autofill:focus {
   transform: translateY(-2px);
   box-shadow: 0 8px 22px rgba(201, 162, 76, 0.45), 0 4px 10px rgba(14, 42, 99, 0.3) !important;
 }
+
+/* Keep contact form inputs white with dark navy text even when browser autofills */
+#kontakt input:-webkit-autofill,
+#kontakt input:-webkit-autofill:hover,
+#kontakt input:-webkit-autofill:focus,
+#kontakt input:-webkit-autofill:active,
+#kontakt textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+  -webkit-text-fill-color: hsl(217, 72%, 30%) !important;
+  caret-color: hsl(217, 72%, 30%) !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
