@@ -83,7 +83,7 @@ const Gallery = () => {
       style={style}
       onClick={() => openLightbox(index)}
     >
-      <img loading="lazy" decoding="async"
+      <img decoding="async"
         src={images[index].src}
         alt={images[index].title}
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

@@ -240,7 +240,7 @@ const News = () => {
                 }}
               >
                 <div className="relative h-36 md:h-48 overflow-hidden">
-                  <img loading="lazy" decoding="async"
+                  <img decoding="async"
                     src={item.image}
                     alt={item.title}
                     className={`w-full h-full object-cover transition-transform duration-500 ${
@@ -282,7 +282,7 @@ const News = () => {
                   <h3 className="text-lg md:text-xl font-display text-foreground mb-2 md:mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                     {item.title}
                     {item.flagImage && (
-                      <img loading="lazy" decoding="async"
+                      <img decoding="async"
                         src={item.flagImage}
                         alt="flag"
                         className="inline-block h-4 md:h-5 ml-1.5 align-middle object-contain"
