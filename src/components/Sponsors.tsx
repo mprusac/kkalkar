@@ -62,11 +62,11 @@ const sponsors = [
   { name: "Hotel Alkar", image: hotelAlkarAsset.url, url: "https://hotelalkar.com/", scale: 1.3225 },
   { name: "Adriaticket", image: adriaticketAsset.url, url: "https://adriaticket.com/", scale: 1.15 },
   { name: "Papirko", image: papirkoAsset.url, url: "https://www.facebook.com/papirko.sinj/", scale: 1.15 },
-  { name: "Zajednica športskih udruga Grada Sinja", image: zsuAsset.url, url: "https://sinj.hr/", scale: 1.38 },
-  { name: "IDS Industrieservice", image: idsAsset.url, url: "https://www.ids-gmbh.at/", scale: 1.2 },
+  { name: "Zajednica športskih udruga Grada Sinja", image: zsuAsset.url, url: "https://sinj.hr/", scale: 1.38, mobileScale: 0.95 },
+  { name: "IDS Industrieservice", image: idsAsset.url, url: "https://www.ids-gmbh.at/", scale: 1.2, mobileScale: 0.9 },
   { name: "No1", image: no1Asset.url, url: "#", scale: 1.15 },
   { name: "Jako", image: jakoAsset.url, url: "https://www.jako.de/", scale: 1.15 },
-  { name: "Grad Sinj", image: gradSinjAsset.url, url: "https://sinj.hr/", scale: 1.3225 },
+  { name: "Grad Sinj", image: gradSinjAsset.url, url: "https://sinj.hr/", scale: 1.3225, mobileScale: 0.95 },
 ];
 
 
@@ -105,7 +105,7 @@ const Sponsors = () => {
                 src={sponsor.image}
                 alt={sponsor.name}
                 className="max-w-[85%] max-h-[85%] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-110"
-                style={{ transform: `scale(${sponsor.scale})` }}
+                style={{ transform: `scale(${isMobile && (sponsor as { mobileScale?: number }).mobileScale ? (sponsor as { mobileScale?: number }).mobileScale : sponsor.scale})` }}
               />
             </a>
           ))}
