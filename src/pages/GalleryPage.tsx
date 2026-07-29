@@ -364,8 +364,20 @@ const GalleryPage = () => {
     <div className="min-h-screen"><div className="cream-page-scope">
       <SEO
         title="Galerija — KK Alkar Sinj"
-        description="Fotografije s utakmica, priprema i događanja Košarkaškog kluba Posušje."
+        description="Fotografije s utakmica, priprema i događanja KK Alkar Sinj."
         path="/galerija"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Foto galerija KK Alkar Sinj",
+          description: "Kolekcija fotoalbuma s utakmica i događanja KK Alkar Sinj.",
+          url: "https://kkposusje-digital-court.lovable.app/galerija",
+          isPartOf: {
+            "@type": "WebSite",
+            name: "KK Alkar Sinj",
+            url: "https://kkposusje-digital-court.lovable.app/",
+          },
+        }}
       />
       <div className="pt-8 pb-16">
         <div className="container mx-auto px-4">
