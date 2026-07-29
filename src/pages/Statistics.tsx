@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef, useLayoutEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft, ChevronLeft, ChevronRight, ExternalLink, Download, FileSpreadsheet, X, CheckCircle } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { fetchMatches, buildForm, getTeamLogoFor, type DisplayMatch } from "@/lib/adminMatches";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "@/components/SEO";
@@ -363,7 +363,7 @@ const Statistics = () => {
   const [hoveredFormIndex, setHoveredFormIndex] = useState<number | null>(null);
   const [leagueCategory, setLeagueCategory] = useState<"seniori" | "seniorke">("seniori");
   const [topPlayersPage, setTopPlayersPage] = useState(0);
-  const [showDownloadDialog, setShowDownloadDialog] = useState(false);
+  
   const [dynamicMatches, setDynamicMatches] = useState<DisplayMatch[]>([]);
 
   useEffect(() => {
@@ -398,21 +398,9 @@ const Statistics = () => {
     }));
   }, [dynamicMatches]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShowDownloadDialog(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
   const navigate = useNavigate();
 
-  const handleDownloadStats = () => {
-    const link = document.createElement("a");
-    link.href = "/data/KK_Alkar_Sinj_statistika_25-26.xlsx";
-    link.download = "KK_Alkar_Sinj_statistika_25-26.xlsx";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    setShowDownloadDialog(false);
-  };
+
 
   // Scroll to top on page load
   useEffect(() => {
@@ -938,16 +926,8 @@ const Statistics = () => {
                     ))}
                   </div>
 
-                  {/* Download button */}
-                  <div className="flex justify-center mb-6">
-                    <button
-                      onClick={() => setShowDownloadDialog(true)}
-                      className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary/20 text-primary hover:bg-primary/30 border border-primary/20 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 hover:scale-105 transition-all duration-300 font-display text-sm"
-                    >
-                      <Download className="w-4 h-4" />
-                      Preuzmi statistiku
-                    </button>
-                  </div>
+
+
 
                   {(() => {
                     const rankBadge = (rank: number) => {
@@ -1189,66 +1169,6 @@ const Statistics = () => {
         </div>
       </main>
 
-      {/* Download popup - fixed bottom right */}
-      <AnimatePresence>
-        {showDownloadDialog && (
-          <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 40, scale: 0.95 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="stats-light fixed bottom-3 right-3 md:bottom-5 md:right-5 z-50 w-[243px] md:w-[324px] bg-secondary border border-border/30 rounded-lg shadow-2xl shadow-black/40 overflow-hidden cursor-default origin-bottom-right scale-75"
-          >
-            <div className="p-3 md:p-4">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-1.5 md:gap-2 flex-1 min-w-0">
-                  <FileSpreadsheet className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0" />
-                  <h3 className="font-display text-[11px] md:text-[15px] uppercase tracking-wider leading-none">Preuzmi kompletnu statistiku</h3>
-                </div>
-                <button
-                  onClick={() => setShowDownloadDialog(false)}
-                  className="text-muted-foreground hover:text-foreground transition-colors shrink-0 ml-2 cursor-pointer"
-                >
-                  <X className="w-3.5 h-3.5" />
-                </button>
-              </div>
-              <p className="text-[9px] md:text-[11px] text-muted-foreground leading-relaxed mb-2 md:mb-3">
-                Kompletna statistika sezone 2025/26 dostupna za preuzimanje — individualni i timski podaci.
-              </p>
-              <div className="space-y-1 md:space-y-1.5 mb-3 md:mb-4">
-                <div className="flex items-center gap-2 p-1.5 md:p-2.5 rounded-md bg-background/40 hover:bg-background/60 hover:shadow-[0_0_18px_rgba(234,179,8,0.12)] border border-transparent hover:border-primary/15 transition-all duration-300">
-                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0" />
-                  <div>
-                    <p className="text-[10px] md:text-xs font-bold leading-tight">Individualna statistika igrača</p>
-                    <p className="text-[8px] md:text-[10px] text-muted-foreground">PPG, RPG, APG, % šuta, minute, blokade...</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 p-1.5 md:p-2.5 rounded-md bg-background/40 hover:bg-background/60 hover:shadow-[0_0_18px_rgba(234,179,8,0.12)] border border-transparent hover:border-primary/15 transition-all duration-300">
-                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0" />
-                  <div>
-                    <p className="text-[10px] md:text-xs font-bold leading-tight">Timski prosjeci</p>
-                    <p className="text-[8px] md:text-[10px] text-muted-foreground">eFG%, TS%, poeni, skokovi, asistencije...</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 p-1.5 md:p-2.5 rounded-md bg-background/40 hover:bg-background/60 hover:shadow-[0_0_18px_rgba(234,179,8,0.12)] border border-transparent hover:border-primary/15 transition-all duration-300">
-                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0" />
-                  <div>
-                    <p className="text-[10px] md:text-xs font-bold leading-tight">Rezultati utakmica</p>
-                    <p className="text-[8px] md:text-[10px] text-muted-foreground">Svih {playedMatches.length} utakmica s datumima i rezultatima</p>
-                  </div>
-                </div>
-              </div>
-              <button
-                onClick={handleDownloadStats}
-                className="w-full flex items-center justify-center gap-2 px-3 py-2 md:px-3.5 md:py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/80 hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-primary/10 transition-all duration-300 font-display text-xs md:text-sm uppercase tracking-wider cursor-pointer"
-              >
-                <Download className="w-4 h-4" />
-                Preuzmi datoteku
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
       <Footer />
     </div>
   );
