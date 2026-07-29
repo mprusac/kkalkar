@@ -194,10 +194,10 @@ const Results = () => {
                           className="relative z-[60] transition-transform hover:scale-110"
                           title="YouTube"
                         >
-                          <img loading="lazy" decoding="async" src={youtubeIcon.url} alt="YouTube video snimka" className="relative z-[60] h-[1.4375rem] md:h-[1.725rem] w-auto object-contain" />
+                          <img decoding="async" src={youtubeIcon.url} alt="YouTube video snimka" className="relative z-[60] h-[1.4375rem] md:h-[1.725rem] w-auto object-contain" />
                         </a>
                       ) : (
-                        <img loading="lazy" decoding="async" src={youtubeIcon.url} alt="YouTube video snimka" className="relative z-[60] h-[1.4375rem] md:h-[1.725rem] w-auto object-contain opacity-30" />
+                        <img decoding="async" src={youtubeIcon.url} alt="YouTube video snimka" className="relative z-[60] h-[1.4375rem] md:h-[1.725rem] w-auto object-contain opacity-30" />
                       )}
                     </div>
                     <div className="relative z-[60] flex justify-center">
@@ -207,7 +207,7 @@ const Results = () => {
                     </div>
                     <div className="relative z-[60] flex justify-center items-center translate-x-[15%]">
                       <span title="SofaScore" className="relative z-[60] transition-transform group-hover:scale-110 inline-flex">
-                        <img loading="lazy" decoding="async" src={sofascoreIcon.url} alt="SofaScore statistika" className="relative z-[60] h-5 md:h-6 w-5 md:w-6 object-contain rounded" />
+                        <img decoding="async" src={sofascoreIcon.url} alt="SofaScore statistika" className="relative z-[60] h-5 md:h-6 w-5 md:w-6 object-contain rounded" />
                       </span>
                     </div>
                   </div>
@@ -219,7 +219,7 @@ const Results = () => {
                       {/* Home Team logo */}
                       <div className="flex justify-center items-center h-12 md:h-16 -translate-x-[15%]">
                         {homeLogo ? (
-                          <img loading="lazy" decoding="async"
+                          <img decoding="async"
                             src={homeLogo}
                             alt={match.homeTeam}
                             className={`object-contain flex-shrink-0 h-12 w-12 md:h-16 md:w-16 ${getLogoScale(match.homeTeam)}`}
@@ -260,7 +260,7 @@ const Results = () => {
                       {/* Away Team logo */}
                       <div className="flex justify-center items-center h-12 md:h-16 translate-x-[15%]">
                         {awayLogo ? (
-                          <img loading="lazy" decoding="async"
+                          <img decoding="async"
                             src={awayLogo}
                             alt={match.awayTeam}
                             className={`object-contain flex-shrink-0 h-12 w-12 md:h-16 md:w-16 ${getLogoScale(match.awayTeam)}`}
@@ -300,19 +300,19 @@ const Results = () => {
                     {match.competition && (
                       <div className="flex justify-center mt-1">
                         {match.competition === "SuperSport PL" ? (
-                          <img loading="lazy" decoding="async"
+                          <img decoding="async"
                             src={supersportLogo.url}
                             alt="SuperSport Premijer Liga"
                             className="h-6 md:h-8 object-contain"
                           />
                         ) : match.competition === "ENBL" ? (
-                          <img loading="lazy" decoding="async"
+                          <img decoding="async"
                             src={enblLogo.url}
                             alt="European North Basketball League"
                             className="h-6 md:h-8 object-contain"
                           />
                         ) : match.competition === "Krešimir Ćosić Cup" ? (
-                          <img loading="lazy" decoding="async"
+                          <img decoding="async"
                             src={kkcupLogo.url}
                             alt="Krešimir Ćosić Cup"
                             className="h-9 md:h-12 object-contain"

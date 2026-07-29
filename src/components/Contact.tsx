@@ -235,7 +235,7 @@ const Contact = () => {
                 height="100%"
                 style={{ border: 0, minHeight: '120px' }}
                 allowFullScreen
-                loading="lazy"
+                loading="eager"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Lokacija KK Alkar Sinj"
               />

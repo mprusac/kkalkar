@@ -206,7 +206,7 @@ const Team = () => {
                 {/* Player Image */}
                 <div className="relative h-[280px] md:h-64 overflow-hidden">
                   {player.image ? (
-                    <img loading="lazy" decoding="async"
+                    <img decoding="async"
                       src={player.image}
                       alt={player.name}
                       className={`w-full h-full object-cover object-top transition-transform duration-500 ${
