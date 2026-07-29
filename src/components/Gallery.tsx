@@ -12,7 +12,7 @@ import g6 from "@/assets/gallery/g6.asset.json";
 
 const images = [
   { id: 1, src: g4.url, title: "Zajedništvo", objectPosition: "center top" },
-  { id: 2, src: g3.url, title: "Trener Mate Baković", objectPosition: "center" },
+  { id: 2, src: g3.url, title: "Trener Damir Milačić", objectPosition: "center" },
   { id: 3, src: g5.url, title: "Zakucavanje", objectPosition: "center top" },
   { id: 4, src: g1.url, title: "Prodor", objectPosition: "center" },
   { id: 5, src: g2.url, title: "Šut za tri", objectPosition: "center top" },
