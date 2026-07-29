@@ -120,6 +120,7 @@ const Results = () => {
           <button
             onClick={() => scroll("left")}
             disabled={activeIndex === 0}
+            aria-label="Prethodna utakmica"
             className={`flex absolute -left-2 md:left-0 top-[35%] -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground transition-all duration-300 shadow-lg ${
               activeIndex === 0
                 ? "opacity-40 cursor-not-allowed"
@@ -132,6 +133,7 @@ const Results = () => {
           <button
             onClick={() => scroll("right")}
             disabled={activeIndex === results.length - 1}
+            aria-label="Sljedeća utakmica"
             className={`flex absolute -right-2 md:right-0 top-[35%] -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground transition-all duration-300 shadow-lg ${
               activeIndex === results.length - 1
                 ? "opacity-40 cursor-not-allowed"
