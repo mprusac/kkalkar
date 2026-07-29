@@ -414,7 +414,7 @@ const Statistics = () => {
   const formBoxRef = useRef<HTMLDivElement>(null);
   const gamesHeaderRef = useRef<HTMLDivElement>(null);
   const matchesPerPage = useMemo(() => {
-    if (activeMainTab === "standings") return 8;
+    if (activeMainTab === "standings") return 9;
     if (activeMainTab === "statistics") return 10;
     if (activeMainTab === "players") {
       return activePlayersTab === "squad" ? 17 : 8;
@@ -844,8 +844,8 @@ const Statistics = () => {
                                 key={team.position}
                                 className={`border-border/20 transition-all duration-200 hover:shadow-md ${isAlkar ? "!bg-primary/30 hover:!bg-primary/40 font-bold" : "hover:bg-secondary/50"}`}
                               >
-                                <TableCell className="text-center font-bold text-[10px] md:text-sm px-0.5 md:px-4 py-0.5 md:py-4">{team.position}</TableCell>
-                                <TableCell className="px-0.5 md:px-4 py-0.5 md:py-4">
+                                <TableCell className="text-center font-bold text-[10px] md:text-sm px-0.5 md:px-4 py-0.5 md:py-[17.4px]">{team.position}</TableCell>
+                                <TableCell className="px-0.5 md:px-4 py-0.5 md:py-[17.4px]">
                                   <div className="flex items-center gap-1 md:gap-2">
                                     {logo && (
                                       <div className="w-5 h-5 md:w-8 md:h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
@@ -857,11 +857,11 @@ const Statistics = () => {
                                     </span>
                                   </div>
                                 </TableCell>
-                                <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4">{team.played}</TableCell>
-                                <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4">{team.won}</TableCell>
-                                <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4">{team.lost}</TableCell>
-                                <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4">{team.pct}</TableCell>
-                                <TableCell className={`text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-4 ${team.diff > 0 ? "text-green-400" : team.diff < 0 ? "text-red-400" : ""}`}>
+                                <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-[17.4px]">{team.played}</TableCell>
+                                <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-[17.4px]">{team.won}</TableCell>
+                                <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-[17.4px]">{team.lost}</TableCell>
+                                <TableCell className="text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-[17.4px]">{team.pct}</TableCell>
+                                <TableCell className={`text-center text-[10px] md:text-sm font-bold px-0 md:px-4 py-0.5 md:py-[17.4px] ${team.diff > 0 ? "text-green-400" : team.diff < 0 ? "text-red-400" : ""}`}>
                                   {team.diff > 0 ? `+${team.diff}` : team.diff}
                                 </TableCell>
                                 <TableCell className="text-center hidden sm:table-cell">
@@ -878,8 +878,8 @@ const Statistics = () => {
                                     ))}
                                   </div>
                                 </TableCell>
-                                <TableCell className="text-center font-bold text-[10px] md:text-sm px-0 md:px-4 py-0.5 md:py-4">{team.points}</TableCell>
-                                <TableCell className={`text-center font-bold text-[10px] md:text-sm px-0 md:px-4 py-0.5 md:py-4 ${team.streak.startsWith("W") ? "text-green-400" : "text-red-400"}`}>{team.streak}</TableCell>
+                                <TableCell className="text-center font-bold text-[10px] md:text-sm px-0 md:px-4 py-0.5 md:py-[17.4px]">{team.points}</TableCell>
+                                <TableCell className={`text-center font-bold text-[10px] md:text-sm px-0 md:px-4 py-0.5 md:py-[17.4px] ${team.streak.startsWith("W") ? "text-green-400" : "text-red-400"}`}>{team.streak}</TableCell>
                               </TableRow>
                             </React.Fragment>
                           );
