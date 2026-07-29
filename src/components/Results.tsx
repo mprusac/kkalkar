@@ -120,6 +120,7 @@ const Results = () => {
           <button
             onClick={() => scroll("left")}
             disabled={activeIndex === 0}
+            aria-label="Prethodna utakmica"
             className={`flex absolute -left-2 md:left-0 top-[35%] -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground transition-all duration-300 shadow-lg ${
               activeIndex === 0
                 ? "opacity-40 cursor-not-allowed"
@@ -132,6 +133,7 @@ const Results = () => {
           <button
             onClick={() => scroll("right")}
             disabled={activeIndex === results.length - 1}
+            aria-label="Sljedeća utakmica"
             className={`flex absolute -right-2 md:right-0 top-[35%] -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground transition-all duration-300 shadow-lg ${
               activeIndex === results.length - 1
                 ? "opacity-40 cursor-not-allowed"
@@ -192,10 +194,10 @@ const Results = () => {
                           className="relative z-[60] transition-transform hover:scale-110"
                           title="YouTube"
                         >
-                          <img loading="lazy" decoding="async" src={youtubeIcon.url} alt="YouTube" className="relative z-[60] h-[1.4375rem] md:h-[1.725rem] w-auto object-contain" />
+                          <img loading="lazy" decoding="async" src={youtubeIcon.url} alt="YouTube video snimka" className="relative z-[60] h-[1.4375rem] md:h-[1.725rem] w-auto object-contain" />
                         </a>
                       ) : (
-                        <img loading="lazy" decoding="async" src={youtubeIcon.url} alt="YouTube" className="relative z-[60] h-[1.4375rem] md:h-[1.725rem] w-auto object-contain opacity-30" />
+                        <img loading="lazy" decoding="async" src={youtubeIcon.url} alt="YouTube video snimka" className="relative z-[60] h-[1.4375rem] md:h-[1.725rem] w-auto object-contain opacity-30" />
                       )}
                     </div>
                     <div className="relative z-[60] flex justify-center">
@@ -205,7 +207,7 @@ const Results = () => {
                     </div>
                     <div className="relative z-[60] flex justify-center items-center translate-x-[15%]">
                       <span title="SofaScore" className="relative z-[60] transition-transform group-hover:scale-110 inline-flex">
-                        <img loading="lazy" decoding="async" src={sofascoreIcon.url} alt="SofaScore" className="relative z-[60] h-5 md:h-6 w-5 md:w-6 object-contain rounded" />
+                        <img loading="lazy" decoding="async" src={sofascoreIcon.url} alt="SofaScore statistika" className="relative z-[60] h-5 md:h-6 w-5 md:w-6 object-contain rounded" />
                       </span>
                     </div>
                   </div>

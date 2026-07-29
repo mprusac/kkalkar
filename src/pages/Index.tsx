@@ -75,14 +75,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="KK Alkar Sinj"
+        title="KK Alkar Sinj — Službena stranica košarkaškog kluba"
         description="Službena stranica KK Alkar Sinj. Vijesti, raspored utakmica, rezultati, tablica lige, momčad i škola košarke u Sinju."
         path="/"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "Košarkaški klub Alkar Sinj",
-          url: "https://kkalkar.hr/",
+          url: "https://kkposusje-digital-court.lovable.app/",
         }}
       />
       <ScrollProgressBar />
