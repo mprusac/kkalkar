@@ -154,13 +154,13 @@ const ArticleDetail = ({ article }: { article: NewsItem }) => {
           headline: article.title,
           datePublished: article.date,
           image: typeof article.image === 'string' ? article.image : undefined,
-          author: { "@type": "Organization", name: "KK Posušje" },
+          author: { "@type": "Organization", name: "KK Alkar Sinj" },
           publisher: {
             "@type": "Organization",
-            name: "KK Posušje",
-            logo: { "@type": "ImageObject", url: "https://kkposusje.ba/favicon.png" },
+            name: "KK Alkar Sinj",
+            logo: { "@type": "ImageObject", url: "https://kkposusje-digital-court.lovable.app/favicon.png" },
           },
-          mainEntityOfPage: `https://kkposusje.ba/vijesti/${article.id}`,
+          mainEntityOfPage: `https://kkposusje-digital-court.lovable.app/vijesti/${article.id}`,
         }}
       />
       <div className="pt-8 pb-16">
