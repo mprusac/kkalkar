@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef, useLayoutEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft, ChevronLeft, ChevronRight, ExternalLink, Download, FileSpreadsheet, X, CheckCircle } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { fetchMatches, buildForm, getTeamLogoFor, type DisplayMatch } from "@/lib/adminMatches";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "@/components/SEO";
