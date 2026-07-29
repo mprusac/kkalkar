@@ -59,14 +59,14 @@ const goldBorder = "border-[hsl(48,96%,53%)]";
 const goldGlow = "hover:[box-shadow:0_0_25px_8px_hsl(48,96%,53%,0.35)]";
 
 const sponsors = [
-  { name: "Hotel Alkar", image: hotelAlkarAsset.url, url: "https://hotelalkar.com/", scale: 1.15 },
-  { name: "Adriaticket", image: adriaticketAsset.url, url: "https://adriaticket.com/", scale: 1 },
-  { name: "Papirko", image: papirkoAsset.url, url: "https://www.facebook.com/papirko.sinj/", scale: 1 },
-  { name: "Zajednica športskih udruga Grada Sinja", image: zsuAsset.url, url: "https://sinj.hr/", scale: 1.2 },
-  { name: "IDS Industrieservice", image: idsAsset.url, url: "https://www.ids-gmbh.at/", scale: 1 },
-  { name: "No1", image: no1Asset.url, url: "#", scale: 1 },
-  { name: "Jako", image: jakoAsset.url, url: "https://www.jako.de/", scale: 1 },
-  { name: "Grad Sinj", image: gradSinjAsset.url, url: "https://sinj.hr/", scale: 1.15 },
+  { name: "Hotel Alkar", image: hotelAlkarAsset.url, url: "https://hotelalkar.com/", scale: 1.3225 },
+  { name: "Adriaticket", image: adriaticketAsset.url, url: "https://adriaticket.com/", scale: 1.15 },
+  { name: "Papirko", image: papirkoAsset.url, url: "https://www.facebook.com/papirko.sinj/", scale: 1.15 },
+  { name: "Zajednica športskih udruga Grada Sinja", image: zsuAsset.url, url: "https://sinj.hr/", scale: 1.38 },
+  { name: "IDS Industrieservice", image: idsAsset.url, url: "https://www.ids-gmbh.at/", scale: 1.2 },
+  { name: "No1", image: no1Asset.url, url: "#", scale: 1.15 },
+  { name: "Jako", image: jakoAsset.url, url: "https://www.jako.de/", scale: 1.15 },
+  { name: "Grad Sinj", image: gradSinjAsset.url, url: "https://sinj.hr/", scale: 1.3225 },
 ];
 
 
