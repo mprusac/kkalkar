@@ -192,6 +192,7 @@ const News = () => {
           <button
             onClick={() => scroll("left")}
             disabled={atStart}
+            aria-label="Prethodna vijest"
             className={`flex absolute -left-2 md:left-0 top-[40%] md:top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground transition-all duration-300 shadow-lg ${
               atStart
                 ? "opacity-40 cursor-not-allowed"
@@ -204,6 +205,7 @@ const News = () => {
           <button
             onClick={() => scroll("right")}
             disabled={atEnd}
+            aria-label="Sljedeća vijest"
             className={`flex absolute -right-2 md:right-0 top-[40%] md:top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground transition-all duration-300 shadow-lg ${
               atEnd
                 ? "opacity-40 cursor-not-allowed"
