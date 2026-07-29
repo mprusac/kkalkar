@@ -152,6 +152,7 @@ const Team = () => {
           <button
             onClick={() => scroll("left")}
             disabled={activeIndex === 0}
+            aria-label="Prethodni igrač"
             className={`flex absolute left-0 md:left-0 top-[40%] md:top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-lg ${activeIndex === 0 ? 'opacity-40' : ''}`}
           >
             <ChevronLeft size={16} className="md:hidden" />
@@ -160,6 +161,7 @@ const Team = () => {
           <button
             onClick={() => scroll("right")}
             disabled={isMobile ? activeIndex === players.length - 1 : activeIndex >= players.length - 5}
+            aria-label="Sljedeći igrač"
             className={`flex absolute right-0 md:right-0 top-[40%] md:top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-lg ${(isMobile ? activeIndex === players.length - 1 : activeIndex >= players.length - 5) ? 'opacity-40' : ''}`}
           >
             <ChevronRight size={16} className="md:hidden" />
