@@ -557,6 +557,7 @@ const Statistics = () => {
         description="Tablica SuperSport Premijer lige, raspored utakmica, rezultati i statistike igrača KK Alkar Sinj u sezoni 2025/26."
         path="/statistika"
       />
+      <h1 className="sr-only">Statistika i sastav momčadi KK Alkar Sinj</h1>
       {/* Header */}
       <header className="stats-header-navy border-b border-white/10 sticky top-0 z-50 backdrop-blur-md" style={{ zoom: 0.9 }}>
         <div className="container mx-auto px-4 py-3">
