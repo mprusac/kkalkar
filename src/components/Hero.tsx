@@ -68,6 +68,7 @@ const Hero = () => {
         <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display tracking-wider mb-4 mt-16 md:mt-0 animate-fade-in-up">
             <span className="text-foreground">KK </span>
             <span className="text-foreground">ALKAR SINJ</span>
+            <span className="sr-only"> — Službena stranica košarkaškog kluba</span>
           </h1>
           
           <p className="text-[1.85rem] sm:text-[2.15rem] md:text-[2.65rem] text-muted-foreground italic mb-6 sm:mb-8 animate-fade-in-up delay-200" style={{ fontFamily: "'Newsreader', serif", fontStyle: "italic" }}>
