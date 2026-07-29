@@ -52,7 +52,7 @@ const Hero = () => {
         className="absolute top-0 left-0 right-0 bottom-0 w-full h-full will-change-transform"
         style={{ 
           backgroundImage: `url(${teamPhoto})`,
-          backgroundPosition: 'center center',
+          backgroundPosition: isMobile ? 'center 80%' : 'center center',
           backgroundSize: isMobile ? 'cover' : '140%',
           backgroundRepeat: 'no-repeat',
           transform: `translateY(${scrollY * 0.3}px)`,
