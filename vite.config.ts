@@ -1,7 +1,26 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import fs from "node:fs";
 import { componentTagger } from "lovable-tagger";
+
+const LOVABLE_ASSET_BASE = "https://kkposusje-digital-court.lovable.app";
+
+const absoluteLovableAssets = () => ({
+  name: "absolute-lovable-asset-json",
+  enforce: "pre" as const,
+  load(id: string) {
+    const filePath = id.split("?")[0];
+    if (!filePath.endsWith(".asset.json")) return null;
+
+    const asset = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    if (typeof asset.url === "string" && asset.url.startsWith("/__l5e/assets-v1/")) {
+      asset.url = `${LOVABLE_ASSET_BASE}${asset.url}`;
+    }
+
+    return `export default ${JSON.stringify(asset)};`;
+  },
+});
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -9,7 +28,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [absoluteLovableAssets(), react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
