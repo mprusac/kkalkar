@@ -21,6 +21,28 @@ const CLUB_NAME = 'KK Alkar Sinj';
 const CLUB_ADDRESS = 'Ulica Alajčauša Frane Bareze Šore 1, 21230 Sinj';
 const CLUB_SITE = 'https://kkposusje-digital-court.lovable.app';
 const CLUB_EMAIL = 'kontakt@kkalkar.hr';
+const OWNER_EMAIL = 'mprusac0@gmail.com';
+const RESEND_TEST_FALLBACK_EMAIL = 'mprusac23@student.foi.hr';
+
+async function sendResendEmail(apiKey: string, payload: Record<string, unknown>) {
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const data = await response.json();
+  return { response, data };
+}
+
+function isResendTestRecipientError(data: unknown): boolean {
+  if (!data || typeof data !== 'object' || !('message' in data)) return false;
+  const message = String((data as { message?: unknown }).message ?? '');
+  return message.includes('You can only send testing emails to your own email address');
+}
 
 function baseHead(): string {
   return `<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="color-scheme" content="light only"><meta name="supported-color-schemes" content="light only">`;
@@ -174,42 +196,36 @@ serve(async (req) => {
 
     const FROM = `${CLUB_NAME} <onboarding@resend.dev>`;
 
-    const ownerRes = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
+    let { response: ownerRes, data: ownerData } = await sendResendEmail(RESEND_API_KEY, {
+      from: FROM,
+      to: [OWNER_EMAIL],
+      subject: `[Kontakt forma] ${subject}`,
+      reply_to: email,
+      html: ownerEmailHtml(name, email, subject, message),
+    });
+
+    if (!ownerRes.ok && ownerRes.status === 403 && isResendTestRecipientError(ownerData)) {
+      console.warn('Resend test mode: primary owner recipient rejected, retrying with verified account email.');
+      ({ response: ownerRes, data: ownerData } = await sendResendEmail(RESEND_API_KEY, {
         from: FROM,
-        to: ['mprusac0@gmail.com'],
+        to: [RESEND_TEST_FALLBACK_EMAIL],
         subject: `[Kontakt forma] ${subject}`,
         reply_to: email,
         html: ownerEmailHtml(name, email, subject, message),
-      }),
-    });
+      }));
+    }
 
-    const ownerData = await ownerRes.json();
     if (!ownerRes.ok) {
       console.error('Resend API error (owner):', JSON.stringify(ownerData));
       throw new Error(`Resend API error [${ownerRes.status}]: ${JSON.stringify(ownerData)}`);
     }
 
-    const userRes = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: FROM,
-        to: [email],
-        subject: `Potvrda poruke - ${CLUB_NAME}`,
-        html: userConfirmationHtml(name, subject, message),
-      }),
+    const { response: userRes, data: userData } = await sendResendEmail(RESEND_API_KEY, {
+      from: FROM,
+      to: [email],
+      subject: `Potvrda poruke - ${CLUB_NAME}`,
+      html: userConfirmationHtml(name, subject, message),
     });
-
-    const userData = await userRes.json();
     if (!userRes.ok) {
       console.error('Resend API error (user confirmation):', JSON.stringify(userData));
     }
