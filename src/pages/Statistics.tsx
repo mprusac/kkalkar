@@ -413,6 +413,34 @@ const Statistics = () => {
   const rightColRef = useRef<HTMLDivElement>(null);
   const formBoxRef = useRef<HTMLDivElement>(null);
   const gamesHeaderRef = useRef<HTMLDivElement>(null);
+  const [gamesBoxHeight, setGamesBoxHeight] = useState<number | undefined>(undefined);
+
+  // Keep the bottom of the matches box aligned with the right-side table
+  useLayoutEffect(() => {
+    const measure = () => {
+      if (window.innerWidth < 1024) {
+        setGamesBoxHeight(undefined);
+        return;
+      }
+      const rightH = rightColRef.current?.offsetHeight;
+      const formH = formBoxRef.current?.offsetHeight;
+      if (!rightH || !formH) return;
+      const GAP = 12; // gap-3
+      setGamesBoxHeight(Math.max(200, rightH - formH - GAP));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    if (rightColRef.current) ro.observe(rightColRef.current);
+    if (formBoxRef.current) ro.observe(formBoxRef.current);
+    window.addEventListener("resize", measure);
+    const t = setTimeout(measure, 300);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+      clearTimeout(t);
+    };
+  }, [activeMainTab, activePlayersTab, matchPage]);
+
   const matchesPerPage = useMemo(() => {
     if (activeMainTab === "standings") return 9;
     if (activeMainTab === "statistics") return 10;
