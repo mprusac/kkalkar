@@ -754,12 +754,12 @@ const Statistics = () => {
                         href={match.sofascoreLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="block"
+                        className="block h-full"
                       >
                         {matchContent}
                       </a>
                     ) : (
-                      <div key={match.id}>{matchContent}</div>
+                      <div key={match.id} className="h-full">{matchContent}</div>
                     );
                   })}
                 </motion.div>
