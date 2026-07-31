@@ -413,6 +413,34 @@ const Statistics = () => {
   const rightColRef = useRef<HTMLDivElement>(null);
   const formBoxRef = useRef<HTMLDivElement>(null);
   const gamesHeaderRef = useRef<HTMLDivElement>(null);
+  const [gamesBoxHeight, setGamesBoxHeight] = useState<number | undefined>(undefined);
+
+  // Keep the bottom of the matches box aligned with the right-side table
+  useLayoutEffect(() => {
+    const measure = () => {
+      if (window.innerWidth < 1024) {
+        setGamesBoxHeight(undefined);
+        return;
+      }
+      const rightH = rightColRef.current?.offsetHeight;
+      const formH = formBoxRef.current?.offsetHeight;
+      if (!rightH || !formH) return;
+      const GAP = 12; // gap-3
+      setGamesBoxHeight(Math.max(200, rightH - formH - GAP));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    if (rightColRef.current) ro.observe(rightColRef.current);
+    if (formBoxRef.current) ro.observe(formBoxRef.current);
+    window.addEventListener("resize", measure);
+    const t = setTimeout(measure, 300);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+      clearTimeout(t);
+    };
+  }, [activeMainTab, activePlayersTab, matchPage]);
+
   const matchesPerPage = useMemo(() => {
     if (activeMainTab === "standings") return 9;
     if (activeMainTab === "statistics") return 10;
@@ -634,7 +662,7 @@ const Statistics = () => {
             </div>
 
             {/* Games */}
-            <div className="bg-secondary/30 rounded-xl border border-border/30 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col flex-1">
+            <div style={gamesBoxHeight ? { height: gamesBoxHeight } : undefined} className="bg-secondary/30 rounded-xl border border-border/30 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col flex-1 overflow-hidden">
               <div ref={gamesHeaderRef} className="p-2 border-b border-border/30 flex items-center justify-between">
                 <button 
                   onClick={() => setMatchPage(p => Math.max(0, p - 1))}
@@ -660,7 +688,7 @@ const Statistics = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.2 }}
-                  className="divide-y divide-border/20 flex-1 flex flex-col justify-between"
+                  className="divide-y divide-border/20 flex-1 min-h-0 flex flex-col justify-between overflow-hidden"
                 >
                   {displayedMatches.map((match) => {
                     const result = getMatchResult(match);
@@ -754,12 +782,12 @@ const Statistics = () => {
                         href={match.sofascoreLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="block h-full"
+                        className="block flex-1 min-h-0"
                       >
                         {matchContent}
                       </a>
                     ) : (
-                      <div key={match.id} className="h-full">{matchContent}</div>
+                      <div key={match.id} className="flex-1 min-h-0">{matchContent}</div>
                     );
                   })}
                 </motion.div>
