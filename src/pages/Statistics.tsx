@@ -416,19 +416,24 @@ const Statistics = () => {
   const [gamesBoxHeight, setGamesBoxHeight] = useState<number | undefined>(undefined);
 
   // Keep the bottom of the matches box aligned with the right-side table
+  const gamesBoxRef = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     const measure = () => {
       if (window.innerWidth < 1024) {
         setGamesBoxHeight(undefined);
         return;
       }
-      const rightH = rightColRef.current?.offsetHeight;
-      const formH = formBoxRef.current?.offsetHeight;
-      if (!rightH || !formH) return;
-      const GAP = 12; // gap-3
-      setGamesBoxHeight(Math.max(200, rightH - formH - GAP));
+      const right = rightColRef.current;
+      const games = gamesBoxRef.current;
+      if (!right || !games) return;
+      const rightBottom = right.getBoundingClientRect().bottom;
+      const gamesRect = games.getBoundingClientRect();
+      const delta = rightBottom - gamesRect.bottom;
+      if (Math.abs(delta) < 0.5) return;
+      setGamesBoxHeight(Math.max(200, gamesRect.height + delta));
     };
     measure();
+    const raf = requestAnimationFrame(measure);
     const ro = new ResizeObserver(measure);
     if (rightColRef.current) ro.observe(rightColRef.current);
     if (formBoxRef.current) ro.observe(formBoxRef.current);
@@ -436,10 +441,12 @@ const Statistics = () => {
     const t = setTimeout(measure, 300);
     return () => {
       ro.disconnect();
+      cancelAnimationFrame(raf);
       window.removeEventListener("resize", measure);
       clearTimeout(t);
     };
-  }, [activeMainTab, activePlayersTab, matchPage]);
+  }, [activeMainTab, activePlayersTab, matchPage, gamesBoxHeight]);
+
 
   const matchesPerPage = useMemo(() => {
     if (activeMainTab === "standings") return 9;
