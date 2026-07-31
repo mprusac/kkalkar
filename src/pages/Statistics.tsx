@@ -688,7 +688,7 @@ const Statistics = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.2 }}
-                  className="divide-y divide-border/20 flex-1 flex flex-col justify-between"
+                  className="divide-y divide-border/20 flex-1 min-h-0 flex flex-col justify-between overflow-hidden"
                 >
                   {displayedMatches.map((match) => {
                     const result = getMatchResult(match);
@@ -782,12 +782,12 @@ const Statistics = () => {
                         href={match.sofascoreLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="block h-full"
+                        className="block flex-1 min-h-0"
                       >
                         {matchContent}
                       </a>
                     ) : (
-                      <div key={match.id} className="h-full">{matchContent}</div>
+                      <div key={match.id} className="flex-1 min-h-0">{matchContent}</div>
                     );
                   })}
                 </motion.div>
