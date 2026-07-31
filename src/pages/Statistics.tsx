@@ -668,27 +668,27 @@ const Statistics = () => {
                     const awayLogo = getMatchTeamLogo(match, match.awayTeam);
                     
                     const matchContent = (
-                      <div className={`px-2 py-[7px] hover:bg-secondary/50 transition-all duration-200 ${!match.isUpcoming ? 'cursor-pointer hover:shadow-md' : ''}`}>
-                        <div>
-                          <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
+                      <div className={`h-full flex flex-col justify-center px-2 py-[7px] hover:bg-secondary/50 transition-all duration-200 ${!match.isUpcoming ? 'cursor-pointer hover:shadow-md' : ''}`}>
+                        <div className="w-full">
+                          <div className="flex items-center gap-2 text-[0.8625rem] text-muted-foreground mb-1">
                             <span>{match.date}</span>
                             {(match as any).time && <span>{(match as any).time}</span>}
                             {match.competition === "ENBL" ? (
                               <span className="inline-flex items-center gap-1 bg-primary/10 px-1.5 py-0.5 rounded">
                                 <img loading="lazy" decoding="async" src={enblLogo} alt="ENBL" className="h-4 object-contain" />
-                                <span className="text-xs font-bold text-foreground">ENBL</span>
+                                <span className="text-[0.8625rem] font-bold text-foreground">ENBL</span>
                               </span>
                             ) : match.competition === "Krešimir Ćosić Cup" ? (
                               <span className="inline-flex items-center gap-1 bg-primary/10 px-1.5 py-0.5 rounded">
                                 <img loading="lazy" decoding="async" src={kkcupLogo} alt="Krešimir Ćosić Cup" className="h-6 object-contain" />
-                                <span className="text-xs font-bold text-foreground">Krešimir Ćosić Cup</span>
+                                <span className="text-[0.8625rem] font-bold text-foreground">Krešimir Ćosić Cup</span>
                               </span>
                             ) : match.competition?.includes("🏆") || match.competition?.includes("Kup") ? (
-                              <span className="text-xs font-bold text-foreground bg-primary/10 px-1.5 py-0.5 rounded inline-flex items-center gap-1">
+                              <span className="text-[0.8625rem] font-bold text-foreground bg-primary/10 px-1.5 py-0.5 rounded inline-flex items-center gap-1">
                                 {match.competition}
                               </span>
                             ) : (
-                              <span className="text-xs font-bold text-foreground bg-primary/10 px-1.5 py-0.5 rounded inline-flex items-center gap-1">
+                              <span className="text-[0.8625rem] font-bold text-foreground bg-primary/10 px-1.5 py-0.5 rounded inline-flex items-center gap-1">
                                 {match.competition || "SuperSport PL"}
                                 <img loading="lazy" decoding="async" src={supersportLogo} alt="SuperSport PL" className="h-3.5 object-contain -mt-0.5" />
                               </span>
@@ -705,12 +705,12 @@ const Statistics = () => {
                                   <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
                                     {homeLogo && <img loading="lazy" decoding="async" src={homeLogo} alt="" className={`object-contain ${getStatsLogoClass(match.homeTeam)}`} />}
                                   </div>
-                                  <span className={`text-sm font-bold ${(match.homeTeam.includes("Alkar") || match.homeTeam.includes("Posušje")) ? "text-primary" : "text-foreground"}`}>
+                                  <span className={`text-[1.006rem] font-bold ${(match.homeTeam.includes("Alkar") || match.homeTeam.includes("Posušje")) ? "text-primary" : "text-foreground"}`}>
                                     {match.homeTeam}
                                   </span>
                                 </div>
                                 {!match.isUpcoming && (
-                                  <span className={`text-sm font-bold ${match.homeScore! > match.awayScore! ? "text-foreground" : "text-muted-foreground"}`}>
+                                  <span className={`text-[1.006rem] font-bold ${match.homeScore! > match.awayScore! ? "text-foreground" : "text-muted-foreground"}`}>
                                     {match.homeScore}
                                   </span>
                                 )}
@@ -722,12 +722,12 @@ const Statistics = () => {
                                   <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
                                     {awayLogo && <img loading="lazy" decoding="async" src={awayLogo} alt="" className={`object-contain ${getStatsLogoClass(match.awayTeam)}`} />}
                                   </div>
-                                  <span className={`text-sm font-bold ${(match.awayTeam.includes("Alkar") || match.awayTeam.includes("Posušje")) ? "text-primary" : "text-foreground"}`}>
+                                  <span className={`text-[1.006rem] font-bold ${(match.awayTeam.includes("Alkar") || match.awayTeam.includes("Posušje")) ? "text-primary" : "text-foreground"}`}>
                                     {match.awayTeam}
                                   </span>
                                 </div>
                                 {!match.isUpcoming && (
-                                  <span className={`text-sm font-bold ${match.awayScore! > match.homeScore! ? "text-foreground" : "text-muted-foreground"}`}>
+                                  <span className={`text-[1.006rem] font-bold ${match.awayScore! > match.homeScore! ? "text-foreground" : "text-muted-foreground"}`}>
                                     {match.awayScore}
                                   </span>
                                 )}
@@ -736,7 +736,7 @@ const Statistics = () => {
                             
                             {result && (
                               <div className="ml-2 flex items-center">
-                                <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold text-white ${
+                                <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10.35px] font-bold text-white ${
                                   result === "W" ? "bg-green-500" : "bg-red-500"
                                 }`}>
                                   {result}
