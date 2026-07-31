@@ -669,7 +669,7 @@ const Statistics = () => {
             </div>
 
             {/* Games */}
-            <div style={gamesBoxHeight ? { height: gamesBoxHeight } : undefined} className="bg-secondary/30 rounded-xl border border-border/30 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col flex-1 overflow-hidden">
+            <div ref={gamesBoxRef} style={gamesBoxHeight ? { height: gamesBoxHeight } : undefined} className="bg-secondary/30 rounded-xl border border-border/30 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col flex-1 overflow-hidden">
               <div ref={gamesHeaderRef} className="p-2 border-b border-border/30 flex items-center justify-between">
                 <button 
                   onClick={() => setMatchPage(p => Math.max(0, p - 1))}
