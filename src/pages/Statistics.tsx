@@ -426,10 +426,17 @@ const Statistics = () => {
       const right = rightColRef.current;
       const games = gamesBoxRef.current;
       if (!right || !games) return;
-      const rightBottom = right.getBoundingClientRect().bottom;
+      // The right column stretches with the grid row, so measure the real
+      // content bottom (its child cards) instead of the column itself.
+      let rightBottom = 0;
+      right.querySelectorAll<HTMLElement>(":scope > *").forEach((el) => {
+        rightBottom = Math.max(rightBottom, el.getBoundingClientRect().bottom);
+      });
+      if (!rightBottom) rightBottom = right.getBoundingClientRect().bottom;
       const gamesTop = games.getBoundingClientRect().top;
       const target = Math.max(200, Math.round(rightBottom - gamesTop));
       setGamesBoxHeight((prev) => (prev !== undefined && Math.abs(prev - target) < 1 ? prev : target));
+
     };
     measure();
     const raf = requestAnimationFrame(measure);
