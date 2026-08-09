@@ -427,10 +427,9 @@ const Statistics = () => {
       const games = gamesBoxRef.current;
       if (!right || !games) return;
       const rightBottom = right.getBoundingClientRect().bottom;
-      const gamesRect = games.getBoundingClientRect();
-      const delta = rightBottom - gamesRect.bottom;
-      if (Math.abs(delta) < 0.5) return;
-      setGamesBoxHeight(Math.max(200, gamesRect.height + delta));
+      const gamesTop = games.getBoundingClientRect().top;
+      const target = Math.max(200, Math.round(rightBottom - gamesTop));
+      setGamesBoxHeight((prev) => (prev !== undefined && Math.abs(prev - target) < 1 ? prev : target));
     };
     measure();
     const raf = requestAnimationFrame(measure);
@@ -438,14 +437,18 @@ const Statistics = () => {
     if (rightColRef.current) ro.observe(rightColRef.current);
     if (formBoxRef.current) ro.observe(formBoxRef.current);
     window.addEventListener("resize", measure);
-    const t = setTimeout(measure, 300);
+    const timers = [setTimeout(measure, 100), setTimeout(measure, 400), setTimeout(measure, 1000)];
+    if (typeof document !== "undefined" && (document as any).fonts?.ready) {
+      (document as any).fonts.ready.then(measure).catch(() => {});
+    }
     return () => {
       ro.disconnect();
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", measure);
-      clearTimeout(t);
+      timers.forEach(clearTimeout);
     };
-  }, [activeMainTab, activePlayersTab, matchPage, gamesBoxHeight]);
+  }, [activeMainTab, activePlayersTab, matchPage]);
+
 
 
   const matchesPerPage = useMemo(() => {
