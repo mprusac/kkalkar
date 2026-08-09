@@ -426,11 +426,20 @@ const Statistics = () => {
       const right = rightColRef.current;
       const games = gamesBoxRef.current;
       if (!right || !games) return;
-      const rightBottom = right.getBoundingClientRect().bottom;
+      // The right column stretches with the grid row, so measure the real
+      // content bottom (its child cards) instead of the column itself.
+      let rightBottom = 0;
+      right.querySelectorAll<HTMLElement>(":scope > *").forEach((el) => {
+        rightBottom = Math.max(rightBottom, el.getBoundingClientRect().bottom);
+      });
+      if (!rightBottom) rightBottom = right.getBoundingClientRect().bottom;
       const gamesRect = games.getBoundingClientRect();
-      const delta = rightBottom - gamesRect.bottom;
-      if (Math.abs(delta) < 0.5) return;
-      setGamesBoxHeight(Math.max(200, gamesRect.height + delta));
+      // The page uses CSS zoom, so rects are scaled while style.height is not.
+      const scale = gamesRect.height > 0 && games.offsetHeight > 0 ? gamesRect.height / games.offsetHeight : 1;
+      const target = Math.max(200, Math.round((rightBottom - gamesRect.top) / (scale || 1)));
+      setGamesBoxHeight((prev) => (prev !== undefined && Math.abs(prev - target) < 1 ? prev : target));
+
+
     };
     measure();
     const raf = requestAnimationFrame(measure);
@@ -438,14 +447,18 @@ const Statistics = () => {
     if (rightColRef.current) ro.observe(rightColRef.current);
     if (formBoxRef.current) ro.observe(formBoxRef.current);
     window.addEventListener("resize", measure);
-    const t = setTimeout(measure, 300);
+    const timers = [setTimeout(measure, 100), setTimeout(measure, 400), setTimeout(measure, 1000)];
+    if (typeof document !== "undefined" && (document as any).fonts?.ready) {
+      (document as any).fonts.ready.then(measure).catch(() => {});
+    }
     return () => {
       ro.disconnect();
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", measure);
-      clearTimeout(t);
+      timers.forEach(clearTimeout);
     };
-  }, [activeMainTab, activePlayersTab, matchPage, gamesBoxHeight]);
+  }, [activeMainTab, activePlayersTab, matchPage]);
+
 
 
   const matchesPerPage = useMemo(() => {
@@ -669,7 +682,7 @@ const Statistics = () => {
             </div>
 
             {/* Games */}
-            <div ref={gamesBoxRef} style={gamesBoxHeight ? { height: gamesBoxHeight } : undefined} className="bg-secondary/30 rounded-xl border border-border/30 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col flex-1 overflow-hidden">
+            <div ref={gamesBoxRef} style={gamesBoxHeight ? { height: gamesBoxHeight, flex: "0 0 auto" } : undefined} className="bg-secondary/30 rounded-xl border border-border/30 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col flex-1 overflow-hidden">
               <div ref={gamesHeaderRef} className="p-2 border-b border-border/30 flex items-center justify-between">
                 <button 
                   onClick={() => setMatchPage(p => Math.max(0, p - 1))}
