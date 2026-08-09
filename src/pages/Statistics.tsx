@@ -433,9 +433,12 @@ const Statistics = () => {
         rightBottom = Math.max(rightBottom, el.getBoundingClientRect().bottom);
       });
       if (!rightBottom) rightBottom = right.getBoundingClientRect().bottom;
-      const gamesTop = games.getBoundingClientRect().top;
-      const target = Math.max(200, Math.round(rightBottom - gamesTop));
+      const gamesRect = games.getBoundingClientRect();
+      // The page uses CSS zoom, so rects are scaled while style.height is not.
+      const scale = gamesRect.height > 0 && games.offsetHeight > 0 ? gamesRect.height / games.offsetHeight : 1;
+      const target = Math.max(200, Math.round((rightBottom - gamesRect.top) / (scale || 1)));
       setGamesBoxHeight((prev) => (prev !== undefined && Math.abs(prev - target) < 1 ? prev : target));
+
 
     };
     measure();
