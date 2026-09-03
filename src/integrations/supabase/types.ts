@@ -133,37 +133,52 @@ export type Database = {
       }
       players: {
         Row: {
+          birth_date: string | null
           created_at: string
           description: string | null
+          height_cm: number | null
           id: string
           image_url: string | null
           jersey_number: number | null
           name: string
+          nationality: string | null
           position: string | null
+          season_stats: Json
+          sofascore_link: string | null
           sort_order: number
           statistics: Json
           updated_at: string
         }
         Insert: {
+          birth_date?: string | null
           created_at?: string
           description?: string | null
+          height_cm?: number | null
           id?: string
           image_url?: string | null
           jersey_number?: number | null
           name: string
+          nationality?: string | null
           position?: string | null
+          season_stats?: Json
+          sofascore_link?: string | null
           sort_order?: number
           statistics?: Json
           updated_at?: string
         }
         Update: {
+          birth_date?: string | null
           created_at?: string
           description?: string | null
+          height_cm?: number | null
           id?: string
           image_url?: string | null
           jersey_number?: number | null
           name?: string
+          nationality?: string | null
           position?: string | null
+          season_stats?: Json
+          sofascore_link?: string | null
           sort_order?: number
           statistics?: Json
           updated_at?: string

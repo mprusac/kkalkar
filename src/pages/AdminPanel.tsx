@@ -22,6 +22,8 @@ import {
   ImagePlus, Newspaper, Loader2, Tag, Calendar, Users, Trophy,
 } from "lucide-react";
 import { OPPONENT_OPTIONS, staticTeamLogos as OPPONENT_LOGOS, competitionLabel } from "@/lib/adminMatches";
+import { SEASON_STAT_FIELDS, calcAge, type SeasonStats } from "@/lib/adminPlayers";
+import { NATIONALITIES, getFlagUrl } from "@/lib/nationalities";
 import logoSupersport from "@/assets/logos/supersport-premijer.png.asset.json";
 import logoEnbl from "@/assets/logos/enbl.png.asset.json";
 import logoKKCup from "@/assets/logos/kresimir_cosic_cup.png.asset.json";
@@ -85,6 +87,11 @@ interface PlayerItem {
   jersey_number: number | null;
   statistics: PlayerStat[];
   sort_order: number;
+  sofascore_link?: string | null;
+  nationality?: string | null;
+  height_cm?: number | null;
+  birth_date?: string | null;
+  season_stats?: SeasonStats | null;
 }
 
 function todayISO() {
@@ -1872,7 +1879,12 @@ function PlayerForm({
     image_url: initial?.image_url ?? "",
     jersey_number: initial?.jersey_number != null ? String(initial.jersey_number) : "",
     sort_order: initial?.sort_order != null ? String(initial.sort_order) : "0",
+    sofascore_link: initial?.sofascore_link ?? "",
+    nationality: initial?.nationality ?? "",
+    height_cm: initial?.height_cm != null ? String(initial.height_cm) : "",
+    birth_date: initial?.birth_date ?? "",
   });
+  const [seasonStats, setSeasonStats] = useState<SeasonStats>(initial?.season_stats ?? {});
   const [stats, setStats] = useState<PlayerStat[]>(
     initial?.statistics && initial.statistics.length > 0
       ? initial.statistics
@@ -1880,6 +1892,11 @@ function PlayerForm({
   );
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+
+  const descLength = form.description.length;
+  const descTone =
+    descLength > 95 ? "text-destructive" : descLength >= 90 ? "text-[hsl(38,92%,42%)]" : "text-[hsl(142,60%,34%)]";
+  const age = calcAge(form.birth_date);
 
   const handleImage = async (files: File[]) => {
     const file = files[0];
@@ -1921,6 +1938,13 @@ function PlayerForm({
         jersey_number: form.jersey_number === "" ? null : Number(form.jersey_number),
         sort_order: form.sort_order === "" ? 0 : Number(form.sort_order),
         statistics: cleanStats,
+        sofascore_link: form.sofascore_link.trim() || null,
+        nationality: form.nationality || null,
+        height_cm: form.height_cm === "" ? null : Number(form.height_cm),
+        birth_date: form.birth_date || null,
+        season_stats: Object.fromEntries(
+          Object.entries(seasonStats).filter(([, v]) => (v ?? "").toString().trim() !== ""),
+        ),
       };
       if (initial) {
         await apiFetch(`${PLAYERS_URL}/update`, {
@@ -1993,12 +2017,90 @@ function PlayerForm({
         </div>
 
         <div className="space-y-1.5">
-          <Label>Opis</Label>
+          <Label>SofaScore link</Label>
+          <Input
+            value={form.sofascore_link}
+            onChange={(e) => setForm({ ...form, sofascore_link: e.target.value })}
+            placeholder="https://www.sofascore.com/player/..."
+          />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="space-y-1.5">
+            <Label>Nacionalnost</Label>
+            <Select
+              value={form.nationality || "none"}
+              onValueChange={(v) => setForm({ ...form, nationality: v === "none" ? "" : v })}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Odaberi državu" />
+              </SelectTrigger>
+              <SelectContent className="max-h-72">
+                <SelectItem value="none">— bez nacionalnosti —</SelectItem>
+                {NATIONALITIES.map((n) => (
+                  <SelectItem key={n.code} value={n.code}>
+                    <span className="flex items-center gap-2">
+                      <img src={getFlagUrl(n.code)} alt="" className="w-5 h-3.5 object-cover rounded-sm" />
+                      {n.name} ({n.code})
+                    </span>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="space-y-1.5">
+            <Label>Visina (cm)</Label>
+            <Input
+              type="number"
+              inputMode="numeric"
+              value={form.height_cm}
+              onChange={(e) => setForm({ ...form, height_cm: e.target.value })}
+              placeholder="npr. 198"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <Label>
+              Datum rođenja{" "}
+              {age != null && <span className="text-xs text-muted-foreground">· dob: {age} god.</span>}
+            </Label>
+            <Input
+              type="date"
+              value={form.birth_date}
+              onChange={(e) => setForm({ ...form, birth_date: e.target.value })}
+            />
+          </div>
+        </div>
+
+        <div className="space-y-1.5">
+          <div className="flex items-center justify-between">
+            <Label>Opis</Label>
+            <span className="text-xs text-muted-foreground">preporučljivo 85–95 znakova</span>
+          </div>
           <AutoResizeTextarea
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
             placeholder="Kratki opis igrača, biografija..."
           />
+          <p className={`text-xs font-semibold text-right ${descTone}`}>{descLength} znakova</p>
+        </div>
+
+        <div className="space-y-2">
+          <Label>Sezonska statistika (odjeljak „Top igrači")</Label>
+          <p className="text-xs text-muted-foreground">
+            Ostavi prazno ako igrač nema podatak — tada se ne pojavljuje u toj kategoriji.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {SEASON_STAT_FIELDS.map((f) => (
+              <div key={f.key} className="space-y-1">
+                <Label className="text-xs">{f.title}</Label>
+                <Input
+                  value={seasonStats[f.key] ?? ""}
+                  onChange={(e) => setSeasonStats((prev) => ({ ...prev, [f.key]: e.target.value }))}
+                  placeholder={f.placeholder}
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="space-y-2">

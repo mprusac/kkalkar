@@ -57,6 +57,17 @@ function sanitize(body: any) {
   stats = stats
     .filter((s: any) => s && typeof s.label === 'string' && s.label.trim())
     .map((s: any) => ({ label: String(s.label).trim(), value: String(s.value ?? '').trim() }));
+  const STAT_KEYS = [
+    'points', 'rebounds', 'assists', 'steals', 'blocks', 'minutes',
+    'fg2_pct', 'fg3_pct', 'threes', 'def_rebounds', 'off_rebounds', 'double_doubles',
+  ];
+  const rawSeason = body.season_stats && typeof body.season_stats === 'object' ? body.season_stats : {};
+  const season: Record<string, string> = {};
+  for (const k of STAT_KEYS) {
+    const v = rawSeason[k];
+    if (v !== null && v !== undefined && String(v).trim() !== '') season[k] = String(v).trim().slice(0, 12);
+  }
+  const isoDate = (v: any) => (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v.trim()) ? v.trim() : null);
   return {
     name: String(body.name ?? '').trim(),
     position: trim(body.position),
@@ -65,6 +76,11 @@ function sanitize(body: any) {
     jersey_number: toInt(body.jersey_number),
     statistics: stats,
     sort_order: toInt(body.sort_order) ?? 0,
+    sofascore_link: trim(body.sofascore_link),
+    nationality: trim(body.nationality),
+    height_cm: toInt(body.height_cm),
+    birth_date: isoDate(body.birth_date),
+    season_stats: season,
   };
 }
 
