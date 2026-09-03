@@ -2,116 +2,12 @@ import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Camera, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
+import { fetchGalleryEvents, type GalleryEvent } from "@/lib/adminGalleries";
 
 
-
-import g1 from "@/assets/gallery-sezona-2025/g1.jpg.asset.json";
-import g2 from "@/assets/gallery-sezona-2025/g2.jpg.asset.json";
-import g3 from "@/assets/gallery-sezona-2025/g3.jpg.asset.json";
-import g4 from "@/assets/gallery-sezona-2025/g4.jpg.asset.json";
-import g5 from "@/assets/gallery-sezona-2025/g5.jpg.asset.json";
-import g6 from "@/assets/gallery-sezona-2025/g6.jpg.asset.json";
-import g7 from "@/assets/gallery-sezona-2025/g7.jpg.asset.json";
-import g8 from "@/assets/gallery-sezona-2025/g8.jpg.asset.json";
-import g9 from "@/assets/gallery-sezona-2025/g9.jpg.asset.json";
-import g10 from "@/assets/gallery-sezona-2025/g10.jpg.asset.json";
-import g11 from "@/assets/gallery-sezona-2025/g11.jpg.asset.json";
-import g12 from "@/assets/gallery-sezona-2025/g12.jpg.asset.json";
-import g13 from "@/assets/gallery-sezona-2025/g13.jpg.asset.json";
-import g14 from "@/assets/gallery-sezona-2025/g14.jpg.asset.json";
-import g15 from "@/assets/gallery-sezona-2025/g15.jpg.asset.json";
-import g16 from "@/assets/gallery-sezona-2025/g16.jpg.asset.json";
-import g17 from "@/assets/gallery-sezona-2025/g17.jpg.asset.json";
-import g18 from "@/assets/gallery-sezona-2025/g18.jpg.asset.json";
-import g19 from "@/assets/gallery-sezona-2025/g19.jpg.asset.json";
-import g20 from "@/assets/gallery-sezona-2025/g20.jpg.asset.json";
-import g21 from "@/assets/gallery-sezona-2025/g21.jpg.asset.json";
-import g22 from "@/assets/gallery-sezona-2025/g22.jpg.asset.json";
-import g23 from "@/assets/gallery-sezona-2025/g23.jpg.asset.json";
-import g24 from "@/assets/gallery-sezona-2025/g24.jpg.asset.json";
-import g25 from "@/assets/gallery-sezona-2025/g25.jpg.asset.json";
-import g26 from "@/assets/gallery-sezona-2025/g26.jpg.asset.json";
-import g27 from "@/assets/gallery-sezona-2025/g27.jpg.asset.json";
-import g28 from "@/assets/gallery-sezona-2025/g28.jpg.asset.json";
-import g29 from "@/assets/gallery-sezona-2025/g29.jpg.asset.json";
-import g30 from "@/assets/gallery-sezona-2025/g30.jpg.asset.json";
-import n1 from "@/assets/gallery-sezona-2025/n1.jpg.asset.json";
-import n2 from "@/assets/gallery-sezona-2025/n2.jpg.asset.json";
-import n3 from "@/assets/gallery-sezona-2025/n3.jpg.asset.json";
-import n4 from "@/assets/gallery-sezona-2025/n4.jpg.asset.json";
-import n5 from "@/assets/gallery-sezona-2025/n5.jpg.asset.json";
-import n6 from "@/assets/gallery-sezona-2025/n6.jpg.asset.json";
-import n7 from "@/assets/gallery-sezona-2025/n7.jpg.asset.json";
-import n8 from "@/assets/gallery-sezona-2025/n8.jpg.asset.json";
-
-// Image orientation type - vertical or horizontal
-type ImageWithOrientation = {
-  src: string;
-  orientation: "vertical" | "horizontal";
-};
-
-export const events: {
-  id: string;
-  homeTeam: string;
-  awayTeam: string;
-  date: string;
-  description: string;
-  coverImage: string;
-  images: string[];
-  imagesWithOrientation: ImageWithOrientation[];
-}[] = [
-  {
-    id: "sezona-2025-26",
-    homeTeam: "KK Alkar Sinj",
-    awayTeam: "",
-    date: "Sezona 2025/26",
-    description: "Trenuci s utakmica, slavlja i navijača u dvorani u Sinju.",
-    coverImage: g2.url,
-    images: [g1.url, g2.url, g3.url, g4.url, g5.url, g6.url, g7.url, g8.url, g9.url, g10.url, g11.url, g12.url, g13.url, g14.url, g15.url, g16.url, g17.url, g18.url, g19.url, g20.url, g21.url, g22.url, g23.url, g24.url, g25.url, g26.url, g27.url, g28.url, g29.url, g30.url, n1.url, n2.url, n3.url, n4.url, n5.url, n6.url, n7.url, n8.url],
-    imagesWithOrientation: [
-      { src: g2.url, orientation: "horizontal" },
-      { src: n5.url, orientation: "vertical" },
-      { src: g4.url, orientation: "vertical" },
-      { src: n4.url, orientation: "horizontal" },
-      { src: g5.url, orientation: "horizontal" },
-      { src: g22.url, orientation: "horizontal" },
-      { src: n6.url, orientation: "vertical" },
-      { src: g12.url, orientation: "vertical" },
-      { src: n1.url, orientation: "horizontal" },
-      { src: g26.url, orientation: "horizontal" },
-      { src: g11.url, orientation: "horizontal" },
-      { src: n7.url, orientation: "vertical" },
-      { src: g15.url, orientation: "horizontal" },
-      { src: g9.url, orientation: "vertical" },
-      { src: n8.url, orientation: "horizontal" },
-      { src: g27.url, orientation: "horizontal" },
-      { src: n2.url, orientation: "vertical" },
-      { src: g25.url, orientation: "horizontal" },
-      { src: g3.url, orientation: "horizontal" },
-      { src: n3.url, orientation: "vertical" },
-      { src: g29.url, orientation: "horizontal" },
-      { src: g8.url, orientation: "horizontal" },
-      { src: g14.url, orientation: "horizontal" },
-      { src: g30.url, orientation: "horizontal" },
-      { src: g17.url, orientation: "horizontal" },
-      { src: g28.url, orientation: "horizontal" },
-      { src: g16.url, orientation: "horizontal" },
-      { src: g21.url, orientation: "horizontal" },
-      { src: g1.url, orientation: "horizontal" },
-      { src: g18.url, orientation: "horizontal" },
-      { src: g23.url, orientation: "horizontal" },
-      { src: g6.url, orientation: "horizontal" },
-      { src: g13.url, orientation: "horizontal" },
-      { src: g24.url, orientation: "horizontal" },
-      { src: g20.url, orientation: "horizontal" },
-      { src: g10.url, orientation: "horizontal" },
-      { src: g19.url, orientation: "horizontal" },
-      { src: g7.url, orientation: "horizontal" },
-    ],
-  },
-];
 
 
 
@@ -143,7 +39,7 @@ const MasonryImage = ({ src, index }: { src: string; index: number }) => {
 };
 
 
-const EventCard = ({ event, index }: { event: typeof events[0]; index: number }) => {
+const EventCard = ({ event, index }: { event: GalleryEvent; index: number }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -181,7 +77,7 @@ const EventCard = ({ event, index }: { event: typeof events[0]; index: number })
   );
 };
 
-const EventAlbum = ({ event }: { event: typeof events[0] }) => {
+const EventAlbum = ({ event }: { event: GalleryEvent }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -192,10 +88,7 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
     document.body.scrollTop = 0;
   }, []);
 
-  // Get all images (either from imagesWithOrientation or regular images array)
-  const allImages = event.imagesWithOrientation 
-    ? event.imagesWithOrientation.map(img => img.src)
-    : event.images;
+  const allImages = event.images;
 
   const openLightbox = (index: number) => {
     setCurrentIndex(index);
@@ -216,20 +109,6 @@ const EventAlbum = ({ event }: { event: typeof events[0] }) => {
     setCurrentIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
   };
 
-  // Get span classes based on orientation - compact layout
-  const getSpanClasses = (index: number) => {
-    if (event.imagesWithOrientation) {
-      const img = event.imagesWithOrientation[index];
-      // Horizontal images span 2 columns, 1 row
-      // Vertical images span 1 column, 2 rows
-      return img.orientation === "horizontal" 
-        ? "col-span-2 row-span-1" 
-        : "col-span-1 row-span-2";
-    }
-    
-    // Fallback
-    return "col-span-1 row-span-1";
-  };
 
   return (
     <div className="min-h-screen"><div className="cream-page-scope">
@@ -344,6 +223,12 @@ const GalleryPage = () => {
   const { eventId } = useParams();
   const navigate = useNavigate();
 
+  const { data: events = [], isLoading } = useQuery({
+    queryKey: ["gallery-events"],
+    queryFn: fetchGalleryEvents,
+    staleTime: 5 * 60 * 1000,
+  });
+
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
@@ -357,6 +242,7 @@ const GalleryPage = () => {
     if (event) {
       return <EventAlbum event={event} />;
     }
+    if (isLoading) return <div className="min-h-screen" />;
   }
 
   // Otherwise show the events list
@@ -415,7 +301,7 @@ const GalleryPage = () => {
           {/* Events Grid */}
           {events.length === 0 ? (
             <p className="text-center text-[#0E2A63]/70 text-lg py-16">
-              Trenutno nema dostupnih galerija.
+              {isLoading ? "Učitavanje galerija…" : "Trenutno nema dostupnih galerija."}
             </p>
           ) : (
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
