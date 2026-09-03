@@ -250,10 +250,30 @@ const Statistics = () => {
   const [topPlayersPage, setTopPlayersPage] = useState(0);
   
   const [dynamicMatches, setDynamicMatches] = useState<DisplayMatch[]>([]);
+  const [dbPlayers, setDbPlayers] = useState<PublicPlayer[]>([]);
 
   useEffect(() => {
     fetchMatches().then(setDynamicMatches).catch(() => setDynamicMatches([]));
+    fetchPublicPlayers().then(setDbPlayers).catch(() => setDbPlayers([]));
   }, []);
+
+  const players: Player[] = useMemo(
+    () =>
+      dbPlayers.map((p) => ({
+        number: p.jerseyNumber,
+        name: p.name,
+        position: p.position,
+        nationality: p.nationality || "-",
+        height: p.heightCm ? `${p.heightCm} cm` : undefined,
+        dateOfBirth: formatDMY(p.birthDate) || undefined,
+        age: calcAge(p.birthDate) ?? undefined,
+        image: p.image || undefined,
+        sofascoreLink: p.sofascoreLink || undefined,
+      })),
+    [dbPlayers],
+  );
+
+  const allTopCategories = useMemo(() => buildTopCategories(dbPlayers), [dbPlayers]);
 
   // Backwards-compatible aliases so existing JSX below keeps working
   const matches = useMemo(() => {
