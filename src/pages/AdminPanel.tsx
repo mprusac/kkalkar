@@ -2017,12 +2017,90 @@ function PlayerForm({
         </div>
 
         <div className="space-y-1.5">
-          <Label>Opis</Label>
+          <Label>SofaScore link</Label>
+          <Input
+            value={form.sofascore_link}
+            onChange={(e) => setForm({ ...form, sofascore_link: e.target.value })}
+            placeholder="https://www.sofascore.com/player/..."
+          />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="space-y-1.5">
+            <Label>Nacionalnost</Label>
+            <Select
+              value={form.nationality || "none"}
+              onValueChange={(v) => setForm({ ...form, nationality: v === "none" ? "" : v })}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Odaberi državu" />
+              </SelectTrigger>
+              <SelectContent className="max-h-72">
+                <SelectItem value="none">— bez nacionalnosti —</SelectItem>
+                {NATIONALITIES.map((n) => (
+                  <SelectItem key={n.code} value={n.code}>
+                    <span className="flex items-center gap-2">
+                      <img src={getFlagUrl(n.code)} alt="" className="w-5 h-3.5 object-cover rounded-sm" />
+                      {n.name} ({n.code})
+                    </span>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="space-y-1.5">
+            <Label>Visina (cm)</Label>
+            <Input
+              type="number"
+              inputMode="numeric"
+              value={form.height_cm}
+              onChange={(e) => setForm({ ...form, height_cm: e.target.value })}
+              placeholder="npr. 198"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <Label>
+              Datum rođenja{" "}
+              {age != null && <span className="text-xs text-muted-foreground">· dob: {age} god.</span>}
+            </Label>
+            <Input
+              type="date"
+              value={form.birth_date}
+              onChange={(e) => setForm({ ...form, birth_date: e.target.value })}
+            />
+          </div>
+        </div>
+
+        <div className="space-y-1.5">
+          <div className="flex items-center justify-between">
+            <Label>Opis</Label>
+            <span className="text-xs text-muted-foreground">preporučljivo 85–95 znakova</span>
+          </div>
           <AutoResizeTextarea
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
             placeholder="Kratki opis igrača, biografija..."
           />
+          <p className={`text-xs font-semibold text-right ${descTone}`}>{descLength} znakova</p>
+        </div>
+
+        <div className="space-y-2">
+          <Label>Sezonska statistika (odjeljak „Top igrači")</Label>
+          <p className="text-xs text-muted-foreground">
+            Ostavi prazno ako igrač nema podatak — tada se ne pojavljuje u toj kategoriji.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {SEASON_STAT_FIELDS.map((f) => (
+              <div key={f.key} className="space-y-1">
+                <Label className="text-xs">{f.title}</Label>
+                <Input
+                  value={seasonStats[f.key] ?? ""}
+                  onChange={(e) => setSeasonStats((prev) => ({ ...prev, [f.key]: e.target.value }))}
+                  placeholder={f.placeholder}
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="space-y-2">
