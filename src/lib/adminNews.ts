@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import { resolveAssetUrl } from "@/lib/utils";
 
 export interface AdminNewsItem {
   id: string;
@@ -46,11 +47,11 @@ export async function fetchAdminNews(): Promise<AdminNewsItem[]> {
     date: formatDate(row.date),
     rawDate: row.date,
     category: (KNOWN.has(row.category) ? row.category : "klub") as AdminNewsItem["category"],
-    image: row.image_url || "",
-    cardImage: row.image_url || "",
+    image: resolveAssetUrl(row.image_url) || "",
+    cardImage: resolveAssetUrl(row.image_url) || "",
     imagePosition: row.image_position || "center",
     cardImagePosition: row.image_position || "center",
-    galleryImages: row.gallery_images || [],
+    galleryImages: (row.gallery_images || []).map((u: string) => resolveAssetUrl(u)),
     pinned: row.pinned,
   }));
 }

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState, memo, ChangeEvent, useRef, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import { resolveAssetUrl } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -208,7 +209,7 @@ const ImageThumb = memo(function ImageThumb({
   return (
     <div className="relative group">
       <img
-        src={src}
+        src={resolveAssetUrl(src)}
         loading="lazy"
         decoding="async"
         className="w-full h-16 rounded-lg object-cover border border-border"
@@ -827,7 +828,7 @@ export default function AdminPanel() {
               {news.slice(0, 10).map((n) => (
                 <Card key={n.id} className="p-3 bg-card border-border flex items-center gap-3">
                   {n.image_url ? (
-                    <img src={n.image_url} className="aspect-square w-14 rounded object-cover border border-border shrink-0" />
+                    <img src={resolveAssetUrl(n.image_url)} className="aspect-square w-14 rounded object-cover border border-border shrink-0" />
                   ) : (
                     <div className="aspect-square w-14 rounded bg-muted shrink-0" />
                   )}
@@ -868,7 +869,7 @@ export default function AdminPanel() {
               {galleries.map((g) => (
                 <Card key={g.id} className="p-3 bg-card border-border flex items-center gap-3">
                   {g.cover_image ? (
-                    <img src={g.cover_image} className="aspect-square w-14 rounded object-cover border border-border shrink-0" />
+                    <img src={resolveAssetUrl(g.cover_image)} className="aspect-square w-14 rounded object-cover border border-border shrink-0" />
                   ) : (
                     <div className="aspect-square w-14 rounded bg-muted shrink-0" />
                   )}
@@ -908,7 +909,7 @@ export default function AdminPanel() {
                 return (
                   <Card key={m.id} className="p-2.5 bg-card border-border flex items-center gap-2">
                     {opponentLogo ? (
-                      <img src={opponentLogo} className="w-10 h-10 rounded object-contain border border-border bg-background shrink-0" />
+                      <img src={resolveAssetUrl(opponentLogo)} className="w-10 h-10 rounded object-contain border border-border bg-background shrink-0" />
                     ) : (
                       <div className="w-10 h-10 rounded bg-muted shrink-0" />
                     )}
@@ -959,7 +960,7 @@ export default function AdminPanel() {
               {players.map((p) => (
                 <Card key={p.id} className="p-3 bg-card border-border flex items-center gap-3">
                   {p.image_url ? (
-                    <img src={p.image_url} className="aspect-square w-14 rounded object-cover object-top border border-border shrink-0" />
+                    <img src={resolveAssetUrl(p.image_url)} className="aspect-square w-14 rounded object-cover object-top border border-border shrink-0" />
                   ) : (
                     <div className="aspect-square w-14 rounded bg-muted shrink-0 flex items-center justify-center">
                       <Users className="w-5 h-5 text-muted-foreground" />
@@ -1159,7 +1160,7 @@ function NewsForm({
           <Label>Naslovna slika</Label>
           {form.image_url && (
             <div className="relative w-40">
-              <img src={form.image_url} className="w-40 h-40 object-cover rounded border border-border" />
+              <img src={resolveAssetUrl(form.image_url)} className="w-40 h-40 object-cover rounded border border-border" />
               <button
                 type="button"
                 onClick={() => setForm({ ...form, image_url: "" })}
@@ -1334,7 +1335,7 @@ function GalleryForm({
           <Label>Naslovna slika</Label>
           {form.cover_image && (
             <div className="relative w-40">
-              <img src={form.cover_image} className="w-40 h-40 object-cover rounded border border-border" />
+              <img src={resolveAssetUrl(form.cover_image)} className="w-40 h-40 object-cover rounded border border-border" />
               <button
                 type="button"
                 onClick={() => setForm({ ...form, cover_image: "" })}
@@ -1691,7 +1692,7 @@ function MatchForm({
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-background/60 border border-border flex items-center justify-center overflow-hidden p-2 flex-shrink-0">
                   {opponentLogoUrl ? (
-                    <img src={opponentLogoUrl} alt="Logo" className="w-full h-full object-contain" />
+                    <img src={resolveAssetUrl(opponentLogoUrl)} alt="Logo" className="w-full h-full object-contain" />
                   ) : (
                     <span className="text-xs text-muted-foreground text-center">bez loga</span>
                   )}
@@ -2004,7 +2005,7 @@ function PlayerForm({
           <Label>Slika igrača</Label>
           {form.image_url && (
             <div className="relative w-40">
-              <img src={form.image_url} className="w-40 h-40 object-cover rounded border border-border" />
+              <img src={resolveAssetUrl(form.image_url)} className="w-40 h-40 object-cover rounded border border-border" />
               <button
                 type="button"
                 onClick={() => setForm({ ...form, image_url: "" })}
