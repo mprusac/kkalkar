@@ -301,7 +301,7 @@ const GalleryPage = () => {
           {/* Events Grid */}
           {events.length === 0 ? (
             <p className="text-center text-[#0E2A63]/70 text-lg py-16">
-              Trenutno nema dostupnih galerija.
+              {isLoading ? "Učitavanje galerija…" : "Trenutno nema dostupnih galerija."}
             </p>
           ) : (
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
