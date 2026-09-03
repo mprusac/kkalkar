@@ -85,6 +85,11 @@ interface PlayerItem {
   jersey_number: number | null;
   statistics: PlayerStat[];
   sort_order: number;
+  sofascore_link?: string | null;
+  nationality?: string | null;
+  height_cm?: number | null;
+  birth_date?: string | null;
+  season_stats?: SeasonStats | null;
 }
 
 function todayISO() {
