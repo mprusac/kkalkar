@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import { resolveAssetUrl } from "@/lib/utils";
 
 // Team logos (kept in sync with Results.tsx / Statistics.tsx)
 import logoPosusje from "@/assets/logos/kk_posusje.png";
@@ -151,7 +152,7 @@ export function toDisplay(row: MatchRow): DisplayMatch {
     youtubeLink: row.youtube_link ?? undefined,
     competition: competitionLabel(row.competition),
     opponent: row.opponent,
-    opponentLogoUrl: row.opponent_logo_url,
+    opponentLogoUrl: resolveAssetUrl(row.opponent_logo_url),
   };
 }
 
