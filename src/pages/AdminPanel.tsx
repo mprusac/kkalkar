@@ -22,6 +22,8 @@ import {
   ImagePlus, Newspaper, Loader2, Tag, Calendar, Users, Trophy,
 } from "lucide-react";
 import { OPPONENT_OPTIONS, staticTeamLogos as OPPONENT_LOGOS, competitionLabel } from "@/lib/adminMatches";
+import { SEASON_STAT_FIELDS, calcAge, type SeasonStats } from "@/lib/adminPlayers";
+import { NATIONALITIES, getFlagUrl } from "@/lib/nationalities";
 import logoSupersport from "@/assets/logos/supersport-premijer.png.asset.json";
 import logoEnbl from "@/assets/logos/enbl.png.asset.json";
 import logoKKCup from "@/assets/logos/kresimir_cosic_cup.png.asset.json";
