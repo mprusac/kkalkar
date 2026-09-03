@@ -1879,7 +1879,12 @@ function PlayerForm({
     image_url: initial?.image_url ?? "",
     jersey_number: initial?.jersey_number != null ? String(initial.jersey_number) : "",
     sort_order: initial?.sort_order != null ? String(initial.sort_order) : "0",
+    sofascore_link: initial?.sofascore_link ?? "",
+    nationality: initial?.nationality ?? "",
+    height_cm: initial?.height_cm != null ? String(initial.height_cm) : "",
+    birth_date: initial?.birth_date ?? "",
   });
+  const [seasonStats, setSeasonStats] = useState<SeasonStats>(initial?.season_stats ?? {});
   const [stats, setStats] = useState<PlayerStat[]>(
     initial?.statistics && initial.statistics.length > 0
       ? initial.statistics
@@ -1887,6 +1892,11 @@ function PlayerForm({
   );
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+
+  const descLength = form.description.length;
+  const descTone =
+    descLength > 95 ? "text-destructive" : descLength >= 90 ? "text-[hsl(38,92%,42%)]" : "text-[hsl(142,60%,34%)]";
+  const age = calcAge(form.birth_date);
 
   const handleImage = async (files: File[]) => {
     const file = files[0];
