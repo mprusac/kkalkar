@@ -223,6 +223,12 @@ const GalleryPage = () => {
   const { eventId } = useParams();
   const navigate = useNavigate();
 
+  const { data: events = [], isLoading } = useQuery({
+    queryKey: ["gallery-events"],
+    queryFn: fetchGalleryEvents,
+    staleTime: 5 * 60 * 1000,
+  });
+
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
@@ -236,6 +242,7 @@ const GalleryPage = () => {
     if (event) {
       return <EventAlbum event={event} />;
     }
+    if (isLoading) return <div className="min-h-screen" />;
   }
 
   // Otherwise show the events list
