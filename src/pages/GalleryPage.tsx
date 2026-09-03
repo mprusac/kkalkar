@@ -77,7 +77,7 @@ const EventCard = ({ event, index }: { event: GalleryEvent; index: number }) => 
   );
 };
 
-const EventAlbum = ({ event }: { event: typeof events[0] }) => {
+const EventAlbum = ({ event }: { event: GalleryEvent }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
