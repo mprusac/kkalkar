@@ -19,9 +19,9 @@ const BRAND_MUTED = '#6B7280';
 const LOGO_URL = 'https://vfhveejsqopkqslpdbhw.supabase.co/storage/v1/object/public/email-assets/alkar-logo.png';
 const CLUB_NAME = 'KK Alkar Sinj';
 const CLUB_ADDRESS = 'Ulica Alajčauša Frane Bareze Šore 1, 21230 Sinj';
-const CLUB_SITE = 'https://kkposusje-digital-court.lovable.app';
-const CLUB_EMAIL = 'kontakt@kkalkar.hr';
-const OWNER_EMAIL = 'mprusac0@gmail.com';
+const CLUB_SITE = 'https://kkalkar.online/';
+const CLUB_EMAIL = 'ured.alkar@gmail.com';
+const OWNER_EMAIL = 'ured.alkar@gmail.com';
 const RESEND_TEST_FALLBACK_EMAIL = 'mprusac23@student.foi.hr';
 
 async function sendResendEmail(apiKey: string, payload: Record<string, unknown>) {
@@ -57,7 +57,7 @@ function footerBlock(): string {
       <p style="margin:2px 0 0;font-size:11px;color:#B8C4DC;">
         <a href="mailto:${CLUB_EMAIL}" style="color:${BRAND_GOLD_SOFT};text-decoration:none;">${CLUB_EMAIL}</a>
         &nbsp;·&nbsp;
-        <a href="${CLUB_SITE}" style="color:${BRAND_GOLD_SOFT};text-decoration:none;">kkalkar.hr</a>
+        <a href="${CLUB_SITE}" style="color:${BRAND_GOLD_SOFT};text-decoration:none;">kkalkar.online</a>
       </p>
     </td></tr>`;
 }
