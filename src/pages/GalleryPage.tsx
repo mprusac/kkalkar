@@ -39,7 +39,7 @@ const MasonryImage = ({ src, index }: { src: string; index: number }) => {
 };
 
 
-const EventCard = ({ event, index }: { event: typeof events[0]; index: number }) => {
+const EventCard = ({ event, index }: { event: GalleryEvent; index: number }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
