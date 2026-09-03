@@ -109,20 +109,6 @@ const EventAlbum = ({ event }: { event: GalleryEvent }) => {
     setCurrentIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
   };
 
-  // Get span classes based on orientation - compact layout
-  const getSpanClasses = (index: number) => {
-    if (event.imagesWithOrientation) {
-      const img = event.imagesWithOrientation[index];
-      // Horizontal images span 2 columns, 1 row
-      // Vertical images span 1 column, 2 rows
-      return img.orientation === "horizontal" 
-        ? "col-span-2 row-span-1" 
-        : "col-span-1 row-span-2";
-    }
-    
-    // Fallback
-    return "col-span-1 row-span-1";
-  };
 
   return (
     <div className="min-h-screen"><div className="cream-page-scope">
