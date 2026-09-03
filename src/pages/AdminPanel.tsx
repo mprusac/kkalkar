@@ -1938,6 +1938,13 @@ function PlayerForm({
         jersey_number: form.jersey_number === "" ? null : Number(form.jersey_number),
         sort_order: form.sort_order === "" ? 0 : Number(form.sort_order),
         statistics: cleanStats,
+        sofascore_link: form.sofascore_link.trim() || null,
+        nationality: form.nationality || null,
+        height_cm: form.height_cm === "" ? null : Number(form.height_cm),
+        birth_date: form.birth_date || null,
+        season_stats: Object.fromEntries(
+          Object.entries(seasonStats).filter(([, v]) => (v ?? "").toString().trim() !== ""),
+        ),
       };
       if (initial) {
         await apiFetch(`${PLAYERS_URL}/update`, {
