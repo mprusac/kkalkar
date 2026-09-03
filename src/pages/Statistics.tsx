@@ -419,10 +419,11 @@ const Statistics = () => {
   };
 
   const getFlagImage = (nationality: string) => {
+    if (!nationality || nationality === "-") return null;
     if (nationality === "BIH") return flagBih;
     if (nationality === "HRV" || nationality === "CRO") return flagCro;
     if (nationality === "USA") return flagUsa;
-    return null;
+    return getFlagUrl(nationality);
   };
 
   const getFlagEmoji = (nationality: string) => {
