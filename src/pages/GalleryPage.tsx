@@ -88,10 +88,7 @@ const EventAlbum = ({ event }: { event: GalleryEvent }) => {
     document.body.scrollTop = 0;
   }, []);
 
-  // Get all images (either from imagesWithOrientation or regular images array)
-  const allImages = event.imagesWithOrientation 
-    ? event.imagesWithOrientation.map(img => img.src)
-    : event.images;
+  const allImages = event.images;
 
   const openLightbox = (index: number) => {
     setCurrentIndex(index);
