@@ -52,7 +52,7 @@ const Hero = () => {
         className="absolute top-0 left-0 right-0 bottom-0 w-full h-full will-change-transform"
         style={{ 
           backgroundImage: `url(${teamPhoto})`,
-          backgroundPosition: isMobile ? 'center 80%' : 'center center',
+          backgroundPosition: isMobile ? 'center 42%' : 'center center',
           backgroundSize: isMobile ? 'cover' : '140%',
           backgroundRepeat: 'no-repeat',
           transform: `translateY(${scrollY * 0.3}px)`,
@@ -63,7 +63,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center -mt-20 md:mt-0">
+      <div className="relative z-10 container mx-auto px-4 text-center -mt-24 md:mt-0">
         <div className="max-w-4xl mx-auto">
         <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display tracking-wider mb-4 mt-16 md:mt-0 animate-fade-in-up">
             <span className="text-foreground">KK </span>
