@@ -131,7 +131,7 @@ const ProjectPage = () => {
               </h2>
               <div className="space-y-3">
                 {pozivi.map((doc, i) => (
-                  <DocCard key={doc.id} doc={doc} index={i} />
+                  <DocCard key={doc.id} doc={doc} index={i} onPreview={setPreviewDoc} />
                 ))}
               </div>
             </section>
