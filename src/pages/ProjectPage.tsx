@@ -159,7 +159,7 @@ const ProjectPage = () => {
       <Dialog open={!!previewDoc} onOpenChange={(open) => !open && setPreviewDoc(null)}>
         <DialogContent className="max-w-5xl border-[#c9a24c] bg-white p-0">
           <DialogHeader className="border-b border-[#c9a24c]/40 px-10 py-4 text-center sm:text-center">
-            <DialogTitle className="text-center text-base text-[#0E2A63]">
+            <DialogTitle className="text-center text-[1.2rem] text-[#0E2A63]">
               {previewDoc?.title}
             </DialogTitle>
             {previewDoc && (
