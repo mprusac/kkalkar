@@ -19,10 +19,11 @@ import {
 import { toast } from "sonner";
 import {
   Plus, Edit, Trash2, Save, X, Upload, Pin, ArrowLeft, LogOut,
-  ImagePlus, Newspaper, Loader2, Tag, Calendar, Users, Trophy,
+  ImagePlus, Newspaper, Loader2, Tag, Calendar, Users, Trophy, FileText,
 } from "lucide-react";
 import { OPPONENT_OPTIONS, staticTeamLogos as OPPONENT_LOGOS, competitionLabel } from "@/lib/adminMatches";
 import { SEASON_STAT_FIELDS, calcAge, type SeasonStats } from "@/lib/adminPlayers";
+import { formatDocDate, type ProjectDocument } from "@/lib/adminDocuments";
 import { NATIONALITIES, getFlagUrl } from "@/lib/nationalities";
 import logoSupersport from "@/assets/logos/supersport-premijer.png.asset.json";
 import logoEnbl from "@/assets/logos/enbl.png.asset.json";
@@ -32,6 +33,7 @@ const NEWS_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-news`;
 const GALLERY_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-galleries`;
 const MATCHES_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-matches`;
 const PLAYERS_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-players`;
+const DOCS_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-documents`;
 const DEFAULT_CATEGORIES = ["2026", "2025", "Najava"];
 
 type CompetitionValue = "liga" | "kup" | "enbl" | "kkcup" | "liburnia";
