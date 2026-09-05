@@ -19,10 +19,11 @@ import {
 import { toast } from "sonner";
 import {
   Plus, Edit, Trash2, Save, X, Upload, Pin, ArrowLeft, LogOut,
-  ImagePlus, Newspaper, Loader2, Tag, Calendar, Users, Trophy,
+  ImagePlus, Newspaper, Loader2, Tag, Calendar, Users, Trophy, FileText,
 } from "lucide-react";
 import { OPPONENT_OPTIONS, staticTeamLogos as OPPONENT_LOGOS, competitionLabel } from "@/lib/adminMatches";
 import { SEASON_STAT_FIELDS, calcAge, type SeasonStats } from "@/lib/adminPlayers";
+import { formatDocDate, type ProjectDocument } from "@/lib/adminDocuments";
 import { NATIONALITIES, getFlagUrl } from "@/lib/nationalities";
 import logoSupersport from "@/assets/logos/supersport-premijer.png.asset.json";
 import logoEnbl from "@/assets/logos/enbl.png.asset.json";
@@ -32,6 +33,7 @@ const NEWS_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-news`;
 const GALLERY_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-galleries`;
 const MATCHES_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-matches`;
 const PLAYERS_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-players`;
+const DOCS_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-documents`;
 const DEFAULT_CATEGORIES = ["2026", "2025", "Najava"];
 
 type CompetitionValue = "liga" | "kup" | "enbl" | "kkcup" | "liburnia";
@@ -512,9 +514,10 @@ export default function AdminPanel() {
   const [galleries, setGalleries] = useState<GalleryItem[]>([]);
   const [matches, setMatches] = useState<MatchItem[]>([]);
   const [players, setPlayers] = useState<PlayerItem[]>([]);
+  const [documents, setDocuments] = useState<ProjectDocument[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const [view, setView] = useState<"main" | "news-form" | "gallery-form" | "match-form" | "player-form">("main");
+  const [view, setView] = useState<"main" | "news-form" | "gallery-form" | "match-form" | "player-form" | "document-form">("main");
   const [editing, setEditing] = useState<NewsItem | null>(null);
 
   useEffect(() => {
@@ -527,8 +530,9 @@ export default function AdminPanel() {
   const [editingGallery, setEditingGallery] = useState<GalleryItem | null>(null);
   const [editingMatch, setEditingMatch] = useState<MatchItem | null>(null);
   const [editingPlayer, setEditingPlayer] = useState<PlayerItem | null>(null);
+  const [editingDocument, setEditingDocument] = useState<ProjectDocument | null>(null);
 
-  const [confirmDelete, setConfirmDelete] = useState<{ kind: "news" | "gallery" | "match" | "player"; id: string } | null>(null);
+  const [confirmDelete, setConfirmDelete] = useState<{ kind: "news" | "gallery" | "match" | "player" | "document"; id: string } | null>(null);
   const [categoryModal, setCategoryModal] = useState(false);
 
   const logout = useCallback(() => {
@@ -538,6 +542,7 @@ export default function AdminPanel() {
     setGalleries([]);
     setMatches([]);
     setPlayers([]);
+    setDocuments([]);
     setView("main");
   }, []);
 
@@ -578,14 +583,18 @@ export default function AdminPanel() {
     const data = await apiFetch(`${PLAYERS_URL}/list`);
     setPlayers(data);
   }, [apiFetch]);
+  const fetchDocuments = useCallback(async () => {
+    const data = await apiFetch(`${DOCS_URL}/list`);
+    setDocuments(data);
+  }, [apiFetch]);
 
   useEffect(() => {
     if (!token) return;
     setLoading(true);
-    Promise.all([fetchNews(), fetchGalleries(), fetchMatches(), fetchPlayers()])
+    Promise.all([fetchNews(), fetchGalleries(), fetchMatches(), fetchPlayers(), fetchDocuments()])
       .catch((e) => toast.error("Greška pri učitavanju", { description: e.message }))
       .finally(() => setLoading(false));
-  }, [token, fetchNews, fetchGalleries, fetchMatches, fetchPlayers]);
+  }, [token, fetchNews, fetchGalleries, fetchMatches, fetchPlayers, fetchDocuments]);
 
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -735,6 +744,21 @@ export default function AdminPanel() {
     );
   }
 
+  if (view === "document-form") {
+    return (
+      <DocumentForm
+        initial={editingDocument}
+        onCancel={() => { setView("main"); setEditingDocument(null); }}
+        onSaved={async () => {
+          await fetchDocuments();
+          setView("main");
+          setEditingDocument(null);
+        }}
+        apiFetch={apiFetch}
+      />
+    );
+  }
+
   // ---------- MAIN VIEW ----------
   const handleDelete = async () => {
     if (!confirmDelete) return;
@@ -743,12 +767,14 @@ export default function AdminPanel() {
         confirmDelete.kind === "news" ? `${NEWS_URL}/delete`
         : confirmDelete.kind === "gallery" ? `${GALLERY_URL}/delete`
         : confirmDelete.kind === "match" ? `${MATCHES_URL}/delete`
+        : confirmDelete.kind === "document" ? `${DOCS_URL}/delete`
         : `${PLAYERS_URL}/delete`;
       await apiFetch(url, { method: "POST", body: JSON.stringify({ id: confirmDelete.id }) });
       toast.success("Obrisano");
       if (confirmDelete.kind === "news") await fetchNews();
       else if (confirmDelete.kind === "gallery") await fetchGalleries();
       else if (confirmDelete.kind === "match") await fetchMatches();
+      else if (confirmDelete.kind === "document") await fetchDocuments();
       else await fetchPlayers();
     } catch (e) {
       toast.error("Greška", { description: (e as Error).message });
@@ -805,11 +831,14 @@ export default function AdminPanel() {
           <Button variant="outline" className="admin-nav-btn" onClick={() => { setEditingPlayer(null); setView("player-form"); }}>
             <Users className="w-4 h-4 mr-2" /> Novi igrač
           </Button>
+          <Button variant="outline" className="admin-nav-btn" onClick={() => { setEditingDocument(null); setView("document-form"); }}>
+            <FileText className="w-4 h-4 mr-2" /> Novi dokument
+          </Button>
         </div>
 
 
-        {/* Four column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        {/* Column layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
           {/* Vijesti */}
           <section className="space-y-3 min-w-0">
             <div className="flex items-center justify-center gap-2">
@@ -989,6 +1018,49 @@ export default function AdminPanel() {
                       <Edit className="w-4 h-4" />
                     </Button>
                     <Button variant="destructive" size="icon" className="h-8 w-8" onClick={() => setConfirmDelete({ kind: "player", id: p.id })}>
+                      <Trash2 className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* Dokumenti */}
+          <section className="space-y-3 min-w-0">
+            <h2 className="font-display text-xl uppercase tracking-wider text-center text-[hsl(38,75%,38%)]">
+              Dokumenti
+            </h2>
+            {documents.length === 0 && !loading && (
+              <p className="text-black py-8 text-center">Nema dokumenata.</p>
+            )}
+            <div className="space-y-2">
+              {documents.map((d) => (
+                <Card key={d.id} className="p-3 bg-card border-border flex items-center gap-3">
+                  <div className="aspect-square w-14 rounded bg-muted shrink-0 flex items-center justify-center">
+                    <FileText className="w-5 h-5 text-muted-foreground" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <a
+                      href={d.file_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-sm line-clamp-2 hover:underline"
+                    >
+                      {d.title}
+                    </a>
+                    <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground">
+                      <span>{formatDocDate(d.doc_date)}</span>
+                      <Badge variant="secondary" className="text-xs">
+                        {d.category === "poziv" ? "Poziv" : "Radionica"}
+                      </Badge>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1 shrink-0">
+                    <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => { setEditingDocument(d); setView("document-form"); }}>
+                      <Edit className="w-4 h-4" />
+                    </Button>
+                    <Button variant="destructive" size="icon" className="h-8 w-8" onClick={() => setConfirmDelete({ kind: "document", id: d.id })}>
                       <Trash2 className="w-4 h-4" />
                     </Button>
                   </div>
@@ -2166,6 +2238,163 @@ function PlayerForm({
           </div>
         </div>
       </main>
+    </div>
+  );
+}
+
+/* ============================ DOCUMENT FORM ============================ */
+function DocumentForm({
+  initial, onCancel, onSaved, apiFetch,
+}: {
+  initial: ProjectDocument | null;
+  onCancel: () => void;
+  onSaved: () => void;
+  apiFetch: (url: string, init?: RequestInit) => Promise<any>;
+}) {
+  const [title, setTitle] = useState(initial?.title ?? "");
+  const [description, setDescription] = useState(initial?.description ?? "");
+  const [docDate, setDocDate] = useState(initial?.doc_date ?? "");
+  const [category, setCategory] = useState<"poziv" | "radionica">(initial?.category ?? "radionica");
+  const [storagePath, setStoragePath] = useState(initial?.storage_path ?? "");
+  const [fileName, setFileName] = useState(initial?.storage_path?.split("/").pop() ?? "");
+  const [uploading, setUploading] = useState(false);
+  const [saving, setSaving] = useState(false);
+
+  const handleFile = async (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    try {
+      const token = sessionStorage.getItem("admin_token");
+      const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+      const path = `${category === "poziv" ? "poziv" : "radionice"}/${Date.now()}_${safeName}`;
+      const res = await fetch(`${DOCS_URL}/signed-upload`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ path }),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body?.error ?? `HTTP ${res.status}`);
+      const { error } = await supabase.storage
+        .from("project-documents")
+        .uploadToSignedUrl(body.path, body.token, file);
+      if (error) throw error;
+      setStoragePath(body.path);
+      setFileName(file.name);
+      toast.success("Dokument učitan");
+    } catch (err) {
+      toast.error("Greška pri učitavanju", { description: (err as Error).message });
+    } finally {
+      setUploading(false);
+      e.target.value = "";
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!storagePath) {
+      toast.error("Dodajte PDF datoteku");
+      return;
+    }
+    setSaving(true);
+    try {
+      const payload = {
+        title,
+        description: description || null,
+        doc_date: docDate,
+        category,
+        file_url: storagePath,
+        sort_order: initial?.sort_order ?? 0,
+      };
+      if (initial) {
+        await apiFetch(`${DOCS_URL}/update`, {
+          method: "POST",
+          body: JSON.stringify({ id: initial.id, ...payload }),
+        });
+        toast.success("Dokument ažuriran");
+      } else {
+        await apiFetch(`${DOCS_URL}/create`, { method: "POST", body: JSON.stringify(payload) });
+        toast.success("Dokument dodan!");
+      }
+      onSaved();
+    } catch (err) {
+      toast.error("Greška", { description: (err as Error).message });
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen admin-cream-scope animate-fade-in" style={{ backgroundColor: "#faf3e0" }}>
+      <div className="max-w-2xl mx-auto p-4 space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="font-semibold text-2xl">{initial ? "Uredi dokument" : "Novi dokument"}</h2>
+          <Button variant="outline" size="sm" onClick={onCancel}>
+            <X className="w-4 h-4 mr-2" /> Zatvori
+          </Button>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-1.5">
+            <Label>Naslov</Label>
+            <Input value={title} onChange={(e) => setTitle(e.target.value)} required className="admin-input" />
+          </div>
+
+          <div className="space-y-1.5">
+            <Label>Opis (nije obavezno)</Label>
+            <Textarea value={description} onChange={(e) => setDescription(e.target.value)} className="admin-input" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-1.5">
+              <Label>Datum</Label>
+              <Input
+                type="date"
+                value={docDate}
+                onChange={(e) => setDocDate(e.target.value)}
+                required
+                className="admin-input w-[190px]"
+              />
+            </div>
+            <div className="space-y-1.5">
+              <Label>Vrsta</Label>
+              <Select value={category} onValueChange={(v) => setCategory(v as "poziv" | "radionica")}>
+                <SelectTrigger className="admin-input"><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="poziv">Javni poziv / prijava</SelectItem>
+                  <SelectItem value="radionica">Najava radionice</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <Label>PDF datoteka</Label>
+            <div className="flex items-center gap-3 flex-wrap">
+              <Button type="button" variant="outline" asChild disabled={uploading}>
+                <label className="cursor-pointer">
+                  {uploading ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Upload className="w-4 h-4 mr-2" />}
+                  Odaberi PDF
+                  <input type="file" accept="application/pdf" className="hidden" onChange={handleFile} />
+                </label>
+              </Button>
+              {fileName && (
+                <span className="text-sm text-muted-foreground inline-flex items-center gap-1.5">
+                  <FileText className="w-4 h-4" /> {fileName}
+                </span>
+              )}
+            </div>
+          </div>
+
+          <div className="flex gap-2 pt-2">
+            <Button type="submit" disabled={saving || uploading}>
+              {saving ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
+              Spremi
+            </Button>
+            <Button type="button" variant="outline" onClick={onCancel}>Odustani</Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
