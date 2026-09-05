@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { writeFileSync } from "fs";
 import { resolve } from "path";
 import { allNews } from "../src/pages/NewsPage.tsx";
-import { events } from "../src/pages/GalleryPage.tsx";
+
 
 const BASE_URL = "https://kkposusje-digital-court.lovable.app";
 
@@ -79,10 +79,9 @@ async function main() {
   const [dbNewsIds, dbGalleryIds] = await Promise.all([fetchNewsIds(), fetchGalleryIds()]);
 
   const localNewsIds = allNews.map((n) => n.id);
-  const localGalleryIds = events.map((e) => e.id);
 
   const allNewsIds = Array.from(new Set([...localNewsIds, ...dbNewsIds]));
-  const allGalleryIds = Array.from(new Set([...localGalleryIds, ...dbGalleryIds]));
+  const allGalleryIds = Array.from(new Set(dbGalleryIds));
 
   const entries: SitemapEntry[] = [
     { path: "/", changefreq: "weekly", priority: "1.0" },
