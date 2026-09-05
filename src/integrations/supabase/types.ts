@@ -185,6 +185,42 @@ export type Database = {
         }
         Relationships: []
       }
+      project_documents: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          doc_date: string
+          file_url: string
+          id: string
+          sort_order: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          doc_date: string
+          file_url: string
+          id?: string
+          sort_order?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          doc_date?: string
+          file_url?: string
+          id?: string
+          sort_order?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
