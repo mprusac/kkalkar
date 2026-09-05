@@ -13,6 +13,7 @@ const GalleryPage = lazy(() => import("./pages/GalleryPage"));
 const NewsPage = lazy(() => import("./pages/NewsPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AdminPanel = lazy(() => import("./pages/AdminPanel"));
+const ProjectPage = lazy(() => import("./pages/ProjectPage"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
