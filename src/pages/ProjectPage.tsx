@@ -50,7 +50,7 @@ const ProjectPage = () => {
   const radionice = documents.filter((d) => d.category !== "poziv");
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen cream-page-scope bg-background">
       <SEO
         title="KK Alkar za djecu Sinja | KK Alkar Sinj"
         description="Projekt KK Alkar za djecu Sinja — javni poziv, prijavni obrazac i najave edukativnih radionica o važnosti sporta i zdravih životnih navika."

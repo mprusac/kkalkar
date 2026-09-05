@@ -57,7 +57,7 @@ Deno.serve(async (req) => {
       const { data, error } = await supabase
         .from('project_documents')
         .select('*')
-        .order('doc_date', { ascending: true });
+        .order('doc_date', { ascending: false });
       if (error) throw error;
       const rows = data ?? [];
       const paths = rows
