@@ -744,6 +744,21 @@ export default function AdminPanel() {
     );
   }
 
+  if (view === "document-form") {
+    return (
+      <DocumentForm
+        initial={editingDocument}
+        onCancel={() => { setView("main"); setEditingDocument(null); }}
+        onSaved={async () => {
+          await fetchDocuments();
+          setView("main");
+          setEditingDocument(null);
+        }}
+        apiFetch={apiFetch}
+      />
+    );
+  }
+
   // ---------- MAIN VIEW ----------
   const handleDelete = async () => {
     if (!confirmDelete) return;
@@ -752,12 +767,14 @@ export default function AdminPanel() {
         confirmDelete.kind === "news" ? `${NEWS_URL}/delete`
         : confirmDelete.kind === "gallery" ? `${GALLERY_URL}/delete`
         : confirmDelete.kind === "match" ? `${MATCHES_URL}/delete`
+        : confirmDelete.kind === "document" ? `${DOCS_URL}/delete`
         : `${PLAYERS_URL}/delete`;
       await apiFetch(url, { method: "POST", body: JSON.stringify({ id: confirmDelete.id }) });
       toast.success("Obrisano");
       if (confirmDelete.kind === "news") await fetchNews();
       else if (confirmDelete.kind === "gallery") await fetchGalleries();
       else if (confirmDelete.kind === "match") await fetchMatches();
+      else if (confirmDelete.kind === "document") await fetchDocuments();
       else await fetchPlayers();
     } catch (e) {
       toast.error("Greška", { description: (e as Error).message });
