@@ -130,6 +130,7 @@ const ProjectPage = () => {
           Sadržaj dokumenata isključiva je odgovornost KK Alkar.
         </p>
       </div>
+      </div>
 
       <Footer />
     </div>
