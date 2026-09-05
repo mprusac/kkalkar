@@ -72,15 +72,24 @@ const players: Player[] = [
   { id: 24, name: "Vlatko Granić", position: "Forward", number: "20", image: playerVlatkoGranic.url, description: "Iskusni krilni centar i pravi povratnik u Sinj, provjerena visina i čvrstina u skoku.", stats: {} },
 ];
 
+function getVisibleCount(width: number) {
+  if (width < 768) return 1;
+  if (width < 1024) return 2;
+  if (width < 1280) return 3;
+  return 5;
+}
+
 const Team = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const { elementRef, isVisible } = useScrollReveal();
-  const [isMobile, setIsMobile] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(5);
   const [activeIndex, setActiveIndex] = useState(0);
+  const isMobile = visibleCount === 1;
+  const maxIndex = Math.max(0, players.length - visibleCount);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setVisibleCount(getVisibleCount(window.innerWidth));
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -88,9 +97,10 @@ const Team = () => {
 
   const scrollToIndex = (index: number) => {
     const targetCard = cardRefs.current[index];
-    if (targetCard && scrollRef.current) {
-      scrollRef.current.scrollTo({
-        left: targetCard.offsetLeft,
+    const container = scrollRef.current;
+    if (targetCard && container) {
+      container.scrollTo({
+        left: targetCard.offsetLeft - container.offsetLeft,
         behavior: "smooth",
       });
     }
@@ -98,7 +108,6 @@ const Team = () => {
   };
 
   const scroll = (direction: "left" | "right") => {
-    const maxIndex = isMobile ? players.length - 1 : Math.max(0, players.length - 5);
     const newIndex = direction === "left"
       ? Math.max(0, activeIndex - 1)
       : Math.min(maxIndex, activeIndex + 1);
@@ -109,19 +118,18 @@ const Team = () => {
     const container = scrollRef.current;
     if (!container) return;
     const handleScroll = () => {
-      const children = cardRefs.current.filter(Boolean);
       let closest = 0;
       let minDist = Infinity;
-      children.forEach((child, i) => {
+      cardRefs.current.forEach((child, i) => {
         if (!child) return;
-        const dist = Math.abs(child.offsetLeft - container.scrollLeft);
+        const dist = Math.abs(child.offsetLeft - container.offsetLeft - container.scrollLeft);
         if (dist < minDist) { minDist = dist; closest = i; }
       });
       setActiveIndex(closest);
     };
     container.addEventListener("scroll", handleScroll, { passive: true });
     return () => container.removeEventListener("scroll", handleScroll);
-  }, [isMobile]);
+  }, [visibleCount]);
 
   return (
     <section id="tim" className="py-20">
@@ -160,9 +168,9 @@ const Team = () => {
           </button>
           <button
             onClick={() => scroll("right")}
-            disabled={isMobile ? activeIndex === players.length - 1 : activeIndex >= players.length - 5}
+            disabled={activeIndex >= maxIndex}
             aria-label="Sljedeći igrač"
-            className={`flex absolute right-0 md:right-0 top-[40%] md:top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-lg ${(isMobile ? activeIndex === players.length - 1 : activeIndex >= players.length - 5) ? 'opacity-40' : ''}`}
+            className={`flex absolute right-0 md:right-0 top-[40%] md:top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-lg ${activeIndex >= maxIndex ? 'opacity-40' : ''}`}
           >
             <ChevronRight size={16} className="md:hidden" />
             <ChevronRight size={24} className="hidden md:block" />
@@ -171,16 +179,21 @@ const Team = () => {
           {/* Scrollable Container */}
           <div
             ref={scrollRef}
-            className="flex gap-3 md:gap-5 overflow-x-auto scrollbar-hide scroll-smooth pb-4 snap-x snap-mandatory md:snap-none md:justify-start"
+            className="flex gap-3 md:gap-5 overflow-x-auto scrollbar-hide scroll-smooth pb-4 snap-x snap-mandatory"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {players.map((player, index) => (
+            {players.map((player, index) => {
+              const gapRem = isMobile ? 0.75 : 1.25;
+              const cardWidth = `calc((100% - ${(visibleCount - 1) * gapRem}rem) / ${visibleCount})`;
+              return (
               <div
                 key={player.id}
                 ref={(el) => { cardRefs.current[index] = el; }}
-                className={`group flex-shrink-0 relative bg-gradient-card rounded-lg overflow-hidden transition-all duration-300 md:hover:scale-[1.03] hover-lift border border-transparent hover:border-primary/30 snap-start ${isMobile ? '' : 'w-[calc((100%-5rem)/5)] min-w-[220px]'}`}
+                className="group flex-shrink-0 relative bg-gradient-card rounded-lg overflow-hidden transition-all duration-300 md:hover:scale-[1.03] hover-lift border border-transparent hover:border-primary/30 snap-start"
                 style={{
-                  ...(isMobile ? { width: '100%', minWidth: '100%', maxWidth: '100%' } : {}),
+                  width: cardWidth,
+                  minWidth: cardWidth,
+                  maxWidth: cardWidth,
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? "translateX(0)" : "translateX(30px)",
                   transition: `all 0.5s ease ${index * 0.05}s`,
@@ -329,7 +342,8 @@ const Team = () => {
                   <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
