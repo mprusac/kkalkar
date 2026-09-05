@@ -155,6 +155,34 @@ const ProjectPage = () => {
           Sadržaj dokumenata isključiva je odgovornost KK Alkar.
         </p>
       </div>
+
+      <Dialog open={!!previewDoc} onOpenChange={(open) => !open && setPreviewDoc(null)}>
+        <DialogContent className="max-w-5xl border-[#c9a24c] bg-white p-0">
+          <DialogHeader className="border-b border-[#c9a24c]/40 px-5 py-4 text-left">
+            <DialogTitle className="pr-8 text-base text-[#0E2A63]">
+              {previewDoc?.title}
+            </DialogTitle>
+            {previewDoc && (
+              <a
+                href={previewDoc.file_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-flex w-fit items-center gap-1.5 text-xs font-semibold text-[#c9a24c] hover:text-[#0E2A63]"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                Otvori u novoj kartici
+              </a>
+            )}
+          </DialogHeader>
+          {previewDoc && (
+            <iframe
+              src={previewDoc.file_url}
+              title={previewDoc.title}
+              className="h-[75vh] w-full rounded-b-lg bg-[#f5f5f5]"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
       </div>
 
       <Footer />
