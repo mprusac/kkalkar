@@ -50,7 +50,7 @@ const ProjectPage = () => {
   const radionice = documents.filter((d) => d.category !== "poziv");
 
   return (
-    <div className="min-h-screen cream-page-scope bg-background">
+    <div className="min-h-screen"><div className="cream-page-scope bg-background">
       <SEO
         title="KK Alkar za djecu Sinja | KK Alkar Sinj"
         description="Projekt KK Alkar za djecu Sinja — javni poziv, prijavni obrazac i najave edukativnih radionica o važnosti sporta i zdravih životnih navika."
@@ -129,6 +129,7 @@ const ProjectPage = () => {
         <p className="mx-auto mt-14 max-w-4xl text-center text-xs text-[#0E2A63]/60">
           Sadržaj dokumenata isključiva je odgovornost KK Alkar.
         </p>
+      </div>
       </div>
 
       <Footer />
