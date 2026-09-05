@@ -7,6 +7,7 @@ const footerLinks = [
   { label: "Statistika", href: "/statistika" },
   { label: "Vijesti", href: "#vijesti" },
   { label: "Galerija", href: "/galerija" },
+  { label: "Projekt", href: "/projekt" },
   { label: "Kontakt", href: "#kontakt" },
   { label: "Admin", href: "/admin" },
 ];
