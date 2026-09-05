@@ -2065,9 +2065,11 @@ function PlayerForm({
             </Label>
             <Input
               type="date"
+              className="w-full sm:w-[190px]"
               value={form.birth_date}
               onChange={(e) => setForm({ ...form, birth_date: e.target.value })}
             />
+
           </div>
         </div>
 
