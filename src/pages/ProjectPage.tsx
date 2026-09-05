@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, FileText, Download, Loader2 } from "lucide-react";
+import { ArrowLeft, FileText, Download, Loader2, Eye, ExternalLink } from "lucide-react";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import {
   fetchProjectDocuments,
   formatDocDate,
@@ -12,7 +14,15 @@ import {
 
 const PROJECT_CODE = "SF.3.4.08.07.0102";
 
-const DocCard = ({ doc, index }: { doc: ProjectDocument; index: number }) => (
+const DocCard = ({
+  doc,
+  index,
+  onPreview,
+}: {
+  doc: ProjectDocument;
+  index: number;
+  onPreview: (doc: ProjectDocument) => void;
+}) => (
   <motion.a
     href={doc.file_url}
     target="_blank"
@@ -32,14 +42,29 @@ const DocCard = ({ doc, index }: { doc: ProjectDocument; index: number }) => (
         <span className="mt-1 block text-sm text-[#0E2A63]/60">{doc.description}</span>
       )}
     </span>
-    <span className="mt-1 inline-flex shrink-0 items-center gap-1.5 rounded-full border border-[#c9a24c] px-3 py-1.5 text-xs font-semibold text-[#0E2A63] transition-colors duration-300 group-hover:bg-[#c9a24c] group-hover:text-white">
-      <Download className="h-3.5 w-3.5" />
-      PDF
+    <span className="mt-1 flex shrink-0 flex-col items-stretch gap-2 sm:flex-row sm:items-center">
+      <button
+        type="button"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          onPreview(doc);
+        }}
+        className="inline-flex items-center justify-center gap-1.5 rounded-full border border-[#0E2A63]/40 px-3 py-1.5 text-xs font-semibold text-[#0E2A63] transition-colors duration-300 hover:bg-[#0E2A63] hover:text-white"
+      >
+        <Eye className="h-3.5 w-3.5" />
+        Pregled
+      </button>
+      <span className="inline-flex items-center justify-center gap-1.5 rounded-full border border-[#c9a24c] px-3 py-1.5 text-xs font-semibold text-[#0E2A63] transition-colors duration-300 group-hover:bg-[#c9a24c] group-hover:text-white">
+        <Download className="h-3.5 w-3.5" />
+        PDF
+      </span>
     </span>
   </motion.a>
 );
 
 const ProjectPage = () => {
+  const [previewDoc, setPreviewDoc] = useState<ProjectDocument | null>(null);
   const { data: documents = [], isLoading } = useQuery({
     queryKey: ["project-documents"],
     queryFn: fetchProjectDocuments,
