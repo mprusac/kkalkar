@@ -114,7 +114,7 @@ const ProjectPage = () => {
 
           {radionice.length > 0 && (
             <section>
-              <h2 className="mb-5 font-display text-2xl uppercase tracking-wider text-[#0E2A63]">
+              <h2 className="mb-5 text-center font-display text-2xl uppercase tracking-wider text-[#0E2A63]">
                 Najave radionica
               </h2>
               <div className="space-y-3">
