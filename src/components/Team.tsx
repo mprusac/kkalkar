@@ -342,7 +342,8 @@ const Team = () => {
                   <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
