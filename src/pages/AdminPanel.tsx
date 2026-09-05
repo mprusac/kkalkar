@@ -831,11 +831,14 @@ export default function AdminPanel() {
           <Button variant="outline" className="admin-nav-btn" onClick={() => { setEditingPlayer(null); setView("player-form"); }}>
             <Users className="w-4 h-4 mr-2" /> Novi igrač
           </Button>
+          <Button variant="outline" className="admin-nav-btn" onClick={() => { setEditingDocument(null); setView("document-form"); }}>
+            <FileText className="w-4 h-4 mr-2" /> Novi dokument
+          </Button>
         </div>
 
 
-        {/* Four column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        {/* Column layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
           {/* Vijesti */}
           <section className="space-y-3 min-w-0">
             <div className="flex items-center justify-center gap-2">
