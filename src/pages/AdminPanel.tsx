@@ -2241,3 +2241,160 @@ function PlayerForm({
     </div>
   );
 }
+
+/* ============================ DOCUMENT FORM ============================ */
+function DocumentForm({
+  initial, onCancel, onSaved, apiFetch,
+}: {
+  initial: ProjectDocument | null;
+  onCancel: () => void;
+  onSaved: () => void;
+  apiFetch: (url: string, init?: RequestInit) => Promise<any>;
+}) {
+  const [title, setTitle] = useState(initial?.title ?? "");
+  const [description, setDescription] = useState(initial?.description ?? "");
+  const [docDate, setDocDate] = useState(initial?.doc_date ?? "");
+  const [category, setCategory] = useState<"poziv" | "radionica">(initial?.category ?? "radionica");
+  const [storagePath, setStoragePath] = useState(initial?.storage_path ?? "");
+  const [fileName, setFileName] = useState(initial?.storage_path?.split("/").pop() ?? "");
+  const [uploading, setUploading] = useState(false);
+  const [saving, setSaving] = useState(false);
+
+  const handleFile = async (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    try {
+      const token = sessionStorage.getItem("admin_token");
+      const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+      const path = `${category === "poziv" ? "poziv" : "radionice"}/${Date.now()}_${safeName}`;
+      const res = await fetch(`${DOCS_URL}/signed-upload`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ path }),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body?.error ?? `HTTP ${res.status}`);
+      const { error } = await supabase.storage
+        .from("project-documents")
+        .uploadToSignedUrl(body.path, body.token, file);
+      if (error) throw error;
+      setStoragePath(body.path);
+      setFileName(file.name);
+      toast.success("Dokument učitan");
+    } catch (err) {
+      toast.error("Greška pri učitavanju", { description: (err as Error).message });
+    } finally {
+      setUploading(false);
+      e.target.value = "";
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!storagePath) {
+      toast.error("Dodajte PDF datoteku");
+      return;
+    }
+    setSaving(true);
+    try {
+      const payload = {
+        title,
+        description: description || null,
+        doc_date: docDate,
+        category,
+        file_url: storagePath,
+        sort_order: initial?.sort_order ?? 0,
+      };
+      if (initial) {
+        await apiFetch(`${DOCS_URL}/update`, {
+          method: "POST",
+          body: JSON.stringify({ id: initial.id, ...payload }),
+        });
+        toast.success("Dokument ažuriran");
+      } else {
+        await apiFetch(`${DOCS_URL}/create`, { method: "POST", body: JSON.stringify(payload) });
+        toast.success("Dokument dodan!");
+      }
+      onSaved();
+    } catch (err) {
+      toast.error("Greška", { description: (err as Error).message });
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen admin-cream-scope animate-fade-in" style={{ backgroundColor: "#faf3e0" }}>
+      <div className="max-w-2xl mx-auto p-4 space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="font-semibold text-2xl">{initial ? "Uredi dokument" : "Novi dokument"}</h2>
+          <Button variant="outline" size="sm" onClick={onCancel}>
+            <X className="w-4 h-4 mr-2" /> Zatvori
+          </Button>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-1.5">
+            <Label>Naslov</Label>
+            <Input value={title} onChange={(e) => setTitle(e.target.value)} required className="admin-input" />
+          </div>
+
+          <div className="space-y-1.5">
+            <Label>Opis (nije obavezno)</Label>
+            <Textarea value={description} onChange={(e) => setDescription(e.target.value)} className="admin-input" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-1.5">
+              <Label>Datum</Label>
+              <Input
+                type="date"
+                value={docDate}
+                onChange={(e) => setDocDate(e.target.value)}
+                required
+                className="admin-input w-[190px]"
+              />
+            </div>
+            <div className="space-y-1.5">
+              <Label>Vrsta</Label>
+              <Select value={category} onValueChange={(v) => setCategory(v as "poziv" | "radionica")}>
+                <SelectTrigger className="admin-input"><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="poziv">Javni poziv / prijava</SelectItem>
+                  <SelectItem value="radionica">Najava radionice</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <Label>PDF datoteka</Label>
+            <div className="flex items-center gap-3 flex-wrap">
+              <Button type="button" variant="outline" asChild disabled={uploading}>
+                <label className="cursor-pointer">
+                  {uploading ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Upload className="w-4 h-4 mr-2" />}
+                  Odaberi PDF
+                  <input type="file" accept="application/pdf" className="hidden" onChange={handleFile} />
+                </label>
+              </Button>
+              {fileName && (
+                <span className="text-sm text-muted-foreground inline-flex items-center gap-1.5">
+                  <FileText className="w-4 h-4" /> {fileName}
+                </span>
+              )}
+            </div>
+          </div>
+
+          <div className="flex gap-2 pt-2">
+            <Button type="submit" disabled={saving || uploading}>
+              {saving ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
+              Spremi
+            </Button>
+            <Button type="button" variant="outline" onClick={onCancel}>Odustani</Button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
