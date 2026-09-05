@@ -514,9 +514,10 @@ export default function AdminPanel() {
   const [galleries, setGalleries] = useState<GalleryItem[]>([]);
   const [matches, setMatches] = useState<MatchItem[]>([]);
   const [players, setPlayers] = useState<PlayerItem[]>([]);
+  const [documents, setDocuments] = useState<ProjectDocument[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const [view, setView] = useState<"main" | "news-form" | "gallery-form" | "match-form" | "player-form">("main");
+  const [view, setView] = useState<"main" | "news-form" | "gallery-form" | "match-form" | "player-form" | "document-form">("main");
   const [editing, setEditing] = useState<NewsItem | null>(null);
 
   useEffect(() => {
@@ -529,8 +530,9 @@ export default function AdminPanel() {
   const [editingGallery, setEditingGallery] = useState<GalleryItem | null>(null);
   const [editingMatch, setEditingMatch] = useState<MatchItem | null>(null);
   const [editingPlayer, setEditingPlayer] = useState<PlayerItem | null>(null);
+  const [editingDocument, setEditingDocument] = useState<ProjectDocument | null>(null);
 
-  const [confirmDelete, setConfirmDelete] = useState<{ kind: "news" | "gallery" | "match" | "player"; id: string } | null>(null);
+  const [confirmDelete, setConfirmDelete] = useState<{ kind: "news" | "gallery" | "match" | "player" | "document"; id: string } | null>(null);
   const [categoryModal, setCategoryModal] = useState(false);
 
   const logout = useCallback(() => {
@@ -540,6 +542,7 @@ export default function AdminPanel() {
     setGalleries([]);
     setMatches([]);
     setPlayers([]);
+    setDocuments([]);
     setView("main");
   }, []);
 
