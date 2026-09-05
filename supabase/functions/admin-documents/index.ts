@@ -59,8 +59,28 @@ Deno.serve(async (req) => {
         .select('*')
         .order('doc_date', { ascending: true });
       if (error) throw error;
-      return json(data);
+      const rows = data ?? [];
+      const paths = rows
+        .map((r: { file_url: string }) => r.file_url)
+        .filter((u: string) => u && !u.startsWith('http'));
+      let signedMap: Record<string, string> = {};
+      if (paths.length) {
+        const { data: signed } = await supabase.storage
+          .from('project-documents')
+          .createSignedUrls(paths, 60 * 60 * 24 * 365);
+        for (const s of signed ?? []) {
+          if (s.path && s.signedUrl) signedMap[s.path] = s.signedUrl;
+        }
+      }
+      return json(
+        rows.map((r: { file_url: string }) => ({
+          ...r,
+          file_url: signedMap[r.file_url] ?? r.file_url,
+          storage_path: r.file_url,
+        })),
+      );
     }
+
 
     if (!verifyAdminToken(req)) return json({ error: 'Unauthorized' }, 401);
 
