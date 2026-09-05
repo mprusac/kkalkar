@@ -72,15 +72,24 @@ const players: Player[] = [
   { id: 24, name: "Vlatko Granić", position: "Forward", number: "20", image: playerVlatkoGranic.url, description: "Iskusni krilni centar i pravi povratnik u Sinj, provjerena visina i čvrstina u skoku.", stats: {} },
 ];
 
+function getVisibleCount(width: number) {
+  if (width < 768) return 1;
+  if (width < 1024) return 2;
+  if (width < 1280) return 3;
+  return 5;
+}
+
 const Team = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const { elementRef, isVisible } = useScrollReveal();
-  const [isMobile, setIsMobile] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(5);
   const [activeIndex, setActiveIndex] = useState(0);
+  const isMobile = visibleCount === 1;
+  const maxIndex = Math.max(0, players.length - visibleCount);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setVisibleCount(getVisibleCount(window.innerWidth));
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -88,9 +97,10 @@ const Team = () => {
 
   const scrollToIndex = (index: number) => {
     const targetCard = cardRefs.current[index];
-    if (targetCard && scrollRef.current) {
-      scrollRef.current.scrollTo({
-        left: targetCard.offsetLeft,
+    const container = scrollRef.current;
+    if (targetCard && container) {
+      container.scrollTo({
+        left: targetCard.offsetLeft - container.offsetLeft,
         behavior: "smooth",
       });
     }
@@ -98,7 +108,6 @@ const Team = () => {
   };
 
   const scroll = (direction: "left" | "right") => {
-    const maxIndex = isMobile ? players.length - 1 : Math.max(0, players.length - 5);
     const newIndex = direction === "left"
       ? Math.max(0, activeIndex - 1)
       : Math.min(maxIndex, activeIndex + 1);
@@ -109,19 +118,18 @@ const Team = () => {
     const container = scrollRef.current;
     if (!container) return;
     const handleScroll = () => {
-      const children = cardRefs.current.filter(Boolean);
       let closest = 0;
       let minDist = Infinity;
-      children.forEach((child, i) => {
+      cardRefs.current.forEach((child, i) => {
         if (!child) return;
-        const dist = Math.abs(child.offsetLeft - container.scrollLeft);
+        const dist = Math.abs(child.offsetLeft - container.offsetLeft - container.scrollLeft);
         if (dist < minDist) { minDist = dist; closest = i; }
       });
       setActiveIndex(closest);
     };
     container.addEventListener("scroll", handleScroll, { passive: true });
     return () => container.removeEventListener("scroll", handleScroll);
-  }, [isMobile]);
+  }, [visibleCount]);
 
   return (
     <section id="tim" className="py-20">
