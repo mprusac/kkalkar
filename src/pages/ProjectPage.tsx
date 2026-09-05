@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, FileText, Download, Loader2 } from "lucide-react";
+import { ArrowLeft, FileText, Download, Loader2, Eye, ExternalLink } from "lucide-react";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import {
   fetchProjectDocuments,
   formatDocDate,
@@ -12,7 +14,15 @@ import {
 
 const PROJECT_CODE = "SF.3.4.08.07.0102";
 
-const DocCard = ({ doc, index }: { doc: ProjectDocument; index: number }) => (
+const DocCard = ({
+  doc,
+  index,
+  onPreview,
+}: {
+  doc: ProjectDocument;
+  index: number;
+  onPreview: (doc: ProjectDocument) => void;
+}) => (
   <motion.a
     href={doc.file_url}
     target="_blank"
@@ -32,14 +42,29 @@ const DocCard = ({ doc, index }: { doc: ProjectDocument; index: number }) => (
         <span className="mt-1 block text-sm text-[#0E2A63]/60">{doc.description}</span>
       )}
     </span>
-    <span className="mt-1 inline-flex shrink-0 items-center gap-1.5 rounded-full border border-[#c9a24c] px-3 py-1.5 text-xs font-semibold text-[#0E2A63] transition-colors duration-300 group-hover:bg-[#c9a24c] group-hover:text-white">
-      <Download className="h-3.5 w-3.5" />
-      PDF
+    <span className="mt-1 flex shrink-0 flex-col items-stretch gap-2 sm:flex-row sm:items-center">
+      <button
+        type="button"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          onPreview(doc);
+        }}
+        className="inline-flex items-center justify-center gap-1.5 rounded-full border border-[#0E2A63]/40 px-3 py-1.5 text-xs font-semibold text-[#0E2A63] transition-colors duration-300 hover:bg-[#0E2A63] hover:text-white"
+      >
+        <Eye className="h-3.5 w-3.5" />
+        Pregled
+      </button>
+      <span className="inline-flex items-center justify-center gap-1.5 rounded-full border border-[#c9a24c] px-3 py-1.5 text-xs font-semibold text-[#0E2A63] transition-colors duration-300 group-hover:bg-[#c9a24c] group-hover:text-white">
+        <Download className="h-3.5 w-3.5" />
+        PDF
+      </span>
     </span>
   </motion.a>
 );
 
 const ProjectPage = () => {
+  const [previewDoc, setPreviewDoc] = useState<ProjectDocument | null>(null);
   const { data: documents = [], isLoading } = useQuery({
     queryKey: ["project-documents"],
     queryFn: fetchProjectDocuments,
@@ -106,7 +131,7 @@ const ProjectPage = () => {
               </h2>
               <div className="space-y-3">
                 {pozivi.map((doc, i) => (
-                  <DocCard key={doc.id} doc={doc} index={i} />
+                  <DocCard key={doc.id} doc={doc} index={i} onPreview={setPreviewDoc} />
                 ))}
               </div>
             </section>
@@ -119,7 +144,7 @@ const ProjectPage = () => {
               </h2>
               <div className="space-y-3">
                 {radionice.map((doc, i) => (
-                  <DocCard key={doc.id} doc={doc} index={i} />
+                  <DocCard key={doc.id} doc={doc} index={i} onPreview={setPreviewDoc} />
                 ))}
               </div>
             </section>
@@ -130,6 +155,34 @@ const ProjectPage = () => {
           Sadržaj dokumenata isključiva je odgovornost KK Alkar.
         </p>
       </div>
+
+      <Dialog open={!!previewDoc} onOpenChange={(open) => !open && setPreviewDoc(null)}>
+        <DialogContent className="max-w-5xl border-[#c9a24c] bg-white p-0">
+          <DialogHeader className="border-b border-[#c9a24c]/40 px-5 py-4 text-left">
+            <DialogTitle className="pr-8 text-base text-[#0E2A63]">
+              {previewDoc?.title}
+            </DialogTitle>
+            {previewDoc && (
+              <a
+                href={previewDoc.file_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-flex w-fit items-center gap-1.5 text-xs font-semibold text-[#c9a24c] hover:text-[#0E2A63]"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                Otvori u novoj kartici
+              </a>
+            )}
+          </DialogHeader>
+          {previewDoc && (
+            <iframe
+              src={previewDoc.file_url}
+              title={previewDoc.title}
+              className="h-[75vh] w-full rounded-b-lg bg-[#f5f5f5]"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
       </div>
 
       <Footer />
