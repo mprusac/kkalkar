@@ -168,9 +168,9 @@ const Team = () => {
           </button>
           <button
             onClick={() => scroll("right")}
-            disabled={isMobile ? activeIndex === players.length - 1 : activeIndex >= players.length - 5}
+            disabled={activeIndex >= maxIndex}
             aria-label="Sljedeći igrač"
-            className={`flex absolute right-0 md:right-0 top-[40%] md:top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-lg ${(isMobile ? activeIndex === players.length - 1 : activeIndex >= players.length - 5) ? 'opacity-40' : ''}`}
+            className={`flex absolute right-0 md:right-0 top-[40%] md:top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary items-center justify-center text-primary-foreground hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-lg ${activeIndex >= maxIndex ? 'opacity-40' : ''}`}
           >
             <ChevronRight size={16} className="md:hidden" />
             <ChevronRight size={24} className="hidden md:block" />
@@ -179,16 +179,21 @@ const Team = () => {
           {/* Scrollable Container */}
           <div
             ref={scrollRef}
-            className="flex gap-3 md:gap-5 overflow-x-auto scrollbar-hide scroll-smooth pb-4 snap-x snap-mandatory md:snap-none md:justify-start"
+            className="flex gap-3 md:gap-5 overflow-x-auto scrollbar-hide scroll-smooth pb-4 snap-x snap-mandatory"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {players.map((player, index) => (
+            {players.map((player, index) => {
+              const gapRem = isMobile ? 0.75 : 1.25;
+              const cardWidth = `calc((100% - ${(visibleCount - 1) * gapRem}rem) / ${visibleCount})`;
+              return (
               <div
                 key={player.id}
                 ref={(el) => { cardRefs.current[index] = el; }}
-                className={`group flex-shrink-0 relative bg-gradient-card rounded-lg overflow-hidden transition-all duration-300 md:hover:scale-[1.03] hover-lift border border-transparent hover:border-primary/30 snap-start ${isMobile ? '' : 'w-[calc((100%-5rem)/5)] min-w-[220px]'}`}
+                className="group flex-shrink-0 relative bg-gradient-card rounded-lg overflow-hidden transition-all duration-300 md:hover:scale-[1.03] hover-lift border border-transparent hover:border-primary/30 snap-start"
                 style={{
-                  ...(isMobile ? { width: '100%', minWidth: '100%', maxWidth: '100%' } : {}),
+                  width: cardWidth,
+                  minWidth: cardWidth,
+                  maxWidth: cardWidth,
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? "translateX(0)" : "translateX(30px)",
                   transition: `all 0.5s ease ${index * 0.05}s`,
