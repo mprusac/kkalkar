@@ -176,7 +176,7 @@ const ProjectPage = () => {
             <iframe
               src={previewDoc.file_url}
               title={previewDoc.title}
-              className="h-[75vh] w-full rounded-b-lg bg-[#f5f5f5]"
+              className="block h-[75vh] w-full rounded-b-lg bg-white"
             />
           )}
         </DialogContent>
