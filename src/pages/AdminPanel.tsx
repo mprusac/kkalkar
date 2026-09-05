@@ -1025,6 +1025,49 @@ export default function AdminPanel() {
               ))}
             </div>
           </section>
+
+          {/* Dokumenti */}
+          <section className="space-y-3 min-w-0">
+            <h2 className="font-display text-xl uppercase tracking-wider text-center text-[hsl(38,75%,38%)]">
+              Dokumenti
+            </h2>
+            {documents.length === 0 && !loading && (
+              <p className="text-black py-8 text-center">Nema dokumenata.</p>
+            )}
+            <div className="space-y-2">
+              {documents.map((d) => (
+                <Card key={d.id} className="p-3 bg-card border-border flex items-center gap-3">
+                  <div className="aspect-square w-14 rounded bg-muted shrink-0 flex items-center justify-center">
+                    <FileText className="w-5 h-5 text-muted-foreground" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <a
+                      href={d.file_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-sm line-clamp-2 hover:underline"
+                    >
+                      {d.title}
+                    </a>
+                    <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground">
+                      <span>{formatDocDate(d.doc_date)}</span>
+                      <Badge variant="secondary" className="text-xs">
+                        {d.category === "poziv" ? "Poziv" : "Radionica"}
+                      </Badge>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1 shrink-0">
+                    <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => { setEditingDocument(d); setView("document-form"); }}>
+                      <Edit className="w-4 h-4" />
+                    </Button>
+                    <Button variant="destructive" size="icon" className="h-8 w-8" onClick={() => setConfirmDelete({ kind: "document", id: d.id })}>
+                      <Trash2 className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </section>
         </div>
       </main>
 
